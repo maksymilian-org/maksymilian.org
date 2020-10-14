@@ -1,0 +1,33 @@
+.face {
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.skills {
+  display: flex;
+  margin: 2rem 0 0;
+
+  & > div {
+    &:first-child > div:last-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child > div:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    & > div:first-child {
+      color: var(--grey);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    & > div:last-child {
+      height: 6px;
+    }
+  }
+}

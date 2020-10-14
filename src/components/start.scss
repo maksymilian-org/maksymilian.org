@@ -1,0 +1,18 @@
+.start-text {
+  flex-grow: 1;
+  max-width: 50%;
+  padding-left: 120px;
+
+  p {
+    margin: 30px 0;
+  }
+}
+
+.start-picture {
+  flex-grow: 1;
+  max-width: 50%;
+
+  img {
+    width: 100%;
+  }
+}
