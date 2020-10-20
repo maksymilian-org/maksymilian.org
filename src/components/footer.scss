@@ -1,8 +1,9 @@
 footer {
-  padding: 30px;
   background: var(--accentlight);
   font-size: 0.8rem;
   color: var(--grey);
+  margin-top: -4px;
+  text-align: center;
 
   a {
     color: var(--grey);
@@ -10,13 +11,7 @@ footer {
 }
 
 .icons {
-  display: flex;
-  justify-items: space-around;
-  align-items: flex-end;
-
   a {
-    display: inline-block;
-    margin: 0 10px;
     font-size: 1.5rem;
     color: var(--greylight);
     transition: 0.25s;

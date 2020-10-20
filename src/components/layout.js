@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
 import "normalize.css"
-import "flexboxgrid"
+import "bootstrap/dist/css/bootstrap-grid.css"
 import "@fortawesome/fontawesome-free/css/all.css"
 import "./layout.scss"
 import Footer from "./footer"

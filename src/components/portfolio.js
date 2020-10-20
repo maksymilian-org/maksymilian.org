@@ -193,16 +193,19 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="container-fluid pad-ver portfolio">
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
+    <div className="container-fluid py-5 portfolio">
+      <h1 style={{ textAlign: "center" }}>
         <Tr>My|Moje</Tr>{" "}
         <span>
           <Tr>works|realizacje</Tr>
         </span>
       </h1>
-      <div className="row" style={{ margin: 0 }}>
+      <div className="row justify-content-center py-5">
         {items.map(item => (
-          <div className="col-md-2 col-sm-3 portfolio-item" key={item.title}>
+          <div
+            className="col-12 col-xl-2 col-lg-3 col-md-4 col-sm-6 portfolio-item"
+            key={item.title}
+          >
             <img src={item.img} alt={item.title} className="portfolio-img" />
             <div className="portfolio-details">
               {item.title && (

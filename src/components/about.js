@@ -4,14 +4,14 @@ import face from "../images/face.jpg"
 import Tr from "./tr"
 
 const About = () => (
-  <div className="container pad-ver">
-    <div className="row middle-md">
-      <div className="col-xs-4">
+  <div className="container">
+    <div className="row align-items-center mb-5">
+      <div className="col-12 col-md-4">
         <div className="face">
-          <img src={face} />
+          <img src={face} alt="maksymilian.org" />
         </div>
       </div>
-      <div className="col-xs-6">
+      <div className="col-12 col-md-6">
         <h1>
           <Tr>About|O</Tr>{" "}
           <span>
@@ -43,8 +43,6 @@ const About = () => (
           </Tr>
         </p>
       </div>
-
-      <div className="col-xs-2"></div>
     </div>
     <div className="skills">
       <div style={{ width: "18%" }}>

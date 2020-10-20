@@ -1,7 +1,11 @@
 .partners {
+  [class^="col"] {
+    text-align: center;
+  }
+
   img {
     max-height: 110px;
     max-width: 150px;
-    margin: 10px auto;
+    // margin: 10px auto;
   }
 }

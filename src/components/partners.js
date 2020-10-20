@@ -10,32 +10,32 @@ import misspolski from "../images/miss-polski.png"
 import hotelroyalbotanic from "../images/hotel-royal-botanic.png"
 
 const Partners = () => (
-  <div className="purple partners pad-ver">
+  <div className="purple partners py-5">
     <div className="container">
-      <div className="row middle-md center-md">
-        <div className="col-xs-3">
-          <img src={hotelmlyn} />
+      <div className="row justify-items-center align-items-center">
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={hotelmlyn} alt="hotel mlyn" />
         </div>
-        <div className="col-xs-3">
-          <img src={vacansoleil} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={vacansoleil} alt="vacansoleil" />
         </div>
-        <div className="col-xs-3">
-          <img src={hepatica} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={hepatica} alt="hepatica" />
         </div>
-        <div className="col-xs-3">
-          <img src={metaloplastyka} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={metaloplastyka} alt="metaloplastyka" />
         </div>
-        <div className="col-xs-3">
-          <img src={asbud} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={asbud} alt="asbud" />
         </div>
-        <div className="col-xs-3">
-          <img src={ckpartners} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={ckpartners} alt="ck partners" />
         </div>
-        <div className="col-xs-3">
-          <img src={misspolski} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={misspolski} alt="miss polski" />
         </div>
-        <div className="col-xs-3">
-          <img src={hotelroyalbotanic} />
+        <div className="col-12 col-md-3 col-sm-6 py-4">
+          <img src={hotelroyalbotanic} alt="hotel royalbotanic" />
         </div>
       </div>
     </div>

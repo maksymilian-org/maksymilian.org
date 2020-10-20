@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { LanguageContext } from "./layout"
 
 const Tr = ({ children }) => {
@@ -9,7 +9,7 @@ const Tr = ({ children }) => {
     const text = String(children)
     const res = language === "en-US" ? text.split("|")[0] : text.split("|")[1]
     setResult(res)
-  }, [language])
+  }, [language, children])
 
   return result ? result : children
 }

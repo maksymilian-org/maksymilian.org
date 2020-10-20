@@ -3,6 +3,7 @@
 
   img {
     border-radius: 50%;
+    max-width: 100%;
   }
 }
 
@@ -29,5 +30,11 @@
     & > div:last-child {
       height: 6px;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills > div > div:first-child {
+    transform: rotate(-60deg) translate(25px, -5px);
   }
 }

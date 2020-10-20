@@ -6,12 +6,6 @@ html {
   font-size: 16px;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
   background: var(--background);
 }
@@ -37,12 +31,6 @@ h2 {
   margin: 0;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .button {
   text-decoration: none;
   display: inline-block;
@@ -54,11 +42,6 @@ h2 {
 .purple {
   background: var(--accentlight);
 }
-
-.pad-ver {
-  padding: 4rem 0;
-}
-
 a {
   text-decoration: none;
   color: var(--color);
