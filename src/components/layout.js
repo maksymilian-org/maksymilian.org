@@ -27,7 +27,11 @@ const GlobalStyle = createGlobalStyle`
 export const LanguageContext = createContext()
 
 const Layout = ({ children }) => {
-  const [language, setLanguage] = useState("en-US")
+  const [language, setLanguage] = useState(
+    navigator.language === "pl" || navigator.language === "pl-PL"
+      ? "pl-PL"
+      : "en-US"
+  )
   const [theme, setTheme] = useState("light")
 
   const handleToogleLanguage = () => {
