@@ -29,7 +29,8 @@ export const LanguageContext = createContext()
 
 const Layout = ({ children }) => {
   const [language, setLanguage] = useState(
-    navigator.language === "pl" || navigator.language === "pl-PL"
+    !!navigator &&
+      (navigator.language === "pl" || navigator.language === "pl-PL")
       ? "pl-PL"
       : "en-US"
   )
