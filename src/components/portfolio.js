@@ -18,10 +18,20 @@ import sharpgames from "../images/sharpgames-gry-planszowe.jpg"
 import ksiegowyplus from "../images/ksiegowy-plus-bialystok.jpg"
 import ecotechnika from "../images/eco-technika.jpg"
 import fundacjarozwojupolski from "../images/fundacja-rozwoju-polski.jpg"
+import tictactoe from "../images/tictactoe.jpg"
 import Tr from "./tr"
 
 const Portfolio = () => {
   const items = [
+    {
+      title: "Socket.io TicTacToe",
+      description: "",
+      type: "game",
+      url: "https://tictactoe-maksymilian-org.herokuapp.com",
+      img: tictactoe,
+      github: "https://github.com/maksymilian-org/tictactoe",
+      technologies: ["scss", "js", "react", "typescript", "nodejs"],
+    },
     {
       title: "Stajnia Wojciechów",
       description: "",
@@ -180,6 +190,11 @@ const Portfolio = () => {
       class: "fab fa-css3-alt",
       color: "#006eba",
     },
+    scss: {
+      type: "icon",
+      class: "fab fa-sass",
+      color: "#CF649A",
+    },
     js: {
       type: "icon",
       class: "fab fa-js",
@@ -189,6 +204,21 @@ const Portfolio = () => {
       type: "icon",
       class: "fab fa-wordpress-simple",
       color: "#23282d",
+    },
+    react: {
+      type: "icon",
+      class: "fab fa-react",
+      color: "#61dafb",
+    },
+    nodejs: {
+      type: "icon",
+      class: "fab fa-node-js",
+      color: "#026e00",
+    },
+    typescript: {
+      type: "icon",
+      class: "mdi mdi-language-typescript",
+      color: "#3178c6",
     },
   }
 
@@ -229,6 +259,15 @@ const Portfolio = () => {
                           <i className={technologies[technology].class}></i>
                         </span>
                       )
+                  )}
+                  {item.github && (
+                    <a
+                      href={item.github}
+                      target="blank"
+                      className="portfolio-github"
+                    >
+                      <i className="fab fa-github"></i>
+                    </a>
                   )}
                   {item.url && (
                     <a href={item.url} target="blank" className="portfolio-url">

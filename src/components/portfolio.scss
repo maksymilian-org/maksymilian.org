@@ -72,7 +72,8 @@
     border-radius: 50%;
   }
 
-  &-url {
+  &-url,
+  &-github {
     color: var(--accent);
     background: white;
     display: flex;
@@ -83,6 +84,11 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
+  }
+
+  &-github {
+    color: white;
+    background: #24292e;
   }
 }
 

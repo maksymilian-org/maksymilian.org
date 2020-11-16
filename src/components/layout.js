@@ -7,6 +7,7 @@ import Header from "./header"
 import "normalize.css"
 import "bootstrap/dist/css/bootstrap-grid.css"
 import "@fortawesome/fontawesome-free/css/all.css"
+import "@mdi/font/css/materialdesignicons.min.css"
 import "./layout.scss"
 import Footer from "./footer"
 
