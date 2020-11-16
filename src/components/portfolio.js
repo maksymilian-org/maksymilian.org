@@ -153,14 +153,14 @@ const Portfolio = () => {
       img: sharpgames,
       technologies: ["html", "css", "js", "wordpress"],
     },
-    {
-      title: "Księgowy Plus",
-      description: "",
-      type: "website",
-      url: "http://ksiegowy.plus/",
-      img: ksiegowyplus,
-      technologies: ["html", "css", "js", "wordpress"],
-    },
+    // {
+    //   title: "Księgowy Plus",
+    //   description: "",
+    //   type: "website",
+    //   url: "http://ksiegowy.plus/",
+    //   img: ksiegowyplus,
+    //   technologies: ["html", "css", "js", "wordpress"],
+    // },
     {
       title: "Eco-Technika",
       description: "",
