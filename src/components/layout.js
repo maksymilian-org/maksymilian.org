@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { createGlobalStyle } from "styled-components"
@@ -28,12 +28,7 @@ const GlobalStyle = createGlobalStyle`
 export const LanguageContext = createContext()
 
 const Layout = ({ children }) => {
-  const [language, setLanguage] = useState(
-    !!navigator &&
-      (navigator.language === "pl" || navigator.language === "pl-PL")
-      ? "pl-PL"
-      : "en-US"
-  )
+  const [language, setLanguage] = useState("en-US")
   const [theme, setTheme] = useState("light")
 
   const handleToogleLanguage = () => {
@@ -53,6 +48,11 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+  useEffect(() => {
+    if (navigator.language === "pl" || navigator.language === "pl-PL")
+      setLanguage("pl-PL")
+  }, [])
 
   return (
     <LanguageContext.Provider
