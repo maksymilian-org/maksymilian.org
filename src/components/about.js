@@ -45,15 +45,15 @@ const About = () => (
       </div>
     </div>
     <div className="skills">
-      <div style={{ width: "18%" }}>
+      <div style={{ width: "15%" }}>
         <div>HTML</div>
         <div style={{ background: "#E24A23" }}></div>
       </div>
-      <div style={{ width: "18%" }}>
+      <div style={{ width: "15%" }}>
         <div>SCSS</div>
         <div style={{ background: "#006EBA" }}></div>
       </div>
-      <div style={{ width: "18%" }}>
+      <div style={{ width: "15%" }}>
         <div>JavaScript</div>
         <div style={{ background: "#FDDC22" }}></div>
       </div>
@@ -64,6 +64,10 @@ const About = () => (
       <div style={{ width: "10%" }}>
         <div>React</div>
         <div style={{ background: "#61DAFB" }}></div>
+      </div>
+      <div style={{ width: "9%" }}>
+        <div>Vue</div>
+        <div style={{ background: "#4fc08d" }}></div>
       </div>
       <div style={{ width: "5%" }}>
         <div>PHP</div>

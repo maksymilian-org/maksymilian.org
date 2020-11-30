@@ -12,17 +12,27 @@ import wykladzinymarkowe from "../images/wykladziny-markowe-lublin.jpg"
 import szkolastasin from "../images/szkola-stasin.jpg"
 import tkdeweloper from "../images/tkdeweloper.jpg"
 import asbud from "../images/asbud-lagow.jpg"
-import dermatolog from "../images/dermatolog.jpg"
+// import dermatolog from "../images/dermatolog.jpg"
 import welldding from "../images/wellding-konsultantka-slubna.jpg"
 import sharpgames from "../images/sharpgames-gry-planszowe.jpg"
 // import ksiegowyplus from "../images/ksiegowy-plus-bialystok.jpg"
 import ecotechnika from "../images/eco-technika.jpg"
 import fundacjarozwojupolski from "../images/fundacja-rozwoju-polski.jpg"
 import tictactoe from "../images/tictactoe.jpg"
+import memory from "../images/memory.jpg"
 import Tr from "./tr"
 
 const Portfolio = () => {
   const items = [
+    {
+      title: "Memory Game (Vue.js 2)",
+      description: "",
+      type: "game",
+      url: "https://memory-maksymilian-org.netlify.app/",
+      img: memory,
+      github: "https://github.com/maksymilian-org/memory",
+      technologies: ["vue", "js", "html", "css"],
+    },
     {
       title: "Socket.io TicTacToe",
       description: "",
@@ -129,14 +139,14 @@ const Portfolio = () => {
       img: asbud,
       technologies: ["html", "css", "js"],
     },
-    {
-      title: "Dermatolog Lublin",
-      description: "",
-      type: "website",
-      url: "https://dermatologlublin.com.pl/",
-      img: dermatolog,
-      technologies: ["html", "css", "js", "wordpress"],
-    },
+    // {
+    //   title: "Dermatolog Lublin",
+    //   description: "",
+    //   type: "website",
+    //   url: "https://dermatologlublin.com.pl/",
+    //   img: dermatolog,
+    //   technologies: ["html", "css", "js", "wordpress"],
+    // },
     {
       title: "Welldding",
       description: "",
@@ -209,6 +219,11 @@ const Portfolio = () => {
       type: "icon",
       class: "fab fa-react",
       color: "#61dafb",
+    },
+    vue: {
+      type: "icon",
+      class: "fab fa-vuejs",
+      color: "#4fc08d",
     },
     nodejs: {
       type: "icon",
