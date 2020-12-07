@@ -8,26 +8,27 @@ const Start = () => (
     <div className="row align-items-center py-5">
       <div className="start-text col-12 col-md-6">
         <h1>
-          <Tr>I'm|Jestem</Tr>{" "}
+          <Tr en="I'm" pl="Jestem" />{" "}
           <span>
-            <Tr>Max|Maksymilian</Tr>
+            <Tr en="Max" pl="Maksymilian" />
           </span>
         </h1>
         <h2>
-          <Tr>and I would to write some|i chciałbym napisać trochę</Tr>{" "}
+          <Tr en="and I would to write some" pl="i chciałbym napisać trochę" />{" "}
           <span>
-            <Tr>JS code|JavaScriptu</Tr>
+            <Tr en="JS code" pl="JavaScriptu" />
           </span>{" "}
-          <Tr>for you|dla Ciebie</Tr>.
+          <Tr en="for you" pl="dla Ciebie" />.
         </h2>
         <p>
-          <Tr>
-            Want to know more about my|Chcesz dowiedzieć się więcej o moim
-          </Tr>{" "}
+          <Tr
+            en="Want to know more about my"
+            pl="Chcesz dowiedzieć się więcej o moim"
+          />{" "}
           <span>
-            <Tr>frontend life|frontendowym życiu</Tr>
+            <Tr en="frontend life" pl="frontendowym życiu" />
           </span>
-          ? <Tr>Scroll down|Przewiń w dół</Tr>!
+          ? <Tr en="Scroll down" pl="Przewiń w dół"></Tr>!
         </p>
       </div>
       <div className="start-picture col-12 col-md-6">

@@ -240,9 +240,9 @@ const Portfolio = () => {
   return (
     <div className="container-fluid py-5 portfolio">
       <h1 style={{ textAlign: "center" }}>
-        <Tr>My|Moje</Tr>{" "}
+        <Tr en="My" pl="Moje" />{" "}
         <span>
-          <Tr>works|realizacje</Tr>
+          <Tr en="works" pl="realizacje" />
         </span>
       </h1>
       <div className="row justify-content-center py-5">

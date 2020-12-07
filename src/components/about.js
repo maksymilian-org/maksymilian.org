@@ -13,34 +13,36 @@ const About = () => (
       </div>
       <div className="col-12 col-md-6">
         <h1>
-          <Tr>About|O</Tr>{" "}
+          <Tr en="About" pl="O" />{" "}
           <span>
-            <Tr>me|mnie</Tr>
+            <Tr en="me" pl="mnie" />
           </span>
         </h1>
         <p style={{ textAlign: "justify" }}>
-          <Tr>
-            I'm Maksymilian Furtak and I live in Lublin (Poland). I am a
+          <Tr
+            en="I'm Maksymilian Furtak and I live in Lublin (Poland). I am a
             surveyor by education, but since 2015 I have been working as a
             frontend developer. I work on a B2B basis, both for small
             entrepreneurs in my area and large IT companies from all over
-            Poland.|Nazywam się Maksymilian Furtak i mieszkam w Lublinie. Z
+            Poland."
+            pl="Nazywam się Maksymilian Furtak i mieszkam w Lublinie. Z
             wykształcenia jestem geodetą, ale od 2015 roku zajmuję się wyłącznie
             frontend developerowaniem. Pracuję na zasadach B2B zarówno dla
             drobnych, lokalnych przedsiębiorców, jak i większych firm IT z całej
-            Polski.
-          </Tr>
+            Polski."
+          />
         </p>
         <p style={{ textAlign: "justify" }}>
-          <Tr>
-            I love to learn new things. My ambition is to work as a fullstack
+          <Tr
+            en="I love to learn new things. My ambition is to work as a fullstack
             developer in the near future. In my free time I run and ride an
             electric bicycle and in case of an emergency I am a volunteer
-            fireman.|Uwielbiam uczyć się nowych rzeczy. Moją ambicją na
+            fireman."
+            pl="Uwielbiam uczyć się nowych rzeczy. Moją ambicją na
             najbliższą przyszłość jest praca jako fullstack developer. W wolnych
             chwilach biegam i jeżdżę na rowerze elektrycznym, a gdy zawyje
-            syrena w pobliskiej jednostce OSP - jestem strażakiem.
-          </Tr>
+            syrena w pobliskiej jednostce OSP - jestem strażakiem."
+          />
         </p>
       </div>
     </div>

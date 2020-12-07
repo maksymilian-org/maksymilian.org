@@ -37,10 +37,10 @@ const Header = ({ siteTitle, theme, toggleTheme }) => {
                 tabIndex="-1"
               >
                 <span className={theme === "light" ? "active" : ""}>
-                  <Tr>light|jasny</Tr>
+                  <Tr en="light" pl="jasny" />
                 </span>
                 <span className={theme === "dark" ? "active" : ""}>
-                  <Tr>dark|ciemny</Tr>
+                  <Tr en="dark" pl="ciemny" />
                 </span>
               </div>
             </div>

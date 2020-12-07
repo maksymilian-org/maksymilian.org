@@ -29,7 +29,7 @@ export const LanguageContext = createContext()
 
 const Layout = ({ children }) => {
   const [language, setLanguage] = useState("en-US")
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
 
   const handleToogleLanguage = () => {
     setLanguage(prevLanguage => (prevLanguage === "en-US" ? "pl-PL" : "en-US"))
