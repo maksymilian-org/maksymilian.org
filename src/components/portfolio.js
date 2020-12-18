@@ -13,7 +13,7 @@ import szkolastasin from "../images/szkola-stasin.jpg"
 import tkdeweloper from "../images/tkdeweloper.jpg"
 import asbud from "../images/asbud-lagow.jpg"
 // import dermatolog from "../images/dermatolog.jpg"
-import welldding from "../images/wellding-konsultantka-slubna.jpg"
+// import welldding from "../images/wellding-konsultantka-slubna.jpg"
 import sharpgames from "../images/sharpgames-gry-planszowe.jpg"
 // import ksiegowyplus from "../images/ksiegowy-plus-bialystok.jpg"
 import ecotechnika from "../images/eco-technika.jpg"
@@ -24,6 +24,15 @@ import Tr from "./tr"
 
 const Portfolio = () => {
   const items = [
+    {
+      title: "Food Idea App (Vue.js 3, Vuex)",
+      description: "",
+      type: "app",
+      url: "https://food-idea-maksymilian-org.netlify.app/",
+      img: memory,
+      github: "https://github.com/maksymilian-org/food-idea",
+      technologies: ["vue", "js", "html", "css"],
+    },
     {
       title: "Memory Game (Vue.js 2)",
       description: "",
@@ -147,14 +156,14 @@ const Portfolio = () => {
     //   img: dermatolog,
     //   technologies: ["html", "css", "js", "wordpress"],
     // },
-    {
-      title: "Welldding",
-      description: "",
-      type: "website",
-      url: "https://welldding.pl/",
-      img: welldding,
-      technologies: ["html", "css", "js", "wordpress"],
-    },
+    // {
+    //   title: "Welldding",
+    //   description: "",
+    //   type: "website",
+    //   url: "https://welldding.pl/",
+    //   img: welldding,
+    //   technologies: ["html", "css", "js", "wordpress"],
+    // },
     {
       title: "Sharpgames",
       description: "",
