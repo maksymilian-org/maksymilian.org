@@ -20,6 +20,7 @@ import ecotechnika from "../images/eco-technika.jpg"
 import fundacjarozwojupolski from "../images/fundacja-rozwoju-polski.jpg"
 import tictactoe from "../images/tictactoe.jpg"
 import memory from "../images/memory.jpg"
+import foodidea from "../images/food-idea.jpg"
 import Tr from "./tr"
 
 const Portfolio = () => {
@@ -29,7 +30,7 @@ const Portfolio = () => {
       description: "",
       type: "app",
       url: "https://food-idea-maksymilian-org.netlify.app/",
-      img: memory,
+      img: foodidea,
       github: "https://github.com/maksymilian-org/food-idea",
       technologies: ["vue", "js", "html", "css"],
     },
