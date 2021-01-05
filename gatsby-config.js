@@ -1,36 +1,51 @@
+const path = require(`path`)
+
 module.exports = {
   siteMetadata: {
-    title: `Frontend Developer`,
-    description: `Hi, I'm Max and I would to write some JS code for you ;)`,
-    author: `@maksymilian-org`,
+    title: `Gatsby Starter Luke`,
+    siteUrl: `https://gatsby-starter-luke.netlify.com`,
+    description: `An opinionated GatsbyJS starter using TypeScript and React String.`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `maksymilian.org`,
+        short_name: `maksymilian-org`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ffffff`,
+        theme_color: `#BD003D`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`,
       },
     },
-    "gatsby-plugin-sass",
-    "gatsby-plugin-styled-components",
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: path.resolve(__dirname, `src/assets/svg`),
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#BD003D`,
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE,
+      },
+    },
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`,
   ],
 }
