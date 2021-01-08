@@ -191,6 +191,16 @@ export default `
     color: ${colors.brand.primary};
   }
 
+  .tags span {
+    display: inline-block;
+    background: ${colors.grey.lighter};
+    color: ${colors.grey.base};
+    font-size: 1rem;
+    border-radius: 13px;
+    margin-right: 10px;
+    padding: 2px 10px;
+  }
+
   .gatsby-highlight {
     background-color: ${colors.gradientStart};
     border-bottom-width: 1px;

@@ -14,7 +14,7 @@ export const Intro: FunctionComponent = ({ children }) => {
 }
 
 const StyledIntro = styled.div`
-  font-size: ${rem(36)}rem;
+  font-size: 1rem;
   padding: 18vh 0;
   .intro__wrapper {
     max-width: 22em;

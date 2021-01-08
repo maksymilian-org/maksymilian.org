@@ -2,9 +2,9 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Luke`,
+    title: `Maksymilian.org`,
     siteUrl: `https://gatsby-starter-luke.netlify.com`,
-    description: `An opinionated GatsbyJS starter using TypeScript and React String.`,
+    description: `GatsbyJS template using TypeScript and React String.`,
   },
   plugins: [
     {
@@ -13,10 +13,10 @@ module.exports = {
         name: `maksymilian.org`,
         short_name: `maksymilian-org`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#BD003D`,
+        background_color: `#512DA8`,
+        theme_color: `#512DA8`,
         display: `minimal-ui`,
-        icon: `src/assets/images/favicon.png`,
+        icon: `src/assets/images/favicon-32x32.png`,
       },
     },
     {
@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: `#BD003D`,
+        color: `#512DA8`,
         showSpinner: false,
       },
     },

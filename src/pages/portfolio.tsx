@@ -274,7 +274,9 @@ export default () => {
               {items.map((item) => (
                 <TrailItem>
                   <div className='image'>
-                    <img src={item.img} />
+                    <a href={item.url} target='_blank'>
+                      <img src={item.img} />
+                    </a>
                   </div>
                   <div className='description'>
                     <div className='content'>
@@ -283,11 +285,11 @@ export default () => {
                         <span>{item.type}</span>
                       </div>
                       <p>{item.description}</p>
-                      <div className='technologies'>
+                      <p className='tags'>
                         {item.technologies.map((technology) => (
                           <span>{technology}</span>
                         ))}
-                      </div>
+                      </p>
                       <div className='links'>
                         <a href={item.url} target='blank'>
                           Preview
@@ -350,18 +352,6 @@ const TrailItem = styled.div`
     }
   }
 
-  .technologies {
-    margin-bottom: 12px;
-
-    span {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 1px 6px;
-      border-radius: 10px;
-      background: ${colors.grey.lighter};
-    }
-  }
-
   .links {
     a {
       display: inline-block;
@@ -370,6 +360,7 @@ const TrailItem = styled.div`
       border-radius: 10px;
       background: ${colors.brand.primary};
       color: ${colors.white};
+      font-size: 1rem;
 
       &.github {
         background: ${colors.black};

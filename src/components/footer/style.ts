@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   bottom: 0;
   position: relative;
   width: 100%;
-  padding: 24px 0;
+  padding: 16px 0;
   .footer__wrapper {
     max-width: ${widths.xl}px;
     color: ${colors.grey.base};
@@ -16,8 +16,9 @@ export const StyledFooter = styled.footer`
     justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
+
     span {
-      margin-left: 24px;
+      margin: 10px 0 10px 24px;
     }
     .footer__logo {
       max-width: 48px;
@@ -29,7 +30,7 @@ export const StyledFooter = styled.footer`
       display: flex;
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 10px 0;
       li {
         margin: 0 0 0 24px;
         a {
@@ -47,6 +48,19 @@ export const StyledFooter = styled.footer`
             height: 100%;
           }
         }
+      }
+    }
+
+    @media (max-width: ${widths.xs}px) {
+      justify-content: center;
+
+      span {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+      ul li {
+        margin: 0 12px;
       }
     }
   }
