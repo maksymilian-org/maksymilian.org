@@ -53,12 +53,13 @@ export default () => (
                 <li>HTML5 &laquo;5 years of experience&raquo;</li>
                 <li>CSS3/SASS &laquo;5&raquo;</li>
                 <li>JavaScript &laquo;3&raquo;</li>
-                <li>TypeScript &laquo;-2&raquo;</li>
-                <li>ReactJS, Redux &laquo;-2&raquo;</li>
-                <li>Vue.js, Vuex &laquo;-1&raquo;</li>
-                <li>Node.js &laquo;-2&raquo;</li>
-                <li>WordPress, PHP &laquo;4&raquo;</li>
+                <li>TypeScript &laquo;1,5&raquo;</li>
+                <li>ReactJS, Redux &laquo;1,5&raquo;</li>
+                <li>Vue.js, Vuex &laquo;0,5&raquo;</li>
+                <li>Node.js &laquo;1,5&raquo;</li>
+                <li>WordPress, WooCommerce, PHP &laquo;4&raquo;</li>
                 <li>SQL &laquo;2&raquo;</li>
+                <li>Webpack &laquo;2&raquo;</li>
                 <li>Git &laquo;2&raquo;</li>
               </ul>
             </Item>
