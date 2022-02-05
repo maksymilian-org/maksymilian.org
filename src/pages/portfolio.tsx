@@ -29,18 +29,10 @@ import tictactoe from '../assets/portfolio/tictactoe.jpg'
 import memory from '../assets/portfolio/memory.jpg'
 import foodidea from '../assets/portfolio/food-idea.jpg'
 import todoapp from '../assets/portfolio/todo-app.jpg'
+import pokedex from '../assets/portfolio/pokedex.jpg'
 
 export default () => {
   const items = [
-    {
-      title: 'ToDo App',
-      description: 'App based on React (TypeScript) with Redux',
-      type: 'app',
-      url: 'https://todo-maksymilian-org.netlify.app/',
-      img: todoapp,
-      github: 'https://github.com/maksymilian-org/todo-app',
-      technologies: ['react', 'redux', 'typescript', 'html', 'css'],
-    },
     {
       title: 'Food Idea App',
       description: 'App based on Vue.js 3 + Vuex',
@@ -49,6 +41,15 @@ export default () => {
       img: foodidea,
       github: 'https://github.com/maksymilian-org/food-idea',
       technologies: ['vue', 'js', 'html', 'css'],
+    },
+    {
+      title: 'Pokedex App',
+      description: 'App based on Angular 11',
+      type: 'app',
+      url: 'https://pokedex-maksymilian-org.netlify.app/',
+      img: pokedex,
+      github: 'https://github.com/maksymilian-org/pokedex',
+      technologies: ['angular', 'ts', 'html', 'css'],
     },
     {
       title: 'Memory Game',
@@ -67,6 +68,15 @@ export default () => {
       img: tictactoe,
       github: 'https://github.com/maksymilian-org/tictactoe',
       technologies: ['scss', 'js', 'react', 'typescript', 'nodejs'],
+    },
+    {
+      title: 'ToDo App',
+      description: 'App based on React (TypeScript) with Redux',
+      type: 'app',
+      url: 'https://todo-maksymilian-org.netlify.app/',
+      img: todoapp,
+      github: 'https://github.com/maksymilian-org/todo-app',
+      technologies: ['react', 'redux', 'typescript', 'html', 'css'],
     },
     {
       title: 'Stajnia Wojciechów',

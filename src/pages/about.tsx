@@ -29,15 +29,11 @@ export default () => (
                 <h4>CITY</h4>
                 <p>Lublin, Poland</p>
               </Item>
+              <Item>
+                <h4>LANGUAGES</h4>
+                <p>English A2/B1</p>
+              </Item>
             </div>
-            <Item>
-              <h4>LANGUAGES</h4>
-              <p>English A2/B1</p>
-            </Item>
-            <Item>
-              <h4>DRIVING LICENSE</h4>
-              <p>B category</p>
-            </Item>
           </Section>
           <Section fully>
             <Item>
@@ -53,10 +49,11 @@ export default () => (
                 <li>HTML5 &laquo;5 years of experience&raquo;</li>
                 <li>CSS3/SASS &laquo;5&raquo;</li>
                 <li>JavaScript &laquo;3&raquo;</li>
-                <li>TypeScript &laquo;1,5&raquo;</li>
-                <li>ReactJS, Redux &laquo;1,5&raquo;</li>
+                <li>TypeScript &laquo;2&raquo;</li>
+                <li>ReactJS, Redux &laquo;2&raquo;</li>
+                <li>Angular &laquo;1&raquo;</li>
                 <li>Vue.js, Vuex &laquo;0,5&raquo;</li>
-                <li>Node.js &laquo;1,5&raquo;</li>
+                <li>Node.js &laquo;2&raquo;</li>
                 <li>WordPress, WooCommerce, PHP &laquo;4&raquo;</li>
                 <li>SQL &laquo;2&raquo;</li>
                 <li>Webpack &laquo;2&raquo;</li>
@@ -65,8 +62,20 @@ export default () => (
             </Item>
             <Item>
               <h4>EXPERIENCE</h4>
+              <h5>01.2021 - now</h5>
+              <p>Middle Frontend Developer</p>
+              <p className='name'>Embiq Sp. z o.o. / Lublin </p>
+              <p className='info'>
+                desktop app, web app, new features, maintenance, bug fixing
+              </p>
+              <p className='tags'>
+                <span>TypeScript</span> <span>React</span> <span>Redux</span>{' '}
+                <span>Electron</span> <span>Angular</span> <span>SCSS</span>{' '}
+                <span>REST</span> <span>Raspberry Pi</span> <span>Node.js</span>{' '}
+              </p>
+
               <h5>02.2019 - 08.2020</h5>
-              <p>Frontend Developer</p>
+              <p>Junior Frontend Developer</p>
               <p className='name'>Ingrifo Sp. z o.o. / Warsaw </p>
               <p className='info'>
                 InTrack App – SLA & Business Process Monitoring new features,
@@ -81,9 +90,9 @@ export default () => (
 
               <h5>07.2015 - now</h5>
               <p>Frontend Developer</p>
-              <p className='name'>Maksymilian.org / Lublin, Warsaw</p>
+              <p className='name'>Maksymilian.org / Lublin</p>
               <p className='info'>
-                Various websites, online stores and small applications new
+                Various websites, online stores and small applications, new
                 features, maintenance, bug fixing, client support, meetings
               </p>
               <p className='tags'>
@@ -119,6 +128,15 @@ export default () => (
             </Item>
             <Item>
               <h4>CERTIFICATES</h4>
+              <h5>2021</h5>
+              <p>
+                Training of commanders for firefighters of the Volunteer Fire
+                Brigades
+              </p>
+              <p className='name'>
+                City Headquarters of the State Fire Service in Lublin
+              </p>
+
               <h5>2018</h5>
               <p>Qualified First Aid Course</p>
               <p className='name'>Diamed, Radzyn Podlaski </p>

@@ -1,8 +1,6 @@
 import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Link } from '../link'
-// import StarterLogo from '../../assets/svg/luke-logo.svg'
 import { HeaderContainer, HeaderMenu } from './style'
 
 export const Header = () => (
@@ -18,12 +16,6 @@ export const Header = () => (
         <Link name='portfolio' to='/portfolio'>
           portfolio
         </Link>
-        {/* <Link name='skills' to='/skills'>
-          skills
-        </Link> */}
-        {/* <Link name='partners' to='/portfolio'>
-          partners
-        </Link> */}
       </HeaderMenu>
     </nav>
   </HeaderContainer>
