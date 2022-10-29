@@ -1,0 +1,44 @@
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 1px solid #eaeaea;
+
+  .wrapper {
+    max-width: 1440px;
+    color: #777777;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+
+    span {
+      margin: 10px 0px 10px 24px;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0px;
+      margin: 10px 0px;
+
+      li {
+        margin: 0px 0px 0px 24px;
+
+        a {
+          height: 100%;
+
+          svg {
+            fill: #777777;
+            width: 16px;
+            height: 16px;
+          }
+
+          &:hover svg {
+            fill: rgb(81, 45, 168);
+          }
+        }
+      }
+    }
+  }
+}
