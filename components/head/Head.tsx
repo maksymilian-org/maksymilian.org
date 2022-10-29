@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import Head from "next/head";
 
 const HTMLHead: FC = () => {
   return (
-    <Head>
+    // eslint-disable-next-line @next/next/no-head-element
+    <head>
       <title>maksymilian.org - frontend developer</title>
       <meta
         name="description"
@@ -68,7 +68,7 @@ const HTMLHead: FC = () => {
         rel="icon"
         href="/favicon/favicon.ico"
       />
-    </Head>
+    </head>
   );
 };
 
