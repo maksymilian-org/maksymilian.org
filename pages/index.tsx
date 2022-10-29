@@ -1,53 +1,50 @@
-import { FC } from 'react'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Head from '../components/head'
+import { FC } from "react";
+import Image from "next/image";
+import styles from "../styles/Home.module.scss";
 
 const Home: FC = () => {
   return (
     <div className={styles.container}>
-
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>Hello.</h1>
+
+        <h2 className={styles.subtitle}>My name is Max Furtak.</h2>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
+          I am a frontend developer. I especially liked React and Vue in
+          conjunction with TypeScript, but I also love to learn new things. You
+          can find me on{" "}
           <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://github.com/maksymilian-org"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.card}
           >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            Github
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://linkedin.com/in/maksymilian-furtak"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
           </a>
-        </div>
+          .
+        </p>
+
+        <p className={styles.description}>
+          I live in Lublin (Poland). I am a surveyor by education. In my free
+          time I run and ride an electric bicycle and in case of an emergency I
+          am{" "}
+          <a
+            href="https://www.facebook.com/ospkonopnica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            a volunteer fireman
+          </a>
+          .
+        </p>
       </main>
 
       <footer className={styles.footer}>
@@ -56,14 +53,14 @@ const Home: FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
