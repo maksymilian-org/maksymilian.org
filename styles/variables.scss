@@ -1,0 +1,16 @@
+:root,
+:root[data-theme="light"] {
+  --primary: #512da8;
+  --primary-light: rgba(81, 45, 168, 0.5);
+  --gray-light: #eaeaea;
+  --gray: #a1a1a1;
+  --color: #000000;
+  --background: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --color: #e6edf3;
+  --background: #0d1117;
+  --gray-light: #a5a5a5;
+  --primary-light: #512da8;
+}
