@@ -4,7 +4,7 @@ import Social from "../../components/social/Social";
 const Contact: FC = () => {
   return (
     <>
-      <h1 className="title">Let's talk</h1>
+      <h1 className="title">Let&apos;s talk</h1>
       <div className="description">
         Would you like to hire me for a project?{" "}
       </div>

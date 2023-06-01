@@ -23,7 +23,7 @@ interface TechnologyLogoMap {
   };
 }
 
-const TECHNOLOGY_LOGO_MAP: TechnologyLogoMap = {
+const TECHNOLOGY_MAP: TechnologyLogoMap = {
   react: { logo: <ReactJs />, title: "React" },
   typescript: { logo: <TypeScript />, title: "TypeScript" },
   javascript: { logo: <JavaScript />, title: "JavaScript" },
@@ -36,7 +36,7 @@ const TECHNOLOGY_LOGO_MAP: TechnologyLogoMap = {
 };
 
 const Technology: FC<ITechnology> = ({ name, skill }) => {
-  const { logo, title } = TECHNOLOGY_LOGO_MAP[name];
+  const { logo, title } = TECHNOLOGY_MAP[name];
 
   return (
     <div className={styles.technology}>
@@ -47,7 +47,10 @@ const Technology: FC<ITechnology> = ({ name, skill }) => {
           {Array(5)
             .fill("")
             .map((_, index) => (
-              <div className={index <= skill ? styles.achieved : ""}></div>
+              <div
+                key={index}
+                className={index <= skill ? styles.achieved : ""}
+              ></div>
             ))}
         </div>
       </div>
