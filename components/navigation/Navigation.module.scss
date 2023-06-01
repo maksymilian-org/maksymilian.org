@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    border-color: #eaeaea;
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 1.25rem;
+
+    &.active {
+      border-top-color: transparent;
+    }
+  }
+}
