@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { FC } from "react";
 import styles from "./Navigation.module.scss";
@@ -15,19 +15,21 @@ const Navigation: FC<INavigation> = ({ navLinks }) => {
 
   return (
     <footer className={styles.footer}>
-      {navLinks.map((link) => {
-        const isActive = pathname === link.href;
+      <main className={styles.wrapper}>
+        {navLinks.map((link) => {
+          const isActive = pathname === link.href;
 
-        return (
-          <Link
-            className={isActive ? styles.active : ""}
-            href={link.href}
-            key={link.name}
-          >
-            {link.name}
-          </Link>
-        );
-      })}
+          return (
+            <Link
+              className={isActive ? styles.active : ""}
+              href={link.href}
+              key={link.name}
+            >
+              {link.name}
+            </Link>
+          );
+        })}
+      </main>
     </footer>
   );
 };
