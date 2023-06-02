@@ -9,7 +9,7 @@ const CSS: FC = () => {
       x="0px"
       y="0px"
       viewBox="0 0 547.8 410.6"
-      enable-background="new 0 0 547.8 410.6"
+      enableBackground="new 0 0 547.8 410.6"
     >
       <path
         fill="#a1a1a1"
