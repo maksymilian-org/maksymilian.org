@@ -1,0 +1,48 @@
+.project {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .block {
+    margin-bottom: 1.5rem;
+  }
+
+  .name {
+    color: var(--gray);
+  }
+
+  ul.tasks {
+    margin: 0;
+    padding-left: 30px;
+
+    li {
+      padding-left: 0;
+    }
+  }
+
+  .links {
+    a {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 60% -0.1em 0px;
+        transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1) 0s;
+        background-color: var(--primary-light);
+      }
+
+      &:hover:after {
+        top: 0%;
+      }
+    }
+  }
+}
