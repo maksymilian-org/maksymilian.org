@@ -1,9 +1,18 @@
 .project {
+  border-bottom: thin solid var(--gray-light);
+  padding-bottom: 3rem;
+  margin-bottom: 4rem;
+
+  &:last-of-type {
+    border: none;
+  }
+
   .title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .description {
+    font-size: 1.5rem;
     padding-left: 1rem;
     margin-bottom: 1.5rem;
   }
@@ -18,15 +27,15 @@
 
   ul.tasks {
     margin: 0;
-    padding-left: 30px;
-
-    li {
-      padding-left: 0;
-    }
+    padding-left: 1rem;
   }
 
   .links {
+    padding-left: 1rem;
+
     a {
+      font-size: 1.5rem;
+      margin-right: 1rem;
       display: inline-block;
       position: relative;
       text-decoration: none;

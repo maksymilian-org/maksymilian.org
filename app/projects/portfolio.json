@@ -1,0 +1,109 @@
+[
+  {
+    "title": "Creating client applications for preparing surveys ",
+    "description": "and to fetch recommendations for users. It provides all necessary CRUDs and all related entities.",
+    "time": "1 year",
+    "tasks": [
+      "moving a common React app to the Next.js version",
+      "creating comprehensive forms with validation rules",
+      "creating custom controls and UI elements",
+      "communication with API",
+      "creating views",
+      "bug fixing"
+    ],
+    "technologies": "Next.js, React, TypeScript, SCSS, AWS, Redux, RTK Query, Confluence, BitBucket, Jira",
+    "framework": "Scrum, 2-week sprints",
+    "team": "8-person: PO, 2x FE Devs, 2x BE Devs, 2x QA, Product Designer",
+    "links": [
+      {
+        "url": "https://careertest.universumglobal.com/",
+        "title": "careertest.universumglobal.com"
+      }
+    ]
+  },
+  {
+    "title": "Evaluation Software for the CT sensor device",
+    "description": "with a 128-channel ADC and integrated photodiodes. It works with the Evaluation Kit (carrier board, FPGA, power supply, USB 3.0 cable, and a sample board) which provides a complete system to evaluate the performance parameters of the image sensor.",
+    "time": "5 months",
+    "tasks": [
+      "optimization of the speed of the application",
+      "developing logic responsible for firmware update",
+      "updating UI responsible for the presentation of current states of a new version of the device",
+      "implementation of real-time observation of register values",
+      "creating custom controls and UI elements",
+      "bug fixing"
+    ],
+    "technologies": "Electron, Node.js, RxJS, TypeScript, Angular, Python, SCSS, WebSockets, GitLab",
+    "framework": "Scrum",
+    "team": "4-person: PO, FE Dev, BE Dev, Embedded Dev",
+    "links": [
+      {
+        "url": "https://ams.com/as5951-eval-kit",
+        "title": "ams.com"
+      }
+    ]
+  },
+  {
+    "title": "Accomodation and community management",
+    "description": "A combination of Django backend and Vue frontend that enable the users to make reservations, and match with other users by using the built-in algorhytms.",
+    "time": "9 months",
+    "tasks": [
+      "communication with API",
+      "code refactor",
+      "implementation dialog in case of login attempt with data of inactive user",
+      "extend gallery editor with additional description field",
+      "creating custom controls and UI elements",
+      "bug fixing"
+    ],
+    "technologies": "Vue.js, CSS3, JavaScript, Quill.js, Docker, GitHub",
+    "framework": "Scrum",
+    "team": "4-person: PO, FE Dev, BE Dev, DevOps",
+    "links": [
+      {
+        "url": "https://www.studenthousingsoftware.com/",
+        "title": "studenthousingsoftware.com"
+      }
+    ]
+  },
+  {
+    "title": "Device supports feedforward, feedback and hybrid ANC topologies",
+    "description": "as well as featuring Automatic Leakage Compensation (ALC) algorithms which enable for the very frst time in the audio industry hybrid ANC functionality in loose fit earbuds.",
+    "time": "1 year",
+    "tasks": [
+      "code refactoring and optimization",
+      "implementing mechanism of the variable number of the sound filters",
+      "creating a converter module that updates old projects to new versions of the application",
+      "creating real-time observation of register values",
+      "creating custom controls and UI elements",
+      "bug fixing",
+      "code review"
+    ],
+    "technologies": "Electron, SCSS, WebSockets, Node.js, RxJS, TypeScript, Angular",
+    "framework": "Scrum, 1-week sprints",
+    "team": "8-person: PO, 4x FE Devs, 3x QA",
+    "links": [{ "url": "https://ams.com/as3460", "title": "ams.com" }]
+  },
+  {
+    "title": "Web app helps control the behaviours of the processes",
+    "description": "based on algorithms and automation, refecting them in the model and checking their parameters based on the history of business events and a reconstruction of programmed customer behaviours.",
+    "time": "1 year 8 months",
+    "tasks": [
+      "implement responsive dashboard with scalable and drag&droped tiles",
+      "creating various sort of charts, tables, 3D graphs, dialogs",
+      "communication with API",
+      "creating custom controls and UI elements",
+      "bug fixing",
+      "maintaining the application",
+      "introducing new functionalities",
+      "code review",
+      "creating views"
+    ],
+    "technologies": "React, Redux, TypeScript, JavaScript, GitLab, Highcharts, D3.js, SCSS, PostgreSQL",
+    "framework": "Scrum",
+    "team": "6-person: PO, 3x FE Devs, BE Dev, QA",
+    "links": [
+      { "url": "https://intrack.eu/", "title": "intrack.eu" },
+      { "url": "https://ingrifo.com/", "title": "ingrifo.com" }
+    ]
+  }
+]

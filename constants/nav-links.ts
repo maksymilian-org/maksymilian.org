@@ -10,8 +10,8 @@ export const NAV_LINKS: NavLink[] = [
     href: "/about",
   },
   {
-    name: "portfolio",
-    href: "/portfolio",
+    name: "projects",
+    href: "/projects",
   },
   {
     name: "contact",
