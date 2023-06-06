@@ -7,7 +7,7 @@ const Portfolio: FC = () => {
     <>
       <h1 className="title">Last projects</h1>
       {portfolio.map((project) => (
-        <div className={styles.project}>
+        <div key={project.title} className={styles.project}>
           <div className={styles.title}>{project.title}</div>
           <div className={styles.description}>{project.description}</div>
           <div className={styles.block}>
@@ -19,7 +19,7 @@ const Portfolio: FC = () => {
             <div className={styles.description}>
               <ul className={styles.tasks}>
                 {project.tasks.map((task) => (
-                  <li>{task}</li>
+                  <li key={task}>{task}</li>
                 ))}
               </ul>
             </div>
@@ -40,7 +40,7 @@ const Portfolio: FC = () => {
             <div className={styles.name}>links:</div>
             <div className={styles.links}>
               {project.links.map((link) => (
-                <a target="_blank" href={link.url}>
+                <a key={link.title} target="_blank" href={link.url}>
                   {link.title}
                 </a>
               ))}
