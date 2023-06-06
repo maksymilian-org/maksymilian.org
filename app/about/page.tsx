@@ -103,7 +103,7 @@ const About: FC = () => {
           Regular Frontend Developer
           <br />
           <a target="_blank" href="https://embiq.com/">
-            Embiq Sp. z o.o.
+            Embiq
           </a>{" "}
           / Lublin, Poland
         </div>
@@ -113,7 +113,7 @@ const About: FC = () => {
           Junior Frontend Developer
           <br />
           <a target="_blank" href="https://ingrifo.com/">
-            Ingrifo Sp. z o.o.
+            Ingrifo
           </a>{" "}
           / Warsaw, Poland
         </div>
