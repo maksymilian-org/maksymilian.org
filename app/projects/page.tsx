@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import styles from "./page.module.scss";
-import portfolio from "./portfolio.json";
+import projects from "./projects.json";
 
 const Portfolio: FC = () => {
   return (
     <>
       <h1 className="title">Last projects</h1>
-      {portfolio.map((project) => (
+      {projects.map((project) => (
         <div key={project.title} className={styles.project}>
           <div className={styles.title}>{project.title}</div>
           <div className={styles.description}>{project.description}</div>
