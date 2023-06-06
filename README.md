@@ -1,3 +1,1 @@
-This is my website, based on [Gatsby.js](https://www.gatsbyjs.com/).
-
-You can see it here: [maksymilian.org](https://maksymilian.org).
+This is my website written with [Next.js](https://nextjs.org/).

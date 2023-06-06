@@ -1,0 +1,35 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  background-color: var(--background);
+  border-top: thin solid var(--gray-light);
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    backdrop-filter: blur(8px);
+    background-color: transparent;
+
+    a {
+      width: 100%;
+    }
+  }
+}
