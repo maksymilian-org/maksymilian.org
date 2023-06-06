@@ -14,7 +14,7 @@ const Home: FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Github
+          GitHub
         </a>{" "}
         and{" "}
         <a

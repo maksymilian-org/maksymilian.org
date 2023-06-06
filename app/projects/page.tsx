@@ -13,7 +13,7 @@ const Portfolio: FC = () => {
           <div className={styles.title}>{project.title}</div>
           <div className={styles.description}>{project.description}</div>
           <div className={styles.block}>
-            <div className={styles.name}>period of time:</div>
+            <div className={styles.name}>duration:</div>
             <div className={styles.description}>{project.time}</div>
           </div>
           <div className={styles.block}>

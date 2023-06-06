@@ -24,8 +24,8 @@
     ]
   },
   {
-    "title": "Creating client applications for preparing surveys ",
-    "description": "and to fetch recommendations for users. It provides all necessary CRUDs and all related entities.",
+    "title": "Client applications for preparing surveys ",
+    "description": "and fetching recommendations for users. It provides all necessary CRUDs and all related entities.",
     "time": "1 year",
     "tasks": [
       "moving a common React app to the Next.js version",
@@ -47,13 +47,13 @@
     ]
   },
   {
-    "title": "Evaluation Software for the CT sensor device",
+    "title": "Evaluation software for the CT sensor device",
     "description": "with a 128-channel ADC and integrated photodiodes. It works with the Evaluation Kit (carrier board, FPGA, power supply, USB 3.0 cable, and a sample board) which provides a complete system to evaluate the performance parameters of the image sensor.",
     "time": "5 months",
     "tasks": [
       "optimization of the speed of the application",
       "developing logic responsible for firmware update",
-      "updating UI responsible for the presentation of current states of a new version of the device",
+      "updating UI responsible for the presentation of the current state of a new version of the device",
       "implementation of real-time observation of register values",
       "creating custom controls and UI elements",
       "bug fixing"
@@ -69,8 +69,8 @@
     ]
   },
   {
-    "title": "Accomodation and community management",
-    "description": "A combination of Django backend and Vue frontend that enable the users to make reservations, and match with other users by using the built-in algorhytms.",
+    "title": "Accommodation and community management web application.",
+    "description": "A combination of Django backend and Vue frontend enables the users to make reservations and match with other users by using the built-in algorithms.",
     "time": "9 months",
     "tasks": [
       "communication with API",
@@ -91,8 +91,8 @@
     ]
   },
   {
-    "title": "Device supports feedforward, feedback and hybrid ANC topologies",
-    "description": "as well as featuring Automatic Leakage Compensation (ALC) algorithms which enable for the very frst time in the audio industry hybrid ANC functionality in loose fit earbuds.",
+    "title": "Evaluation software for the audio device",
+    "description": "that supports feedforward, feedback, and hybrid ANC topologies as well as features Automatic Leakage Compensation (ALC) algorithms which enable for the very first time in the audio industry hybrid ANC functionality in loose-fit earbuds.",
     "time": "1 year",
     "tasks": [
       "code refactoring and optimization",
@@ -109,8 +109,8 @@
     "links": [{ "url": "https://ams.com/as3460", "title": "ams.com" }]
   },
   {
-    "title": "Web app helps control the behaviours of the processes",
-    "description": "based on algorithms and automation, refecting them in the model and checking their parameters based on the history of business events and a reconstruction of programmed customer behaviours.",
+    "title": "Web app which helps control the behaviors of the processes",
+    "description": "based on algorithms and automation, reflecting them in the model and checking their parameters based on the history of business events and reconstruction of programmed customer behaviors.",
     "time": "1 year 8 months",
     "tasks": [
       "implement responsive dashboard with scalable and drag&droped tiles",

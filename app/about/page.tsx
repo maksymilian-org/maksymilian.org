@@ -88,9 +88,9 @@ const About: FC = () => {
       <section>
         <div className="section-name">additional skills:</div>
         <div className="description">
-          Docker, Redux, RTK Query, React Native, NextJS, Gatsby, Vite, Vitest,
-          Jasmine, Cypress, WebdriverIO, WordPress, PHP, Python, MySQL,
-          PostgreSQL, REST, Webpack, Electron, RWD, jQuery, RxJS, WebSockets,
+          NextJS, Redux, RTK Query, React Native, Gatsby, Vite, Vitest, Jasmine,
+          Cypress, WebdriverIO, REST, Webpack, Electron, RxJS, jQuery,
+          WebSockets, RWD, WordPress, PHP, Python, MySQL, PostgreSQL, Docker,
           AWS, Confuence, BitBucket, Jira, Asana, GitHub, GitLab, VSCode
         </div>
       </section>
@@ -151,7 +151,7 @@ const About: FC = () => {
           </a>{" "}
           (a squad leader in a volunteer fire department)
           <br />
-          motorcycle / bike tourism
+          motorcycle/bike tourism
           <br />
           history
           <br />
