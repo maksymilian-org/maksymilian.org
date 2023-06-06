@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styles from "./page.module.scss";
 import projects from "./projects.json";
+import websites from "./websites.json";
 
 const Portfolio: FC = () => {
   return (
@@ -48,6 +49,19 @@ const Portfolio: FC = () => {
           </div>
         </div>
       ))}
+      <div className={styles.websites}>
+        <h1 className="title">Websites</h1>
+        <div className="description">Before 2019 I created some websites:</div>
+        <div className={styles.block}>
+          <div className={styles.links}>
+            {websites.map((link) => (
+              <a key={link.title} target="_blank" href={link.url}>
+                {link.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
