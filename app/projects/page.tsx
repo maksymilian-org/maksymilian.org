@@ -67,7 +67,7 @@ const Portfolio: FC = () => {
       <div className={styles.forfun}>
         <h1 className="title">For fun</h1>
         <div className="description">
-          Sometimes I want to develop things only for fun.
+          Sometimes I want to make things just for fun.
         </div>
         {forfun.map((project) => (
           <div key={project.title} className={styles.project}>
