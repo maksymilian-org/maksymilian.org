@@ -15,6 +15,16 @@ const About: FC = () => {
       <section>
         <div className="cols">
           <div className="col">
+            <Image
+              src="/assets/maksymilian.jpg"
+              alt="maksymilian.org"
+              width={140}
+              height={140}
+              className={styles.profilePhoto}
+            />
+          </div>
+
+          <div className="col">
             <div className="section-name">name:</div>
             <div className="description">Maksymilian Furtak</div>
 
@@ -36,16 +46,6 @@ const About: FC = () => {
 
             <div className="section-name">languages:</div>
             <div className="description">Polish, English B1</div>
-          </div>
-
-          <div className="col">
-            <Image
-              src="/assets/maksymilian.jpg"
-              alt="maksymilian.org"
-              width={200}
-              height={200}
-              className={styles.profilePhoto}
-            />
           </div>
         </div>
       </section>
