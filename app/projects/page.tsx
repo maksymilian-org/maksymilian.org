@@ -3,10 +3,11 @@ import styles from "./page.module.scss";
 import projects from "./projects.json";
 import websites from "./websites.json";
 import forfun from "./forfun.json";
+import { FadeIn } from "../../components/fadein/FadeIn";
 
 const Portfolio: FC = () => {
   return (
-    <>
+    <FadeIn>
       <h1 className="title">Last projects</h1>
       {projects.map((project) => (
         <div key={project.title} className={styles.project}>
@@ -89,7 +90,7 @@ const Portfolio: FC = () => {
           </div>
         ))}
       </div>
-    </>
+    </FadeIn>
   );
 };
 

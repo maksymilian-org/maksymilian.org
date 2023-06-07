@@ -1,8 +1,9 @@
 import { FC } from "react";
+import { FadeIn } from "../components/fadein/FadeIn";
 
 const Home: FC = () => {
   return (
-    <>
+    <FadeIn>
       <h1 className="title">Hello.</h1>
       <h2 className="subtitle">My name is Max Furtak.</h2>
       <p className="description">
@@ -39,7 +40,7 @@ const Home: FC = () => {
         </a>
         .
       </p>
-    </>
+    </FadeIn>
   );
 };
 

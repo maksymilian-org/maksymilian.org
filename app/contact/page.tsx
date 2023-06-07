@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import Social from "../../components/social/Social";
+import { FadeIn } from "../../components/fadein/FadeIn";
 
 const Contact: FC = () => {
   return (
-    <>
+    <FadeIn>
       <h1 className="title">Let&apos;s talk</h1>
       <div className="description">
         Would you like to hire me for a project?{" "}
@@ -13,7 +14,7 @@ const Contact: FC = () => {
       </div>
       <div className="description">furtak[at]maksymilian.org</div>
       <Social />
-    </>
+    </FadeIn>
   );
 };
 

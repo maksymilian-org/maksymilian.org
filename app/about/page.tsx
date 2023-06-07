@@ -4,12 +4,13 @@ import { calculateAge } from "../../utils/calculateAge";
 import Technology from "../../components/technology/Technology";
 import { Skill } from "../../enums/Skill";
 import styles from "./page.module.scss";
+import { FadeIn } from "../../components/fadein/FadeIn";
 
 const About: FC = () => {
   const age = calculateAge("12.06.1993");
 
   return (
-    <>
+    <FadeIn>
       <h1 className="title">More details</h1>
       <section>
         <div className="cols">
@@ -160,7 +161,7 @@ const About: FC = () => {
           amateur football
         </div>
       </section>
-    </>
+    </FadeIn>
   );
 };
 
