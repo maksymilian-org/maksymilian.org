@@ -1,18 +1,18 @@
 import React, { FC } from "react";
 import Social from "../../components/social/Social";
 import { FadeIn } from "../../components/fadein/FadeIn";
+import Title from "../../components/title/Title";
+import Link from "../../components/links/Link";
 
 const Contact: FC = () => {
   return (
     <FadeIn>
-      <h1 className="title">Let&apos;s talk</h1>
-      <div className="description">
-        Would you like to hire me for a project?{" "}
-      </div>
-      <div className="description">
-        <a href="tel:+48785120693">+48 785 120 693</a>
-      </div>
-      <div className="description">furtak[at]maksymilian.org</div>
+      <Title>Let&apos;s talk</Title>
+      <p>Would you like to hire me for a project?</p>
+      <p>
+        <Link url="tel:+48785120693">+48 785 120 693</Link>
+      </p>
+      <p>furtak[at]maksymilian.org</p>
       <Social />
     </FadeIn>
   );

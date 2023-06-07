@@ -1,20 +1,24 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { calculateAge } from "../../utils/calculateAge";
-import Technology from "../../components/technology/Technology";
 import { Skill } from "../../enums/Skill";
-import styles from "./page.module.scss";
+import Technology from "../../components/technology/Technology";
 import { FadeIn } from "../../components/fadein/FadeIn";
+import TextBlock from "../../components/text-block/TextBlock";
+import Title from "../../components/title/Title";
+import styles from "./page.module.scss";
+import Cols from "../../components/cols/Cols";
+import Link from "../../components/links/Link";
 
 const About: FC = () => {
   const age = calculateAge("12.06.1993");
 
   return (
     <FadeIn>
-      <h1 className="title">More details</h1>
-      <section>
-        <div className="cols">
-          <div className="col">
+      <Title>More details</Title>
+      <TextBlock>
+        <Cols>
+          <div>
             <Image
               src="/assets/maksymilian.jpg"
               alt="maksymilian.org"
@@ -24,143 +28,113 @@ const About: FC = () => {
             />
           </div>
 
-          <div className="col">
-            <div className="section-name">name:</div>
-            <div className="description">Maksymilian Furtak</div>
-
-            <div className="section-name">age:</div>
-            <div className="description">{age}</div>
+          <div>
+            <TextBlock title="name:">Maksymilian Furtak</TextBlock>
+            <TextBlock title="age:">{age}</TextBlock>
           </div>
-
-          <div className="col">
-            <div className="section-name">city:</div>
-
-            <div className="description">
-              <a
-                target="_blank"
-                href="https://www.google.com/maps?q=Lublin,Poland"
-              >
+          <div>
+            <TextBlock title="city:">
+              <Link url="https://www.google.com/maps?q=Lublin,Poland">
                 Lublin, Poland
-              </a>
-            </div>
-
-            <div className="section-name">languages:</div>
-            <div className="description">Polish, English B1</div>
+              </Link>
+            </TextBlock>
+            <TextBlock title="languages:">Polish, English B1</TextBlock>
           </div>
-        </div>
-      </section>
-      <section>
-        <div className="section-name">main technologies:</div>
-        <div className="cols">
-          <div className="col">
+        </Cols>
+      </TextBlock>
+      <TextBlock title="main technologies:">
+        <Cols>
+          <div>
             <Technology name="react" skill={Skill.EXPERT} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="typescript" skill={Skill.EXPERT} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="javascript" skill={Skill.EXPERT} />
           </div>
-        </div>
-        <div className="cols">
-          <div className="col">
+        </Cols>
+        <Cols>
+          <div>
             <Technology name="angular" skill={Skill.REGULAR} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="vue" skill={Skill.JUNIOR} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="node" skill={Skill.REGULAR} />
           </div>
-        </div>
-        <div className="cols">
-          <div className="col">
+        </Cols>
+        <Cols>
+          <div>
             <Technology name="html" skill={Skill.EXPERT} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="css" skill={Skill.EXPERT} />
           </div>
-          <div className="col">
+          <div>
             <Technology name="git" skill={Skill.EXPERT} />
           </div>
-        </div>
-      </section>
+        </Cols>
+      </TextBlock>
 
-      <section>
-        <div className="section-name">additional skills:</div>
-        <div className="description">
-          NextJS, Redux, RTK Query, React Native, Gatsby, Vite, Vitest, Jasmine,
-          Cypress, WebdriverIO, REST, Webpack, Electron, RxJS, jQuery,
-          WebSockets, RWD, WordPress, PHP, Python, MySQL, PostgreSQL, Docker,
-          AWS, Confuence, BitBucket, Jira, Asana, GitHub, GitLab, VSCode
-        </div>
-      </section>
+      <TextBlock title="additional skills:">
+        NextJS, Redux, RTK Query, React Native, Gatsby, Vite, Vitest, Jasmine,
+        Cypress, WebdriverIO, REST, Webpack, Electron, RxJS, jQuery, WebSockets,
+        RWD, WordPress, PHP, Python, MySQL, PostgreSQL, Docker, AWS, Confuence,
+        BitBucket, Jira, Asana, GitHub, GitLab, VSCode
+      </TextBlock>
 
-      <section>
-        <div className="section-name">jobs:</div>
-        <div className="description">
+      <TextBlock title="jobs:">
+        <p>
           01.2021 - now
           <br />
           Regular Frontend Developer
           <br />
-          <a target="_blank" href="https://embiq.com/">
-            Embiq
-          </a>{" "}
-          / Lublin, Poland
-        </div>
-        <div className="description">
+          <Link url="https://embiq.com/">Embiq</Link> / Lublin, Poland
+        </p>
+        <p>
           02.2019 - 08.2020
           <br />
           Junior Frontend Developer
           <br />
-          <a target="_blank" href="https://ingrifo.com/">
-            Ingrifo
-          </a>{" "}
-          / Warsaw, Poland
-        </div>
-        <div className="description">
+          <Link url="https://ingrifo.com/">Ingrifo</Link> / Warsaw, Poland
+        </p>
+        <p>
           09.2016 - now
           <br />
           Frontend Developer
           <br />
-          <a href="https://maksymilian.org/">Maksymilian.org</a> (self-employed)
-          / Lublin, Poland
-        </div>
-      </section>
+          <Link url="https://maksymilian.org/">Maksymilian.org</Link>{" "}
+          (self-employed) / Lublin, Poland
+        </p>
+      </TextBlock>
 
-      <section>
-        <div className="section-name">education:</div>
-        <div className="description">
-          2016
-          <br />
-          Engineer
-          <br />
-          <a target="_blank" href="https://up.lublin.pl/">
-            University of Life Sciences
-          </a>{" "}
-          / Lublin, Poland
-        </div>
-      </section>
+      <TextBlock title="education:">
+        2016
+        <br />
+        Engineer
+        <br />
+        <Link url="https://up.lublin.pl/">University of Life Sciences</Link> /
+        Lublin, Poland
+      </TextBlock>
 
-      <section>
-        <div className="section-name">interests:</div>
-        <div className="description">
-          wife & family
-          <br />
-          <a target="_blank" href="https://www.facebook.com/ospkonopnica/">
-            firefighting
-          </a>{" "}
-          (a squad leader in a volunteer fire department)
-          <br />
-          motorcycle/bike tourism
-          <br />
-          history
-          <br />
-          medical rescue (qualified first-aid qualifications)
-          <br />
-          amateur football
-        </div>
-      </section>
+      <TextBlock title="interests:">
+        wife & family
+        <br />
+        <Link url="https://www.facebook.com/ospkonopnica/">
+          firefighting
+        </Link>{" "}
+        (a squad leader in a volunteer fire department)
+        <br />
+        motorcycle/bike tourism
+        <br />
+        history
+        <br />
+        medical rescue (qualified first-aid qualifications)
+        <br />
+        amateur football
+      </TextBlock>
     </FadeIn>
   );
 };
