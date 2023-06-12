@@ -69,5 +69,16 @@
         "title": "github.com"
       }
     ]
+  },
+  {
+    "title": "This website",
+    "description": "If you would like to take a look at the source code of this website, you can click on the link below.",
+    "technologies": "React, Next.js, TypeScript",
+    "links": [
+      {
+        "url": "https://github.com/maksymilian-org/maksymilian.org",
+        "title": "github.com"
+      }
+    ]
   }
 ]
