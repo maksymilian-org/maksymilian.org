@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import projects from "./data/projects.json";
 import websites from "./data/websites.json";
 import forfun from "./data/forfun.json";
-import { FadeIn } from "../../components/fadein/FadeIn";
+import FadeIn from "../../components/fadein/FadeIn";
 import TextBlock from "../../components/text-block/TextBlock";
 import Links from "../../components/links/Links";
 import Title from "../../components/title/Title";

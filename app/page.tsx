@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { FadeIn } from "../components/fadein/FadeIn";
+import FadeIn from "../components/fadein/FadeIn";
 import Title from "../components/title/Title";
 import Subtitle from "../components/subtitle/Subtitle";
 import Link from "../components/links/Link";

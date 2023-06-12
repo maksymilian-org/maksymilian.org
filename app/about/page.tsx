@@ -3,7 +3,7 @@ import Image from "next/image";
 import { calculateAge } from "../../utils/calculateAge";
 import { Skill } from "../../enums/Skill";
 import Technology from "../../components/technology/Technology";
-import { FadeIn } from "../../components/fadein/FadeIn";
+import FadeIn from "../../components/fadein/FadeIn";
 import TextBlock from "../../components/text-block/TextBlock";
 import Title from "../../components/title/Title";
 import styles from "./page.module.scss";
