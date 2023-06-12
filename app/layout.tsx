@@ -1,16 +1,19 @@
-import Head from "../components/head";
-import Navigation from "../components/navigation/Navigation";
+import { Rubik } from "next/font/google";
 import { NAV_LINKS } from "../constants/nav-links";
 import { Theme } from "../enums/Theme";
-import { Rubik } from "next/font/google";
+import Head from "../components/head";
+import Navigation from "../components/navigation/Navigation";
+import GoogleAnalytics from "../components/google-analytics/GoogleAnalytics";
+
 import "../styles/global.scss";
+import { FC, PropsWithChildren } from "react";
 
 const rubik = Rubik({
   subsets: ["latin"],
   display: "swap",
 });
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   const theme = Theme.LIGHT;
 
   return (
@@ -21,6 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main className="main">{children}</main>
         </div>
         <Navigation navLinks={NAV_LINKS} />
+        <GoogleAnalytics />
       </body>
     </html>
   );
