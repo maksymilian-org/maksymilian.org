@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Metadata } from "next";
 import Image from "next/image";
 import { calculateAge } from "../../utils/calculateAge";
 import { Skill } from "../../enums/Skill";
@@ -9,6 +10,10 @@ import Title from "../../components/title/Title";
 import styles from "./page.module.scss";
 import Cols from "../../components/cols/Cols";
 import Link from "../../components/links/Link";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const About: FC = () => {
   const age = calculateAge("12.06.1993");

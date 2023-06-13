@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Metadata } from "next";
 import projects from "./data/projects.json";
 import websites from "./data/websites.json";
 import forfun from "./data/forfun.json";
@@ -9,6 +10,10 @@ import Title from "../../components/title/Title";
 import Section from "../../components/section/Section";
 
 import styles from "./page.module.scss";
+
+export const metadata: Metadata = {
+  title: "Projects",
+};
 
 const Portfolio: FC = () => {
   return (

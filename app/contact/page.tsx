@@ -1,8 +1,13 @@
 import React, { FC } from "react";
+import { Metadata } from "next";
 import FadeIn from "../../components/fadein/FadeIn";
 import Social from "../../components/social/Social";
 import Title from "../../components/title/Title";
 import Link from "../../components/links/Link";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 const Contact: FC = () => {
   return (
