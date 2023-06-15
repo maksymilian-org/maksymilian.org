@@ -13,7 +13,7 @@ const FadeIn: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     api.start(config);
-  }, []);
+  }, [api, config]);
 
   return <animated.div style={props}>{children}</animated.div>;
 };

@@ -30,7 +30,7 @@ const Projects = async () => {
     <FadeIn>
       <Title>Last projects</Title>
       {commercial.map((project) => (
-        <Project project={project} />
+        <Project key={project.id} project={project} />
       ))}
 
       <Section>
@@ -44,7 +44,7 @@ const Projects = async () => {
       <Title>For fun</Title>
       <p>Sometimes I want to make things just for fun.</p>
       {own.map((project) => (
-        <Project project={project} />
+        <Project key={project.id} project={project} />
       ))}
     </FadeIn>
   );
