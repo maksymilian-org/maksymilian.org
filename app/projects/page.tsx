@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const Projects = async () => {
-  const params = new URLSearchParams({ populate: "*" });
+  const params = new URLSearchParams({ populate: "*", sort: "date:desc" });
   const data: { data: IProject[] } = await getData("projects", params);
 
   const commercial = data.data.filter(
