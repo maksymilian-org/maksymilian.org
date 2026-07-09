@@ -1,0 +1,630 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "common": {
+    "getQuote": "Get a free quote",
+    "seeServices": "See services",
+    "seeProjects": "See projects",
+    "seePricing": "See pricing",
+    "letsTalk": "Let's talk",
+    "viewLive": "View",
+    "readMore": "Read more",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "skipToContent": "Skip to content",
+    "toggleTheme": "Toggle theme",
+    "toggleMenu": "Toggle menu",
+    "language": "Language",
+    "currencyLabel": "Currency"
+  },
+  "meta": {
+    "home": {
+      "title": "Software development — web, mobile, IoT & AI · maksymilian.org",
+      "description": "Maksymilian Furtak — fullstack developer from Lublin, Poland. Websites, online stores, custom web & mobile apps, automations, AI and IoT / smart-home solutions for your business."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Websites, e-commerce, custom web and mobile applications, integrations, AI solutions, modernization and maintenance — delivered end to end by one developer."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Commercial projects and side projects by Maksymilian Furtak — React, TypeScript, Next.js, Angular, Vue and Node.js."
+    },
+    "about": {
+      "title": "About",
+      "description": "About Maksymilian Furtak — fullstack developer, firefighter and motorcyclist from Lublin, Poland."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Have an idea for a project? Let's talk. Contact Maksymilian Furtak — fullstack developer from Lublin, Poland."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Practical articles about websites, apps, automation, KSeF and AI for businesses — no jargon, from a developer in Lublin, Poland."
+    }
+  },
+  "home": {
+    "eyebrow": "Software development",
+    "title": "Turn your idea into fast, modern software — web, mobile, IoT and AI",
+    "lead": "I'm Max — a fullstack developer from Lublin. I build custom software end to end: websites and online stores, bespoke web and mobile apps, automations and AI that take the repetitive work off your hands, and firmware for IoT and smart-home devices. From idea to launch you get a working product from one reliable person — quickly, and at a reasonable price.",
+    "servicesHeading": "What I can build for you",
+    "servicesLead": "From a simple company website to a fully custom application or automation built around the way your business works — everything under one roof, with a short delivery time.",
+    "processHeading": "How we work together",
+    "process": {
+      "talk": {
+        "title": "1. We talk",
+        "text": "You tell me your idea and goals. I ask the right questions and suggest the simplest way to get there."
+      },
+      "quote": {
+        "title": "2. Clear quote",
+        "text": "You get a transparent estimate of scope, cost and time — no surprises, no hidden fees."
+      },
+      "build": {
+        "title": "3. I build it",
+        "text": "I develop your product in short steps with a fast turnaround, and show you progress regularly, so you always know where we are."
+      },
+      "launch": {
+        "title": "4. Launch & care",
+        "text": "We go live. I stay available for support, changes and improvements whenever you need them."
+      }
+    },
+    "projectsHeading": "Recent work",
+    "projectsLead": "Long-term commercial projects I've helped build — and I also deliver concrete products on short timelines.",
+    "reviewsHeading": "What clients say",
+    "reviewsLead": "A few words from people I've worked with — see all of them on my Google profile.",
+    "reviewsAllCta": "See all reviews on Google",
+    "reviewsSource": "Google reviews",
+    "ctaHeading": "Have an idea? Let's make it real.",
+    "ctaLead": "The first conversation and quote are free and with no obligation.",
+    "fastBadge": "Fast delivery"
+  },
+  "stats": {
+    "items": [
+      { "value": "10+", "label": "years of experience" },
+      { "value": "5.0★", "label": "average Google rating" },
+      { "value": "1 h", "label": "typical response time" },
+      { "value": "1", "label": "person — from idea to launch" }
+    ]
+  },
+  "guarantees": {
+    "heading": "Work together, risk-free",
+    "lead": "The concrete things that set a reliable developer apart from a random contractor.",
+    "items": [
+      {
+        "title": "VAT invoice",
+        "text": "I operate as a registered business and invoice with a VAT invoice — convenient for you and your accounting."
+      },
+      {
+        "title": "Contract & IP rights",
+        "text": "A clear contract and full transfer of copyright to the code — the product is 100% yours."
+      },
+      {
+        "title": "Fix guarantee",
+        "text": "Post-launch bug fixes are included — you're never left alone with a problem."
+      },
+      {
+        "title": "Clear upfront quote",
+        "text": "You know the scope, cost and timeline before we start — no hidden fees, no surprises."
+      },
+      {
+        "title": "Fast delivery",
+        "text": "I deliver concrete products on short timelines — a simple website often in a few days."
+      },
+      {
+        "title": "Talk to the developer",
+        "text": "You talk directly to the developer who writes your code — no middlemen, no sales department."
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "lead": "A few things clients ask most often.",
+    "items": [
+      {
+        "q": "How much does a website or app cost?",
+        "a": "A simple website starts at 600 PLN, and custom apps and integrations are quoted individually. You always get a clear estimate before we start — the first conversation is free."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "A simple site is usually delivered in a few days, and simpler jobs can be done in as little as 1–2 days. Larger applications are built in short stages where you regularly see working progress."
+      },
+      {
+        "q": "Do you issue a VAT invoice?",
+        "a": "Yes. I operate as a registered business (VAT ID PL7133092677) and invoice with a VAT invoice."
+      },
+      {
+        "q": "Who owns the code?",
+        "a": "You do. After settlement I hand over full copyright and all source code — you're never locked into a single vendor."
+      },
+      {
+        "q": "Do you work remotely or only in Lublin?",
+        "a": "I'm based in Lublin and happy to meet in person, but I work remotely with clients across Poland and abroad."
+      },
+      {
+        "q": "What if I need changes after launch?",
+        "a": "I stay available — I offer support and further development, from one-off fixes to ongoing care of your project."
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Transparent pricing",
+    "lead": "We start from clear rates — usually about 40% of what agencies charge. The prices below are a starting point; you get the final quote before we start, with no hidden fees.",
+    "from": "from",
+    "currency": "PLN",
+    "popular": "Most popular",
+    "note": "Indicative net prices, depending on scope. The first conversation and quote are free.",
+    "cta": "Quote my project",
+    "custom": {
+      "title": "Apps, integrations & AI",
+      "text": "Custom web and mobile apps, automations, integrations (including KSeF/JPK) and AI solutions are quoted individually — after a short, free conversation about your needs."
+    },
+    "tiers": {
+      "landing": {
+        "name": "One-pager / Landing",
+        "price": "600",
+        "desc": "A single-page site that makes a first impression and collects leads.",
+        "features": [
+          "One-page site or business card",
+          "Responsive and fast (mobile-first)",
+          "Contact form",
+          "Basic SEO and Google profile",
+          "Delivered in as little as 1–2 days"
+        ]
+      },
+      "business": {
+        "name": "Business website",
+        "price": "900",
+        "desc": "A multi-page company website that builds trust and ranks on Google.",
+        "features": [
+          "Several to a dozen subpages",
+          "Custom design (not a template)",
+          "On-page SEO and Core Web Vitals",
+          "Easy-to-edit content",
+          "Blog / news section (optional)"
+        ]
+      },
+      "store": {
+        "name": "Online store",
+        "price": "1600",
+        "desc": "A store ready to sell — with payments, shipping and a management panel.",
+        "features": [
+          "Payments: cards, BLIK, transfers",
+          "Shipping integrations (InPost, courier)",
+          "Product and order management",
+          "Mobile-first and product-page SEO",
+          "Ready for promotions and growth"
+        ]
+      }
+    }
+  },
+  "blog": {
+    "heading": "Blog",
+    "lead": "Practical know-how about websites, apps and automation for businesses — no jargon, straight from experience.",
+    "minRead": "min read",
+    "backToBlog": "All posts",
+    "publishedOn": "Published",
+    "updatedOn": "Updated",
+    "relatedHeading": "Read next",
+    "ctaHeading": "Have a question or a project in mind?",
+    "ctaLead": "The first conversation and quote are free and with no obligation."
+  },
+  "services": {
+    "heading": "Services",
+    "lead": "Everything you need to bring your idea online — with a special focus on custom software and automation tailored exactly to your business. Designed, built and maintained by one developer who speaks your language, not just code.",
+    "detailsLink": "Learn more",
+    "whatHeading": "What you get",
+    "faqHeading": "Frequently asked questions",
+    "relatedHeading": "Related services",
+    "allServices": "All services",
+    "items": {
+      "websites": {
+        "title": "Websites & landing pages",
+        "description": "A fast, modern website that builds trust and brings you clients — from a simple business card to a sales-focused landing page.",
+        "bullets": [
+          "Business, portfolio and one-page sites",
+          "Mobile-first and lightning fast",
+          "Built for Google (SEO) from day one"
+        ],
+        "detail": {
+          "intro": "Your website is often the first impression a client gets. I build fast, modern sites that look great on every device, load in a blink and are ready for Google from day one — so people find you and trust you.",
+          "features": [
+            "Business sites, portfolios and one-page landings",
+            "Custom design or a redesign of your current site — crafted, never a template",
+            "Mobile-first, responsive design",
+            "Optimised for speed and Core Web Vitals",
+            "SEO-ready structure, metadata and sitemaps",
+            "Easy-to-edit content and contact forms"
+          ],
+          "faq": [
+            {
+              "q": "Will my site show up in Google?",
+              "a": "I build every site with SEO in mind — clean structure, fast loading, metadata and sitemaps — which gives you the best possible starting point to rank."
+            },
+            {
+              "q": "Can I update the content myself?",
+              "a": "Yes — I can set up the site so you can edit texts and images easily, or handle updates for you as part of ongoing support."
+            }
+          ]
+        }
+      },
+      "ecommerce": {
+        "title": "Online stores & e-commerce",
+        "description": "Start selling online with a store that's easy to manage, integrates payments and shipping, and looks great on every device.",
+        "bullets": [
+          "Online payments and shipping integrations",
+          "Simple product & order management",
+          "Ready for promotions and growth"
+        ],
+        "detail": {
+          "intro": "Selling online should be simple — for you and your customers. I build online stores that are easy to manage, integrate payments and shipping, and are built to grow with promotions, new products and more traffic.",
+          "features": [
+            "Product, order and inventory management",
+            "Custom storefront design — or a redesign of your existing store",
+            "Online payments and shipping integrations",
+            "Discounts, promotions and coupon support",
+            "Mobile-first storefront that converts",
+            "Analytics and SEO for product pages"
+          ],
+          "faq": [
+            {
+              "q": "Which payment methods can I offer?",
+              "a": "Common Polish and international gateways — cards, BLIK, transfers and more — can be integrated depending on your needs."
+            },
+            {
+              "q": "Can it handle a growing catalogue?",
+              "a": "Yes — stores are built to scale, so adding products, promotions and traffic won't break things."
+            }
+          ]
+        }
+      },
+      "webapps": {
+        "title": "Custom web applications",
+        "description": "Tailor-made tools that fit your business exactly — client panels, CRMs, dashboards, booking systems and SaaS products.",
+        "bullets": [
+          "Client panels, CRM and dashboards",
+          "Booking and reservation systems",
+          "SaaS products built to scale"
+        ],
+        "detail": {
+          "intro": "Off-the-shelf software rarely fits the way your company actually works. I build custom web applications around your exact processes — so your team stops fighting spreadsheets and clunky tools and starts working faster. From a simple internal panel to a full SaaS product, you get exactly what you need and nothing you don't.",
+          "features": [
+            "Client and admin panels with roles and permissions",
+            "UI/UX design and redesign built together with the app",
+            "CRMs, dashboards and reporting tailored to your data",
+            "Booking, reservation and order-management systems",
+            "SaaS products with subscriptions and multi-tenant support",
+            "Secure APIs and integrations with your existing tools"
+          ],
+          "faq": [
+            {
+              "q": "How much does a custom web application cost?",
+              "a": "It depends on scope, but I always start with a free conversation and a transparent estimate before any work begins — so you know the cost up front."
+            },
+            {
+              "q": "How long does it take?",
+              "a": "Small tools can be ready in a few weeks; larger applications are delivered in short stages so you see working progress regularly."
+            }
+          ]
+        }
+      },
+      "mobile": {
+        "title": "Mobile apps (iOS & Android)",
+        "description": "Reach your customers on their phones with one app that runs on both iOS and Android — faster and cheaper than building it twice.",
+        "bullets": [
+          "One codebase for iOS and Android",
+          "Native feel and performance",
+          "From idea to the app stores"
+        ],
+        "detail": {
+          "intro": "Your customers live on their phones — a good mobile app keeps you in their pocket. I build apps with React Native and Expo, so one codebase runs on both iOS and Android: faster to build, cheaper to maintain and consistent everywhere.",
+          "features": [
+            "One codebase for iOS and Android",
+            "Clean, native-feeling UI/UX design created alongside the app",
+            "Native performance and a smooth, modern UI",
+            "Push notifications, offline mode and device features",
+            "Backend, APIs and admin panel included when needed",
+            "Publishing to the App Store and Google Play"
+          ],
+          "faq": [
+            {
+              "q": "Do you build for both iOS and Android?",
+              "a": "Yes — with React Native both platforms are covered from a single codebase, which saves time and money versus building twice."
+            },
+            {
+              "q": "Can you also handle the backend?",
+              "a": "Absolutely. As a fullstack developer I can deliver the app, the server, the API and the admin panel as one complete product."
+            }
+          ]
+        }
+      },
+      "integrations": {
+        "title": "Integrations & automation",
+        "description": "Connect your systems and automate the boring, repetitive work — payments, invoicing (KSeF, JPK), external APIs and more.",
+        "bullets": [
+          "Payments, KSeF and JPK integrations",
+          "Connecting external APIs and services",
+          "Automating repetitive manual tasks"
+        ],
+        "detail": {
+          "intro": "Most businesses lose hours every week to repetitive, manual work — copying data between systems, generating the same reports, sending the same messages. I connect your tools and automate those tasks, so the work happens by itself and your team can focus on what matters.",
+          "features": [
+            "Connecting your systems, apps and external APIs",
+            "Payment, invoicing (KSeF, JPK) and accounting integrations",
+            "Automated reports, notifications and reminders",
+            "Data synchronisation between platforms — no more copy-paste",
+            "Scheduled jobs and event-based workflows"
+          ],
+          "faq": [
+            {
+              "q": "What can actually be automated?",
+              "a": "If a task is repetitive and rule-based — moving data, generating documents, sending emails, syncing systems — it can almost always be automated."
+            },
+            {
+              "q": "Will it work with the software I already use?",
+              "a": "In most cases yes. If a tool offers an API or export I can usually connect it; if not, we find the best workaround."
+            }
+          ]
+        }
+      },
+      "ksef": {
+        "title": "KSeF & e-invoicing",
+        "description": "Get your company ready for Poland's mandatory KSeF — e-invoicing integrated into the system you already use, on time and without the chaos.",
+        "bullets": [
+          "Integration with the National e-Invoicing System (KSeF)",
+          "Send and receive invoices from your own system",
+          "Compliant with JPK and e-invoicing requirements"
+        ],
+        "detail": {
+          "intro": "Structured e-invoices in KSeF are becoming mandatory in Poland — and many companies still don't know how to prepare. I handle it for you: integrating KSeF with the software you already use (invoicing, ERP, store), or delivering a simple way to issue and receive structured invoices. No downtime, fully compliant, on time.",
+          "features": [
+            "Integration with the KSeF API (production and test environments)",
+            "Sending and receiving structured invoices (FA(2)/FA(3))",
+            "Connecting to your invoicing system, ERP or store",
+            "Authentication: token, seal or qualified signature",
+            "Error handling, statuses and UPO, plus invoice archiving",
+            "Compliance with JPK and reporting"
+          ],
+          "faq": [
+            {
+              "q": "When does KSeF become mandatory?",
+              "a": "Poland's mandatory KSeF rollout is phased by company size, so it's worth preparing early. I'll advise what applies to your company and build the integration ahead of time."
+            },
+            {
+              "q": "Do I have to change my invoicing software?",
+              "a": "Usually not. If your system has an API or export, I connect KSeF to what you already use. If it doesn't, I propose the simplest workaround."
+            }
+          ]
+        }
+      },
+      "ai": {
+        "title": "AI solutions",
+        "description": "Put artificial intelligence to work in your business — a website chatbot, an assistant for emails and quotes, and automations that save time and money.",
+        "bullets": [
+          "Website chatbot and 24/7 customer support",
+          "Assistant for emails, quotes and documents",
+          "AI automations wired into your workflow"
+        ],
+        "detail": {
+          "intro": "AI is no longer just hype — used well, it saves real time and money. I help you put it to work in practical ways: a chatbot answering customers 24/7, an assistant for emails and quotes, a search across your knowledge base, or automatic document processing — integrated into the tools you already use.",
+          "features": [
+            "Chatbot and virtual assistant for your website or app",
+            "Automating replies to enquiries, emails and quotes",
+            "Search across your knowledge base and documents (RAG)",
+            "AI that reads, summarises and processes documents",
+            "Integrations with LLMs (e.g. Claude, GPT) into your workflow",
+            "Content and support tools tailored to your business"
+          ],
+          "faq": [
+            {
+              "q": "Is AI worth it for a small business?",
+              "a": "Often yes — even a simple assistant or document automation can save hours a week. We start small and expand what proves valuable."
+            },
+            {
+              "q": "Is my data safe?",
+              "a": "Yes. I design AI solutions with privacy in mind and choose tools and setups that keep your data under your control."
+            }
+          ]
+        }
+      },
+      "embedded": {
+        "title": "Embedded systems & IoT",
+        "description": "Custom firmware for microcontrollers and connected devices — ESP32, Raspberry Pi Pico, STM32 and Arduino, from prototype to production.",
+        "bullets": [
+          "Firmware for ESP32, Pico (RP2040), STM32 & Arduino",
+          "Wireless & IoT: Wi-Fi, Bluetooth LE, MQTT",
+          "Smart home, sensors and cloud integration"
+        ],
+        "detail": {
+          "intro": "I write custom firmware that brings electronics to life. Whether you have a hardware prototype that needs solid software, a smart-home or automation idea built around a microcontroller, or an existing device that should talk to the internet, I turn it into a stable, secure and production-ready solution. I work with the platforms that dominate modern IoT — ESP32, Raspberry Pi Pico, STM32 and Arduino — covering wireless connectivity, sensors, power optimisation and cloud integration.",
+          "features": [
+            "Firmware for ESP32, ESP8266, Raspberry Pi Pico (RP2040), STM32 and Arduino",
+            "Wireless connectivity: Wi-Fi, Bluetooth Low Energy (BLE) and MQTT",
+            "Smart home and home automation — custom devices, sensors and controllers",
+            "Sensor handling, measurement systems and hardware control",
+            "Low-power design and battery-life optimisation",
+            "Cloud and app integration for remote monitoring and control",
+            "Built with C/C++, ESP-IDF, MicroPython and FreeRTOS"
+          ],
+          "faq": [
+            {
+              "q": "Which microcontrollers and platforms do you work with?",
+              "a": "Mainly ESP32 and ESP8266, Raspberry Pi Pico (RP2040), STM32 and Arduino — using C/C++, ESP-IDF, MicroPython and FreeRTOS. If your project uses a different chip, just ask."
+            },
+            {
+              "q": "I only have a prototype or an idea — can you help?",
+              "a": "Yes. I often take hardware from a breadboard prototype to reliable, production-ready firmware, including wireless connectivity and cloud integration. We start with a free conversation and a clear estimate."
+            }
+          ]
+        }
+      },
+      "modernization": {
+        "title": "Modernization & migration",
+        "description": "Breathe new life into an old, slow or hard-to-maintain application — rewrites, migrations and performance improvements.",
+        "bullets": [
+          "Rewriting and refreshing legacy apps",
+          "Migrations (e.g. JavaScript to TypeScript)",
+          "Performance and stability improvements"
+        ],
+        "detail": {
+          "intro": "An old, slow or fragile application holds your business back. I modernise legacy systems — rewriting outdated code, migrating to current technologies and improving performance — so your software is fast, stable and ready for the future again.",
+          "features": [
+            "Rewriting and refreshing legacy applications",
+            "Visual redesign and a refreshed, modern UI as part of the upgrade",
+            "Migrations (e.g. JavaScript to TypeScript, framework upgrades)",
+            "Performance and stability improvements",
+            "Removing technical debt and improving maintainability",
+            "Gradual modernisation with no big-bang risk"
+          ],
+          "faq": [
+            {
+              "q": "Do I have to rebuild everything at once?",
+              "a": "No — I usually modernise step by step, so the system keeps working while it improves and there's no risky all-at-once switch."
+            },
+            {
+              "q": "My app's original developer is gone — can you help?",
+              "a": "Yes. I regularly pick up existing codebases, understand them and take over development and maintenance."
+            }
+          ]
+        }
+      },
+      "audit": {
+        "title": "SEO audit & optimization",
+        "description": "I'll find out why your site is slow or invisible on Google — and fix what actually affects customers.",
+        "bullets": [
+          "SEO, speed and Core Web Vitals audit",
+          "A concrete, prioritised list of fixes",
+          "Implementation and better visibility"
+        ],
+        "detail": {
+          "intro": "You have a website but it doesn't bring in clients? I check what's holding it back: speed, Core Web Vitals, SEO issues, structure and Google visibility. You get a concrete, prioritised report — and if you want, I implement the fixes and set up your Google profile so customers find you locally.",
+          "features": [
+            "On-page and technical SEO audit",
+            "Speed and Core Web Vitals analysis",
+            "Visibility and keyword audit",
+            "A concrete report with prioritised fixes",
+            "Implementation and optimisation of the changes",
+            "Google Business Profile setup and optimisation (maps)"
+          ],
+          "faq": [
+            {
+              "q": "Do I get concrete guidance or just a report?",
+              "a": "Both. You get a clear, prioritised report, and if you want I implement the fixes right away, so you don't need to find anyone else."
+            },
+            {
+              "q": "Will you handle my Google profile and maps?",
+              "a": "Yes. I'll set up or optimise your Google Business Profile so customers find you in local search results and on maps."
+            }
+          ]
+        }
+      },
+      "maintenance": {
+        "title": "Maintenance & support",
+        "description": "Keep your site or app fast, secure and up to date — with a developer who's there when something needs fixing or improving.",
+        "bullets": [
+          "Hosting, monitoring and updates",
+          "SEO and Core Web Vitals optimization",
+          "Ongoing support and improvements"
+        ],
+        "detail": {
+          "intro": "Software isn't 'done' at launch — it needs care to stay fast, secure and up to date. I keep your site or app healthy with monitoring, updates and improvements, and I'm there when something needs fixing.",
+          "features": [
+            "Hosting, monitoring and regular updates",
+            "Security patches and dependency upgrades",
+            "SEO and Core Web Vitals optimisation",
+            "Bug fixes and small improvements on request",
+            "A reliable point of contact when you need one"
+          ],
+          "faq": [
+            {
+              "q": "Do you offer ongoing support?",
+              "a": "Yes — I offer flexible maintenance and support, from occasional fixes to regular care, matched to what your project needs."
+            },
+            {
+              "q": "Can you take over a site someone else built?",
+              "a": "In most cases yes — I can review the existing project, stabilise it and maintain it going forward."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "projects": {
+    "heading": "Projects",
+    "lead": "I work in two ways: as a long-term partner on ongoing commercial projects, and as someone who delivers concrete products and services on short timelines. Below is a selection of both, plus a few things I built just for fun.",
+    "commercialHeading": "Commercial projects",
+    "commercialText": "Long-term engagements where I join a team or a product and help build and grow it over months or years.",
+    "websitesHeading": "Websites",
+    "websitesText": "Before 2019 I designed and built a number of websites for local businesses.",
+    "ownHeading": "For fun",
+    "ownText": "Sometimes I build things just for the joy of it.",
+    "labels": {
+      "duration": "Duration",
+      "highlights": "What I did",
+      "technologies": "Technologies",
+      "framework": "Methodology",
+      "team": "Team",
+      "links": "Links"
+    }
+  },
+  "about": {
+    "heading": "About me",
+    "lead": "Fullstack developer, husband, volunteer firefighter and motorcyclist based in Lublin, Poland.",
+    "intro": "I've been building for the web since 2016 — from small business websites to complex applications for international companies. I care about clean code, real results and honest communication.",
+    "labels": {
+      "name": "Name",
+      "age": "Age",
+      "city": "City",
+      "languages": "Languages",
+      "mainTech": "Main technologies",
+      "additionalSkills": "Additional skills",
+      "experience": "Experience",
+      "education": "Education",
+      "interests": "Interests"
+    },
+    "languages": "Polish (native), English (B1)",
+    "interests": {
+      "family": "wife & children",
+      "firefighting": "firefighting (squad leader in a volunteer fire department)",
+      "moto": "motorcycle & bike touring",
+      "history": "history",
+      "rescue": "medical rescue (qualified first aid)",
+      "football": "amateur football"
+    },
+    "jobs": {
+      "embiq": "Frontend Developer",
+      "ingrifo": "Frontend Developer",
+      "self": "Fullstack Developer (self-employed)",
+      "present": "present"
+    },
+    "educationText": "Engineer, University of Life Sciences, Lublin"
+  },
+  "contact": {
+    "heading": "Let's talk",
+    "lead": "Would you like to build something together? Tell me about your idea — the first conversation and quote are free.",
+    "phoneLabel": "Phone",
+    "emailLabel": "E-mail",
+    "whatsapp": "Chat on WhatsApp",
+    "nipLabel": "VAT ID (NIP)",
+    "responseNote": "I usually reply within an hour (during business hours).",
+    "form": {
+      "name": "Your name",
+      "email": "Your e-mail",
+      "message": "Tell me about your project",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Thanks! Your message has been sent — I'll get back to you soon.",
+      "error": "Something went wrong. Please try again or email me directly at",
+      "note": "Prefer email? Write directly to"
+    }
+  },
+  "footer": {
+    "tagline": "Software development — Lublin, Poland",
+    "rights": "All rights reserved.",
+    "built": "Built with Next.js"
+  }
+}

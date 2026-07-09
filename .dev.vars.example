@@ -1,0 +1,16 @@
+# Cloudflare Worker secrets/vars for local `wrangler dev` (copy to `.dev.vars`).
+# In production set these with `wrangler secret put <NAME>` or in the
+# Cloudflare dashboard (Workers → Settings → Variables).
+
+# Resend API key for sending the contact form email (https://resend.com).
+RESEND_API_KEY=""
+
+# Cloudflare Turnstile secret key (spam protection). Optional — if empty,
+# verification is skipped.
+TURNSTILE_SECRET_KEY=""
+
+# Where contact form messages are delivered (defaults to the site email).
+CONTACT_TO="furtak@maksymilian.org"
+
+# Verified Resend sender, e.g. "Kontakt <kontakt@maksymilian.org>".
+CONTACT_FROM=""

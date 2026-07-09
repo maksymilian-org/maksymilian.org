@@ -1,0 +1,630 @@
+{
+  "nav": {
+    "home": "Start",
+    "services": "Usługi",
+    "projects": "Projekty",
+    "blog": "Blog",
+    "about": "O mnie",
+    "contact": "Kontakt"
+  },
+  "common": {
+    "getQuote": "Darmowa wycena",
+    "seeServices": "Zobacz usługi",
+    "seeProjects": "Zobacz projekty",
+    "seePricing": "Zobacz cennik",
+    "letsTalk": "Porozmawiajmy",
+    "viewLive": "Zobacz",
+    "readMore": "Czytaj więcej",
+    "chatWhatsApp": "Napisz na WhatsApp",
+    "skipToContent": "Przejdź do treści",
+    "toggleTheme": "Zmień motyw",
+    "toggleMenu": "Menu",
+    "language": "Język",
+    "currencyLabel": "Waluta"
+  },
+  "meta": {
+    "home": {
+      "title": "Tworzenie oprogramowania, stron i aplikacji · maksymilian.org",
+      "description": "Maksymilian Furtak — fullstack developer z Lublina. Strony internetowe, sklepy online, dedykowane aplikacje web i mobilne, automatyzacje, AI oraz rozwiązania IoT / smart home dla Twojej firmy."
+    },
+    "services": {
+      "title": "Usługi",
+      "description": "Strony internetowe, sklepy e-commerce, dedykowane aplikacje web i mobilne, integracje, rozwiązania AI, modernizacja i utrzymanie — realizowane kompleksowo przez jednego developera."
+    },
+    "projects": {
+      "title": "Projekty",
+      "description": "Projekty komercyjne i własne Maksymiliana Furtaka — React, TypeScript, Next.js, Angular, Vue i Node.js."
+    },
+    "about": {
+      "title": "O mnie",
+      "description": "O Maksymilianie Furtaku — fullstack developer, strażak i motocyklista z Lublina."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Masz pomysł na projekt? Porozmawiajmy. Kontakt do Maksymiliana Furtaka — fullstack developer z Lublina."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Praktyczne artykuły o stronach, aplikacjach, automatyzacji, KSeF i AI dla firm — bez żargonu, od developera z Lublina."
+    }
+  },
+  "home": {
+    "eyebrow": "Software development",
+    "title": "Zamień swój pomysł w szybkie, nowoczesne oprogramowanie — web, mobile, IoT i AI",
+    "lead": "Jestem Maksymilian — fullstack developer z Lublina. Tworzę oprogramowanie od początku do końca: strony i sklepy internetowe, dedykowane aplikacje web i mobilne, automatyzacje i AI, które zdejmują z Ciebie powtarzalną pracę, oraz firmware dla urządzeń IoT i smart home. Od pomysłu po wdrożenie dostajesz działający produkt od jednej rzetelnej osoby — szybko i w rozsądnej cenie.",
+    "servicesHeading": "Co mogę dla Ciebie zbudować",
+    "servicesLead": "Od prostej strony firmowej po w pełni dedykowaną aplikację lub automatyzację zbudowaną wokół tego, jak działa Twoja firma — wszystko w jednym miejscu i w krótkim czasie realizacji.",
+    "processHeading": "Jak wygląda współpraca",
+    "process": {
+      "talk": {
+        "title": "1. Rozmawiamy",
+        "text": "Opowiadasz mi o swoim pomyśle i celach. Zadaję właściwe pytania i proponuję najprostszą drogę do celu."
+      },
+      "quote": {
+        "title": "2. Jasna wycena",
+        "text": "Dostajesz przejrzystą wycenę zakresu, kosztu i czasu — bez niespodzianek i ukrytych opłat."
+      },
+      "build": {
+        "title": "3. Realizuję",
+        "text": "Tworzę Twój produkt małymi krokami i w krótkim czasie, regularnie pokazując postępy, więc zawsze wiesz, na jakim jesteśmy etapie."
+      },
+      "launch": {
+        "title": "4. Start i opieka",
+        "text": "Uruchamiamy projekt. Zostaję do dyspozycji przy wsparciu, zmianach i ulepszeniach, kiedy tylko ich potrzebujesz."
+      }
+    },
+    "projectsHeading": "Ostatnie realizacje",
+    "projectsLead": "Długoterminowe projekty komercyjne, przy których pracowałem — a konkretne produkty dostarczam też w krótkich terminach.",
+    "reviewsHeading": "Co mówią klienci",
+    "reviewsLead": "Kilka słów od osób, z którymi pracowałem — wszystkie opinie znajdziesz na moim profilu Google.",
+    "reviewsAllCta": "Zobacz wszystkie opinie w Google",
+    "reviewsSource": "Opinie z Google",
+    "ctaHeading": "Masz pomysł? Zróbmy to razem.",
+    "ctaLead": "Pierwsza rozmowa i wycena są darmowe i niezobowiązujące.",
+    "fastBadge": "Szybka realizacja"
+  },
+  "stats": {
+    "items": [
+      { "value": "10+", "label": "lat doświadczenia" },
+      { "value": "5.0★", "label": "średnia z opinii Google" },
+      { "value": "1 h", "label": "typowy czas odpowiedzi" },
+      { "value": "1", "label": "osoba — od pomysłu po wdrożenie" }
+    ]
+  },
+  "guarantees": {
+    "heading": "Współpraca bez ryzyka",
+    "lead": "Konkrety, które odróżniają rzetelnego developera od przypadkowego wykonawcy.",
+    "items": [
+      {
+        "title": "Faktura VAT",
+        "text": "Działam jako zarejestrowana firma i rozliczam się na fakturę VAT — wygodnie dla Ciebie i Twojej księgowości."
+      },
+      {
+        "title": "Umowa i prawa autorskie",
+        "text": "Jasna umowa i pełne przekazanie praw autorskich do kodu — powstały produkt jest w 100% Twój."
+      },
+      {
+        "title": "Gwarancja poprawek",
+        "text": "Poprawki błędów po wdrożeniu masz w cenie — nie zostajesz sam z problemem."
+      },
+      {
+        "title": "Jasna wycena z góry",
+        "text": "Znasz zakres, koszt i termin przed startem — bez ukrytych opłat i niespodzianek."
+      },
+      {
+        "title": "Szybka realizacja",
+        "text": "Konkretne produkty dostarczam w krótkich terminach — prostą stronę często w kilka dni."
+      },
+      {
+        "title": "Bezpośredni kontakt",
+        "text": "Rozmawiasz wprost z developerem, który pisze Twój kod — bez pośredników i działu sprzedaży."
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Najczęstsze pytania",
+    "lead": "Kilka rzeczy, o które klienci pytają najczęściej.",
+    "items": [
+      {
+        "q": "Ile kosztuje strona lub aplikacja?",
+        "a": "Prosta strona zaczyna się od 600 zł, a dedykowane aplikacje i integracje wyceniam indywidualnie. Zawsze dostajesz jasną wycenę przed startem — pierwsza rozmowa jest darmowa."
+      },
+      {
+        "q": "Jak długo trwa realizacja?",
+        "a": "Prostą stronę oddaję zwykle w kilka dni, a prostsze zlecenia potrafię wykonać nawet w ciągu 1–2 dni. Większe aplikacje dostarczam w krótkich etapach, w których regularnie widzisz działające postępy."
+      },
+      {
+        "q": "Czy wystawiasz fakturę VAT?",
+        "a": "Tak. Działam jako zarejestrowana firma (NIP 7133092677) i rozliczam się na fakturę VAT."
+      },
+      {
+        "q": "Do kogo należą prawa do kodu?",
+        "a": "Do Ciebie. Po rozliczeniu przekazuję pełne prawa autorskie i cały kod źródłowy — nie uzależniasz się od jednego wykonawcy."
+      },
+      {
+        "q": "Pracujesz zdalnie czy tylko w Lublinie?",
+        "a": "Mam siedzibę w Lublinie i chętnie spotkam się na miejscu, ale pracuję zdalnie z klientami z całej Polski i zagranicy."
+      },
+      {
+        "q": "Co jeśli będę potrzebować zmian po wdrożeniu?",
+        "a": "Zostaję do dyspozycji — oferuję wsparcie i rozwój, od pojedynczych poprawek po stałą opiekę nad projektem."
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Przejrzysty cennik",
+    "lead": "Zaczynamy od jasnych stawek — zwykle około 40% tego, co biorą agencje. Ceny poniżej to punkt wyjścia; ostateczną wycenę poznajesz przed startem, bez ukrytych opłat.",
+    "from": "od",
+    "currency": "zł",
+    "popular": "Najczęściej wybierane",
+    "note": "Ceny orientacyjne netto, zależne od zakresu. Pierwsza rozmowa i wycena są darmowe.",
+    "cta": "Wyceń mój projekt",
+    "custom": {
+      "title": "Aplikacje, integracje i AI",
+      "text": "Dedykowane aplikacje webowe i mobilne, automatyzacje, integracje (w tym KSeF/JPK) oraz rozwiązania AI wyceniam indywidualnie — po krótkiej, darmowej rozmowie o Twoich potrzebach."
+    },
+    "tiers": {
+      "landing": {
+        "name": "Wizytówka / Landing",
+        "price": "600",
+        "desc": "Jednostronicowa strona, która robi pierwsze wrażenie i zbiera kontakty.",
+        "features": [
+          "Strona one-page lub wizytówka",
+          "Responsywna i szybka (mobile-first)",
+          "Formularz kontaktowy",
+          "Podstawowe SEO i profil Google",
+          "Realizacja nawet w 1–2 dni"
+        ]
+      },
+      "business": {
+        "name": "Strona firmowa",
+        "price": "900",
+        "desc": "Wielopodstronowa strona firmowa, która buduje zaufanie i pozycję w Google.",
+        "features": [
+          "Kilka–kilkanaście podstron",
+          "Indywidualny projekt (nie szablon)",
+          "SEO on-page i Core Web Vitals",
+          "Łatwa edycja treści",
+          "Blog / aktualności (opcjonalnie)"
+        ]
+      },
+      "store": {
+        "name": "Sklep internetowy",
+        "price": "1600",
+        "desc": "Sklep gotowy do sprzedaży — z płatnościami, wysyłką i panelem zarządzania.",
+        "features": [
+          "Płatności: karty, BLIK, przelewy",
+          "Integracje wysyłki (InPost, kurier)",
+          "Zarządzanie produktami i zamówieniami",
+          "Mobile-first i SEO kart produktów",
+          "Gotowy na promocje i rozwój"
+        ]
+      }
+    }
+  },
+  "blog": {
+    "heading": "Blog",
+    "lead": "Praktyczna wiedza o stronach, aplikacjach i automatyzacji dla firm — bez żargonu, prosto z doświadczenia.",
+    "minRead": "min czytania",
+    "backToBlog": "Wszystkie wpisy",
+    "publishedOn": "Opublikowano",
+    "updatedOn": "Aktualizacja",
+    "relatedHeading": "Zobacz też",
+    "ctaHeading": "Masz pytanie albo pomysł na projekt?",
+    "ctaLead": "Pierwsza rozmowa i wycena są darmowe i niezobowiązujące."
+  },
+  "services": {
+    "heading": "Usługi",
+    "lead": "Wszystko, czego potrzebujesz, aby zrealizować swój pomysł online — ze szczególnym naciskiem na dedykowane oprogramowanie i automatyzacje dopasowane do Twojej firmy. Zaprojektowane, zbudowane i utrzymywane przez jednego developera, który mówi Twoim językiem, nie tylko kodem.",
+    "detailsLink": "Dowiedz się więcej",
+    "whatHeading": "Co dostajesz",
+    "faqHeading": "Najczęstsze pytania",
+    "relatedHeading": "Powiązane usługi",
+    "allServices": "Wszystkie usługi",
+    "items": {
+      "websites": {
+        "title": "Strony i landing page'e",
+        "description": "Szybka, nowoczesna strona, która buduje zaufanie i przyciąga klientów — od prostej wizytówki po landing sprzedażowy.",
+        "bullets": [
+          "Strony firmowe, portfolio i one-page",
+          "Mobile-first i błyskawiczne działanie",
+          "Przygotowane pod Google (SEO) od początku"
+        ],
+        "detail": {
+          "intro": "Strona to często pierwsze wrażenie, jakie robisz na kliencie. Tworzę szybkie, nowoczesne strony, które świetnie wyglądają na każdym urządzeniu, ładują się w mgnieniu oka i są gotowe pod Google od pierwszego dnia — dzięki temu klienci Cię znajdują i Ci ufają.",
+          "features": [
+            "Strony firmowe, portfolia i landingi one-page",
+            "Indywidualny projekt graficzny lub redesign obecnej strony — nigdy szablon",
+            "Responsywny projekt mobile-first",
+            "Optymalizacja pod szybkość i Core Web Vitals",
+            "Struktura, metadane i sitemapy gotowe pod SEO",
+            "Łatwe w edycji treści i formularze kontaktowe"
+          ],
+          "faq": [
+            {
+              "q": "Czy moja strona pojawi się w Google?",
+              "a": "Każdą stronę buduję z myślą o SEO — czysta struktura, szybkie ładowanie, metadane i sitemapy — co daje najlepszy możliwy punkt startu do pozycjonowania."
+            },
+            {
+              "q": "Czy będę mógł sam aktualizować treści?",
+              "a": "Tak — mogę przygotować stronę tak, byś łatwo edytował teksty i zdjęcia, albo zająć się aktualizacjami w ramach wsparcia."
+            }
+          ]
+        }
+      },
+      "ecommerce": {
+        "title": "Sklepy internetowe i e-commerce",
+        "description": "Zacznij sprzedawać online ze sklepem, którym łatwo zarządzać, z płatnościami i wysyłką, wyglądającym świetnie na każdym urządzeniu.",
+        "bullets": [
+          "Płatności online i integracje wysyłki",
+          "Proste zarządzanie produktami i zamówieniami",
+          "Gotowy na promocje i rozwój"
+        ],
+        "detail": {
+          "intro": "Sprzedaż online powinna być prosta — dla Ciebie i dla klientów. Tworzę sklepy internetowe, którymi łatwo zarządzać, z integracją płatności i wysyłki, gotowe na rozwój dzięki promocjom, nowym produktom i większemu ruchowi.",
+          "features": [
+            "Zarządzanie produktami, zamówieniami i magazynem",
+            "Indywidualny projekt sklepu — lub redesign obecnego",
+            "Płatności online i integracje wysyłki",
+            "Rabaty, promocje i obsługa kuponów",
+            "Sklep mobile-first, który sprzedaje",
+            "Analityka i SEO kart produktów"
+          ],
+          "faq": [
+            {
+              "q": "Jakie metody płatności mogę oferować?",
+              "a": "Popularne polskie i międzynarodowe bramki — karty, BLIK, przelewy i inne — można zintegrować zależnie od potrzeb."
+            },
+            {
+              "q": "Czy sklep udźwignie rosnący asortyment?",
+              "a": "Tak — sklepy buduję z myślą o skalowaniu, więc dodawanie produktów, promocji i ruchu nie sprawi problemów."
+            }
+          ]
+        }
+      },
+      "webapps": {
+        "title": "Dedykowane aplikacje webowe",
+        "description": "Narzędzia szyte na miarę Twojej firmy — panele klienta, CRM-y, dashboardy, systemy rezerwacji i produkty SaaS.",
+        "bullets": [
+          "Panele klienta, CRM i dashboardy",
+          "Systemy rezerwacji i zapisów",
+          "Produkty SaaS gotowe na skalowanie"
+        ],
+        "detail": {
+          "intro": "Gotowe oprogramowanie rzadko pasuje do tego, jak naprawdę działa Twoja firma. Tworzę dedykowane aplikacje webowe wokół Twoich procesów — dzięki czemu zespół przestaje walczyć z arkuszami i niewygodnymi narzędziami, a zaczyna pracować szybciej. Od prostego panelu wewnętrznego po pełny produkt SaaS — dostajesz dokładnie to, czego potrzebujesz.",
+          "features": [
+            "Panele klienta i administracyjne z rolami i uprawnieniami",
+            "Projekt UI/UX i redesign tworzone razem z aplikacją",
+            "CRM-y, dashboardy i raporty dopasowane do Twoich danych",
+            "Systemy rezerwacji, zapisów i zarządzania zamówieniami",
+            "Produkty SaaS z subskrypcjami i obsługą wielu klientów",
+            "Bezpieczne API i integracje z narzędziami, których używasz"
+          ],
+          "faq": [
+            {
+              "q": "Ile kosztuje dedykowana aplikacja webowa?",
+              "a": "To zależy od zakresu, ale zawsze zaczynam od bezpłatnej rozmowy i przejrzystej wyceny przed rozpoczęciem prac — dzięki temu znasz koszt z góry."
+            },
+            {
+              "q": "Ile to trwa?",
+              "a": "Małe narzędzia potrafią być gotowe w kilka tygodni; większe aplikacje dostarczam w krótkich etapach, więc regularnie widzisz działające postępy."
+            }
+          ]
+        }
+      },
+      "mobile": {
+        "title": "Aplikacje mobilne (iOS i Android)",
+        "description": "Dotrzyj do klientów na ich telefonach z jedną aplikacją działającą na iOS i Androidzie — szybciej i taniej niż budując ją dwa razy.",
+        "bullets": [
+          "Jeden kod na iOS i Android",
+          "Natywne wrażenia i wydajność",
+          "Od pomysłu po sklepy z aplikacjami"
+        ],
+        "detail": {
+          "intro": "Twoi klienci żyją z telefonem w ręku — dobra aplikacja mobilna trzyma Cię w ich kieszeni. Tworzę aplikacje w React Native i Expo, więc jeden kod działa na iOS i Androidzie: szybciej w budowie, taniej w utrzymaniu i spójnie wszędzie.",
+          "features": [
+            "Jeden kod na iOS i Android",
+            "Czysty, natywny projekt UI/UX tworzony wraz z aplikacją",
+            "Natywna wydajność i płynny, nowoczesny interfejs",
+            "Powiadomienia push, tryb offline i funkcje urządzenia",
+            "Backend, API i panel administracyjny, gdy są potrzebne",
+            "Publikacja w App Store i Google Play"
+          ],
+          "faq": [
+            {
+              "q": "Tworzysz na iOS i Android?",
+              "a": "Tak — dzięki React Native obie platformy powstają z jednego kodu, co oszczędza czas i pieniądze w porównaniu z budowaniem dwa razy."
+            },
+            {
+              "q": "Czy zajmiesz się też backendem?",
+              "a": "Oczywiście. Jako fullstack developer dostarczam aplikację, serwer, API i panel administracyjny jako jeden kompletny produkt."
+            }
+          ]
+        }
+      },
+      "integrations": {
+        "title": "Integracje i automatyzacje",
+        "description": "Połącz swoje systemy i zautomatyzuj nudną, powtarzalną pracę — płatności, fakturowanie (KSeF, JPK), zewnętrzne API i więcej.",
+        "bullets": [
+          "Integracje płatności, KSeF i JPK",
+          "Łączenie zewnętrznych API i usług",
+          "Automatyzacja powtarzalnych zadań"
+        ],
+        "detail": {
+          "intro": "Większość firm traci co tydzień godziny na powtarzalną, ręczną pracę — przepisywanie danych między systemami, generowanie tych samych raportów, wysyłanie tych samych wiadomości. Łączę Twoje narzędzia i automatyzuję te zadania, aby praca działa się sama, a zespół mógł skupić się na tym, co ważne.",
+          "features": [
+            "Łączenie Twoich systemów, aplikacji i zewnętrznych API",
+            "Integracje płatności, fakturowania (KSeF, JPK) i księgowości",
+            "Automatyczne raporty, powiadomienia i przypomnienia",
+            "Synchronizacja danych między platformami — koniec z kopiuj-wklej",
+            "Zadania cykliczne i procesy wyzwalane zdarzeniami"
+          ],
+          "faq": [
+            {
+              "q": "Co właściwie można zautomatyzować?",
+              "a": "Jeśli zadanie jest powtarzalne i oparte na regułach — przenoszenie danych, generowanie dokumentów, wysyłka e-maili, synchronizacja systemów — niemal zawsze da się je zautomatyzować."
+            },
+            {
+              "q": "Czy zadziała z oprogramowaniem, którego już używam?",
+              "a": "W większości przypadków tak. Jeśli narzędzie udostępnia API lub eksport, zwykle mogę je podłączyć; jeśli nie, znajdujemy najlepsze obejście."
+            }
+          ]
+        }
+      },
+      "ksef": {
+        "title": "KSeF i e-faktury",
+        "description": "Przygotuję Twoją firmę na obowiązkowy KSeF — integracja e-faktur z systemem, którego już używasz, bez chaosu i w terminie.",
+        "bullets": [
+          "Integracja z Krajowym Systemem e-Faktur (KSeF)",
+          "Wysyłka i odbiór faktur z Twojego systemu",
+          "Zgodność z JPK i wymogami e-fakturowania"
+        ],
+        "detail": {
+          "intro": "E-faktury w KSeF stają się w Polsce obowiązkowe — a wiele firm wciąż nie wie, jak się do tego przygotować. Zajmuję się tym za Ciebie: integruję KSeF z programem, którego już używasz (fakturowanie, ERP, sklep), albo dostarczam prosty sposób na wystawianie i odbieranie faktur ustrukturyzowanych. Bez przestojów, zgodnie z przepisami i w terminie.",
+          "features": [
+            "Integracja z API KSeF (środowisko produkcyjne i testowe)",
+            "Wysyłka i odbiór faktur ustrukturyzowanych (FA(2)/FA(3))",
+            "Podłączenie do Twojego systemu fakturowania, ERP lub sklepu",
+            "Uwierzytelnianie: token, pieczęć lub kwalifikowany podpis",
+            "Obsługa błędów, statusów i UPO oraz archiwizacja faktur",
+            "Zgodność z JPK i raportowaniem"
+          ],
+          "faq": [
+            {
+              "q": "Od kiedy KSeF jest obowiązkowy?",
+              "a": "Wdrożenie obowiązkowego KSeF w Polsce jest rozłożone w czasie w zależności od wielkości firmy, więc warto przygotować się z wyprzedzeniem. Doradzę, co dotyczy Twojej firmy, i przygotuję integrację zawczasu."
+            },
+            {
+              "q": "Czy muszę zmieniać program do fakturowania?",
+              "a": "Zwykle nie. Jeśli Twój system ma API lub eksport, podłączam KSeF do tego, czego już używasz. Jeśli nie — proponuję najprostsze rozwiązanie zastępcze."
+            }
+          ]
+        }
+      },
+      "ai": {
+        "title": "Rozwiązania z AI",
+        "description": "Zaprzęgnij sztuczną inteligencję do pracy w Twojej firmie — chatbot na stronę, asystent do e-maili i ofert oraz automatyzacje, które oszczędzają czas i pieniądze.",
+        "bullets": [
+          "Chatbot na stronę i obsługa klienta 24/7",
+          "Asystent do e-maili, ofert i dokumentów",
+          "Automatyzacje AI wpięte w Twoje procesy"
+        ],
+        "detail": {
+          "intro": "AI to już nie tylko moda — dobrze użyte oszczędza realny czas i pieniądze. Pomagam wdrożyć je w praktyczny sposób: chatbot odpowiadający klientom 24/7, asystent do maili i ofert, wyszukiwarka po Twojej bazie wiedzy czy automatyczne przetwarzanie dokumentów — zintegrowane z narzędziami, których już używasz.",
+          "features": [
+            "Chatbot i wirtualny asystent na stronę lub do aplikacji",
+            "Automatyzacja odpowiedzi na zapytania, e-maili i ofert",
+            "Wyszukiwarka po Twojej bazie wiedzy i dokumentach (RAG)",
+            "AI, które czyta, streszcza i przetwarza dokumenty",
+            "Integracje z modelami LLM (np. Claude, GPT) w Twoich procesach",
+            "Narzędzia do treści i wsparcia dopasowane do firmy"
+          ],
+          "faq": [
+            {
+              "q": "Czy AI ma sens w małej firmie?",
+              "a": "Często tak — nawet prosty asystent czy automatyzacja dokumentów potrafi oszczędzić godziny tygodniowo. Zaczynamy od małych kroków i rozwijamy to, co się sprawdza."
+            },
+            {
+              "q": "Czy moje dane są bezpieczne?",
+              "a": "Tak. Projektuję rozwiązania AI z myślą o prywatności i dobieram narzędzia oraz konfiguracje, które pozostawiają dane pod Twoją kontrolą."
+            }
+          ]
+        }
+      },
+      "embedded": {
+        "title": "Systemy wbudowane i IoT",
+        "description": "Dedykowane oprogramowanie (firmware) dla mikrokontrolerów i urządzeń IoT — ESP32, Raspberry Pi Pico, STM32 i Arduino, od prototypu po gotowy produkt.",
+        "bullets": [
+          "Firmware na ESP32, Pico (RP2040), STM32 i Arduino",
+          "Łączność i IoT: Wi-Fi, Bluetooth LE, MQTT",
+          "Smart home, czujniki i integracja z chmurą"
+        ],
+        "detail": {
+          "intro": "Piszę dedykowane oprogramowanie (firmware), które ożywia elektronikę. Masz prototyp sprzętowy, który potrzebuje solidnego kodu, pomysł na smart home lub automatykę oparty o mikrokontroler albo istniejące urządzenie, które ma połączyć się z internetem? Zamieniam to w stabilne, bezpieczne i gotowe do produkcji rozwiązanie. Pracuję na platformach, które dominują w nowoczesnym IoT — ESP32, Raspberry Pi Pico, STM32 i Arduino — obsługując łączność bezprzewodową, czujniki, optymalizację zużycia energii i integrację z chmurą.",
+          "features": [
+            "Firmware na ESP32, ESP8266, Raspberry Pi Pico (RP2040), STM32 i Arduino",
+            "Łączność bezprzewodowa: Wi-Fi, Bluetooth Low Energy (BLE) i MQTT",
+            "Smart home i automatyka domowa — dedykowane urządzenia, czujniki i sterowniki",
+            "Obsługa czujników, systemy pomiarowe i sterowanie sprzętem",
+            "Niski pobór energii i optymalizacja pracy na baterii",
+            "Integracja z chmurą i aplikacją do zdalnego monitoringu i sterowania",
+            "Technologie: C/C++, ESP-IDF, MicroPython i FreeRTOS"
+          ],
+          "faq": [
+            {
+              "q": "Z jakimi mikrokontrolerami i platformami pracujesz?",
+              "a": "Głównie ESP32 i ESP8266, Raspberry Pi Pico (RP2040), STM32 oraz Arduino — w C/C++, ESP-IDF, MicroPython i FreeRTOS. Jeśli Twój projekt korzysta z innego układu, po prostu zapytaj."
+            },
+            {
+              "q": "Mam tylko prototyp albo pomysł — pomożesz?",
+              "a": "Tak. Często doprowadzam sprzęt od prototypu na płytce stykowej do niezawodnego, gotowego do produkcji firmware'u — łącznie z łącznością bezprzewodową i integracją z chmurą. Zaczynamy od darmowej rozmowy i jasnej wyceny."
+            }
+          ]
+        }
+      },
+      "modernization": {
+        "title": "Modernizacja i migracja",
+        "description": "Tchnij nowe życie w starą, wolną lub trudną w utrzymaniu aplikację — przepisanie, migracje i poprawa wydajności.",
+        "bullets": [
+          "Przepisywanie i odświeżanie starych aplikacji",
+          "Migracje (np. z JavaScript do TypeScript)",
+          "Poprawa wydajności i stabilności"
+        ],
+        "detail": {
+          "intro": "Stara, wolna lub krucha aplikacja hamuje Twój biznes. Modernizuję przestarzałe systemy — przepisuję nieaktualny kod, migruję do współczesnych technologii i poprawiam wydajność — aby Twoje oprogramowanie znów było szybkie, stabilne i gotowe na przyszłość.",
+          "features": [
+            "Przepisywanie i odświeżanie starych aplikacji",
+            "Redesign i odświeżony, nowoczesny interfejs w ramach modernizacji",
+            "Migracje (np. z JavaScript do TypeScript, aktualizacje frameworków)",
+            "Poprawa wydajności i stabilności",
+            "Usuwanie długu technicznego i łatwiejsze utrzymanie",
+            "Stopniowa modernizacja bez ryzyka rewolucji naraz"
+          ],
+          "faq": [
+            {
+              "q": "Czy muszę przebudować wszystko naraz?",
+              "a": "Nie — zwykle modernizuję krok po kroku, więc system działa, gdy się poprawia, i nie ma ryzykownego przełączenia wszystkiego naraz."
+            },
+            {
+              "q": "Twórca mojej aplikacji zniknął — pomożesz?",
+              "a": "Tak. Regularnie przejmuję istniejące projekty, rozumiem je i przejmuję rozwój oraz utrzymanie."
+            }
+          ]
+        }
+      },
+      "audit": {
+        "title": "Audyt i optymalizacja SEO",
+        "description": "Sprawdzę, dlaczego Twoja strona jest wolna lub niewidoczna w Google — i naprawię to, co realnie wpływa na klientów.",
+        "bullets": [
+          "Audyt SEO, szybkości i Core Web Vitals",
+          "Konkretna lista poprawek z priorytetami",
+          "Wdrożenie zmian i wzrost widoczności"
+        ],
+        "detail": {
+          "intro": "Masz stronę, ale nie przychodzą z niej klienci? Sprawdzam, co ją hamuje: szybkość, Core Web Vitals, błędy SEO, strukturę i widoczność w Google. Dostajesz konkretny raport z priorytetami — a jeśli chcesz, wdrażam poprawki i zajmuję się profilem Google, żeby klienci znaleźli Cię lokalnie.",
+          "features": [
+            "Audyt SEO on-page i technicznego",
+            "Analiza szybkości i Core Web Vitals",
+            "Audyt widoczności i słów kluczowych",
+            "Konkretny raport z listą poprawek według priorytetów",
+            "Wdrożenie zmian i optymalizacja",
+            "Konfiguracja i optymalizacja profilu Google (wizytówka, mapy)"
+          ],
+          "faq": [
+            {
+              "q": "Czy dostanę konkretne wskazówki, czy tylko raport?",
+              "a": "Jedno i drugie. Dostajesz czytelny raport z priorytetami, a jeśli chcesz — od razu wdrażam poprawki, więc nie musisz szukać nikogo dodatkowo."
+            },
+            {
+              "q": "Zajmiesz się profilem Google i mapami?",
+              "a": "Tak. Założę lub zoptymalizuję wizytówkę Google, żeby klienci znaleźli Cię w lokalnych wynikach wyszukiwania i na mapach."
+            }
+          ]
+        }
+      },
+      "maintenance": {
+        "title": "Utrzymanie i wsparcie",
+        "description": "Utrzymaj swoją stronę lub aplikację szybką, bezpieczną i aktualną — z developerem, który jest przy Tobie, gdy trzeba coś naprawić lub ulepszyć.",
+        "bullets": [
+          "Hosting, monitoring i aktualizacje",
+          "Optymalizacja SEO i Core Web Vitals",
+          "Stałe wsparcie i ulepszenia"
+        ],
+        "detail": {
+          "intro": "Oprogramowanie nie jest „skończone” w dniu startu — potrzebuje opieki, by pozostać szybkie, bezpieczne i aktualne. Utrzymuję Twoją stronę lub aplikację w formie dzięki monitoringowi, aktualizacjom i ulepszeniom, i jestem, gdy trzeba coś naprawić.",
+          "features": [
+            "Hosting, monitoring i regularne aktualizacje",
+            "Poprawki bezpieczeństwa i aktualizacje zależności",
+            "Optymalizacja SEO i Core Web Vitals",
+            "Naprawa błędów i drobne usprawnienia na życzenie",
+            "Pewny kontakt, gdy go potrzebujesz"
+          ],
+          "faq": [
+            {
+              "q": "Czy oferujesz stałe wsparcie?",
+              "a": "Tak — oferuję elastyczne utrzymanie i wsparcie, od okazjonalnych poprawek po regularną opiekę, dopasowane do potrzeb projektu."
+            },
+            {
+              "q": "Czy przejmiesz stronę zrobioną przez kogoś innego?",
+              "a": "W większości przypadków tak — mogę przejrzeć istniejący projekt, ustabilizować go i utrzymywać dalej."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "projects": {
+    "heading": "Projekty",
+    "lead": "Pracuję na dwa sposoby: jako długoterminowy partner przy stałych projektach komercyjnych oraz jako osoba, która dostarcza konkretne produkty i usługi w krótkich terminach. Poniżej wybór jednych i drugich, a także kilka rzeczy zbudowanych dla przyjemności.",
+    "commercialHeading": "Projekty komercyjne",
+    "commercialText": "Długoterminowa współpraca, w której dołączam do zespołu lub produktu i pomagam go rozwijać przez miesiące lub lata.",
+    "websitesHeading": "Strony internetowe",
+    "websitesText": "Przed 2019 rokiem projektowałem i budowałem strony dla lokalnych firm.",
+    "ownHeading": "Dla zabawy",
+    "ownText": "Czasem tworzę rzeczy po prostu dla przyjemności.",
+    "labels": {
+      "duration": "Czas trwania",
+      "highlights": "Co robiłem",
+      "technologies": "Technologie",
+      "framework": "Metodyka",
+      "team": "Zespół",
+      "links": "Linki"
+    }
+  },
+  "about": {
+    "heading": "O mnie",
+    "lead": "Fullstack developer, mąż, strażak ochotnik i motocyklista z Lublina.",
+    "intro": "Tworzę dla sieci od 2016 roku — od małych stron firmowych po złożone aplikacje dla międzynarodowych firm. Zależy mi na czystym kodzie, realnych efektach i uczciwej komunikacji.",
+    "labels": {
+      "name": "Imię i nazwisko",
+      "age": "Wiek",
+      "city": "Miasto",
+      "languages": "Języki",
+      "mainTech": "Główne technologie",
+      "additionalSkills": "Dodatkowe umiejętności",
+      "experience": "Doświadczenie",
+      "education": "Wykształcenie",
+      "interests": "Zainteresowania"
+    },
+    "languages": "polski (ojczysty), angielski (B1)",
+    "interests": {
+      "family": "żona i dzieci",
+      "firefighting": "pożarnictwo (dowódca sekcji w OSP)",
+      "moto": "turystyka motocyklowa i rowerowa",
+      "history": "historia",
+      "rescue": "ratownictwo medyczne (kwalifikowana pierwsza pomoc)",
+      "football": "amatorska piłka nożna"
+    },
+    "jobs": {
+      "embiq": "Frontend Developer",
+      "ingrifo": "Frontend Developer",
+      "self": "Fullstack Developer (samozatrudnienie)",
+      "present": "obecnie"
+    },
+    "educationText": "Inżynier, Uniwersytet Przyrodniczy w Lublinie"
+  },
+  "contact": {
+    "heading": "Porozmawiajmy",
+    "lead": "Chcesz zbudować coś razem? Opowiedz mi o swoim pomyśle — pierwsza rozmowa i wycena są darmowe.",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-mail",
+    "whatsapp": "Napisz na WhatsApp",
+    "nipLabel": "NIP",
+    "responseNote": "Zwykle odpowiadam w ciągu godziny (w godzinach pracy).",
+    "form": {
+      "name": "Twoje imię",
+      "email": "Twój e-mail",
+      "message": "Opowiedz mi o swoim projekcie",
+      "send": "Wyślij wiadomość",
+      "sending": "Wysyłanie…",
+      "success": "Dziękuję! Twoja wiadomość została wysłana — wkrótce się odezwę.",
+      "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na",
+      "note": "Wolisz e-mail? Napisz bezpośrednio na"
+    }
+  },
+  "footer": {
+    "tagline": "Software development — Lublin, Polska",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "built": "Zbudowane w Next.js"
+  }
+}
