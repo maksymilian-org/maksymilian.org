@@ -6,8 +6,8 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Price } from "@/components/pricing/Price";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-// Fixed display order; the middle tier is highlighted as the popular choice.
-const tierKeys = ["landing", "business", "store"] as const;
+// Five priced tiers + a sixth "custom / quote" tile, laid out 3 per row.
+const tierKeys = ["landing", "business", "store", "mobile", "automation"] as const;
 const highlighted = "business";
 
 interface Tier {
@@ -47,7 +47,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
       {withSchema && <JsonLd data={offerSchema} />}
       <SectionHeading center title={t("heading")} lead={t("lead")} />
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier) => {
           const isTop = tier.key === highlighted;
           return (
@@ -56,7 +56,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
               className={cn(
                 "relative flex flex-col rounded-2xl border p-6",
                 isTop
-                  ? "border-brand bg-surface shadow-lg lg:-mt-3 lg:mb-3"
+                  ? "border-brand bg-surface shadow-lg"
                   : "border-border bg-surface"
               )}
             >
@@ -74,7 +74,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
                 />
               </p>
               <p className="mt-3 text-sm text-muted">{tier.desc}</p>
-              <ul className="mt-6 space-y-2.5 border-t border-border pt-6">
+              <ul className="mt-6 flex-1 space-y-2.5 border-t border-border pt-6">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
@@ -83,7 +83,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
                 ))}
               </ul>
               <Link
-                href="/contact"
+                href={{ pathname: "/contact", query: { package: tier.key } }}
                 className={cn(
                   "mt-6 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5",
                   isTop
@@ -97,21 +97,27 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
             </div>
           );
         })}
-      </div>
 
-      {/* Custom work — quoted individually */}
-      <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-2xl border border-dashed border-border bg-surface p-6 sm:flex-row sm:items-center">
-        <div>
-          <h3 className="font-semibold">{t("custom.title")}</h3>
-          <p className="mt-1 max-w-2xl text-sm text-muted">{t("custom.text")}</p>
+        {/* Sixth panel — catch-all offer, no price, straight to a quote */}
+        <div className="flex flex-col rounded-2xl border border-dashed border-brand/40 bg-brand/5 p-6">
+          <h3 className="text-lg font-semibold">{t("custom.title")}</h3>
+          <p className="mt-3 text-sm text-muted">{t("custom.text")}</p>
+          <ul className="mt-6 flex-1 space-y-2.5 border-t border-brand/20 pt-6">
+            {(t.raw("custom.features") as string[]).map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href={{ pathname: "/contact", query: { package: "custom" } }}
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
+          >
+            {t("cta")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-        <Link
-          href="/contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
-        >
-          {t("cta")}
-          <ArrowRight className="h-4 w-4" />
-        </Link>
       </div>
 
       <p className="mt-6 text-center text-xs text-muted">{t("note")}</p>

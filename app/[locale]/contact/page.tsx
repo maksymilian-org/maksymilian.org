@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone, ReceiptText } from "lucide-react";
 import WhatsAppIcon from "@/components/social/icons/WhatsApp";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/utils/seo";
@@ -19,17 +19,41 @@ export async function generateMetadata({
   return buildPageMetadata({ locale, page: "contact", path: "/contact" });
 }
 
+// Package keys that may arrive via ?package= from the pricing tiles.
+const PACKAGE_KEYS = [
+  "landing",
+  "business",
+  "store",
+  "mobile",
+  "automation",
+  "custom",
+] as const;
+
 export default async function ContactPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <ContactContent />;
+
+  // Resolve the pricing package the visitor came from (if any) into its
+  // localized display name, so the form can show it and include it in the email.
+  const sp = await searchParams;
+  const pkgKey = typeof sp.package === "string" ? sp.package : undefined;
+  let packageLabel: string | undefined;
+  if (pkgKey && (PACKAGE_KEYS as readonly string[]).includes(pkgKey)) {
+    const tp = await getTranslations({ locale, namespace: "pricing" });
+    packageLabel =
+      pkgKey === "custom" ? tp("custom.title") : tp(`tiers.${pkgKey}.name`);
+  }
+
+  return <ContactContent packageLabel={packageLabel} />;
 }
 
-function ContactContent() {
+function ContactContent({ packageLabel }: { packageLabel?: string }) {
   const t = useTranslations("contact");
 
   return (
@@ -84,7 +108,7 @@ function ContactContent() {
           <p className="mt-8 text-sm text-muted">{t("responseNote")}</p>
         </div>
 
-        <ContactForm />
+        <ContactForm packageLabel={packageLabel} />
       </div>
     </Section>
   );

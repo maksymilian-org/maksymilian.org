@@ -12,7 +12,7 @@ type Status = "idle" | "sending" | "success" | "error";
 const inputClass =
   "w-full rounded-xl border border-border bg-surface px-4 py-3 text-fg outline-none transition-colors placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand/30";
 
-export function ContactForm() {
+export function ContactForm({ packageLabel }: { packageLabel?: string }) {
   const t = useTranslations("contact.form");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -31,6 +31,7 @@ export function ContactForm() {
           name: data.get("name"),
           email: data.get("email"),
           message: data.get("message"),
+          package: packageLabel,
           token,
         }),
       });
@@ -66,6 +67,15 @@ export function ContactForm() {
       )}
 
       <div className="space-y-4">
+        {packageLabel && (
+          <div className="rounded-xl border border-brand/30 bg-brand/5 p-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand">
+              {t("regardingLabel")}
+            </p>
+            <p className="mt-1 font-medium">{packageLabel}</p>
+            <p className="mt-1 text-xs text-muted">{t("regardingNote")}</p>
+          </div>
+        )}
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium">{t("name")}</span>
           <input

@@ -127,7 +127,7 @@
     "items": [
       {
         "q": "How much does a website or app cost?",
-        "a": "A simple website starts at 600 PLN, and custom apps and integrations are quoted individually. You always get a clear estimate before we start — the first conversation is free."
+        "a": "A simple website starts at 400 PLN, and custom apps and larger builds are quoted individually. You always get a clear estimate before we start — the first conversation is free."
       },
       {
         "q": "How long does it take?",
@@ -153,20 +153,27 @@
   },
   "pricing": {
     "heading": "Transparent pricing",
-    "lead": "We start from clear rates — usually about 40% of what agencies charge. The prices below are a starting point; you get the final quote before we start, with no hidden fees.",
+    "lead": "We start from clear rates — usually well below agency prices. The prices below are a starting point; you get the final quote before we start, with no hidden fees.",
     "from": "from",
     "currency": "PLN",
     "popular": "Most popular",
     "note": "Indicative net prices, depending on scope. The first conversation and quote are free.",
     "cta": "Quote my project",
     "custom": {
-      "title": "Apps, integrations & AI",
-      "text": "Custom web and mobile apps, automations, integrations (including KSeF/JPK) and AI solutions are quoted individually — after a short, free conversation about your needs."
+      "title": "Something bigger or bespoke?",
+      "text": "Larger, tailor-made projects are quoted individually — after a short, free conversation about your needs.",
+      "features": [
+        "Custom web apps (CRM, panels, dashboards)",
+        "SaaS systems and subscription products",
+        "AI solutions and automations",
+        "KSeF / JPK rollouts and integrations",
+        "Modernizing and growing existing systems"
+      ]
     },
     "tiers": {
       "landing": {
         "name": "One-pager / Landing",
-        "price": "600",
+        "price": "400",
         "desc": "A single-page site that makes a first impression and collects leads.",
         "features": [
           "One-page site or business card",
@@ -178,7 +185,7 @@
       },
       "business": {
         "name": "Business website",
-        "price": "900",
+        "price": "600",
         "desc": "A multi-page company website that builds trust and ranks on Google.",
         "features": [
           "Several to a dozen subpages",
@@ -190,7 +197,7 @@
       },
       "store": {
         "name": "Online store",
-        "price": "1600",
+        "price": "1200",
         "desc": "A store ready to sell — with payments, shipping and a management panel.",
         "features": [
           "Payments: cards, BLIK, transfers",
@@ -198,6 +205,30 @@
           "Product and order management",
           "Mobile-first and product-page SEO",
           "Ready for promotions and growth"
+        ]
+      },
+      "mobile": {
+        "name": "Mobile app",
+        "price": "1600",
+        "desc": "An iOS and Android app from one codebase — from idea to the app stores.",
+        "features": [
+          "One codebase for iOS and Android",
+          "Native look and performance",
+          "Push notifications and offline mode",
+          "Publishing to the App Store and Google Play",
+          "Backend and API when needed"
+        ]
+      },
+      "automation": {
+        "name": "Integration / automation",
+        "price": "400",
+        "desc": "Connect systems and automate repetitive work — from a single task upwards.",
+        "features": [
+          "Automating repetitive tasks",
+          "API and third-party integrations",
+          "Payments, KSeF, JPK, invoicing",
+          "Data sync between systems",
+          "Priced from a single process"
         ]
       }
     }
@@ -619,7 +650,9 @@
       "sending": "Sending…",
       "success": "Thanks! Your message has been sent — I'll get back to you soon.",
       "error": "Something went wrong. Please try again or email me directly at",
-      "note": "Prefer email? Write directly to"
+      "note": "Prefer email? Write directly to",
+      "regardingLabel": "Enquiry about",
+      "regardingNote": "This detail will be included in your message."
     }
   },
   "footer": {

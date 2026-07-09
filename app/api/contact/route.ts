@@ -35,6 +35,7 @@ export async function POST(req: Request) {
     name?: string;
     email?: string;
     message?: string;
+    package?: string;
     token?: string;
   };
   try {
@@ -46,6 +47,8 @@ export async function POST(req: Request) {
   const name = payload.name?.trim();
   const email = payload.email?.trim();
   const message = payload.message?.trim();
+  // Optional: which pricing package the visitor came from (already localized).
+  const pkg = payload.package?.trim()?.slice(0, 120);
 
   if (!name || !email || !message) {
     return json({ ok: false, error: "missing_fields" }, 400);
@@ -82,8 +85,12 @@ export async function POST(req: Request) {
       from,
       to,
       reply_to: email,
-      subject: `New message from ${name} — maksymilian.org`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+      subject: pkg
+        ? `New message from ${name} (${pkg}) — maksymilian.org`
+        : `New message from ${name} — maksymilian.org`,
+      text: `Name: ${name}\nEmail: ${email}${
+        pkg ? `\nRegarding: ${pkg}` : ""
+      }\n\n${message}`,
     }),
   });
 

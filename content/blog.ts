@@ -52,7 +52,7 @@ export const posts: BlogPost[] = [
         ] },
         { type: "h2", text: "Orientacyjne ceny na rynku" },
         { type: "p", text: "W polskich realiach (dane z ofert m.in. lubelskich firm) ceny zaczynają się mniej więcej tak: prosty landing lub wizytówka od 1500–1800 zł, strona firmowa od ok. 2200 zł, a sklep internetowy od kilku tysięcy złotych wzwyż. To ceny wyjściowe — ostateczny koszt rośnie wraz z zakresem." },
-        { type: "p", text: "Jako niezależny developer utrzymuję stawki na poziomie mniej więcej 40% tego, co biorą agencje, przy tej samej jakości wykonania: wizytówkę robię od 600 zł, stronę firmową od 900 zł, a sklep od 1600 zł. Niższa cena bierze się z braku narzutu agencyjnego, a nie z gorszej roboty." },
+        { type: "p", text: "Jako niezależny developer utrzymuję stawki znacznie niższe niż agencje, przy tej samej jakości wykonania: wizytówkę robię od 400 zł, stronę firmową od 600 zł, a sklep od 1200 zł. Niższa cena bierze się z braku narzutu agencyjnego, a nie z gorszej roboty." },
         { type: "h2", text: "Na czym nie warto oszczędzać" },
         { type: "p", text: "Najtańsza strona bywa najdroższa — jeśli jest wolna, nie działa na telefonach albo nie pojawia się w Google, po prostu nie przynosi klientów. Warto zadbać o:" },
         { type: "ul", items: [
@@ -77,7 +77,7 @@ export const posts: BlogPost[] = [
         ] },
         { type: "h2", text: "Typical market prices" },
         { type: "p", text: "In Poland, entry prices look roughly like this: a simple landing or one-pager from 1,500–1,800 PLN, a company website from about 2,200 PLN, and an online store from a few thousand PLN upwards. These are starting points — the final cost grows with scope." },
-        { type: "p", text: "As an independent developer I keep rates at roughly 40% of agency prices for the same build quality: a one-pager from 600 PLN, a company site from 900 PLN, and a store from 1,600 PLN. The lower price comes from no agency overhead — not from cutting corners." },
+        { type: "p", text: "As an independent developer I keep rates well below agency prices for the same build quality: a one-pager from 400 PLN, a company site from 600 PLN, and a store from 1,200 PLN. The lower price comes from no agency overhead — not from cutting corners." },
         { type: "h2", text: "Where not to cut costs" },
         { type: "p", text: "The cheapest website is often the most expensive — if it's slow, doesn't work on phones or never shows up in Google, it simply won't bring you clients. It's worth investing in:" },
         { type: "ul", items: [

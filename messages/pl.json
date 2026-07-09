@@ -127,7 +127,7 @@
     "items": [
       {
         "q": "Ile kosztuje strona lub aplikacja?",
-        "a": "Prosta strona zaczyna się od 600 zł, a dedykowane aplikacje i integracje wyceniam indywidualnie. Zawsze dostajesz jasną wycenę przed startem — pierwsza rozmowa jest darmowa."
+        "a": "Prosta strona zaczyna się od 400 zł, a dedykowane aplikacje i większe wdrożenia wyceniam indywidualnie. Zawsze dostajesz jasną wycenę przed startem — pierwsza rozmowa jest darmowa."
       },
       {
         "q": "Jak długo trwa realizacja?",
@@ -153,20 +153,27 @@
   },
   "pricing": {
     "heading": "Przejrzysty cennik",
-    "lead": "Zaczynamy od jasnych stawek — zwykle około 40% tego, co biorą agencje. Ceny poniżej to punkt wyjścia; ostateczną wycenę poznajesz przed startem, bez ukrytych opłat.",
+    "lead": "Zaczynamy od jasnych stawek — zwykle znacznie niższych niż w agencjach. Ceny poniżej to punkt wyjścia; ostateczną wycenę poznajesz przed startem, bez ukrytych opłat.",
     "from": "od",
     "currency": "zł",
     "popular": "Najczęściej wybierane",
     "note": "Ceny orientacyjne netto, zależne od zakresu. Pierwsza rozmowa i wycena są darmowe.",
     "cta": "Wyceń mój projekt",
     "custom": {
-      "title": "Aplikacje, integracje i AI",
-      "text": "Dedykowane aplikacje webowe i mobilne, automatyzacje, integracje (w tym KSeF/JPK) oraz rozwiązania AI wyceniam indywidualnie — po krótkiej, darmowej rozmowie o Twoich potrzebach."
+      "title": "Coś większego lub nietypowego?",
+      "text": "Większe i szyte na miarę projekty wyceniam indywidualnie — po krótkiej, darmowej rozmowie o Twoich potrzebach.",
+      "features": [
+        "Dedykowane aplikacje webowe (CRM, panele, dashboardy)",
+        "Systemy SaaS i produkty na subskrypcję",
+        "Rozwiązania i automatyzacje z AI",
+        "Wdrożenia i integracje KSeF / JPK",
+        "Modernizacja i rozwój istniejących systemów"
+      ]
     },
     "tiers": {
       "landing": {
         "name": "Wizytówka / Landing",
-        "price": "600",
+        "price": "400",
         "desc": "Jednostronicowa strona, która robi pierwsze wrażenie i zbiera kontakty.",
         "features": [
           "Strona one-page lub wizytówka",
@@ -178,7 +185,7 @@
       },
       "business": {
         "name": "Strona firmowa",
-        "price": "900",
+        "price": "600",
         "desc": "Wielopodstronowa strona firmowa, która buduje zaufanie i pozycję w Google.",
         "features": [
           "Kilka–kilkanaście podstron",
@@ -190,7 +197,7 @@
       },
       "store": {
         "name": "Sklep internetowy",
-        "price": "1600",
+        "price": "1200",
         "desc": "Sklep gotowy do sprzedaży — z płatnościami, wysyłką i panelem zarządzania.",
         "features": [
           "Płatności: karty, BLIK, przelewy",
@@ -198,6 +205,30 @@
           "Zarządzanie produktami i zamówieniami",
           "Mobile-first i SEO kart produktów",
           "Gotowy na promocje i rozwój"
+        ]
+      },
+      "mobile": {
+        "name": "Aplikacja mobilna",
+        "price": "1600",
+        "desc": "Aplikacja na iOS i Android z jednego kodu — od pomysłu po sklepy z aplikacjami.",
+        "features": [
+          "Jeden kod na iOS i Android",
+          "Natywny wygląd i wydajność",
+          "Powiadomienia push i tryb offline",
+          "Publikacja w App Store i Google Play",
+          "Backend i API, gdy potrzebne"
+        ]
+      },
+      "automation": {
+        "name": "Integracja / automatyzacja",
+        "price": "400",
+        "desc": "Połącz systemy i zautomatyzuj powtarzalną pracę — od jednego zadania w górę.",
+        "features": [
+          "Automatyzacja powtarzalnych zadań",
+          "Integracje API i zewnętrznych usług",
+          "Płatności, KSeF, JPK, fakturowanie",
+          "Synchronizacja danych między systemami",
+          "Wycena od jednego procesu"
         ]
       }
     }
@@ -619,7 +650,9 @@
       "sending": "Wysyłanie…",
       "success": "Dziękuję! Twoja wiadomość została wysłana — wkrótce się odezwę.",
       "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na",
-      "note": "Wolisz e-mail? Napisz bezpośrednio na"
+      "note": "Wolisz e-mail? Napisz bezpośrednio na",
+      "regardingLabel": "Zapytanie dotyczy",
+      "regardingNote": "Ta informacja zostanie dołączona do wiadomości."
     }
   },
   "footer": {
