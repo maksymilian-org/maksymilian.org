@@ -61,7 +61,7 @@ export function Reviews() {
           <span className="font-semibold">{reviewsSummary.rating.toFixed(1)}</span>
           <Stars rating={reviewsSummary.rating} />
           <span className="text-sm text-muted">
-            {reviewsSummary.count} · {t("reviewsSource")}
+            {t("reviewsSource")}
           </span>
         </div>
       )}
