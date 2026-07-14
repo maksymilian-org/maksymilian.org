@@ -8,6 +8,7 @@ import { services } from "@/content/services";
 import { site } from "@/content/site";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { CustomServiceCard } from "@/components/services/CustomServiceCard";
 import { Pricing } from "@/components/pricing/Pricing";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -62,6 +63,7 @@ function ServicesGrid() {
       {services.map((s) => (
         <ServiceCard key={s.id} service={s} detailed />
       ))}
+      <CustomServiceCard />
     </div>
   );
 }

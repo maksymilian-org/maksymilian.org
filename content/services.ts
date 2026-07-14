@@ -19,7 +19,8 @@ export type IllustrationKey =
   | "embedded"
   | "modernization"
   | "audit"
-  | "maintenance";
+  | "maintenance"
+  | "custom";
 
 // Order matters: custom solutions & automation are featured first. The home
 // page lists all of these in order; the order here is the order shown.

@@ -252,6 +252,10 @@
     "faqHeading": "Frequently asked questions",
     "relatedHeading": "Related services",
     "allServices": "All services",
+    "custom": {
+      "title": "Don't see your project?",
+      "description": "Not every idea fits a ready-made category. Tell me what you want to achieve — if it can be built, chances are I'll take it on."
+    },
     "items": {
       "websites": {
         "title": "Websites & landing pages",

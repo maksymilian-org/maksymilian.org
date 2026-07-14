@@ -134,6 +134,15 @@ const drawings: Record<IllustrationKey, ReactNode> = {
       <path d="M58 30a12 12 0 0 0-16 15L26 61a5 5 0 0 0 7 7l16-16a12 12 0 0 0 15-16l-8 8-6-6z" />
     </>
   ),
+  custom: (
+    <>
+      {/* lightbulb — your idea / anything else */}
+      <path {...soft} d="M48 20a20 20 0 0 0-12 36c2.5 1.9 4 4.4 4 7.5h16c0-3.1 1.5-5.6 4-7.5a20 20 0 0 0-12-36z" />
+      <path d="M48 20a20 20 0 0 0-12 36c2.5 1.9 4 4.4 4 7.5h16c0-3.1 1.5-5.6 4-7.5a20 20 0 0 0-12-36z" />
+      <path d="M42 71h12M44 77h8" />
+      <path d="M48 39v10M43 44h10" />
+    </>
+  ),
 };
 
 export function ServiceIllustration({ name }: { name: IllustrationKey }) {

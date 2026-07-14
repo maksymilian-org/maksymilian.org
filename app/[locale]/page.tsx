@@ -10,6 +10,7 @@ import { commercialProjects } from "@/content/projects";
 import { Hero } from "@/components/hero/Hero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { CustomServiceCard } from "@/components/services/CustomServiceCard";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Reviews } from "@/components/reviews/Reviews";
 import { Stats } from "@/components/home/Stats";
@@ -69,6 +70,7 @@ function ServicesPreview() {
         {services.map((s) => (
           <ServiceCard key={s.id} service={s} />
         ))}
+        <CustomServiceCard />
       </div>
       <div className="mt-10 text-center">
         <ButtonLink href="/services" variant="secondary">

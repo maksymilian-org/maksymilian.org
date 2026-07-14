@@ -252,6 +252,10 @@
     "faqHeading": "Najczęstsze pytania",
     "relatedHeading": "Powiązane usługi",
     "allServices": "Wszystkie usługi",
+    "custom": {
+      "title": "Nie widzisz swojego projektu?",
+      "description": "Nie każdy pomysł mieści się w gotowych kategoriach. Opowiedz mi, co chcesz osiągnąć — jeśli da się to zbudować, zwykle się tego podejmę."
+    },
     "items": {
       "websites": {
         "title": "Strony i landing page'e",
