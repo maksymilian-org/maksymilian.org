@@ -43,3 +43,7 @@ cloudflare-env.d.ts
 next-env.d.ts
 
 .vscode
+
+# DNS exports — never commit
+cloudflare-dns-import.txt
+*(DNS Records).csv

@@ -31,6 +31,12 @@ export function Footer() {
                 {t(`nav.${item.key}`)}
               </Link>
             ))}
+            <Link
+              href="/lublin"
+              className="text-sm text-muted transition-colors hover:text-fg"
+            >
+              {t("nav.lublin")}
+            </Link>
           </nav>
 
           <div className="text-sm text-muted">

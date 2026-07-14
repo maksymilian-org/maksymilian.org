@@ -11,10 +11,53 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+// Stable entity IDs so all structured data across the site forms one connected
+// graph (helps both classic rich results and AI/GEO entity understanding).
+export const PERSON_ID = `${site.url}/#person`;
+export const BUSINESS_ID = `${site.url}/#business`;
+export const WEBSITE_ID = `${site.url}/#website`;
+
+// What the person is an expert in — entity signals for search + AI engines.
+const KNOWS_ABOUT = [
+  "Web development",
+  "Mobile app development",
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Node.js",
+  "React Native",
+  "Angular",
+  "Vue.js",
+  "PHP",
+  "Laravel",
+  "MySQL",
+  "E-commerce",
+  "API integrations",
+  "KSeF e-invoicing",
+  "Workflow automation",
+  "AI and LLM integration",
+  "Embedded systems and IoT",
+  "SEO",
+];
+
+// Embeddable Person node (e.g. as a blog post author) — self-contained with
+// @id so it links to the main Person entity.
+export function authorPerson() {
+  return {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: site.name,
+    url: site.url,
+    jobTitle: "Fullstack Developer",
+    sameAs: [site.social.github, site.social.linkedin],
+  };
+}
+
 export function personSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     name: site.name,
     url: site.url,
     email: `mailto:${site.email}`,
@@ -23,9 +66,26 @@ export function personSchema() {
     address: {
       "@type": "PostalAddress",
       addressLocality: site.location.city,
+      addressRegion: site.location.region,
       addressCountry: "PL",
     },
+    knowsAbout: KNOWS_ABOUT,
+    knowsLanguage: ["pl", "en"],
+    worksFor: { "@id": BUSINESS_ID },
     sameAs: [site.social.github, site.social.linkedin],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    url: site.url,
+    name: site.brand,
+    inLanguage: ["en", "pl"],
+    publisher: { "@id": PERSON_ID },
+    about: { "@id": PERSON_ID },
   };
 }
 
@@ -57,9 +117,9 @@ export function localBusinessSchema(description: string) {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": BUSINESS_ID,
     name: site.name,
     image: `${site.url}/og.png`,
-    "@id": site.url,
     url: site.url,
     telephone: site.phone,
     email: `mailto:${site.email}`,
@@ -76,6 +136,8 @@ export function localBusinessSchema(description: string) {
       "tworzenie stron internetowych Lublin, aplikacje webowe, sklepy internetowe, programista fullstack Lublin, automatyzacje, KSeF, aplikacje mobilne",
     vatID: site.vatId,
     taxID: site.nip,
+    founder: { "@id": PERSON_ID },
+    provider: { "@id": PERSON_ID },
     ...ratingData,
     address: {
       "@type": "PostalAddress",

@@ -11,7 +11,7 @@ export function localizedPath(locale: Locale, path: string): string {
 
 interface PageMetaOptions {
   locale: Locale;
-  page: "home" | "services" | "projects" | "blog" | "about" | "contact";
+  page: "home" | "services" | "projects" | "blog" | "lublin" | "about" | "contact";
   path: string;
 }
 

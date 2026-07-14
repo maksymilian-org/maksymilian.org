@@ -5,7 +5,8 @@
     "projects": "Projects",
     "blog": "Blog",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "lublin": "Web developer Lublin"
   },
   "common": {
     "getQuote": "Get a free quote",
@@ -46,6 +47,10 @@
     "blog": {
       "title": "Blog",
       "description": "Practical articles about websites, apps, automation, KSeF and AI for businesses — no jargon, from a developer in Lublin, Poland."
+    },
+    "lublin": {
+      "title": "Web developer in Lublin, Poland",
+      "description": "Fullstack developer based in Lublin: websites, online stores, web & mobile apps, automation and KSeF. Local and remote, at a reasonable price. Free quote."
     }
   },
   "home": {
@@ -85,10 +90,22 @@
   },
   "stats": {
     "items": [
-      { "value": "10+", "label": "years of experience" },
-      { "value": "5.0★", "label": "average Google rating" },
-      { "value": "1 h", "label": "typical response time" },
-      { "value": "1", "label": "person — from idea to launch" }
+      {
+        "value": "10+",
+        "label": "years of experience"
+      },
+      {
+        "value": "5.0★",
+        "label": "average Google rating"
+      },
+      {
+        "value": "1 h",
+        "label": "typical response time"
+      },
+      {
+        "value": "1",
+        "label": "person — from idea to launch"
+      }
     ]
   },
   "guarantees": {
@@ -242,6 +259,36 @@
     "updatedOn": "Updated",
     "relatedHeading": "Read next",
     "ctaHeading": "Have a question or a project in mind?",
+    "ctaLead": "The first conversation and quote are free and with no obligation."
+  },
+  "lublin": {
+    "eyebrow": "Lublin · Poland",
+    "heading": "Web developer & websites — Lublin, Poland",
+    "lead": "I'm Maksymilian — a fullstack developer based in Lublin. I build websites, online stores and custom apps for local businesses, and I also work remotely with clients across Poland and abroad. From idea to launch you get a working product from one reliable person — quickly and at a reasonable price.",
+    "offerHeading": "What I build for businesses in Lublin",
+    "offerText": "From a business card and an online store to custom apps, automation and KSeF rollouts. Below are the most commonly requested builds — see the full offer on the services page.",
+    "remoteHeading": "Local — and remote across Poland",
+    "remoteText": "I'm based in Lublin, so we can meet in person and talk through your project. But you don't have to be from Lublin — most of the work is done remotely, collaborating smoothly with clients across the country and abroad.",
+    "whyHeading": "Why choose a local developer",
+    "why": [
+      {
+        "title": "Talk to the developer",
+        "text": "You talk directly to the person who writes your code — no middlemen or sales department, with fast decisions."
+      },
+      {
+        "title": "VAT invoice & contract",
+        "text": "I operate as a registered business in Lublin — legally, on a VAT invoice, with full transfer of the code's copyright."
+      },
+      {
+        "title": "Reasonable price",
+        "text": "Rates usually well below agencies for the same build quality — no agency overhead."
+      },
+      {
+        "title": "Post-launch care",
+        "text": "I stay available for support, changes and further development — I don't disappear after launch."
+      }
+    ],
+    "ctaHeading": "Have a project in Lublin or nearby?",
     "ctaLead": "The first conversation and quote are free and with no obligation."
   },
   "services": {

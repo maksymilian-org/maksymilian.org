@@ -18,7 +18,12 @@ import { Guarantees } from "@/components/home/Guarantees";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { Pricing } from "@/components/pricing/Pricing";
 import { ButtonLink } from "@/components/ui/Button";
-import { JsonLd, localBusinessSchema, personSchema } from "@/components/seo/JsonLd";
+import {
+  JsonLd,
+  localBusinessSchema,
+  personSchema,
+  websiteSchema,
+} from "@/components/seo/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -42,6 +47,7 @@ export default async function HomePage({
     <>
       <JsonLd data={personSchema()} />
       <JsonLd data={localBusinessSchema(t("home.description"))} />
+      <JsonLd data={websiteSchema()} />
       <Hero />
       <Stats />
       <ServicesPreview />

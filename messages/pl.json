@@ -5,7 +5,8 @@
     "projects": "Projekty",
     "blog": "Blog",
     "about": "O mnie",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "lublin": "Programista Lublin"
   },
   "common": {
     "getQuote": "Darmowa wycena",
@@ -46,6 +47,10 @@
     "blog": {
       "title": "Blog",
       "description": "Praktyczne artykuły o stronach, aplikacjach, automatyzacji, KSeF i AI dla firm — bez żargonu, od developera z Lublina."
+    },
+    "lublin": {
+      "title": "Programista Lublin — strony internetowe i aplikacje",
+      "description": "Fullstack developer z Lublina: strony internetowe, sklepy, aplikacje web i mobilne, automatyzacje i KSeF. Lokalnie i zdalnie, w rozsądnej cenie. Darmowa wycena."
     }
   },
   "home": {
@@ -85,10 +90,22 @@
   },
   "stats": {
     "items": [
-      { "value": "10+", "label": "lat doświadczenia" },
-      { "value": "5.0★", "label": "średnia z opinii Google" },
-      { "value": "1 h", "label": "typowy czas odpowiedzi" },
-      { "value": "1", "label": "osoba — od pomysłu po wdrożenie" }
+      {
+        "value": "10+",
+        "label": "lat doświadczenia"
+      },
+      {
+        "value": "5.0★",
+        "label": "średnia z opinii Google"
+      },
+      {
+        "value": "1 h",
+        "label": "typowy czas odpowiedzi"
+      },
+      {
+        "value": "1",
+        "label": "osoba — od pomysłu po wdrożenie"
+      }
     ]
   },
   "guarantees": {
@@ -242,6 +259,36 @@
     "updatedOn": "Aktualizacja",
     "relatedHeading": "Zobacz też",
     "ctaHeading": "Masz pytanie albo pomysł na projekt?",
+    "ctaLead": "Pierwsza rozmowa i wycena są darmowe i niezobowiązujące."
+  },
+  "lublin": {
+    "eyebrow": "Lublin · Lubelskie",
+    "heading": "Programista i tworzenie stron internetowych — Lublin",
+    "lead": "Jestem Maksymilian — fullstack developer z Lublina. Buduję strony, sklepy i dedykowane aplikacje dla lokalnych firm, a także pracuję zdalnie z klientami z całej Polski. Od pomysłu po wdrożenie dostajesz działający produkt od jednej rzetelnej osoby — szybko i w rozsądnej cenie.",
+    "offerHeading": "Co buduję dla firm z Lublina",
+    "offerText": "Od wizytówki i sklepu internetowego, przez dedykowane aplikacje i automatyzacje, po wdrożenia KSeF. Poniżej najczęściej zamawiane realizacje — pełną ofertę znajdziesz na stronie usług.",
+    "remoteHeading": "Lokalnie — i zdalnie w całej Polsce",
+    "remoteText": "Mam siedzibę w Lublinie, więc możemy spotkać się na miejscu i spokojnie omówić projekt. Ale nie musisz być z Lublina — większość pracy prowadzę zdalnie, sprawnie współpracując z klientami z całego kraju i zagranicy.",
+    "whyHeading": "Dlaczego warto wybrać lokalnego developera",
+    "why": [
+      {
+        "title": "Bezpośredni kontakt",
+        "text": "Rozmawiasz wprost z osobą, która pisze Twój kod — bez pośredników i działu sprzedaży, z szybkimi decyzjami."
+      },
+      {
+        "title": "Faktura VAT i umowa",
+        "text": "Działam jako zarejestrowana firma z Lublina (NIP 7133092677) — legalnie, na fakturę, z przekazaniem praw autorskich do kodu."
+      },
+      {
+        "title": "Rozsądna cena",
+        "text": "Stawki zwykle znacznie niższe niż w agencjach, przy tej samej jakości wykonania — bez narzutu agencyjnego."
+      },
+      {
+        "title": "Opieka po wdrożeniu",
+        "text": "Zostaję do dyspozycji przy wsparciu, zmianach i rozwoju — nie znikam po starcie projektu."
+      }
+    ],
+    "ctaHeading": "Masz projekt w Lublinie lub okolicy?",
     "ctaLead": "Pierwsza rozmowa i wycena są darmowe i niezobowiązujące."
   },
   "services": {

@@ -13,7 +13,7 @@ import { Section } from "@/components/ui/Section";
 import { PostBody } from "@/components/blog/PostBody";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, authorPerson } from "@/components/seo/JsonLd";
 
 interface Params {
   locale: Locale;
@@ -66,12 +66,12 @@ export default async function BlogPostPage({
     headline: post.title[locale],
     description: post.excerpt[locale],
     datePublished: post.date,
-    ...(post.updated ? { dateModified: post.updated } : {}),
+    dateModified: post.updated ?? post.date,
     inLanguage: locale,
     mainEntityOfPage: url,
     url,
-    author: { "@type": "Person", name: site.name, url: site.url },
-    publisher: { "@type": "Person", name: site.name, url: site.url },
+    author: authorPerson(),
+    publisher: authorPerson(),
     keywords: (post.tags[locale] ?? post.tags.pl).join(", "),
   };
 
