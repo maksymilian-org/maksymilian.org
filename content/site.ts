@@ -25,6 +25,12 @@ export const site = {
   },
 } as const;
 
+// Polish readers know the bare NIP; for everyone else the EU VAT form
+// (PL-prefixed) is the one that is actually usable on an invoice.
+export function taxIdFor(locale: string): string {
+  return locale === "pl" ? site.nip : site.vatId;
+}
+
 export const navItems = [
   { key: "home", href: "/" },
   { key: "services", href: "/services" },

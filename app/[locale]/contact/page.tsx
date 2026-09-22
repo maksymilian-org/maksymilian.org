@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Mail, MapPin, Phone, ReceiptText } from "lucide-react";
 import WhatsAppIcon from "@/components/social/icons/WhatsApp";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/utils/seo";
-import { site } from "@/content/site";
+import { site, taxIdFor } from "@/content/site";
 import { Section } from "@/components/ui/Section";
 import { Social } from "@/components/social/Social";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -55,6 +55,7 @@ export default async function ContactPage({
 
 function ContactContent({ packageLabel }: { packageLabel?: string }) {
   const t = useTranslations("contact");
+  const locale = useLocale();
 
   return (
     <Section>
@@ -100,7 +101,7 @@ function ContactContent({ packageLabel }: { packageLabel?: string }) {
               icon={<ReceiptText className="h-5 w-5" />}
               label={t("nipLabel")}
             >
-              {site.nip}
+              {taxIdFor(locale)}
             </ContactRow>
           </ul>
 

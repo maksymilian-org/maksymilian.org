@@ -1,11 +1,12 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { navItems, site } from "@/content/site";
+import { navItems, site, taxIdFor } from "@/content/site";
 import { Logo } from "@/components/brand/Logo";
 import { Social } from "@/components/social/Social";
 
 export function Footer() {
   const t = useTranslations();
+  const locale = useLocale();
   const year = new Date().getFullYear();
 
   return (
@@ -56,7 +57,7 @@ export function Footer() {
               {site.location.city}, {site.location.country}
             </p>
             <p className="mt-2">
-              {t("contact.nipLabel")}: {site.nip}
+              {t("contact.nipLabel")}: {taxIdFor(locale)}
             </p>
           </div>
         </div>
