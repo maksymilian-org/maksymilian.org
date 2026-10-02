@@ -83,7 +83,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
                 ))}
               </ul>
               <Link
-                href={{ pathname: "/contact", query: { package: tier.key } }}
+                href={{ pathname: "/quote", query: { service: tier.key } }}
                 className={cn(
                   "mt-6 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5",
                   isTop
@@ -111,7 +111,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
             ))}
           </ul>
           <Link
-            href={{ pathname: "/contact", query: { package: "custom" } }}
+            href={{ pathname: "/quote", query: { service: "other" } }}
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
           >
             {t("cta")}
