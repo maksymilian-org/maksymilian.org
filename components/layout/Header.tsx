@@ -53,7 +53,7 @@ export function Header() {
           <CurrencySwitcher />
           <LanguageSwitcher />
           <ThemeToggle />
-          <ButtonLink href="/contact" className="px-4 py-2">
+          <ButtonLink href="/quote" className="px-4 py-2">
             {t("common.getQuote")}
           </ButtonLink>
         </div>
@@ -94,7 +94,7 @@ export function Header() {
             </div>
             <div className="mt-4 flex items-center justify-between">
               <ButtonLink
-                href="/contact"
+                href="/quote"
                 className="px-4 py-2"
                 onClick={() => setOpen(false)}
               >

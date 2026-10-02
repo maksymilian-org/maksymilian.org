@@ -168,7 +168,7 @@ function Article({ post }: { post: BlogPost }) {
         <p className="mx-auto mt-3 max-w-xl text-white/85">{t("ctaLead")}</p>
         <div className="mt-7">
           <Link
-            href="/contact"
+            href="/quote"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             {c("getQuote")}

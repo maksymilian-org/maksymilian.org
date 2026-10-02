@@ -104,6 +104,21 @@ export default async function ServiceDetailPage({
   );
 }
 
+// Which estimator category matches each service page (the rest fall under "other").
+const QUOTE_SERVICE: Record<string, string> = {
+  webapps: "webapp",
+  integrations: "automation",
+  ksef: "ksef",
+  mobile: "mobile",
+  websites: "business",
+  ecommerce: "store",
+  ai: "ai",
+  embedded: "other",
+  modernization: "other",
+  audit: "other",
+  maintenance: "other",
+};
+
 function ServiceDetail({ service }: { service: ServiceDef }) {
   const t = useTranslations("services");
   const c = useTranslations("common");
@@ -186,7 +201,7 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
           <p className="text-lg font-semibold">{c("letsTalk")}</p>
           <p className="mt-2 text-sm text-white/85">{c("getQuote")}</p>
           <Link
-            href="/contact"
+            href={{ pathname: "/quote", query: { service: QUOTE_SERVICE[id] } }}
             className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand transition-all hover:-translate-y-0.5"
           >
             {c("getQuote")}

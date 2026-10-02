@@ -78,7 +78,7 @@ function Cta() {
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-muted">{t("ctaLead")}</p>
       <div className="mt-7">
-        <ButtonLink href="/contact">
+        <ButtonLink href="/quote">
           {c("getQuote")}
           <ArrowRight className="h-4 w-4" />
         </ButtonLink>

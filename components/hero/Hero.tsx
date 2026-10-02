@@ -24,7 +24,7 @@ export function Hero() {
             {t("lead")}
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/contact">
+            <ButtonLink href="/quote">
               {c("getQuote")}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
