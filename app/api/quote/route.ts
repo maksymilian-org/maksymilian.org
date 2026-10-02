@@ -1,6 +1,9 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { site } from "@/content/site";
 import {
+  ATTACHMENT_TYPES,
+  MAX_ATTACHMENTS,
+  MAX_ATTACHMENT_MB,
   budgets,
   calculateEstimate,
   contactVia,
@@ -26,7 +29,10 @@ interface Payload {
   scale?: string;
   options?: unknown;
   timeline?: string;
+  deadline?: string;
   budget?: string;
+  budgetCustom?: string;
+  contactNote?: string;
   maintenance?: boolean;
   state?: string;
   content?: string;
@@ -67,6 +73,23 @@ async function verifyTurnstile(secret: string, token: string, ip?: string) {
   return data.success === true;
 }
 
+function toBase64(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let binary = "";
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
+}
+
+const EXT: Record<string, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+  "image/gif": "gif",
+};
+
 const clean = (v: unknown, max: number) =>
   typeof v === "string" ? v.trim().slice(0, max) : "";
 
@@ -85,8 +108,11 @@ export async function POST(req: Request) {
   const env = getCloudflareContext().env as unknown as Env;
 
   let p: Payload;
+  let uploads: File[] = [];
   try {
-    p = await req.json();
+    const form = await req.formData();
+    p = JSON.parse(String(form.get("payload") ?? "{}"));
+    uploads = form.getAll("files").filter((x): x is File => typeof x !== "string");
   } catch {
     return json({ ok: false, error: "bad_request" }, 400);
   }
@@ -101,6 +127,14 @@ export async function POST(req: Request) {
   }
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return json({ ok: false, error: "invalid_email" }, 400);
+  }
+
+  const maxBytes = MAX_ATTACHMENT_MB * 1024 * 1024;
+  if (
+    uploads.length > MAX_ATTACHMENTS ||
+    uploads.some((u) => !ATTACHMENT_TYPES.includes(u.type) || u.size > maxBytes || u.size === 0)
+  ) {
+    return json({ ok: false, error: "bad_attachment" }, 400);
   }
 
   if (env.TURNSTILE_SECRET_KEY) {
@@ -122,7 +156,8 @@ export async function POST(req: Request) {
   const options = strings(p.options).filter((id) => validOptions.has(id));
   const scale = clean(p.scale, 40);
   const timeline = clean(p.timeline, 40);
-  const estimate = calculateEstimate({ service: service.id, scale, options, timeline });
+  const deadline = clean(p.deadline, 10);
+  const estimate = calculateEstimate({ service: service.id, scale, options, timeline, deadline });
 
   const scaleLabel = service.scale?.choices.find((c) => c.id === scale)?.label.pl;
   const optionLabels = service.options
@@ -138,6 +173,15 @@ export async function POST(req: Request) {
   const kv = (label: string, value: string | undefined | false) =>
     value ? `${label}: ${value}` : null;
   const via = plLabel(contactVia, clean(p.via, 20));
+  const budgetId = clean(p.budget, 20);
+  const budgetText =
+    budgetId === "custom"
+      ? `własna kwota: ${clean(p.budgetCustom, 40) || "nie podano"}`
+      : plLabel(budgets, budgetId) || "nie podano";
+  const timelineText =
+    timeline === "date"
+      ? `konkretna data: ${deadline || "nie podano"}`
+      : plLabel(timelines, timeline) || "nie podano";
   const source = plLabel(sources, clean(p.source, 20));
   const stateLabel = plLabel(currentStates, clean(p.state, 20));
   const contentLabel = plLabel(contentStates, clean(p.content, 20));
@@ -157,6 +201,7 @@ export async function POST(req: Request) {
       kv("Telefon", clean(p.phone, 40)),
       kv("Firma", clean(p.company, 160)),
       kv("Preferowany kontakt", via),
+      kv("Szczegóły kontaktu", clean(p.contactNote, 200)),
       kv("Skąd wie o mnie", source),
       "",
       "ZAKRES",
@@ -178,10 +223,11 @@ export async function POST(req: Request) {
       description,
       "",
       "TERMIN I BUDŻET",
-      `Termin: ${plLabel(timelines, timeline) || "nie podano"}`,
-      `Budżet: ${plLabel(budgets, clean(p.budget, 20)) || "nie podano"}`,
+      `Termin: ${timelineText}`,
+      `Budżet: ${budgetText}`,
       `Opieka po wdrożeniu: ${p.maintenance ? "tak" : "nie"}`,
       "",
+      uploads.length ? `Załączniki: ${uploads.length} (w mailu)` : "Załączniki: brak",
       `Język strony: ${p.locale === "pl" ? "PL" : "EN"}`,
     ] as (string | null)[]
   )
@@ -203,6 +249,12 @@ export async function POST(req: Request) {
       reply_to: email,
       subject: `Wycena: ${service.title.pl} — ${name}${estimate ? ` (${pln(estimate.low)}–${pln(estimate.high)})` : ""}`,
       text: lines,
+      attachments: await Promise.all(
+        uploads.map(async (u, i) => ({
+          filename: `zalacznik-${i + 1}.${EXT[u.type] ?? "bin"}`,
+          content: toBase64(await u.arrayBuffer()),
+        }))
+      ),
     }),
   });
 

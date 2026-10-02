@@ -3,10 +3,13 @@
 import Script from "next/script";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "next-intl";
-import { ArrowLeft, ArrowRight, Check, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Clock, ImagePlus, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/content/site";
 import {
+  ATTACHMENT_TYPES,
+  MAX_ATTACHMENTS,
+  MAX_ATTACHMENT_MB,
   budgets,
   calculateEstimate,
   contactVia,
@@ -32,14 +35,26 @@ const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type Lang = "pl" | "en";
 type Status = "idle" | "sending" | "error";
 
+const todayIso = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+};
+
 declare global {
   interface Window {
     turnstile?: {
       render: (
         el: HTMLElement,
-        opts: { sitekey: string; theme?: string; callback?: (token: string) => void }
+        opts: {
+          sitekey: string;
+          theme?: string;
+          callback?: (token: string) => void;
+          "expired-callback"?: () => void;
+          "error-callback"?: () => void;
+        }
       ) => string;
       remove: (id: string) => void;
+      reset: (id?: string) => void;
     };
   }
 }
@@ -57,12 +72,15 @@ interface Answers {
   integrations: string;
   description: string;
   timeline: string;
+  deadline: string;
   budget: string;
+  budgetCustom: string;
   maintenance: boolean;
   name: string;
   email: string;
   phone: string;
   company: string;
+  contactNote: string;
   via: string;
   source: string;
   consent: boolean;
@@ -79,12 +97,15 @@ const initialAnswers: Answers = {
   integrations: "",
   description: "",
   timeline: "flexible",
+  deadline: "",
   budget: "unsure",
+  budgetCustom: "",
   maintenance: false,
   name: "",
   email: "",
   phone: "",
   company: "",
+  contactNote: "",
   via: "email",
   source: "",
   consent: false,
@@ -109,11 +130,15 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
   const [pos, setPos] = useState(initialService ? 1 : 0);
   const [showErrors, setShowErrors] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorCode, setErrorCode] = useState("");
+  const [files, setFiles] = useState<File[]>([]);
+  const [verified, setVerified] = useState(!siteKey);
   const [done, setDone] = useState(false);
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const turnstileEl = useRef<HTMLDivElement>(null);
   const turnstileToken = useRef("");
+  const turnstileId = useRef<string | undefined>(undefined);
   const firstRender = useRef(true);
 
   const set = (patch: Partial<Answers>) => setA((prev) => ({ ...prev, ...patch }));
@@ -154,13 +179,26 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
           theme: "auto",
           callback: (token) => {
             turnstileToken.current = token;
+            setVerified(true);
+          },
+          "expired-callback": () => {
+            turnstileToken.current = "";
+            setVerified(false);
+          },
+          "error-callback": () => {
+            turnstileToken.current = "";
+            setVerified(false);
           },
         });
+        turnstileId.current = widgetId;
       }
     }, 300);
     return () => {
       clearInterval(timer);
       if (widgetId) window.turnstile?.remove(widgetId);
+      turnstileId.current = undefined;
+      turnstileToken.current = "";
+      if (siteKey) setVerified(false);
     };
   }, [step, done]);
 
@@ -170,8 +208,15 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
         return !!a.service;
       case 2:
         return a.description.trim().length >= 10;
+      case 3:
+        return a.timeline !== "date" || (a.deadline !== "" && a.deadline >= todayIso());
       case 4:
-        return a.name.trim().length > 0 && EMAIL_RE.test(a.email.trim()) && a.consent;
+        return (
+          a.name.trim().length > 0 &&
+          EMAIL_RE.test(a.email.trim()) &&
+          a.consent &&
+          (!["phone", "whatsapp"].includes(a.via) || a.phone.trim().length >= 6)
+        );
       default:
         return true;
     }
@@ -194,16 +239,25 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
     }
     setStatus("sending");
     try {
-      const res = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...a, locale: lang, token: turnstileToken.current }),
-      });
-      if (!res.ok) throw new Error("failed");
+      const body = new FormData();
+      body.append("payload", JSON.stringify({ ...a, locale: lang, token: turnstileToken.current }));
+      files.forEach((file) => body.append("files", file));
+      const res = await fetch("/api/quote", { method: "POST", body });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        setErrorCode(data.error ?? "");
+        throw new Error("failed");
+      }
       trackEvent("generate_lead", { lead_type: "quote", service: a.service ?? "" });
       setDone(true);
     } catch {
       setStatus("error");
+      // Turnstile tokens are single-use: get a fresh one for the retry.
+      turnstileToken.current = "";
+      if (siteKey) {
+        setVerified(false);
+        window.turnstile?.reset(turnstileId.current);
+      }
     }
   }
 
@@ -215,9 +269,10 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
             scale: a.scale,
             options: a.options,
             timeline: a.timeline,
+            deadline: a.deadline,
           })
         : null,
-    [a.service, a.scale, a.options, a.timeline]
+    [a.service, a.scale, a.options, a.timeline, a.deadline]
   );
 
   if (done) {
@@ -456,6 +511,8 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
               />
             </label>
             {showErrors && a.description.trim().length < 10 && <ErrorNote lang={lang} />}
+
+            <Attachments files={files} onChange={setFiles} lang={lang} />
           </section>
         )}
 
@@ -470,6 +527,27 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
               tx={tx}
               columns
             />
+            {a.timeline === "date" && (
+              <label className="block">
+                <span className="mb-1.5 block text-sm font-medium">
+                  {tx(quoteUi.deadline)} <span className="text-brand">*</span>
+                </span>
+                <input
+                  type="date"
+                  min={todayIso()}
+                  value={a.deadline}
+                  onChange={(e) => set({ deadline: e.target.value })}
+                  className={`${inputClass} ${showErrors && !stepValid(3) ? "border-red-500" : ""}`}
+                  aria-invalid={showErrors && !stepValid(3)}
+                />
+                <span className="mt-1.5 block text-xs text-muted">{tx(quoteUi.deadlineHint)}</span>
+                {showErrors && !stepValid(3) && (
+                  <span className="mt-1 block text-sm text-red-500" role="alert">
+                    {tx(quoteUi.deadlinePast)}
+                  </span>
+                )}
+              </label>
+            )}
             <label className="block">
               <span className="mb-1.5 block text-sm font-medium">{tx(quoteUi.budget)}</span>
               <select
@@ -484,6 +562,14 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
                 ))}
               </select>
             </label>
+            {a.budget === "custom" && (
+              <TextField
+                label={tx(quoteUi.budgetCustom)}
+                value={a.budgetCustom}
+                onChange={(v) => set({ budgetCustom: v.slice(0, 40) })}
+                placeholder={tx(quoteUi.budgetCustomPh)}
+              />
+            )}
             {service?.monthly && (
               <button
                 type="button"
@@ -533,6 +619,8 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
                 onChange={(v) => set({ phone: v })}
                 type="tel"
                 autoComplete="tel"
+                required={["phone", "whatsapp"].includes(a.via)}
+                invalid={showErrors && ["phone", "whatsapp"].includes(a.via) && a.phone.trim().length < 6}
               />
               <TextField
                 label={tx(quoteUi.company)}
@@ -550,6 +638,17 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
               tx={tx}
               compact
             />
+            {a.via === "slack" && (
+              <TextField
+                label={tx(quoteUi.contactNote)}
+                value={a.contactNote}
+                onChange={(v) => set({ contactNote: v.slice(0, 200) })}
+                placeholder={tx(quoteUi.contactNoteSlack)}
+              />
+            )}
+            {showErrors && ["phone", "whatsapp"].includes(a.via) && a.phone.trim().length < 6 && (
+              <p className="text-sm text-red-500" role="alert">{tx(quoteUi.phoneNeeded)}</p>
+            )}
 
             <label className="block">
               <span className="mb-1.5 block text-sm font-medium">{tx(quoteUi.source)}</span>
@@ -581,11 +680,18 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
             </label>
 
             {siteKey && <div ref={turnstileEl} className="flex justify-center" />}
+            {siteKey && !verified && status !== "error" && (
+              <p className="text-center text-xs text-muted">{tx(quoteUi.verifying)}</p>
+            )}
 
             {showErrors && !stepValid(4) && <ErrorNote lang={lang} />}
             {status === "error" && (
               <p className="text-sm text-red-500">
-                {tx(quoteUi.error)}{" "}
+                {errorCode === "turnstile_failed"
+                  ? tx(quoteUi.errTurnstile)
+                  : errorCode === "bad_attachment"
+                    ? tx(quoteUi.errUpload)
+                    : tx(quoteUi.error)}{" "}
                 <a href={`mailto:${site.email}`} className="font-medium underline">
                   {site.email}
                 </a>
@@ -601,7 +707,7 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
               />
               <button
                 type="submit"
-                disabled={status === "sending"}
+                disabled={status === "sending" || (!!siteKey && !verified)}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "sending" ? tx(quoteUi.sending) : tx(quoteUi.submit)}
@@ -887,6 +993,115 @@ function QuoteResult({
           {tx(quoteUi.blog)}
         </Link>
       </div>
+    </div>
+  );
+}
+
+// ---------- attachments ----------
+
+function Attachments({
+  files,
+  onChange,
+  lang,
+}: {
+  files: File[];
+  onChange: (files: File[]) => void;
+  lang: Lang;
+}) {
+  const [error, setError] = useState("");
+  const [dragging, setDragging] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const tx = (v: L) => v[lang];
+  const fill = (text: string, vars: Record<string, string | number>) =>
+    Object.entries(vars).reduce((acc, [k, v]) => acc.replace(`{${k}}`, String(v)), text);
+
+  // Object URLs for thumbnails; revoked when the list changes or on unmount.
+  const previews = useMemo(() => files.map((f) => URL.createObjectURL(f)), [files]);
+  useEffect(() => () => previews.forEach((u) => URL.revokeObjectURL(u)), [previews]);
+
+  function add(list: FileList | null) {
+    if (!list) return;
+    let next = [...files];
+    let message = "";
+    for (const file of Array.from(list)) {
+      if (!ATTACHMENT_TYPES.includes(file.type)) {
+        message = fill(tx(quoteUi.attachBadType), { name: file.name });
+      } else if (file.size > MAX_ATTACHMENT_MB * 1024 * 1024) {
+        message = fill(tx(quoteUi.attachTooBig), { name: file.name, mb: MAX_ATTACHMENT_MB });
+      } else if (next.length >= MAX_ATTACHMENTS) {
+        message = fill(tx(quoteUi.attachTooMany), { n: MAX_ATTACHMENTS });
+      } else {
+        next = [...next, file];
+      }
+    }
+    setError(message);
+    onChange(next);
+    if (inputRef.current) inputRef.current.value = "";
+  }
+
+  return (
+    <div>
+      <p className="mb-1 text-sm font-medium">{tx(quoteUi.attachTitle)}</p>
+      <p className="mb-2 text-xs text-muted">
+        {fill(tx(quoteUi.attachHint), { n: MAX_ATTACHMENTS, mb: MAX_ATTACHMENT_MB })}
+      </p>
+
+      <label
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setDragging(false);
+          add(e.dataTransfer.files);
+        }}
+        className={`flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed px-4 py-6 text-center text-sm transition-colors focus-within:ring-2 focus-within:ring-brand/40 ${
+          dragging ? "border-brand bg-brand/5" : "border-border hover:border-brand/50"
+        }`}
+      >
+        <ImagePlus className="h-6 w-6 text-brand" aria-hidden />
+        <span>{tx(quoteUi.attachDrop)}</span>
+        <input
+          ref={inputRef}
+          type="file"
+          multiple
+          accept={ATTACHMENT_TYPES.join(",")}
+          onChange={(e) => add(e.target.files)}
+          className="sr-only"
+        />
+      </label>
+
+      {error && (
+        <p className="mt-2 text-sm text-red-500" role="alert">
+          {error}
+        </p>
+      )}
+
+      {files.length > 0 && (
+        <ul className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          {files.map((file, i) => (
+            <li key={`${file.name}-${i}`} className="group relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={previews[i]}
+                alt={file.name}
+                className="h-20 w-full rounded-lg border border-border object-cover"
+              />
+              <button
+                type="button"
+                onClick={() => onChange(files.filter((_, idx) => idx !== i))}
+                aria-label={`${tx(quoteUi.attachRemove)}: ${file.name}`}
+                className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-fg text-bg shadow transition-transform hover:scale-110"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+              <p className="mt-1 truncate text-xs text-muted">{file.name}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

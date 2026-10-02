@@ -276,6 +276,7 @@ export const timelines: (Plain & { factor: [number, number] })[] = [
   { id: "month", label: l("W ciągu miesiąca", "Within a month"), factor: [1, 1] },
   { id: "two-weeks", label: l("W ciągu 2 tygodni", "Within 2 weeks"), hint: l("Priorytet w kolejce", "Priority in the queue"), factor: [1.1, 1.2] },
   { id: "asap", label: l("Jak najszybciej (1–3 dni)", "As soon as possible (1–3 days)"), hint: l("Tryb ekspresowy", "Express mode"), factor: [1.3, 1.5] },
+  { id: "date", label: l("Konkretna data", "A specific date"), hint: l("Podaj termin, na który to potrzebne", "Tell me the date you need it by"), factor: [1, 1] },
 ];
 
 export const budgets: Plain[] = [
@@ -285,6 +286,7 @@ export const budgets: Plain[] = [
   { id: "3-6k", label: l("3 000 – 6 000 zł", "3,000 – 6,000 PLN") },
   { id: "6-12k", label: l("6 000 – 12 000 zł", "6,000 – 12,000 PLN") },
   { id: "gt12k", label: l("ponad 12 000 zł", "over 12,000 PLN") },
+  { id: "custom", label: l("Podam własną kwotę", "I will enter my own amount") },
 ];
 
 export const currentStates: Plain[] = [
@@ -317,6 +319,7 @@ export const contactVia: Plain[] = [
   { id: "email", label: l("E-mail", "E-mail") },
   { id: "phone", label: l("Telefon", "Phone") },
   { id: "whatsapp", label: l("WhatsApp", "WhatsApp") },
+  { id: "slack", label: l("Slack", "Slack") },
 ];
 
 export const sources: Plain[] = [
@@ -334,6 +337,8 @@ export interface EstimateInput {
   scale?: string;
   options: string[];
   timeline: string;
+  /** yyyy-mm-dd, used when timeline is "date". */
+  deadline?: string;
 }
 
 export interface EstimateItem {
@@ -349,6 +354,16 @@ export interface Estimate {
   items: EstimateItem[];
   timelineFactor: [number, number];
   monthly: [number, number] | null;
+}
+
+/** An exact deadline maps onto the same surcharge tiers as the presets. */
+export function factorForDeadline(deadline: string | undefined, now = new Date()): [number, number] {
+  if (!deadline || !/^\d{4}-\d{2}-\d{2}$/.test(deadline)) return [1, 1];
+  const days = Math.ceil((new Date(deadline + "T23:59:59").getTime() - now.getTime()) / 86400000);
+  if (Number.isNaN(days)) return [1, 1];
+  if (days <= 3) return [1.3, 1.5];
+  if (days <= 14) return [1.1, 1.2];
+  return [1, 1];
 }
 
 function roundOut(low: number, high: number): [number, number] {
@@ -381,11 +396,13 @@ export function calculateEstimate(input: EstimateInput): Estimate | null {
   }
 
   const timeline = timelines.find((t) => t.id === input.timeline) ?? timelines[0];
-  const rawLow = items.reduce((s, i) => s + i.min, 0) * timeline.factor[0];
-  const rawHigh = items.reduce((s, i) => s + i.max, 0) * timeline.factor[1];
+  const factor =
+    timeline.id === "date" ? factorForDeadline(input.deadline) : timeline.factor;
+  const rawLow = items.reduce((s, i) => s + i.min, 0) * factor[0];
+  const rawHigh = items.reduce((s, i) => s + i.max, 0) * factor[1];
   const [low, high] = roundOut(rawLow, rawHigh);
 
-  return { low, high, items, timelineFactor: timeline.factor, monthly: service.monthly };
+  return { low, high, items, timelineFactor: factor, monthly: service.monthly };
 }
 
 // ---------- UI copy (kept next to the data it describes) ----------
@@ -434,6 +451,27 @@ export const quoteUi = {
   s4Lead: l("Pomoże mi dobrać zakres i sposób pracy.", "This helps me shape the scope and the way we work."),
   timeline: l("Na kiedy to potrzebne?", "When do you need it?"),
   budget: l("Orientacyjny budżet (opcjonalnie)", "Rough budget (optional)"),
+  deadline: l("Do kiedy to potrzebne?", "Deadline"),
+  deadlineHint: l("Termin liczymy od dziś — krótkie terminy mają dopłatę za tryb priorytetowy.", "Counted from today — short deadlines carry a priority surcharge."),
+  deadlinePast: l("Wybierz datę w przyszłości.", "Pick a date in the future."),
+  budgetCustom: l("Twoja kwota (z walutą)", "Your amount (with currency)"),
+  budgetCustomPh: l("np. 5000 zł albo 1500 USD", "e.g. 5000 PLN or 1500 USD"),
+  attachTitle: l("Załączniki (opcjonalnie)", "Attachments (optional)"),
+  attachHint: l(
+    "Logo, makiety, zrzuty ekranu, inspiracje. Do {n} plików, każdy do {mb} MB (JPG, PNG, WebP, GIF).",
+    "Logos, mock-ups, screenshots, inspiration. Up to {n} files, {mb} MB each (JPG, PNG, WebP, GIF)."
+  ),
+  attachDrop: l("Przeciągnij pliki tutaj lub kliknij, aby wybrać", "Drag files here or click to choose"),
+  attachRemove: l("Usuń plik", "Remove file"),
+  attachTooMany: l("Możesz dodać maksymalnie {n} plików.", "You can attach at most {n} files."),
+  attachTooBig: l("Plik „{name}” jest większy niż {mb} MB.", "File “{name}” is larger than {mb} MB."),
+  attachBadType: l("Plik „{name}” nie jest obsługiwanym obrazem.", "File “{name}” is not a supported image."),
+  contactNote: l("Szczegóły kontaktu (opcjonalnie)", "Contact details (optional)"),
+  contactNoteSlack: l("Twój workspace lub e-mail do zaproszenia Slack Connect", "Your workspace or e-mail for a Slack Connect invite"),
+  phoneNeeded: l("Podaj numer telefonu, aby kontakt telefoniczny / WhatsApp był możliwy.", "Add a phone number so I can reach you by phone / WhatsApp."),
+  verifying: l("Trwa weryfikacja antyspamowa…", "Running the anti-spam check…"),
+  errTurnstile: l("Weryfikacja antyspamowa nie powiodła się. Odczekaj chwilę i spróbuj ponownie.", "The anti-spam check failed. Wait a moment and try again."),
+  errUpload: l("Nie udało się przyjąć załączników. Sprawdź rozmiar i format plików.", "The attachments were rejected. Check file size and format."),
   maintenance: l("Chcę opiekę po wdrożeniu (hosting, kopie, aktualizacje)", "I want post-launch care (hosting, backups, updates)"),
   s5Title: l("Jak się z Tobą skontaktować?", "How can I reach you?"),
   s5Lead: l("Dokładną wycenę wyślę na Twój e-mail.", "I will email the exact quote to you."),
@@ -475,3 +513,8 @@ export const quoteUi = {
   blog: l("Poczytaj blog", "Read the blog"),
   stepNote: l("Dane z formularza trafiają tylko do mnie.", "Your answers go only to me."),
 } as const;
+
+// Attachment limits, shared by the browser (friendly errors) and the API.
+export const MAX_ATTACHMENTS = 5;
+export const MAX_ATTACHMENT_MB = 5;
+export const ATTACHMENT_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
