@@ -10,10 +10,9 @@
 //   GSC_SITE         Search Console property (default sc-domain:maksymilian.org)
 //   GA4_PROPERTY_ID  numeric GA4 property id (optional; GA4 section skipped if absent)
 
-import { readFileSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
-import { createSign } from "node:crypto";
-import { homedir } from "node:os";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { loadKey, getAccessToken } from "./google-auth.mjs";
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -22,54 +21,11 @@ const flag = (name, fallback) => {
 };
 
 const DAYS = Number(flag("days", "90"));
-const KEY_PATH = process.env.GOOGLE_SA_KEY ?? join(homedir(), ".gsc-service-account.json");
 const GSC_SITE = process.env.GSC_SITE ?? "sc-domain:maksymilian.org";
 const GA_PROPERTY = flag("ga-property", process.env.GA4_PROPERTY_ID ?? "");
 const OUT_DIR = ".seo-reports";
 
-const SCOPES = [
-  "https://www.googleapis.com/auth/webmasters.readonly",
-  "https://www.googleapis.com/auth/analytics.readonly",
-].join(" ");
-
-// ---------- auth ----------
-
-function loadKey() {
-  if (!existsSync(KEY_PATH)) {
-    console.error(`Service account key not found at ${KEY_PATH}`);
-    console.error("Create one in Google Cloud Console and save it there (outside the repo).");
-    process.exit(1);
-  }
-  return JSON.parse(readFileSync(KEY_PATH, "utf8"));
-}
-
-const b64url = (v) => Buffer.from(typeof v === "string" ? v : JSON.stringify(v)).toString("base64url");
-
-async function getAccessToken(key) {
-  const now = Math.floor(Date.now() / 1000);
-  const header = b64url({ alg: "RS256", typ: "JWT" });
-  const claim = b64url({
-    iss: key.client_email,
-    scope: SCOPES,
-    aud: key.token_uri ?? "https://oauth2.googleapis.com/token",
-    iat: now,
-    exp: now + 3600,
-  });
-  const signature = createSign("RSA-SHA256")
-    .update(`${header}.${claim}`)
-    .sign(key.private_key, "base64url");
-
-  const res = await fetch(key.token_uri ?? "https://oauth2.googleapis.com/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      assertion: `${header}.${claim}.${signature}`,
-    }),
-  });
-  if (!res.ok) throw new Error(`Token request failed: ${res.status} ${await res.text()}`);
-  return (await res.json()).access_token;
-}
+// ---------- auth lives in ./google-auth.mjs ----------
 
 async function api(token, url, body) {
   const res = await fetch(url, {
