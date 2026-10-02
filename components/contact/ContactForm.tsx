@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
+import { trackEvent } from "@/utils/analytics";
 
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -36,6 +37,7 @@ export function ContactForm({ packageLabel }: { packageLabel?: string }) {
         }),
       });
       if (!res.ok) throw new Error("failed");
+      trackEvent("generate_lead", { lead_type: "contact", package: packageLabel ?? "" });
       setStatus("success");
       form.reset();
     } catch {

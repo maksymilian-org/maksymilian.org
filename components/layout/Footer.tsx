@@ -33,6 +33,12 @@ export function Footer() {
               </Link>
             ))}
             <Link
+              href="/quote"
+              className="text-sm text-muted transition-colors hover:text-fg"
+            >
+              {t("nav.quote")}
+            </Link>
+            <Link
               href="/lublin"
               className="text-sm text-muted transition-colors hover:text-fg"
             >

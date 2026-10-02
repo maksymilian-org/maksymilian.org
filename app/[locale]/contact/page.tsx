@@ -6,17 +6,23 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/utils/seo";
 import { site, taxIdFor } from "@/content/site";
+import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/Section";
 import { Social } from "@/components/social/Social";
 import { ContactForm } from "@/components/contact/ContactForm";
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return buildPageMetadata({ locale, page: "contact", path: "/contact" });
+  const { package: pkg } = await searchParams;
+  const base = await buildPageMetadata({ locale, page: "contact", path: "/contact" });
+  // ?package= variants are the same page — keep them out of the index.
+  return pkg ? { ...base, robots: { index: false, follow: true } } : base;
 }
 
 // Package keys that may arrive via ?package= from the pricing tiles.
@@ -104,6 +110,12 @@ function ContactContent({ packageLabel }: { packageLabel?: string }) {
               {taxIdFor(locale)}
             </ContactRow>
           </ul>
+
+          <p className="mt-6 text-sm">
+            <Link href="/quote" className="font-medium text-brand hover:underline">
+              {t("quoteLink")}
+            </Link>
+          </p>
 
           <Social className="mt-8" />
           <p className="mt-8 text-sm text-muted">{t("responseNote")}</p>

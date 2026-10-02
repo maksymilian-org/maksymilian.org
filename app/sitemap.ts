@@ -13,6 +13,7 @@ const paths = [
   "/blog",
   ...posts.map((p) => `/blog/${p.slug}`),
   "/lublin",
+  "/quote",
   "/about",
   "/contact",
 ];

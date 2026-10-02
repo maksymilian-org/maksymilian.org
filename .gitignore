@@ -47,3 +47,7 @@ next-env.d.ts
 # DNS exports — never commit
 cloudflare-dns-import.txt
 *(DNS Records).csv
+
+# SEO report output (business data) and service-account keys
+.seo-reports/
+*service-account*.json

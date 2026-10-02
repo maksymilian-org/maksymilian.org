@@ -6,7 +6,8 @@
     "blog": "Blog",
     "about": "O mnie",
     "contact": "Kontakt",
-    "lublin": "Programista Lublin"
+    "lublin": "Programista Lublin",
+    "quote": "Wycena online"
   },
   "common": {
     "getQuote": "Darmowa wycena",
@@ -248,7 +249,8 @@
           "Wycena od jednego procesu"
         ]
       }
-    }
+    },
+    "configure": "Skonfiguruj wycenę online — widełki ceny w kilka minut"
   },
   "blog": {
     "heading": "Blog",
@@ -704,7 +706,8 @@
       "note": "Wolisz e-mail? Napisz bezpośrednio na",
       "regardingLabel": "Zapytanie dotyczy",
       "regardingNote": "Ta informacja zostanie dołączona do wiadomości."
-    }
+    },
+    "quoteLink": "Wolisz najpierw zobaczyć widełki? Skonfiguruj wycenę online."
   },
   "footer": {
     "tagline": "Software development — Lublin, Polska",

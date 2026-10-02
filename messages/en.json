@@ -6,7 +6,8 @@
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "lublin": "Web developer Lublin"
+    "lublin": "Web developer Lublin",
+    "quote": "Online quote"
   },
   "common": {
     "getQuote": "Get a free quote",
@@ -248,7 +249,8 @@
           "Priced from a single process"
         ]
       }
-    }
+    },
+    "configure": "Build your quote online — see a price range in minutes"
   },
   "blog": {
     "heading": "Blog",
@@ -704,7 +706,8 @@
       "note": "Prefer email? Write directly to",
       "regardingLabel": "Enquiry about",
       "regardingNote": "This detail will be included in your message."
-    }
+    },
+    "quoteLink": "Prefer to see a price range first? Build your quote online."
   },
   "footer": {
     "tagline": "Software development — Lublin, Poland",

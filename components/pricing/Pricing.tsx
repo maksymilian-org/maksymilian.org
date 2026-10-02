@@ -121,6 +121,15 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
       </div>
 
       <p className="mt-6 text-center text-xs text-muted">{t("note")}</p>
+      <p className="mt-4 text-center">
+        <Link
+          href="/quote"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+        >
+          {t("configure")}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </p>
     </Section>
   );
 }
