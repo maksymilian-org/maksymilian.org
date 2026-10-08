@@ -119,7 +119,7 @@ export function localBusinessSchema(description: string) {
     "@type": "ProfessionalService",
     "@id": BUSINESS_ID,
     name: site.name,
-    image: `${site.url}/og.png`,
+    image: `${site.url}/og/en.png`,
     url: site.url,
     telephone: site.phone,
     email: `mailto:${site.email}`,

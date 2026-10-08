@@ -121,13 +121,13 @@ const cardOff = "border-border bg-surface hover:border-brand/50";
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-export function QuoteWizard({ initialService }: { initialService?: ServiceId }) {
+export function QuoteWizard() {
   const lang = useLocale() as Lang;
   const tx = (v: L) => v[lang] ?? v.pl;
 
-  const [a, setA] = useState<Answers>({ ...initialAnswers, service: initialService });
+  const [a, setA] = useState<Answers>(initialAnswers);
   // Position inside the flow (not the raw step id), see `flow` below.
-  const [pos, setPos] = useState(initialService ? 1 : 0);
+  const [pos, setPos] = useState(0);
   const [showErrors, setShowErrors] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorCode, setErrorCode] = useState("");
@@ -140,6 +140,7 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
   const turnstileToken = useRef("");
   const turnstileId = useRef<string | undefined>(undefined);
   const firstRender = useRef(true);
+  const skipNextScroll = useRef(false);
 
   const set = (patch: Partial<Answers>) => setA((prev) => ({ ...prev, ...patch }));
   const toggle = (key: "options" | "languages", id: string) =>
@@ -157,10 +158,23 @@ export function QuoteWizard({ initialService }: { initialService?: ServiceId }) 
   const step = flow[Math.min(pos, flow.length - 1)];
   const isLast = pos === flow.length - 1;
 
+  // Pre-select a category from ?service= (e.g. from a pricing tile). Done after
+  // mount so the page itself can be prerendered.
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("service");
+    const preset = getQuoteService(id ?? undefined);
+    if (preset) {
+      skipNextScroll.current = true;
+      setA((prev) => ({ ...prev, service: preset.id }));
+      setPos(1);
+    }
+  }, []);
+
   // Keep the viewport at the top of the wizard when moving between steps.
   useEffect(() => {
-    if (firstRender.current) {
+    if (firstRender.current || skipNextScroll.current) {
       firstRender.current = false;
+      skipNextScroll.current = false;
       return;
     }
     wrapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });

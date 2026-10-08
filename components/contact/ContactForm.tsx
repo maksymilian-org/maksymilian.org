@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { trackEvent } from "@/utils/analytics";
@@ -13,9 +13,22 @@ type Status = "idle" | "sending" | "success" | "error";
 const inputClass =
   "w-full rounded-xl border border-border bg-surface px-4 py-3 text-fg outline-none transition-colors placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand/30";
 
-export function ContactForm({ packageLabel }: { packageLabel?: string }) {
+// Package keys that may arrive via ?package= from older links and the pricing tiles.
+const PACKAGE_KEYS = ["landing", "business", "store", "mobile", "automation", "custom"];
+
+export function ContactForm() {
   const t = useTranslations("contact.form");
+  const tp = useTranslations("pricing");
   const [status, setStatus] = useState<Status>("idle");
+  const [packageLabel, setPackageLabel] = useState<string | undefined>();
+
+  // Read the package from the URL after mount so the page itself stays static.
+  useEffect(() => {
+    const key = new URLSearchParams(window.location.search).get("package");
+    if (key && PACKAGE_KEYS.includes(key)) {
+      setPackageLabel(key === "custom" ? tp("custom.title") : tp(`tiers.${key}.name`));
+    }
+  }, [tp]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

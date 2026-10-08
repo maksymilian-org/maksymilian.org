@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { buildMetadata } from "@/utils/seo";
-import { getQuoteService, quoteUi, type ServiceId } from "@/content/quote";
+import { quoteUi } from "@/content/quote";
 import { Section } from "@/components/ui/Section";
 import { QuoteWizard } from "@/components/quote/QuoteWizard";
 
@@ -30,19 +30,14 @@ export async function generateMetadata({
 
 export default async function QuotePage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: Locale }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // Optional ?service= pre-selects a category (e.g. from a pricing tile).
-  const sp = await searchParams;
-  const raw = typeof sp.service === "string" ? sp.service : undefined;
-  const initialService = getQuoteService(raw)?.id as ServiceId | undefined;
-
+  // ?service= (a pre-selected category) is read in the browser by the wizard,
+  // which keeps this page static.
   return (
     <Section>
       <div className="mx-auto max-w-3xl">
@@ -54,7 +49,7 @@ export default async function QuotePage({
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted">{quoteUi.lead[locale]}</p>
         <div className="mt-10">
-          <QuoteWizard initialService={initialService} />
+          <QuoteWizard />
         </div>
       </div>
     </Section>

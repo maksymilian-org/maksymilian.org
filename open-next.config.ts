@@ -1,6 +1,10 @@
 import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache";
 
+// The site is prerendered at build time and never revalidates. Serving those
+// pages from the static-assets cache (instead of re-rendering them on every
+// request) keeps CPU time per request far below the Workers Free 10 ms limit.
 export default defineCloudflareConfig({
-  // Defaults are fine for this mostly-static site. Incremental cache / queue /
-  // tag cache can be wired to KV or D1 later if we start using ISR heavily.
+  incrementalCache: staticAssetsIncrementalCache,
+  enableCacheInterception: true,
 });

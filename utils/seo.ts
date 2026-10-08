@@ -9,6 +9,17 @@ export function localizedPath(locale: Locale, path: string): string {
   return locale === "en" ? clean || "/" : `/${locale}${clean}`;
 }
 
+// Static 1200x630 share images live in public/og (one per locale). They are plain
+// assets, so crawlers fetching them never wake the Worker.
+export function ogImage(locale: Locale) {
+  return {
+    url: `${site.url}/og/${locale}.png`,
+    width: 1200,
+    height: 630,
+    alt: site.name,
+  };
+}
+
 interface PageMetaOptions {
   locale: Locale;
   page: "home" | "services" | "projects" | "blog" | "lublin" | "about" | "contact";
@@ -46,11 +57,13 @@ export function buildMetadata({
       description,
       siteName: site.brand,
       locale: locale === "pl" ? "pl_PL" : "en_US",
+      images: [ogImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage(locale).url],
     },
   };
 }
@@ -82,11 +95,13 @@ export async function buildPageMetadata({
       description,
       siteName: site.brand,
       locale: locale === "pl" ? "pl_PL" : "en_US",
+      images: [ogImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage(locale).url],
     },
   };
 }
