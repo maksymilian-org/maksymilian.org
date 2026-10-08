@@ -161,7 +161,7 @@ function Article({ post }: { post: BlogPost }) {
       </article>
 
       {/* CTA */}
-      <div className="mt-14 overflow-hidden rounded-3xl bg-brand px-6 py-12 text-center text-white sm:px-12">
+      <div className="mt-14 overflow-hidden rounded-3xl bg-brand-solid px-6 py-12 text-center text-white sm:px-12">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
           {t("ctaHeading")}
         </h2>
@@ -169,7 +169,7 @@ function Article({ post }: { post: BlogPost }) {
         <div className="mt-7">
           <Link
             href="/quote"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-solid shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             {c("getQuote")}
             <ArrowRight className="h-4 w-4" />

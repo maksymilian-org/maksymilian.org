@@ -197,12 +197,12 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
         </div>
 
         {/* Sidebar CTA */}
-        <aside className="lg:sticky lg:top-24 h-fit rounded-2xl border border-border bg-brand p-6 text-white">
+        <aside className="lg:sticky lg:top-24 h-fit rounded-2xl border border-border bg-brand-solid p-6 text-white">
           <p className="text-lg font-semibold">{c("letsTalk")}</p>
           <p className="mt-2 text-sm text-white/85">{c("getQuote")}</p>
           <Link
             href={{ pathname: "/quote", query: { service: QUOTE_SERVICE[id] } }}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand transition-all hover:-translate-y-0.5"
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-solid transition-all hover:-translate-y-0.5"
           >
             {c("getQuote")}
             <ArrowRight className="h-4 w-4" />

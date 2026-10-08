@@ -13,6 +13,7 @@ const config: Config = {
         brand: {
           DEFAULT: "rgb(var(--brand) / <alpha-value>)",
           soft: "rgb(var(--brand-soft) / <alpha-value>)",
+          solid: "rgb(var(--brand-solid) / <alpha-value>)",
         },
         bg: "rgb(var(--bg) / <alpha-value>)",
         surface: "rgb(var(--surface) / <alpha-value>)",

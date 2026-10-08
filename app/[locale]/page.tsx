@@ -139,7 +139,7 @@ function HomeCta() {
   const c = useTranslations("common");
   return (
     <Section>
-      <div className="overflow-hidden rounded-3xl bg-brand px-6 py-14 text-center text-white sm:px-12">
+      <div className="overflow-hidden rounded-3xl bg-brand-solid px-6 py-14 text-center text-white sm:px-12">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {t("ctaHeading")}
         </h2>
@@ -147,7 +147,7 @@ function HomeCta() {
         <div className="mt-8">
           <Link
             href="/quote"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-solid shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             {c("getQuote")}
             <ArrowRight className="h-4 w-4" />

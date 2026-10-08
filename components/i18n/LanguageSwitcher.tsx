@@ -42,7 +42,7 @@ export function LanguageSwitcher() {
           className={
             "flex h-full items-center rounded-md px-2 uppercase transition-colors " +
             (l === locale
-              ? "bg-brand text-white"
+              ? "bg-brand-solid text-white"
               : "text-muted hover:text-fg")
           }
         >

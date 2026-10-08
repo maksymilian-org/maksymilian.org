@@ -106,7 +106,7 @@ export default async function LublinPage({
       </Section>
 
       <Section>
-        <div className="mt-4 rounded-3xl bg-brand px-6 py-12 text-center text-white sm:px-12">
+        <div className="mt-4 rounded-3xl bg-brand-solid px-6 py-12 text-center text-white sm:px-12">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t("ctaHeading")}
           </h2>
@@ -114,7 +114,7 @@ export default async function LublinPage({
           <div className="mt-7">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-solid shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               {t("ctaHeading")}
               <ArrowRight className="h-4 w-4" />

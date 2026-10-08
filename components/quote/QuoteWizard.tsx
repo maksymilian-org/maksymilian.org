@@ -417,7 +417,7 @@ export function QuoteWizard() {
                     >
                       <span
                         className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
-                          on ? "border-brand bg-brand text-white" : "border-border"
+                          on ? "border-brand bg-brand-solid text-white" : "border-border"
                         }`}
                         aria-hidden
                       >
@@ -594,7 +594,7 @@ export function QuoteWizard() {
               >
                 <span
                   className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
-                    a.maintenance ? "border-brand bg-brand text-white" : "border-border"
+                    a.maintenance ? "border-brand bg-brand-solid text-white" : "border-border"
                   }`}
                   aria-hidden
                 >
@@ -722,7 +722,7 @@ export function QuoteWizard() {
               <button
                 type="submit"
                 disabled={status === "sending" || (!!siteKey && !verified)}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-solid px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "sending" ? tx(quoteUi.sending) : tx(quoteUi.submit)}
                 {status !== "sending" && <ArrowRight className="h-4 w-4" />}
@@ -745,7 +745,7 @@ export function QuoteWizard() {
             <button
               type="button"
               onClick={goNext}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-solid px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft"
             >
               {tx(quoteUi.next)}
               <ArrowRight className="h-4 w-4" />
@@ -984,7 +984,7 @@ function QuoteResult({
         <ol className="mt-3 space-y-3">
           {[quoteUi.next1, quoteUi.next2, quoteUi.next3].map((s, i) => (
             <li key={i} className="flex items-center gap-3 text-sm">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-semibold text-white">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-solid text-xs font-semibold text-white">
                 {i + 1}
               </span>
               {tx(s)}

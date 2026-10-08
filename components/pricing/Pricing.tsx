@@ -61,7 +61,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
               )}
             >
               {isTop && (
-                <span className="absolute -top-3 left-6 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3 left-6 rounded-full bg-brand-solid px-3 py-1 text-xs font-semibold text-white">
                   {t("popular")}
                 </span>
               )}
@@ -87,7 +87,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
                 className={cn(
                   "mt-6 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5",
                   isTop
-                    ? "bg-brand text-white"
+                    ? "bg-brand-solid text-white"
                     : "border border-border bg-bg text-fg hover:border-brand hover:text-brand"
                 )}
               >
@@ -112,7 +112,7 @@ export function Pricing({ withSchema = false }: { withSchema?: boolean }) {
           </ul>
           <Link
             href={{ pathname: "/quote", query: { service: "other" } }}
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-solid px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
           >
             {t("cta")}
             <ArrowRight className="h-4 w-4" />
