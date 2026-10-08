@@ -1204,7 +1204,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "ksef-dla-firm-produkcyjnych",
-    date: "2026-10-08",
+    date: "2026-09-22",
     illustration: "ksef",
     readingMinutes: 7,
     related: ["integracja-ksef-api-najczestsze-bledy", "ksef-jak-przygotowac-firme", "automatyzacja-w-malej-firmie"],
@@ -1303,7 +1303,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "integracja-ksef-api-najczestsze-bledy",
-    date: "2026-10-08",
+    date: "2026-09-30",
     illustration: "integrations",
     readingMinutes: 8,
     related: ["ksef-dla-firm-produkcyjnych", "ksef-jak-przygotowac-firme", "integracja-sklepu-allegro-baselinker"],
@@ -1396,7 +1396,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "react-native-czy-flutter-czy-natywnie",
-    date: "2026-10-08",
+    date: "2026-09-26",
     illustration: "mobile",
     readingMinutes: 7,
     related: ["ile-kosztuje-aplikacja-mobilna", "pwa-czy-aplikacja-mobilna", "jak-wyglada-wycena-aplikacji-etapy-i-brief"],
@@ -1483,7 +1483,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "pwa-czy-aplikacja-mobilna",
-    date: "2026-10-08",
+    date: "2026-10-03",
     illustration: "websites",
     readingMinutes: 6,
     related: ["react-native-czy-flutter-czy-natywnie", "ile-kosztuje-aplikacja-mobilna", "ile-kosztuje-dedykowana-aplikacja-webowa"],
@@ -1570,7 +1570,7 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "modernizacja-aplikacji-przepisac-czy-naprawic",
-    date: "2026-10-08",
+    date: "2026-10-07",
     illustration: "modernization",
     readingMinutes: 7,
     related: ["wordpress-czy-strona-dedykowana", "excel-przestal-wystarczac-czas-na-wlasny-system", "ile-kosztuje-dedykowana-aplikacja-webowa"],
