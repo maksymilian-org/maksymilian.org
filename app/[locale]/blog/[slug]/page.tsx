@@ -7,7 +7,7 @@ import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/utils/seo";
 import { site } from "@/content/site";
-import { getPostBySlug, posts, sortedPosts, type BlogPost } from "@/content/blog";
+import { getPostBySlug, getRelatedPosts, posts, type BlogPost } from "@/content/blog";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/Section";
 import { PostBody } from "@/components/blog/PostBody";
@@ -105,7 +105,7 @@ function Article({ post }: { post: BlogPost }) {
   const c = useTranslations("common");
   const n = useTranslations("nav");
   const tags = post.tags[locale] ?? post.tags.pl;
-  const related = sortedPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = getRelatedPosts(post);
 
   return (
     <Section>

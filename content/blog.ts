@@ -12,6 +12,7 @@ export interface BlogPost {
   slug: string;
   date: string; // ISO publish date
   updated?: string; // ISO, optional
+  related?: string[]; // slugs shown first in "related posts" (topic clusters)
   illustration: IllustrationKey;
   readingMinutes: number;
   tags: { pl: string[]; en: string[] };
@@ -24,6 +25,7 @@ export const posts: BlogPost[] = [
   {
     slug: "ile-kosztuje-strona-internetowa",
     date: "2026-06-18",
+    related: ["ile-kosztuje-sklep-internetowy", "wordpress-czy-strona-dedykowana", "co-musi-zawierac-strona-firmowa"],
     illustration: "websites",
     readingMinutes: 6,
     tags: {
@@ -94,6 +96,8 @@ export const posts: BlogPost[] = [
   {
     slug: "ksef-jak-przygotowac-firme",
     date: "2026-06-30",
+    updated: "2026-10-08",
+    related: ["ksef-dla-firm-produkcyjnych", "integracja-ksef-api-najczestsze-bledy", "automatyzacja-w-malej-firmie"],
     illustration: "ksef",
     readingMinutes: 5,
     tags: {
@@ -101,20 +105,20 @@ export const posts: BlogPost[] = [
       en: ["KSeF", "E-invoicing", "Automation"],
     },
     title: {
-      pl: "KSeF: jak przygotować firmę do obowiązkowych e-faktur",
-      en: "KSeF: how to prepare your company for mandatory e-invoicing",
+      pl: "KSeF w 2026: jak wdrożyć e-faktury w firmie bez zmiany programu",
+      en: "KSeF in 2026: how to roll out e-invoicing without changing your software",
     },
     excerpt: {
-      pl: "Czym jest KSeF, kogo obejmuje i jak spokojnie wdrożyć e-faktury bez zmiany programu do fakturowania.",
-      en: "What KSeF is, who it affects and how to roll out e-invoicing calmly — without changing your invoicing software.",
+      pl: "Czym jest KSeF, od kiedy obowiązuje i kogo obejmuje oraz jak spokojnie wdrożyć e-faktury bez zmiany programu do fakturowania.",
+      en: "What KSeF is, which company it applies to and when, and how to roll out e-invoicing calmly — without changing your invoicing software.",
     },
     body: {
       pl: [
-        { type: "p", text: "KSeF, czyli Krajowy System e-Faktur, to centralna platforma, przez którą polskie firmy będą wystawiać i odbierać faktury ustrukturyzowane. Dla wielu przedsiębiorców brzmi to groźnie, ale w praktyce da się to wdrożyć spokojnie — jeśli zacznie się odpowiednio wcześnie." },
+        { type: "p", text: "KSeF, czyli Krajowy System e-Faktur, to centralna platforma, przez którą polskie firmy wystawiają i odbierają faktury ustrukturyzowane. Dla większości firm obowiązek już działa (od 1 kwietnia 2026), a dla najmniejszych zacznie się w 2027 roku. Jeśli nie masz jeszcze tego uporządkowanego, da się to zrobić spokojnie i bez zmiany programu." },
         { type: "h2", text: "Co to zmienia" },
         { type: "p", text: "Zamiast PDF-a wysyłanego mailem, faktura trafia w ustandaryzowanym formacie (FA) prosto do systemu KSeF, który nadaje jej numer i potwierdzenie (UPO). Kontrahent pobiera ją z tego samego systemu. Zyskujesz jednolity obieg dokumentów i mniej ręcznej pracy, ale musisz mieć narzędzie, które z KSeF rozmawia." },
         { type: "h2", text: "Kogo obejmuje i od kiedy" },
-        { type: "p", text: "Wdrożenie obowiązkowego KSeF jest w Polsce rozłożone w czasie i zależy od wielkości firmy — więksi podatnicy wchodzą wcześniej, mniejsi później. Dlatego pierwszym krokiem jest ustalenie, który termin dotyczy właśnie Ciebie, i przygotowanie się z zapasem, a nie w ostatnim tygodniu." },
+        { type: "p", text: "Obowiązek został rozłożony w czasie. Od 1 lutego 2026 dotyczył największych podatników (obroty powyżej 200 mln zł), a odbierać faktury z KSeF musiały od tego dnia wszystkie firmy. Od 1 kwietnia 2026 obowiązek wystawiania faktur w KSeF obejmuje pozostałych przedsiębiorców, a od 1 stycznia 2027 także tych ze sprzedażą do 10 tys. zł miesięcznie. Poza obowiązkiem zostają m.in. faktury dla konsumentów. Pierwszym krokiem jest ustalenie, który termin dotyczy Ciebie." },
         { type: "h2", text: "Jak się przygotować — krok po kroku" },
         { type: "ol", items: [
           "Sprawdź, od kiedy obowiązek dotyczy Twojej firmy",
@@ -125,14 +129,14 @@ export const posts: BlogPost[] = [
         ] },
         { type: "h2", text: "Nie musisz zmieniać całego systemu" },
         { type: "p", text: "Najczęstsza obawa brzmi: „czy będę musiał wyrzucić program, którego używam od lat?”. Zwykle nie. Jeśli Twój system ma API lub eksport danych, można podłączyć do niego integrację z KSeF, tak by faktury wychodziły i przychodziły automatycznie. Jeśli nie ma takiej możliwości, dobiera się najprostsze rozwiązanie pośrednie." },
-        { type: "p", text: "Zajmuję się takimi wdrożeniami od strony technicznej — od integracji z API KSeF po podłączenie do Twojego fakturowania, ERP lub sklepu. Jeśli chcesz mieć to z głowy przed terminem, napisz — zaczynamy od darmowej rozmowy." },
+        { type: "p", text: "Zajmuję się takimi wdrożeniami od strony technicznej — od integracji z API KSeF po podłączenie do Twojego fakturowania, ERP lub sklepu. Jeśli chcesz mieć to z głowy, napisz — zaczynamy od darmowej rozmowy." },
       ],
       en: [
-        { type: "p", text: "KSeF (the National e-Invoicing System) is the central platform through which Polish companies will issue and receive structured invoices. It sounds intimidating to many business owners, but in practice it can be rolled out calmly — as long as you start early enough." },
+        { type: "p", text: "KSeF (the National e-Invoicing System) is the central platform through which Polish companies issue and receive structured invoices. For most companies the obligation is already in force (since 1 April 2026), and for the smallest it starts in 2027. If you haven't sorted it yet, it can be done calmly and without changing your software." },
         { type: "h2", text: "What changes" },
         { type: "p", text: "Instead of a PDF emailed to the client, the invoice goes in a standardised format (FA) straight into KSeF, which assigns it a number and a confirmation (UPO). Your counterparty downloads it from the same system. You get a uniform document flow and less manual work — but you need a tool that talks to KSeF." },
         { type: "h2", text: "Who it affects and when" },
-        { type: "p", text: "Poland's mandatory KSeF rollout is phased over time and depends on company size — larger taxpayers go first, smaller ones later. So the first step is to figure out which deadline applies to you and prepare with a margin, not in the final week." },
+        { type: "p", text: "The obligation was phased in. From 1 February 2026 it applied to the largest taxpayers (turnover above 200 million PLN), and from that day every company had to receive invoices from KSeF. From 1 April 2026 the duty to issue invoices in KSeF covers all other businesses, and from 1 January 2027 also those with sales up to 10,000 PLN a month. Consumer invoices, among others, stay outside. The first step is to work out which deadline applies to you." },
         { type: "h2", text: "How to prepare — step by step" },
         { type: "ol", items: [
           "Check when the obligation applies to your company",
@@ -143,13 +147,14 @@ export const posts: BlogPost[] = [
         ] },
         { type: "h2", text: "You don't have to replace your whole system" },
         { type: "p", text: "The most common worry is: “will I have to throw out the software I've used for years?” Usually not. If your system has an API or data export, a KSeF integration can be connected to it so invoices go out and come in automatically. If that's not possible, the simplest intermediate solution is chosen." },
-        { type: "p", text: "I handle this kind of rollout on the technical side — from integrating with the KSeF API to connecting it to your invoicing, ERP or store. If you'd like it sorted before the deadline, get in touch — we start with a free conversation." },
+        { type: "p", text: "I handle this kind of rollout on the technical side — from integrating with the KSeF API to connecting it to your invoicing, ERP or store. If you'd like it sorted, get in touch — we start with a free conversation." },
       ],
     },
   },
   {
     slug: "automatyzacja-w-malej-firmie",
     date: "2026-07-07",
+    related: ["chatbot-ai-dla-firmy-ile-kosztuje", "excel-przestal-wystarczac-czas-na-wlasny-system", "integracja-sklepu-allegro-baselinker"],
     illustration: "integrations",
     readingMinutes: 5,
     tags: {
@@ -209,6 +214,7 @@ export const posts: BlogPost[] = [
     slug: "ile-kosztuje-aplikacja-mobilna",
     date: "2026-07-09",
     updated: "2026-10-02",
+    related: ["react-native-czy-flutter-czy-natywnie", "pwa-czy-aplikacja-mobilna", "jak-wyglada-wycena-aplikacji-etapy-i-brief"],
     illustration: "mobile",
     readingMinutes: 9,
     tags: {
@@ -307,25 +313,27 @@ export const posts: BlogPost[] = [
   {
     slug: "integracja-sklepu-allegro-baselinker",
     date: "2026-07-11",
+    updated: "2026-10-08",
     illustration: "ecommerce",
-    readingMinutes: 6,
+    readingMinutes: 8,
+    related: ["ile-kosztuje-sklep-internetowy", "automatyzacja-w-malej-firmie", "integracja-ksef-api-najczestsze-bledy"],
     tags: {
-      pl: ["E-commerce", "Integracje", "Allegro", "Baselinker"],
-      en: ["E-commerce", "Integrations", "Allegro", "Baselinker"],
+      pl: ["E-commerce", "Integracje", "Allegro", "Baselinker", "API"],
+      en: ["E-commerce", "Integrations", "Allegro", "Baselinker", "API"],
     },
     title: {
-      pl: "Integracja sklepu z Allegro i Baselinker — jak to działa",
-      en: "Integrating your store with Allegro and Baselinker",
+      pl: "Integracja Baselinker z Allegro i własnym sklepem lub systemem: jak to działa i ile kosztuje",
+      en: "Integrating Baselinker with Allegro and your own store or system: how it works and what it costs",
     },
     excerpt: {
-      pl: "Jak połączyć sklep, Allegro i magazyn w jednym miejscu, przestać ręcznie przepisywać zamówienia i uniknąć sprzedaży towaru, którego już nie ma.",
-      en: "How to connect your store, Allegro and warehouse in one place, stop retyping orders by hand and avoid overselling out-of-stock items.",
+      pl: "Jak połączyć sklep, Allegro i magazyn w Baselinkerze, kiedy wystarczy wtyczka, a kiedy potrzebna jest integracja przez API z własnym systemem. Pułapki, które psują stany i zamówienia.",
+      en: "How to connect your store, Allegro and warehouse in Baselinker, when a plugin is enough and when you need an API integration with your own system. The pitfalls that break stock levels and orders.",
     },
     body: {
       pl: [
-        { type: "p", text: "Sprzedajesz jednocześnie we własnym sklepie i na Allegro? Bez integracji szybko robi się z tego chaos: dwa panele zamówień, ręczne przepisywanie danych i ciągły strach, że sprzedasz coś, czego już nie ma na magazynie. Baselinker rozwiązuje to, spinając wszystko w jeden panel — a moim zadaniem jest podłączyć do niego Twój sklep tak, żeby po prostu działało." },
-        { type: "h2", text: "Co daje integracja z Baselinker" },
-        { type: "p", text: "Baselinker to popularny w Polsce system, który zbiera zamówienia z wielu kanałów i zarządza magazynem oraz wysyłką w jednym miejscu. Dobrze podłączony do sklepu pozwala:" },
+        { type: "p", text: "Sprzedajesz jednocześnie we własnym sklepie i na Allegro? Bez integracji szybko robi się z tego chaos: dwa panele zamówień, ręczne przepisywanie danych i ciągły strach, że sprzedasz coś, czego już nie ma na magazynie. Baselinker rozwiązuje to, spinając wszystko w jeden panel. Moim zadaniem jest podłączyć do niego Twój sklep lub system tak, żeby po prostu działało." },
+        { type: "h2", text: "Co daje integracja z Baselinkerem" },
+        { type: "p", text: "Baselinker to popularny w Polsce system, który zbiera zamówienia z wielu kanałów i zarządza magazynem oraz wysyłką w jednym miejscu. Dobrze podłączony pozwala:" },
         { type: "ul", items: [
           "Zbierać zamówienia ze sklepu i z Allegro w jednym panelu",
           "Automatycznie zdejmować stan magazynowy po każdej sprzedaży",
@@ -334,21 +342,40 @@ export const posts: BlogPost[] = [
           "Automatycznie wysyłać statusy i numery przesyłek do klientów",
         ] },
         { type: "h2", text: "Najczęstszy problem: nadsprzedaż" },
-        { type: "p", text: "Bez wspólnego stanu magazynowego łatwo sprzedać ten sam ostatni egzemplarz dwa razy — raz w sklepie, raz na Allegro. Kończy się to anulowaniem zamówienia, zwrotem pieniędzy i negatywną opinią. Integracja pilnuje jednego, wspólnego stanu, więc gdy towar się kończy, znika ze wszystkich kanałów naraz." },
-        { type: "h2", text: "Jak wygląda podłączenie" },
-        { type: "p", text: "Sposób integracji zależy od tego, na czym stoi Twój sklep. Popularne platformy mają gotowe wtyczki, ale w praktyce często trzeba je dostroić albo — przy sklepie na własnym silniku — połączyć się przez API. Typowa realizacja obejmuje:" },
+        { type: "p", text: "Bez wspólnego stanu magazynowego łatwo sprzedać ten sam ostatni egzemplarz dwa razy: raz w sklepie, raz na Allegro. Kończy się to anulowaniem zamówienia, zwrotem pieniędzy i negatywną opinią. Integracja pilnuje jednego, wspólnego stanu, więc gdy towar się kończy, znika ze wszystkich kanałów naraz." },
+        { type: "h2", text: "Wtyczka czy integracja przez API" },
+        { type: "p", text: "Sposób podłączenia zależy od tego, na czym stoi Twój sklep lub system:" },
+        { type: "ul", items: [
+          "Gotowa wtyczka: popularne platformy sklepowe mają moduły do Baselinkera. To najtańsza droga, jeśli Twoje potrzeby są standardowe. W praktyce często trzeba ją skonfigurować i dostroić do własnych statusów i pól",
+          "Integracja przez API: gdy masz własny sklep, autorski system, ERP albo nietypowy obieg zamówień. Baselinker udostępnia API, przez które własny system może przekazywać produkty i stany oraz pobierać zamówienia i zmieniać ich statusy",
+          "Rozwiązanie mieszane: wtyczka do podstaw i dodatkowa warstwa własnego kodu do tego, czego wtyczka nie robi",
+        ] },
+        { type: "h2", text: "Jak wygląda integracja przez API" },
         { type: "ol", items: [
-          "Ustalenie, które dane mają się synchronizować i w którą stronę",
-          "Połączenie sklepu z Baselinker (wtyczka lub API)",
-          "Zmapowanie produktów, kategorii i stanów magazynowych",
+          "Ustalenie, które dane mają się synchronizować i w którą stronę (produkty, stany, ceny, zamówienia, statusy, faktury)",
+          "Połączenie systemu z Baselinkerem przez API (klucz dostępu trzymany jako sekret, nie w kodzie)",
+          "Zmapowanie produktów, kategorii, wariantów, stanów magazynowych i statusów zamówień",
+          "Obsługa błędów i ponowień oraz przestrzeganie limitu zapytań, który ma API",
           "Testy na zamówieniach próbnych, zanim wszystko pójdzie na produkcję",
         ] },
-        { type: "p", text: "Jeśli tracisz czas na ręczne przeklejanie zamówień albo zdarza Ci się sprzedać towar, którego nie ma — napisz. Sprawdzę, jak spiąć Twój sklep, Allegro i magazyn tak, żeby proces działał sam." },
+        { type: "h2", text: "System zgłoszeń i reklamacji z Baselinkerem" },
+        { type: "p", text: "Coraz częściej integrację robi się nie tylko dla zamówień, ale też dla obsługi klienta: system zgłoszeń (ticketów) czy reklamacji, który widzi dane zamówienia z Baselinkera. Dzięki temu osoba odpowiadająca klientowi nie musi przełączać się między narzędziami, a status zgłoszenia może wracać do zamówienia." },
+        { type: "h2", text: "Pułapki, które psują integrację" },
+        { type: "ul", items: [
+          "Duplikaty zamówień przy ponowieniu żądania, jeśli system nie rozpoznaje, że to ten sam dokument",
+          "Rozjazd stanów magazynowych, gdy aktualizacje idą w obie strony bez jasnego „źródła prawdy”",
+          "Niezgodne statusy zamówień między sklepem a Baselinkerem",
+          "Przekroczenie limitu zapytań przy dużej liczbie produktów, jeśli synchronizacja idzie „na raz”",
+          "Brak powiadomienia, gdy synchronizacja przestaje działać, i odkrycie tego dopiero po dniach",
+        ] },
+        { type: "h2", text: "Ile to kosztuje" },
+        { type: "p", text: "Zależy od zakresu i od tego, czy wystarczy wtyczka. Integrację od ok. 400 zł zaczynam przy jednym procesie, a podłączenie sklepu z synchronizacją stanów, zamówień i faktur wyceniam po krótkiej rozmowie. Orientacyjne widełki zobaczysz w kalkulatorze wyceny online (kategoria integracja lub sklep)." },
+        { type: "p", text: "Jeśli tracisz czas na ręczne przeklejanie zamówień albo zdarza Ci się sprzedać towar, którego nie ma, napisz. Sprawdzę, jak spiąć Twój sklep, Allegro i magazyn tak, żeby proces działał sam." },
       ],
       en: [
-        { type: "p", text: "Selling on your own store and on Allegro at the same time? Without an integration it quickly turns into chaos: two order panels, retyping data by hand and a constant fear of selling something that's already out of stock. Baselinker solves this by pulling everything into one panel — and my job is to connect your store to it so it just works." },
+        { type: "p", text: "Selling on your own store and on Allegro at the same time? Without an integration it quickly turns into chaos: two order panels, retyping data by hand and a constant fear of selling something that's already out of stock. Baselinker solves this by pulling everything into one panel. My job is to connect your store or system to it so it just works." },
         { type: "h2", text: "What a Baselinker integration gives you" },
-        { type: "p", text: "Baselinker is a system popular in Poland that collects orders from many channels and manages stock and shipping in one place. Connected properly to your store, it lets you:" },
+        { type: "p", text: "Baselinker is a system popular in Poland that collects orders from many channels and manages stock and shipping in one place. Connected properly, it lets you:" },
         { type: "ul", items: [
           "Collect orders from the store and Allegro in one panel",
           "Automatically reduce stock levels after every sale",
@@ -357,16 +384,35 @@ export const posts: BlogPost[] = [
           "Automatically send statuses and tracking numbers to customers",
         ] },
         { type: "h2", text: "The most common problem: overselling" },
-        { type: "p", text: "Without a shared stock level it's easy to sell the same last item twice — once in the store, once on Allegro. That ends in a cancelled order, a refund and a bad review. The integration keeps a single shared stock level, so when an item runs out it disappears from every channel at once." },
-        { type: "h2", text: "What connecting it looks like" },
-        { type: "p", text: "How the integration is done depends on what your store runs on. Popular platforms have ready-made plugins, but in practice they often need tuning — or, for a custom-built store, a connection over the API. A typical project covers:" },
-        { type: "ol", items: [
-          "Deciding which data should sync, and in which direction",
-          "Connecting the store to Baselinker (plugin or API)",
-          "Mapping products, categories and stock levels",
-          "Testing on sample orders before anything goes to production",
+        { type: "p", text: "Without a shared stock level it's easy to sell the same last item twice: once in the store, once on Allegro. That ends in a cancelled order, a refund and a bad review. The integration keeps a single shared stock level, so when an item runs out it disappears from every channel at once." },
+        { type: "h2", text: "A plugin or an API integration" },
+        { type: "p", text: "How you connect depends on what your store or system runs on:" },
+        { type: "ul", items: [
+          "A ready-made plugin: popular store platforms have Baselinker modules. This is the cheapest route if your needs are standard. In practice it often has to be configured and tuned to your own statuses and fields",
+          "An API integration: when you have a custom store, an in-house system, an ERP or an unusual order flow. Baselinker offers an API through which your own system can pass products and stock and fetch orders and change their statuses",
+          "A mixed solution: a plugin for the basics plus a layer of your own code for what the plugin doesn't do",
         ] },
-        { type: "p", text: "If you're losing time retyping orders by hand, or occasionally sell stock you no longer have — get in touch. I'll look at how to connect your store, Allegro and warehouse so the process runs itself." },
+        { type: "h2", text: "What an API integration looks like" },
+        { type: "ol", items: [
+          "Decide which data should sync and in which direction (products, stock, prices, orders, statuses, invoices)",
+          "Connect the system to Baselinker through the API (the access key kept as a secret, not in code)",
+          "Map products, categories, variants, stock levels and order statuses",
+          "Handle errors and retries and respect the API's request limit",
+          "Test on sample orders before anything goes to production",
+        ] },
+        { type: "h2", text: "A ticket and complaints system with Baselinker" },
+        { type: "p", text: "Increasingly the integration is built not just for orders but for customer service too: a ticket or complaints system that sees order data from Baselinker. The person answering the customer doesn't have to switch between tools, and the ticket status can flow back to the order." },
+        { type: "h2", text: "Pitfalls that break an integration" },
+        { type: "ul", items: [
+          "Duplicate orders when a request is retried and the system doesn't recognise it's the same document",
+          "Stock levels drifting apart when updates flow both ways with no clear “source of truth”",
+          "Order statuses that don't match between the store and Baselinker",
+          "Exceeding the request limit with a large number of products when sync runs “all at once”",
+          "No alert when sync stops working, and finding out only days later",
+        ] },
+        { type: "h2", text: "What it costs" },
+        { type: "p", text: "It depends on the scope and on whether a plugin is enough. I start an integration at about 400 PLN for a single process, and connecting a store with stock, order and invoice sync I quote after a short conversation. You can see an indicative range in the online quote calculator (the integration or store category)." },
+        { type: "p", text: "If you lose time retyping orders by hand, or occasionally sell stock you don't have, get in touch. I'll look at how to connect your store, Allegro and warehouse so the process runs itself." },
       ],
     },
   },
@@ -466,6 +512,7 @@ export const posts: BlogPost[] = [
   {
     slug: "ile-kosztuje-sklep-internetowy",
     date: "2026-07-21",
+    related: ["integracja-sklepu-allegro-baselinker", "ile-kosztuje-strona-internetowa", "wordpress-czy-strona-dedykowana"],
     illustration: "ecommerce",
     readingMinutes: 7,
     tags: {
@@ -548,6 +595,7 @@ export const posts: BlogPost[] = [
   {
     slug: "wordpress-czy-strona-dedykowana",
     date: "2026-07-28",
+    related: ["ile-kosztuje-strona-internetowa", "co-musi-zawierac-strona-firmowa", "modernizacja-aplikacji-przepisac-czy-naprawic"],
     illustration: "websites",
     readingMinutes: 6,
     tags: {
@@ -626,6 +674,7 @@ export const posts: BlogPost[] = [
   {
     slug: "dlaczego-strona-nie-wyswietla-sie-w-google",
     date: "2026-08-03",
+    related: ["co-musi-zawierac-strona-firmowa", "ile-kosztuje-strona-internetowa", "wordpress-czy-strona-dedykowana"],
     illustration: "audit",
     readingMinutes: 7,
     tags: {
@@ -688,6 +737,7 @@ export const posts: BlogPost[] = [
   {
     slug: "chatbot-ai-dla-firmy-ile-kosztuje",
     date: "2026-08-07",
+    related: ["automatyzacja-w-malej-firmie", "ile-kosztuje-dedykowana-aplikacja-webowa", "excel-przestal-wystarczac-czas-na-wlasny-system"],
     illustration: "ai",
     readingMinutes: 6,
     tags: {
@@ -754,6 +804,7 @@ export const posts: BlogPost[] = [
   {
     slug: "co-musi-zawierac-strona-firmowa",
     date: "2026-08-10",
+    related: ["dlaczego-strona-nie-wyswietla-sie-w-google", "ile-kosztuje-strona-internetowa", "wordpress-czy-strona-dedykowana"],
     illustration: "websites",
     readingMinutes: 6,
     tags: {
@@ -834,6 +885,7 @@ export const posts: BlogPost[] = [
   {
     slug: "ile-kosztuje-dedykowana-aplikacja-webowa",
     date: "2026-09-12",
+    related: ["wordpress-czy-strona-dedykowana", "excel-przestal-wystarczac-czas-na-wlasny-system", "modernizacja-aplikacji-przepisac-czy-naprawic"],
     illustration: "webapps",
     readingMinutes: 8,
     tags: {
@@ -942,6 +994,7 @@ export const posts: BlogPost[] = [
   {
     slug: "excel-przestal-wystarczac-czas-na-wlasny-system",
     date: "2026-09-16",
+    related: ["chatbot-ai-dla-firmy-ile-kosztuje", "ile-kosztuje-dedykowana-aplikacja-webowa", "automatyzacja-w-malej-firmie"],
     illustration: "modernization",
     readingMinutes: 7,
     tags: {
@@ -1149,10 +1202,494 @@ export const posts: BlogPost[] = [
       ],
     },
   },
+  {
+    slug: "ksef-dla-firm-produkcyjnych",
+    date: "2026-10-08",
+    illustration: "ksef",
+    readingMinutes: 7,
+    related: ["integracja-ksef-api-najczestsze-bledy", "ksef-jak-przygotowac-firme", "automatyzacja-w-malej-firmie"],
+    tags: {
+      pl: ["KSeF", "Produkcja", "ERP", "Integracje"],
+      en: ["KSeF", "Manufacturing", "ERP", "Integrations"],
+    },
+    title: {
+      pl: "KSeF w firmie produkcyjnej: co zmienia się w ERP, magazynie i księgowości",
+      en: "KSeF for manufacturing companies: what changes in your ERP, warehouse and accounting",
+    },
+    excerpt: {
+      pl: "Firmy produkcyjne i przemysłowe wystawiają dużo faktur z kilku systemów naraz. Sprawdź, gdzie KSeF sprawia najwięcej kłopotu i jak wdrożyć go bez przebudowy ERP.",
+      en: "Manufacturers issue many invoices from several systems at once. See where KSeF causes the most trouble and how to roll it out without rebuilding your ERP.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Dla małej firmy usługowej KSeF to zwykle jedna wtyczka w programie do fakturowania. Dla firmy produkcyjnej to inna skala: faktury powstają w ERP, w systemie magazynowym i w portalu B2B, kontrahentów są setki, a każda pomyłka w dokumencie kosztuje czas księgowości. Poniżej to, co warto wiedzieć, jeśli prowadzisz produkcję lub handel hurtowy." },
+        { type: "h2", text: "Terminy w skrócie" },
+        { type: "ul", items: [
+          "1 lutego 2026: obowiązek dla największych podatników (obroty powyżej 200 mln zł) oraz obowiązek odbioru faktur z KSeF dla wszystkich firm",
+          "1 kwietnia 2026: obowiązek wystawiania faktur w KSeF dla pozostałych przedsiębiorców",
+          "1 stycznia 2027: przedsiębiorcy ze sprzedażą do 10 tys. zł miesięcznie",
+          "Poza obowiązkiem zostają m.in. faktury dla konsumentów (B2C) i firmy bez siedziby w Polsce",
+        ] },
+        { type: "p", text: "Ministerstwo Finansów zapowiadało okres przejściowy, w którym kary nie są jeszcze nakładane, ale zasady warto sprawdzać na bieżąco, bo szczegóły zależą od przepisów wykonawczych." },
+        { type: "h2", text: "Gdzie KSeF boli najbardziej w produkcji" },
+        { type: "ul", items: [
+          "Kilka źródeł faktur: ERP, WMS, portal dla odbiorców B2B i ręczne wystawianie. Każde trzeba podłączyć albo wyłączyć z obiegu",
+          "Korekty: faktury przyjętej przez KSeF nie da się edytować, każda zmiana to faktura korygująca. Proces reklamacji i zwrotów musi to uwzględniać",
+          "Faktury zaliczkowe i rozliczeniowe przy większych zamówieniach",
+          "Załączniki: KSeF ma ograniczenia, więc rysunki, atesty i specyfikacje często trzeba wymieniać poza nim",
+          "Odbiór: wielu dostawców surowców i usług oznacza dużo faktur kosztowych, które trzeba pobrać, przypisać do zamówień i miejsc powstawania kosztów",
+          "Starsze lub własne systemy bez gotowego modułu KSeF",
+        ] },
+        { type: "h2", text: "Checklista dla firmy produkcyjnej" },
+        { type: "ol", items: [
+          "Spisz wszystkie miejsca, w których powstają lub trafiają faktury (ERP, magazyn, B2B, księgowość)",
+          "Sprawdź, czy dostawca ERP ma gotowy moduł KSeF i czy obsługuje Twoje przypadki (korekty, zaliczki, załączniki)",
+          "Zmapuj dane faktury na schemat FA(3): dane kontrahenta, pozycje, stawki VAT",
+          "Zaplanuj odbiór faktur zakupowych: automatyczne pobieranie i przypisanie do zamówień lub kosztów",
+          "Opisz procedurę korekt i tryb pracy, gdy KSeF jest niedostępny (faktury awaryjne i offline)",
+          "Ustal, gdzie przechowujesz numer KSeF i potwierdzenie odbioru (UPO) przy każdym dokumencie",
+          "Przetestuj całość w środowisku testowym na realnych przypadkach, nie na jednej fakturze",
+        ] },
+        { type: "h2", text: "Gotowy moduł, middleware czy własna integracja" },
+        { type: "ul", items: [
+          "Moduł dostawcy ERP: najprostszy, jeśli system jest aktualny i obsługuje Twoje przypadki. Płacisz licencją lub aktualizacją",
+          "Warstwa pośrednia (middleware) między kilkoma systemami a KSeF: dobra, gdy faktury pochodzą z wielu miejsc",
+          "Własny konektor: ma sens przy starszych lub autorskich systemach bez API KSeF albo gdy potrzebny jest nietypowy obieg",
+        ] },
+        { type: "h2", text: "Ile to kosztuje" },
+        { type: "p", text: "Zależy od liczby systemów i przypadków. Prostą integrację z jednym systemem robię od ok. 600 zł, a wdrożenie z kilkoma źródłami faktur, odbiorem kosztów i obsługą korekt wyceniam po krótkiej rozmowie. Orientacyjne widełki zobaczysz w kalkulatorze wyceny online (kategoria KSeF)." },
+        { type: "p", text: "Jeśli Twoja produkcja działa na własnym lub starszym systemie i nie wiesz, jak podłączyć go do KSeF, napisz. Sprawdzę, co da się zrobić bez zmiany ERP, i powiem wprost, ile to zajmie." },
+      ],
+      en: [
+        { type: "p", text: "For a small service business KSeF is usually one plug-in in the invoicing program. For a manufacturer it's a different scale: invoices come from the ERP, the warehouse system and a B2B portal, there are hundreds of customers, and every mistake in a document costs accounting time. Here is what to know if you run production or wholesale." },
+        { type: "h2", text: "The deadlines in short" },
+        { type: "ul", items: [
+          "1 February 2026: mandatory for the largest taxpayers (turnover above 200 million PLN), and every company must be able to receive invoices from KSeF",
+          "1 April 2026: mandatory issuing of invoices in KSeF for all other businesses",
+          "1 January 2027: businesses with sales up to 10,000 PLN a month",
+          "Outside the obligation: consumer invoices (B2C) and companies without a seat in Poland, among others",
+        ] },
+        { type: "p", text: "The Ministry of Finance announced a transition period in which penalties are not yet imposed, but it's worth checking the rules regularly because the details depend on implementing regulations." },
+        { type: "h2", text: "Where KSeF hurts most in manufacturing" },
+        { type: "ul", items: [
+          "Several invoice sources: ERP, warehouse system, a B2B customer portal and manual issuing. Each has to be connected or taken out of the flow",
+          "Corrections: an invoice accepted by KSeF can't be edited, every change is a correction invoice. Your returns and complaints process has to reflect that",
+          "Advance and settlement invoices on larger orders",
+          "Attachments: KSeF has limits, so drawings, certificates and specifications often have to be exchanged outside it",
+          "Receiving: many raw-material and service suppliers mean many purchase invoices to fetch, match to orders and assign to cost centres",
+          "Older or in-house systems with no ready KSeF module",
+        ] },
+        { type: "h2", text: "A checklist for a manufacturing company" },
+        { type: "ol", items: [
+          "List every place where invoices are created or arrive (ERP, warehouse, B2B, accounting)",
+          "Check whether your ERP vendor has a KSeF module and whether it covers your cases (corrections, advances, attachments)",
+          "Map invoice data to the FA(3) schema: counterparty data, line items, VAT rates",
+          "Plan receiving purchase invoices: automatic fetching and matching to orders or costs",
+          "Document the correction procedure and what to do when KSeF is unavailable (emergency and offline invoices)",
+          "Decide where you store the KSeF number and the receipt confirmation (UPO) next to each document",
+          "Test the whole thing in the test environment on real cases, not on a single invoice",
+        ] },
+        { type: "h2", text: "Vendor module, middleware or a custom integration" },
+        { type: "ul", items: [
+          "ERP vendor module: simplest if the system is current and handles your cases. You pay through a licence or an upgrade",
+          "A middleware layer between several systems and KSeF: good when invoices originate in many places",
+          "A custom connector: makes sense for older or in-house systems with no KSeF support, or when you need an unusual flow",
+        ] },
+        { type: "h2", text: "What it costs" },
+        { type: "p", text: "It depends on the number of systems and cases. I build a simple integration with one system from about 600 PLN, and a rollout with several invoice sources, cost receiving and correction handling I quote after a short conversation. You can see an indicative range in the online quote calculator (the KSeF category)." },
+        { type: "p", text: "If your production runs on an in-house or older system and you don't know how to connect it to KSeF, get in touch. I'll check what can be done without changing your ERP and tell you straight how long it will take." },
+      ],
+    },
+  },
+  {
+    slug: "integracja-ksef-api-najczestsze-bledy",
+    date: "2026-10-08",
+    illustration: "integrations",
+    readingMinutes: 8,
+    related: ["ksef-dla-firm-produkcyjnych", "ksef-jak-przygotowac-firme", "integracja-sklepu-allegro-baselinker"],
+    tags: {
+      pl: ["KSeF", "API", "Integracje", "Programowanie"],
+      en: ["KSeF", "API", "Integrations", "Development"],
+    },
+    title: {
+      pl: "Integracja własnego systemu ze KSeF przez API: najczęstsze błędy i jak ich uniknąć",
+      en: "Integrating your own system with the KSeF API: common mistakes and how to avoid them",
+    },
+    excerpt: {
+      pl: "Odrzucane faktury, ponawiane w nieskończoność wysyłki, brak statusów. Co najczęściej psuje integrację z API KSeF i jak zbudować ją tak, żeby działała niezawodnie.",
+      en: "Rejected invoices, endless retries, missing statuses. What most often breaks a KSeF API integration and how to build it to run reliably.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Wysłanie jednej faktury testowej do KSeF jest łatwe. Trudne zaczyna się, gdy system ma wysyłać setki dokumentów dziennie, odbierać faktury kosztowe i nie gubić żadnej, nawet gdy po drodze coś zawiedzie. Poniżej błędy, które widać w praktycznych wdrożeniach, i sposób, jak ich uniknąć." },
+        { type: "h2", text: "Jak to działa w skrócie" },
+        { type: "ol", items: [
+          "Uwierzytelniasz się w API certyfikatem lub tokenem",
+          "Przygotowujesz fakturę jako plik XML zgodny ze schematem FA(3)",
+          "Wysyłasz ją do KSeF. Wysyłka nie oznacza jeszcze przyjęcia: system waliduje dokument asynchronicznie",
+          "Po pozytywnej walidacji dostajesz numer KSeF i urzędowe poświadczenie odbioru (UPO)",
+          "Odrzuconą fakturę poprawiasz i wysyłasz ponownie. Przyjętej nie edytujesz, wystawiasz korektę",
+        ] },
+        { type: "h2", text: "Najczęstsze błędy" },
+        { type: "ol", items: [
+          "Uznanie wysyłki za przyjęcie. Faktura może zostać odrzucona po walidacji, więc potrzebujesz śledzenia statusu każdego dokumentu, a nie tylko odpowiedzi „wysłano”",
+          "Brak rozróżnienia błędów trwałych i tymczasowych. Błąd danych faktury nie minie po ponowieniu, a chwilowa awaria sieci tak. Bez tego rozróżnienia system w kółko wysyła ten sam wadliwy dokument",
+          "Brak jednego identyfikatora dokumentu w ERP, warstwie pośredniej i monitoringu. Gdy jedna faktura ma trzy różne numery, nie wiadomo, co faktycznie poszło i czy nie poszło dwa razy",
+          "XML niezgodny z FA(3). Najprościej walidować plik względem schematu przed wysyłką, zamiast uczyć się o błędach z odrzuceń",
+          "Ignorowanie limitów. W pierwszych tygodniach obowiązkowego KSeF zgłaszano ograniczenia liczby faktur wysyłanych w krótkim czasie i wydłużone oczekiwanie na UPO. Integracja musi zwalniać i ponawiać, a nie zakładać natychmiastowej odpowiedzi",
+          "Ręczne wgrywanie plików zamiast automatu. Działa przy kilku fakturach i przestaje przy kilkuset",
+          "Brak planu na niedostępność KSeF. Są tryby awaryjny i offline, ale system musi wiedzieć, kiedy z nich korzystać i dosyłać faktury po powrocie usługi",
+          "Sekrety w kodzie. Certyfikaty i tokeny nie powinny trafiać do repozytorium ani do logów",
+        ] },
+        { type: "h2", text: "Architektura, która działa" },
+        { type: "ul", items: [
+          "Kolejka wysyłki z jawnym stanem każdego dokumentu: do wysłania, wysłano, przyjęto, odrzucono, do poprawy",
+          "Klucz idempotentności na fakturę, żeby ponowienie nigdy nie dublowało dokumentu",
+          "Ponawianie z rosnącymi odstępami tylko dla błędów tymczasowych, a błędy trwałe trafiają do osoby, która je naprawi",
+          "Zapis numeru KSeF i UPO przy fakturze, razem z kopią wysłanego XML",
+          "Panel wyjątków i alerty: widzisz odrzucone i zawieszone faktury, zanim zrobi to księgowość",
+          "Oddzielne środowisko testowe i symulacja większego wolumenu przed uruchomieniem produkcyjnym",
+        ] },
+        { type: "h2", text: "Odbiór faktur kosztowych" },
+        { type: "p", text: "Odbiór to druga połowa integracji i często pomijana. System powinien regularnie pobierać nowe faktury, zapisywać je raz (bez duplikatów), przypisywać do zamówień lub kosztów i dawać księgowości listę do akceptacji. Zaplanuj to od początku, bo od lutego 2026 odbierać faktury z KSeF muszą wszystkie firmy." },
+        { type: "h2", text: "Gotowe rozwiązanie czy własna integracja" },
+        { type: "p", text: "Jeśli używasz aktualnego programu z modułem KSeF, zwykle najlepiej z niego skorzystać. Własna integracja ma sens, gdy masz autorski lub starszy system, kilka źródeł faktur albo nietypowy obieg dokumentów. Wtedy ważniejsza od samego podłączenia jest niezawodność, czyli to wszystko, co opisałem wyżej." },
+        { type: "p", text: "Robię takie integracje od strony technicznej, od konektora do API po panel wyjątków. Jeśli chcesz, żebym przejrzał Twój obieg faktur i powiedział, co warto zbudować, napisz. Pierwsza rozmowa i wycena są darmowe." },
+      ],
+      en: [
+        { type: "p", text: "Sending one test invoice to KSeF is easy. The hard part starts when the system has to send hundreds of documents a day, receive purchase invoices and lose none of them, even when something fails on the way. Below are the mistakes seen in real rollouts and how to avoid them." },
+        { type: "h2", text: "How it works in short" },
+        { type: "ol", items: [
+          "You authenticate to the API with a certificate or a token",
+          "You prepare the invoice as an XML file that follows the FA(3) schema",
+          "You send it to KSeF. Sending isn't acceptance yet: the system validates the document asynchronously",
+          "After successful validation you get a KSeF number and an official receipt confirmation (UPO)",
+          "A rejected invoice you fix and resend. An accepted one you don't edit, you issue a correction",
+        ] },
+        { type: "h2", text: "The most common mistakes" },
+        { type: "ol", items: [
+          "Treating sending as acceptance. An invoice can be rejected after validation, so you need status tracking per document, not just a “sent” response",
+          "No distinction between permanent and temporary errors. A data error won't go away on retry, a brief network failure will. Without the distinction the system keeps resending the same faulty document",
+          "No single document identifier across the ERP, the middleware and monitoring. When one invoice has three different numbers, you can't tell what actually went out or whether it went out twice",
+          "XML that doesn't match FA(3). The simplest fix is to validate the file against the schema before sending instead of learning about errors from rejections",
+          "Ignoring limits. In the first weeks of mandatory KSeF, limits on how many invoices can be sent in a short time and long waits for the UPO were reported. The integration has to slow down and retry rather than assume an instant response",
+          "Uploading files by hand instead of automating. It works for a few invoices and stops working at a few hundred",
+          "No plan for KSeF being unavailable. There are emergency and offline modes, but the system must know when to use them and resubmit invoices once the service is back",
+          "Secrets in code. Certificates and tokens must not end up in the repository or in logs",
+        ] },
+        { type: "h2", text: "An architecture that works" },
+        { type: "ul", items: [
+          "A send queue with an explicit state for every document: to send, sent, accepted, rejected, to fix",
+          "An idempotency key per invoice so a retry never duplicates a document",
+          "Retries with growing delays only for temporary errors, while permanent errors go to a person who can fix them",
+          "The KSeF number and UPO stored with the invoice, along with a copy of the XML that was sent",
+          "An exceptions panel and alerts: you see rejected and stuck invoices before accounting does",
+          "A separate test environment and a simulation of larger volume before going live",
+        ] },
+        { type: "h2", text: "Receiving purchase invoices" },
+        { type: "p", text: "Receiving is the second half of the integration and often skipped. The system should regularly fetch new invoices, save each once (no duplicates), match them to orders or costs and give accounting a list to approve. Plan it from the start, because since February 2026 every company must be able to receive invoices from KSeF." },
+        { type: "h2", text: "A ready-made solution or your own integration" },
+        { type: "p", text: "If you use a current program with a KSeF module, it's usually best to use it. A custom integration makes sense when you have an in-house or older system, several invoice sources or an unusual document flow. Then reliability matters more than the connection itself, which is everything described above." },
+        { type: "p", text: "I build such integrations on the technical side, from the API connector to the exceptions panel. If you'd like me to look at your invoice flow and tell you what's worth building, get in touch. The first conversation and quote are free." },
+      ],
+    },
+  },
+  {
+    slug: "react-native-czy-flutter-czy-natywnie",
+    date: "2026-10-08",
+    illustration: "mobile",
+    readingMinutes: 7,
+    related: ["ile-kosztuje-aplikacja-mobilna", "pwa-czy-aplikacja-mobilna", "jak-wyglada-wycena-aplikacji-etapy-i-brief"],
+    tags: {
+      pl: ["Aplikacje mobilne", "React Native", "Flutter"],
+      en: ["Mobile apps", "React Native", "Flutter"],
+    },
+    title: {
+      pl: "React Native, Flutter czy aplikacja natywna: co wybrać dla swojego projektu",
+      en: "React Native, Flutter or a native app: which to choose for your project",
+    },
+    excerpt: {
+      pl: "Trzy sposoby zbudowania aplikacji na iOS i Androida, ich zalety, ograniczenia i wpływ na koszt. Praktyczne kryteria wyboru bez fanatyzmu technologicznego.",
+      en: "Three ways to build an app for iOS and Android, their strengths, limits and effect on cost. Practical criteria for choosing, without technology zealotry.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Zanim ktokolwiek napisze pierwszą linijkę kodu, trzeba wybrać technologię, a od niej zależą koszt, czas i późniejsze utrzymanie aplikacji. Do wyboru są w praktyce trzy drogi: React Native, Flutter i aplikacje natywne. Poniżej uczciwe porównanie, bez udawania, że któraś jest najlepsza do wszystkiego." },
+        { type: "h2", text: "Aplikacja natywna (Swift i Kotlin)" },
+        { type: "p", text: "Piszesz osobno aplikację na iOS (Swift) i osobno na Androida (Kotlin). To daje pełny dostęp do możliwości telefonu i najlepszą wydajność, ale oznacza dwa zespoły lub dwa razy więcej pracy, a więc wyraźnie wyższy koszt i dłuższy czas." },
+        { type: "ul", items: [
+          "Plusy: maksymalna wydajność, natychmiastowy dostęp do nowych funkcji systemu, najlepsza integracja ze sprzętem",
+          "Minusy: dwa kody do napisania i utrzymania, wyższy koszt i dłuższe wdrożenie",
+          "Sens ma przy grach i zaawansowanej grafice, aplikacjach silnie opartych na sprzęcie (kamera, czujniki, Bluetooth) albo bardzo wysokich wymaganiach wydajności",
+        ] },
+        { type: "h2", text: "React Native" },
+        { type: "p", text: "Jeden kod w JavaScript lub TypeScript działa na iOS i Androidzie, a interfejs korzysta z natywnych komponentów systemu. Dzięki temu aplikacja wygląda i zachowuje się jak natywna, a Ty płacisz za jedną implementację." },
+        { type: "ul", items: [
+          "Plusy: jeden kod na obie platformy, ogromny ekosystem bibliotek, wspólna wiedza z tworzeniem stron (React, TypeScript), możliwość współdzielenia logiki z aplikacją webową, szybkie poprawki przez aktualizacje bez przechodzenia całego procesu sklepu (w ramach zasad sklepów)",
+          "Minusy: przy bardzo specyficznych funkcjach sprzętowych bywa potrzebny kod natywny, a część bibliotek zewnętrznych wymaga uwagi przy aktualizacjach",
+        ] },
+        { type: "h2", text: "Flutter" },
+        { type: "p", text: "Flutter od Google też daje jeden kod na obie platformy, ale rysuje interfejs własnym silnikiem, a nie komponentami systemu. Używa języka Dart." },
+        { type: "ul", items: [
+          "Plusy: bardzo spójny wygląd na każdym urządzeniu, dobra wydajność animacji, jedna baza kodu",
+          "Minusy: osobny język (Dart), mniej wspólnego z tworzeniem stron, mniejszy ekosystem niż w świecie JavaScriptu",
+        ] },
+        { type: "h2", text: "Jak wybrać" },
+        { type: "ol", items: [
+          "Czy aplikacja to głównie formularze, listy, konta, płatności, powiadomienia? Wtedy cross-platform (React Native lub Flutter) w zupełności wystarczy",
+          "Czy masz już stronę lub aplikację webową w React? Wtedy React Native pozwala współdzielić wiedzę, a często także część kodu",
+          "Czy to gra, zaawansowana grafika 3D lub aplikacja mocno oparta na sprzęcie? Wtedy rozważ natywną",
+          "Czy zależy Ci na budżecie i szybkim starcie? Jeden kod na dwie platformy ogranicza koszt zwykle o 30–50% względem dwóch aplikacji natywnych",
+          "Kto będzie rozwijał aplikację dalej? Technologia z dużą liczbą programistów na rynku ułatwia zmianę wykonawcy",
+        ] },
+        { type: "h2", text: "Dlaczego zwykle wybieram React Native" },
+        { type: "p", text: "Na co dzień buduję strony i aplikacje webowe w React i TypeScript, więc React Native pozwala mi dostarczyć aplikację mobilną szybciej i taniej, bez uczenia się za Twoje pieniądze nowego języka. Dla większości projektów firmowych (rezerwacje, panele klienta, aplikacje wewnętrzne, sklepy) to najlepszy stosunek ceny do jakości. Jeśli Twój projekt wymaga czegoś, co React Native robi słabo, powiem Ci to na początku, a nie po wydaniu budżetu." },
+        { type: "p", text: "Ile to kosztuje, opisałem w osobnym wpisie o cenach aplikacji mobilnych. Szybkie widełki dla swojego pomysłu zobaczysz w kalkulatorze wyceny online." },
+      ],
+      en: [
+        { type: "p", text: "Before anyone writes the first line of code you have to choose a technology, and cost, timeline and later maintenance depend on it. In practice there are three routes: React Native, Flutter and native apps. Below is an honest comparison, without pretending that one is best for everything." },
+        { type: "h2", text: "A native app (Swift and Kotlin)" },
+        { type: "p", text: "You write an iOS app (Swift) and a separate Android app (Kotlin). That gives full access to the phone's capabilities and the best performance, but it means two teams or twice the work, and so a clearly higher cost and a longer timeline." },
+        { type: "ul", items: [
+          "Pros: maximum performance, immediate access to new system features, the best hardware integration",
+          "Cons: two codebases to write and maintain, higher cost and a longer rollout",
+          "Makes sense for games and advanced graphics, apps built heavily around hardware (camera, sensors, Bluetooth) or very high performance demands",
+        ] },
+        { type: "h2", text: "React Native" },
+        { type: "p", text: "One codebase in JavaScript or TypeScript runs on iOS and Android, and the interface uses the system's native components. So the app looks and behaves like a native one while you pay for a single implementation." },
+        { type: "ul", items: [
+          "Pros: one codebase for both platforms, a huge library ecosystem, shared knowledge with web development (React, TypeScript), the ability to share logic with a web app, quick fixes through updates without going through the whole store process (within store rules)",
+          "Cons: very specific hardware features sometimes need native code, and some third-party libraries need attention during upgrades",
+        ] },
+        { type: "h2", text: "Flutter" },
+        { type: "p", text: "Flutter from Google also gives one codebase for both platforms, but it draws the interface with its own engine rather than system components. It uses the Dart language." },
+        { type: "ul", items: [
+          "Pros: a very consistent look on every device, good animation performance, one codebase",
+          "Cons: a separate language (Dart), less in common with web development, a smaller ecosystem than the JavaScript world",
+        ] },
+        { type: "h2", text: "How to choose" },
+        { type: "ol", items: [
+          "Is the app mostly forms, lists, accounts, payments and notifications? Then cross-platform (React Native or Flutter) is more than enough",
+          "Do you already have a React website or web app? Then React Native lets you share knowledge and often part of the code",
+          "Is it a game, advanced 3D graphics or an app heavily based on hardware? Then consider native",
+          "Do budget and a quick start matter? One codebase for two platforms usually cuts the cost by 30–50% compared with two native apps",
+          "Who will develop the app further? A technology with many developers on the market makes it easier to change contractors",
+        ] },
+        { type: "h2", text: "Why I usually choose React Native" },
+        { type: "p", text: "Day to day I build websites and web apps in React and TypeScript, so React Native lets me deliver a mobile app faster and cheaper, without learning a new language on your budget. For most business projects (bookings, client portals, internal apps, stores) it's the best value for money. If your project needs something React Native does poorly, I'll tell you at the start, not after the budget is spent." },
+        { type: "p", text: "What it costs I described in a separate post on mobile app prices. You can see a quick range for your idea in the online quote calculator." },
+      ],
+    },
+  },
+  {
+    slug: "pwa-czy-aplikacja-mobilna",
+    date: "2026-10-08",
+    illustration: "websites",
+    readingMinutes: 6,
+    related: ["react-native-czy-flutter-czy-natywnie", "ile-kosztuje-aplikacja-mobilna", "ile-kosztuje-dedykowana-aplikacja-webowa"],
+    tags: {
+      pl: ["PWA", "Aplikacje mobilne", "Aplikacje webowe"],
+      en: ["PWA", "Mobile apps", "Web apps"],
+    },
+    title: {
+      pl: "PWA czy aplikacja mobilna? Co to jest i kiedy wystarczy aplikacja w przeglądarce",
+      en: "PWA or a mobile app? What it is and when a browser-based app is enough",
+    },
+    excerpt: {
+      pl: "Czym jest aplikacja mobilna, czym różni się od PWA i kiedy zamiast aplikacji w sklepie wystarczy tańsza aplikacja webowa instalowana z przeglądarki.",
+      en: "What a mobile app is, how it differs from a PWA and when a cheaper web app installed from the browser is enough instead of a store app.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Wiele firm pyta o „aplikację na telefon”, a po rozmowie okazuje się, że potrzebują czegoś prostszego i tańszego. Zanim wydasz budżet na aplikację w sklepach, warto wiedzieć, czym jest PWA i czy nie rozwiąże Twojego problemu." },
+        { type: "h2", text: "Co to jest aplikacja mobilna" },
+        { type: "p", text: "Aplikacja mobilna to program instalowany na telefonie, zwykle ze sklepów App Store i Google Play. Ma własną ikonę, działa w osobnym oknie i może korzystać z funkcji urządzenia, takich jak aparat, powiadomienia czy lokalizacja." },
+        { type: "h2", text: "Co to jest PWA" },
+        { type: "p", text: "PWA (Progressive Web App) to aplikacja webowa, którą użytkownik może dodać do ekranu głównego prosto z przeglądarki, bez sklepu. Otwiera się jak zwykła aplikacja, w osobnym oknie, może zapamiętywać dane i częściowo działać bez internetu." },
+        { type: "h2", text: "Porównanie" },
+        { type: "ul", items: [
+          "Koszt: PWA jest zwykle tańsza, bo to jedna aplikacja webowa, a nie osobne wersje na platformy i dwa procesy publikacji",
+          "Instalacja: PWA bez sklepu i bez opłat za konta deweloperskie, aplikacja ze sklepu wymaga konta (Apple 99 USD rocznie, Google jednorazowo 25 USD) i weryfikacji",
+          "Widoczność: aplikację ze sklepu da się znaleźć w wyszukiwarce sklepu, PWA znajdujesz przez Google i link",
+          "Funkcje urządzenia: aplikacja natywna lub w React Native ma szerszy dostęp do sprzętu, a PWA ma tu ograniczenia, zwłaszcza na iPhonie",
+          "Powiadomienia: działają w PWA, ale ich obsługa i zasady różnią się między systemami",
+          "Aktualizacje: PWA aktualizuje się od razu po wdrożeniu, w sklepach przechodzą weryfikację",
+        ] },
+        { type: "h2", text: "Kiedy wystarczy PWA" },
+        { type: "ul", items: [
+          "Narzędzia wewnętrzne dla zespołu: grafiki, zlecenia, ewidencje, raporty z terenu",
+          "Panele klienta i rezerwacje, które i tak działają w przeglądarce",
+          "Katalogi, kalkulatory i proste aplikacje informacyjne",
+          "Gdy nie zależy Ci na obecności w sklepach z aplikacjami",
+          "Gdy budżet jest ograniczony i chcesz szybko sprawdzić pomysł",
+        ] },
+        { type: "h2", text: "Kiedy potrzebna jest aplikacja ze sklepu" },
+        { type: "ul", items: [
+          "Gdy kluczowa jest widoczność w App Store i Google Play",
+          "Gdy potrzebujesz zaawansowanego dostępu do sprzętu (Bluetooth, czujniki, praca w tle)",
+          "Gdy użytkownicy oczekują „prawdziwej” aplikacji i regularnych płatności w aplikacji",
+          "Gdy aplikacja ma być głównym produktem, a nie dodatkiem do usługi",
+        ] },
+        { type: "h2", text: "Rozsądne podejście" },
+        { type: "p", text: "Często najtaniej zacząć od aplikacji webowej (PWA), sprawdzić z prawdziwymi użytkownikami, czy pomysł działa, i dopiero potem inwestować w wersję do sklepów. Ten sam backend i część logiki da się wtedy wykorzystać dalej, więc nic nie przepada. Jeśli nie jesteś pewien, czego potrzebujesz, opisz mi swój pomysł w kalkulatorze wyceny lub mailem, a powiem wprost, co wystarczy." },
+      ],
+      en: [
+        { type: "p", text: "Many companies ask for “a phone app”, and after a conversation it turns out they need something simpler and cheaper. Before you spend a budget on a store app, it's worth knowing what a PWA is and whether it won't solve your problem." },
+        { type: "h2", text: "What a mobile app is" },
+        { type: "p", text: "A mobile app is a program installed on a phone, usually from the App Store and Google Play. It has its own icon, runs in a separate window and can use device features such as the camera, notifications or location." },
+        { type: "h2", text: "What a PWA is" },
+        { type: "p", text: "A PWA (Progressive Web App) is a web app the user can add to the home screen straight from the browser, without a store. It opens like an ordinary app in its own window, can remember data and partly works offline." },
+        { type: "h2", text: "A comparison" },
+        { type: "ul", items: [
+          "Cost: a PWA is usually cheaper because it's one web app rather than separate platform versions and two publishing processes",
+          "Installation: a PWA needs no store and no developer-account fees, a store app needs an account (Apple 99 USD a year, Google a one-off 25 USD) and review",
+          "Visibility: a store app can be found through the store search, a PWA you find through Google and a link",
+          "Device features: a native or React Native app has wider hardware access, while a PWA has limits here, especially on iPhone",
+          "Notifications: they work in a PWA, but support and rules differ between systems",
+          "Updates: a PWA updates as soon as it's deployed, store apps go through review",
+        ] },
+        { type: "h2", text: "When a PWA is enough" },
+        { type: "ul", items: [
+          "Internal tools for a team: schedules, jobs, registers, field reports",
+          "Client portals and bookings, which run in the browser anyway",
+          "Catalogues, calculators and simple information apps",
+          "When store presence doesn't matter to you",
+          "When the budget is limited and you want to test an idea quickly",
+        ] },
+        { type: "h2", text: "When you need a store app" },
+        { type: "ul", items: [
+          "When visibility in the App Store and Google Play is key",
+          "When you need advanced hardware access (Bluetooth, sensors, background work)",
+          "When users expect a “real” app and recurring in-app payments",
+          "When the app is the main product, not an add-on to a service",
+        ] },
+        { type: "h2", text: "A sensible approach" },
+        { type: "p", text: "It's often cheapest to start with a web app (a PWA), check with real users whether the idea works, and only then invest in a store version. The same backend and part of the logic can be reused, so nothing is wasted. If you aren't sure what you need, describe your idea in the quote calculator or by e-mail and I'll tell you straight what's enough." },
+      ],
+    },
+  },
+  {
+    slug: "modernizacja-aplikacji-przepisac-czy-naprawic",
+    date: "2026-10-08",
+    illustration: "modernization",
+    readingMinutes: 7,
+    related: ["wordpress-czy-strona-dedykowana", "excel-przestal-wystarczac-czas-na-wlasny-system", "ile-kosztuje-dedykowana-aplikacja-webowa"],
+    tags: {
+      pl: ["Modernizacja", "Legacy", "Aplikacje webowe"],
+      en: ["Modernisation", "Legacy code", "Web apps"],
+    },
+    title: {
+      pl: "Modernizacja aplikacji: przepisać od zera czy naprawić to, co jest?",
+      en: "Application modernisation: rewrite from scratch or fix what you have?",
+    },
+    excerpt: {
+      pl: "Stary system jest wolny, trudny w zmianach i boi się go ruszać każdy programista. Kiedy opłaca się przepisanie, kiedy stopniowa modernizacja i jak to zrobić bez zatrzymywania firmy.",
+      en: "The old system is slow, hard to change and every developer is afraid to touch it. When a rewrite pays off, when gradual modernisation does, and how to do it without stopping the business.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Prawie każda firma ma system, który „działa, ale strach go ruszać”. Jest napisany w starej technologii, nikt do końca nie wie, jak działa, a każda zmiana trwa tygodniami. Pytanie, czy przepisać go od zera, czy naprawiać po kawałku, kosztuje często więcej niż sam projekt, dlatego warto podejść do niego metodycznie." },
+        { type: "h2", text: "Sygnały, że czas na zmiany" },
+        { type: "ul", items: [
+          "Technologia nie jest już wspierana (stare wersje PHP, przestarzałe frameworki) i nie dostaje poprawek bezpieczeństwa",
+          "Każda drobna zmiana trwa tygodniami albo psuje coś w innym miejscu",
+          "Trudno znaleźć programistę, który chce pracować na tym kodzie",
+          "Aplikacja jest wolna, zawiesza się albo nie działa dobrze na telefonach",
+          "Nie ma testów ani dokumentacji, a wiedza siedzi w głowie jednej osoby",
+          "Nie da się podłączyć nowych usług, bo system nie ma API",
+        ] },
+        { type: "h2", text: "Dlaczego pełne przepisanie jest ryzykowne" },
+        { type: "p", text: "Przepisanie od zera kusi, bo obiecuje czystą kartę. W praktyce trwa dłużej, niż zakładano, trzeba utrzymywać stary system do końca prac, a po drodze gubi się reguły biznesowe, których nikt nie spisał, a które stary kod po cichu realizował. Firmy często wydają budżet na odtworzenie tego, co już mają, zamiast na nowe możliwości." },
+        { type: "h2", text: "Modernizacja po kawałku" },
+        { type: "p", text: "Bezpieczniejsza ścieżka to stopniowa wymiana. Nowy kod rośnie obok starego, kolejne moduły przenosi się jeden po drugim, a system przez cały czas działa. Taka metoda ogranicza ryzyko i pozwala widzieć efekty po kilku tygodniach, a nie po roku." },
+        { type: "ol", items: [
+          "Audyt: co system robi, jakie ma zależności, co jest krytyczne, a co martwe",
+          "Zabezpieczenie: kopie, testy najważniejszych procesów, aktualizacje bezpieczeństwa",
+          "Wyłonienie modułów do wymiany według priorytetu: największy ból, największe ryzyko",
+          "Wymiana modułu za modułem, z migracją danych i równoległą pracą starego i nowego",
+          "Wyłączenie starych części dopiero, gdy nowe są sprawdzone",
+        ] },
+        { type: "h2", text: "Kiedy jednak warto przepisać" },
+        { type: "ul", items: [
+          "Aplikacja jest mała, a jej logika prosta",
+          "Technologia jest tak stara, że nie da się jej bezpiecznie rozwijać ani aktualizować",
+          "Zmienił się sposób działania firmy i stary model danych już do niej nie pasuje",
+          "Koszt dalszego łatania wyraźnie przekracza koszt nowego systemu",
+        ] },
+        { type: "h2", text: "Co zwykle obejmuje modernizacja" },
+        { type: "ul", items: [
+          "Migracja do bieżącej wersji technologii lub nowoczesnego frameworka",
+          "Przejście z JavaScriptu na TypeScript, co znacznie zmniejsza liczbę błędów",
+          "Poprawa wydajności i wersji mobilnej",
+          "Dodanie API, żeby system mógł rozmawiać z innymi narzędziami",
+          "Uporządkowanie kodu, testy i dokumentacja, żeby kolejna zmiana była tania",
+        ] },
+        { type: "p", text: "Zajmuję się modernizacją i migracją istniejących aplikacji. Jeśli masz system, który boli, napisz, co w nim nie działa. Zacznę od krótkiego przeglądu i powiem wprost, czy lepiej go naprawić, czy zastąpić, oraz ile to wyniesie." },
+      ],
+      en: [
+        { type: "p", text: "Almost every company has a system that “works, but is scary to touch”. It's written in an old technology, nobody quite knows how it works, and every change takes weeks. The question of whether to rewrite it from scratch or fix it piece by piece often costs more than the project itself, so it's worth approaching methodically." },
+        { type: "h2", text: "Signs it's time for change" },
+        { type: "ul", items: [
+          "The technology is no longer supported (old PHP versions, obsolete frameworks) and gets no security fixes",
+          "Every small change takes weeks or breaks something elsewhere",
+          "It's hard to find a developer who wants to work on this code",
+          "The app is slow, freezes or doesn't work well on phones",
+          "There are no tests or documentation and the knowledge sits in one person's head",
+          "New services can't be connected because the system has no API",
+        ] },
+        { type: "h2", text: "Why a full rewrite is risky" },
+        { type: "p", text: "A rewrite from scratch is tempting because it promises a clean slate. In practice it takes longer than planned, the old system has to be maintained until the end, and along the way you lose business rules nobody wrote down but the old code quietly implemented. Companies often spend the budget recreating what they already have instead of on new capabilities." },
+        { type: "h2", text: "Modernising piece by piece" },
+        { type: "p", text: "The safer path is gradual replacement. New code grows beside the old, modules are moved one by one, and the system keeps running the whole time. This method limits risk and lets you see results after a few weeks, not after a year." },
+        { type: "ol", items: [
+          "Audit: what the system does, its dependencies, what is critical and what is dead",
+          "Safeguards: backups, tests of the most important processes, security updates",
+          "Pick the modules to replace by priority: the biggest pain, the biggest risk",
+          "Replace module after module, with data migration and the old and new running in parallel",
+          "Switch off old parts only once the new ones are proven",
+        ] },
+        { type: "h2", text: "When a rewrite is still worth it" },
+        { type: "ul", items: [
+          "The application is small and its logic simple",
+          "The technology is so old it can't be safely developed or upgraded",
+          "The way the business works has changed and the old data model no longer fits",
+          "The cost of further patching clearly exceeds the cost of a new system",
+        ] },
+        { type: "h2", text: "What modernisation usually includes" },
+        { type: "ul", items: [
+          "Migration to a current version of the technology or a modern framework",
+          "Moving from JavaScript to TypeScript, which greatly reduces bugs",
+          "Improving performance and the mobile version",
+          "Adding an API so the system can talk to other tools",
+          "Tidying the code, tests and documentation so the next change is cheap",
+        ] },
+        { type: "p", text: "I handle modernisation and migration of existing applications. If you have a system that hurts, tell me what doesn't work in it. I'll start with a short review and tell you straight whether it's better to fix it or replace it, and what that will cost." },
+      ],
+    },
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+// Curated cross-links first (topic clusters), then the closest posts by shared
+// tags, then the newest. Gives older posts internal links instead of always
+// showing the three newest ones.
+export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
+  const picked: BlogPost[] = (post.related ?? [])
+    .map((slug) => getPostBySlug(slug))
+    .filter((p): p is BlogPost => !!p && p.slug !== post.slug);
+  const mine = new Set(post.tags.pl.map((t) => t.toLowerCase()));
+  const rest = posts
+    .filter((p) => p.slug !== post.slug && !picked.includes(p))
+    .map((p) => ({ p, score: p.tags.pl.filter((t) => mine.has(t.toLowerCase())).length }))
+    .sort((a, b) => b.score - a.score || (a.p.date < b.p.date ? 1 : -1));
+  for (const { p } of rest) {
+    if (picked.length >= limit) break;
+    picked.push(p);
+  }
+  return picked.slice(0, limit);
 }
 
 // Newest first.
