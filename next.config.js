@@ -22,6 +22,19 @@ const nextConfig = {
         destination: "https://maksymilian.org/:path+",
         permanent: true,
       },
+      // The OG/Twitter images used to be generated routes; they are static files
+      // in public/og now. Crawlers and cached link previews still request the
+      // old URLs, so redirect them (cheap) instead of rendering a 404 page.
+      {
+        source: "/:locale(pl|en)/:img(opengraph-image|twitter-image)",
+        destination: "/og/:locale.png",
+        permanent: true,
+      },
+      {
+        source: "/:img(opengraph-image|twitter-image)",
+        destination: "/og/en.png",
+        permanent: true,
+      },
       // marta.* is a friendly shortcut to a shared Google Photos album.
       {
         source: "/:path*",
