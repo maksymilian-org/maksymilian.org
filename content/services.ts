@@ -41,3 +41,18 @@ export const services: ServiceDef[] = [
 export function getServiceBySlug(slug: string): ServiceDef | undefined {
   return services.find((s) => s.slug === slug);
 }
+
+// Which online-quote category matches each service page (the rest fall under "other").
+export const QUOTE_SERVICE: Record<string, string> = {
+  webapps: "webapp",
+  integrations: "automation",
+  ksef: "ksef",
+  mobile: "mobile",
+  websites: "business",
+  ecommerce: "store",
+  ai: "ai",
+  embedded: "other",
+  modernization: "other",
+  audit: "other",
+  maintenance: "other",
+};

@@ -8,6 +8,9 @@ export const site = {
   nip: "7133092677",
   vatId: "PL7133092677",
   whatsapp: "https://wa.me/48785120693",
+  // Public booking page (Google Calendar appointment schedule, Cal.com...). While
+  // empty, "Book a call" falls back to the contact form with a call topic.
+  bookingUrl: "",
   reviewsUrl: "https://maps.app.goo.gl/Bje5WzEkJRge8LBV9",
   googleProfile: "https://maps.app.goo.gl/Bje5WzEkJRge8LBV9",
   location: {

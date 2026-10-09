@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BookCall } from "@/components/contact/BookCall";
 import { ArrowRight } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
@@ -144,7 +145,7 @@ function HomeCta() {
           {t("ctaHeading")}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-white/85">{t("ctaLead")}</p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/quote"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-solid shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -152,6 +153,7 @@ function HomeCta() {
             {c("getQuote")}
             <ArrowRight className="h-4 w-4" />
           </Link>
+          <BookCall variant="onBrand" />
         </div>
       </div>
     </Section>

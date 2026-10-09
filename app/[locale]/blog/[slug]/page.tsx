@@ -7,7 +7,9 @@ import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/utils/seo";
 import { site } from "@/content/site";
-import { getPostBySlug, getRelatedPosts, posts, type BlogPost } from "@/content/blog";
+import { getPostBySlug, getRelatedPosts, postServices, postTools, posts, type BlogPost } from "@/content/blog";
+import { tools } from "@/content/tools";
+import { QUOTE_SERVICE, services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/Section";
 import { PostBody } from "@/components/blog/PostBody";
@@ -106,6 +108,13 @@ function Article({ post }: { post: BlogPost }) {
   const n = useTranslations("nav");
   const tags = post.tags[locale] ?? post.tags.pl;
   const related = getRelatedPosts(post);
+  const st = useTranslations("services");
+  const toolCards = (postTools[post.slug] ?? [])
+    .map((id) => tools.find((x) => x.id === id))
+    .filter((x): x is NonNullable<typeof x> => !!x);
+  const serviceLinks = (postServices[post.slug] ?? [])
+    .map((id) => services.find((x) => x.id === id))
+    .filter((x): x is NonNullable<typeof x> => !!x);
 
   return (
     <Section>
@@ -159,6 +168,58 @@ function Article({ post }: { post: BlogPost }) {
 
         <PostBody blocks={post.body[locale]} />
       </article>
+
+      {/* Free tool that complements the post */}
+      {toolCards.length > 0 && (
+        <div className="mt-14 grid gap-4 sm:grid-cols-2">
+          {toolCards.map((tl) => (
+            <Link
+              key={tl.id}
+              href={`/tools/${tl.slug}`}
+              className="group flex items-start gap-4 rounded-2xl border border-brand/30 bg-brand/5 p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="h-12 w-12 shrink-0 rounded-xl bg-surface p-2.5">
+                <ServiceIllustration name={tl.illustration} />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-brand">
+                  {locale === "pl" ? "Darmowe narzędzie" : "Free tool"}
+                </p>
+                <p className="mt-1 font-semibold">{tl.title[locale]}</p>
+                <p className="mt-1 text-sm text-muted">{tl.lead[locale]}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Related service */}
+      {serviceLinks.length > 0 && (
+        <div className="mt-14 rounded-2xl border border-border bg-surface p-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand">
+            {locale === "pl" ? "Chcesz to zlecić?" : "Want this done for you?"}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {serviceLinks.map((sv) => (
+              <div key={sv.id} className="flex flex-wrap gap-2">
+                <Link
+                  href={`/services/${sv.slug}`}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:border-brand hover:text-brand"
+                >
+                  {st(`items.${sv.id}.title`)}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={{ pathname: "/quote", query: { service: QUOTE_SERVICE[sv.id] } }}
+                  className="inline-flex items-center rounded-xl bg-brand-solid px-4 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft"
+                >
+                  {c("getQuote")}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* CTA */}
       <div className="mt-14 overflow-hidden rounded-3xl bg-brand-solid px-6 py-12 text-center text-white sm:px-12">

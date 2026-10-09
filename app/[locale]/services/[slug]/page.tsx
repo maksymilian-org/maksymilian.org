@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/utils/seo";
 import { site } from "@/content/site";
-import { getServiceBySlug, services, type ServiceDef } from "@/content/services";
+import { QUOTE_SERVICE, getServiceBySlug, services, type ServiceDef } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/Section";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { getPostsForService } from "@/content/blog";
 
 interface Params {
   locale: Locale;
@@ -104,24 +106,11 @@ export default async function ServiceDetailPage({
   );
 }
 
-// Which estimator category matches each service page (the rest fall under "other").
-const QUOTE_SERVICE: Record<string, string> = {
-  webapps: "webapp",
-  integrations: "automation",
-  ksef: "ksef",
-  mobile: "mobile",
-  websites: "business",
-  ecommerce: "store",
-  ai: "ai",
-  embedded: "other",
-  modernization: "other",
-  audit: "other",
-  maintenance: "other",
-};
-
 function ServiceDetail({ service }: { service: ServiceDef }) {
   const t = useTranslations("services");
   const c = useTranslations("common");
+  const locale = useLocale() as Locale;
+  const articles = getPostsForService(service.id, 4);
   const n = useTranslations("nav");
   const id = service.id;
   const features = t.raw(`items.${id}.detail.features`) as string[];
@@ -194,6 +183,18 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
               </details>
             ))}
           </div>
+          {articles.length > 0 && (
+            <>
+              <h2 className="mt-14 text-2xl font-bold tracking-tight">
+                {locale === "pl" ? "Powiązane artykuły" : "Related articles"}
+              </h2>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                {articles.map((p) => (
+                  <BlogCard key={p.slug} post={p} />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Sidebar CTA */}

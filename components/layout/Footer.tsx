@@ -39,6 +39,18 @@ export function Footer() {
               {t("nav.quote")}
             </Link>
             <Link
+              href="/solutions"
+              className="text-sm text-muted transition-colors hover:text-fg"
+            >
+              {t("nav.solutions")}
+            </Link>
+            <Link
+              href="/tools"
+              className="text-sm text-muted transition-colors hover:text-fg"
+            >
+              {t("nav.tools")}
+            </Link>
+            <Link
               href="/lublin"
               className="text-sm text-muted transition-colors hover:text-fg"
             >

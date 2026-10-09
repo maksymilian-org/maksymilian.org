@@ -1696,3 +1696,44 @@ export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
 export const sortedPosts = [...posts].sort((a, b) =>
   a.date < b.date ? 1 : -1
 );
+
+// Which service page(s) each post supports. Drives the related-articles block on
+// service pages and the "hire me for this" card under a post.
+export const postServices: Record<string, string[]> = {
+  "ile-kosztuje-strona-internetowa": ["websites"],
+  "ksef-jak-przygotowac-firme": ["ksef"],
+  "automatyzacja-w-malej-firmie": ["integrations"],
+  "ile-kosztuje-aplikacja-mobilna": ["mobile"],
+  "integracja-sklepu-allegro-baselinker": ["ecommerce", "integrations"],
+  "hire-developer-from-poland-nearshoring": ["webapps"],
+  "ile-kosztuje-sklep-internetowy": ["ecommerce"],
+  "wordpress-czy-strona-dedykowana": ["websites", "modernization"],
+  "dlaczego-strona-nie-wyswietla-sie-w-google": ["audit"],
+  "chatbot-ai-dla-firmy-ile-kosztuje": ["ai"],
+  "co-musi-zawierac-strona-firmowa": ["websites"],
+  "ile-kosztuje-dedykowana-aplikacja-webowa": ["webapps"],
+  "excel-przestal-wystarczac-czas-na-wlasny-system": ["webapps", "integrations"],
+  "jak-wyglada-wycena-aplikacji-etapy-i-brief": ["mobile", "webapps"],
+  "ksef-dla-firm-produkcyjnych": ["ksef"],
+  "integracja-ksef-api-najczestsze-bledy": ["ksef", "integrations"],
+  "react-native-czy-flutter-czy-natywnie": ["mobile"],
+  "pwa-czy-aplikacja-mobilna": ["mobile", "webapps"],
+  "modernizacja-aplikacji-przepisac-czy-naprawic": ["modernization"],
+};
+
+export function getPostsForService(serviceId: string, limit = 3): BlogPost[] {
+  return sortedPosts
+    .filter((p) => postServices[p.slug]?.includes(serviceId))
+    .slice(0, limit);
+}
+
+// Free tools that complement a post (shown as a card under the article).
+export const postTools: Record<string, string[]> = {
+  "ksef-jak-przygotowac-firme": ["ksef-readiness"],
+  "ksef-dla-firm-produkcyjnych": ["ksef-readiness"],
+  "integracja-ksef-api-najczestsze-bledy": ["ksef-readiness"],
+  "automatyzacja-w-malej-firmie": ["automation-roi"],
+  "excel-przestal-wystarczac-czas-na-wlasny-system": ["automation-roi"],
+  "integracja-sklepu-allegro-baselinker": ["automation-roi"],
+  "chatbot-ai-dla-firmy-ile-kosztuje": ["automation-roi"],
+};

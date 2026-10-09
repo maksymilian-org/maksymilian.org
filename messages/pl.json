@@ -7,7 +7,9 @@
     "about": "O mnie",
     "contact": "Kontakt",
     "lublin": "Programista Lublin",
-    "quote": "Wycena online"
+    "quote": "Wycena online",
+    "solutions": "Rozwiązania dla branż",
+    "tools": "Darmowe narzędzia"
   },
   "common": {
     "getQuote": "Darmowa wycena",
@@ -26,32 +28,32 @@
   },
   "meta": {
     "home": {
-      "title": "Tworzenie oprogramowania, stron i aplikacji · maksymilian.org",
-      "description": "Maksymilian Furtak — fullstack developer z Lublina. Strony internetowe, sklepy online, dedykowane aplikacje web i mobilne, automatyzacje, AI oraz rozwiązania IoT / smart home dla Twojej firmy."
+      "title": "Programista z Lublina: strony od 400 zł, aplikacje, KSeF · maksymilian.org",
+      "description": "Fullstack developer z Lublina: strony od 400 zł, sklepy od 1200 zł, aplikacje od 1600 zł, KSeF i integracje. Darmowa wycena online w kilka minut."
     },
     "services": {
-      "title": "Usługi",
-      "description": "Strony internetowe, sklepy e-commerce, dedykowane aplikacje web i mobilne, integracje, rozwiązania AI, modernizacja i utrzymanie — realizowane kompleksowo przez jednego developera."
+      "title": "Usługi programistyczne: strony, aplikacje, integracje, KSeF, AI",
+      "description": "Strony od 400 zł, sklepy od 1200 zł, aplikacje od 1600 zł, dedykowane systemy, integracje, KSeF, AI. Jeden developer, stała cena, faktura VAT."
     },
     "projects": {
       "title": "Projekty",
       "description": "Projekty komercyjne i własne Maksymiliana Furtaka — React, TypeScript, Next.js, Angular, Vue i Node.js."
     },
     "about": {
-      "title": "O mnie",
-      "description": "O Maksymilianie Furtaku — fullstack developer, strażak i motocyklista z Lublina."
+      "title": "O mnie: fullstack developer z Lublina, 10+ lat doświadczenia",
+      "description": "Maksymilian Furtak: fullstack developer, ponad 10 lat w React, TypeScript, Node i aplikacjach mobilnych. Pracuję bezpośrednio z klientem, bez pośredników."
     },
     "contact": {
-      "title": "Kontakt",
-      "description": "Masz pomysł na projekt? Porozmawiajmy. Kontakt do Maksymiliana Furtaka — fullstack developer z Lublina."
+      "title": "Kontakt i darmowa wycena projektu",
+      "description": "Masz pomysł na projekt? Napisz lub zadzwoń: odpowiadam zwykle w ciągu godziny. Możesz też skorzystać z kalkulatora wyceny online."
     },
     "blog": {
       "title": "Blog",
       "description": "Praktyczne artykuły o stronach, aplikacjach, automatyzacji, KSeF i AI dla firm — bez żargonu, od developera z Lublina."
     },
     "lublin": {
-      "title": "Programista Lublin — strony internetowe i aplikacje",
-      "description": "Fullstack developer z Lublina: strony internetowe, sklepy, aplikacje web i mobilne, automatyzacje i KSeF. Lokalnie i zdalnie, w rozsądnej cenie. Darmowa wycena."
+      "title": "Programista Lublin: strony od 400 zł, aplikacje i KSeF",
+      "description": "Programista z Lublina: strony od 400 zł, sklepy, aplikacje web i mobilne, automatyzacje i KSeF. Lokalnie i zdalnie, faktura VAT. Darmowa wycena online."
     }
   },
   "home": {
@@ -705,7 +707,9 @@
       "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na",
       "note": "Wolisz e-mail? Napisz bezpośrednio na",
       "regardingLabel": "Zapytanie dotyczy",
-      "regardingNote": "Ta informacja zostanie dołączona do wiadomości."
+      "regardingNote": "Ta informacja zostanie dołączona do wiadomości.",
+      "callTopic": "Umówienie rozmowy",
+      "callPlaceholder": "Kiedy Ci pasuje, pod jaki numer lub w jakim komunikatorze (telefon, WhatsApp, Slack, Meet) mam zadzwonić? Dodaj 1–2 zdania o projekcie."
     },
     "quoteLink": "Wolisz najpierw zobaczyć widełki? Skonfiguruj wycenę online."
   },

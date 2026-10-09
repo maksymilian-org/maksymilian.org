@@ -21,14 +21,21 @@ export function ContactForm() {
   const tp = useTranslations("pricing");
   const [status, setStatus] = useState<Status>("idle");
   const [packageLabel, setPackageLabel] = useState<string | undefined>();
+  const [callTopic, setCallTopic] = useState(false);
 
   // Read the package from the URL after mount so the page itself stays static.
   useEffect(() => {
-    const key = new URLSearchParams(window.location.search).get("package");
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("topic") === "call") {
+      setPackageLabel(t("callTopic"));
+      setCallTopic(true);
+      return;
+    }
+    const key = params.get("package");
     if (key && PACKAGE_KEYS.includes(key)) {
       setPackageLabel(key === "custom" ? tp("custom.title") : tp(`tiers.${key}.name`));
     }
-  }, [tp]);
+  }, [tp, t]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -115,7 +122,13 @@ export function ContactForm() {
           <span className="mb-1.5 block text-sm font-medium">
             {t("message")}
           </span>
-          <textarea name="message" required rows={5} className={inputClass} />
+          <textarea
+            name="message"
+            required
+            rows={5}
+            className={inputClass}
+            placeholder={callTopic ? t("callPlaceholder") : undefined}
+          />
         </label>
 
         {siteKey && (

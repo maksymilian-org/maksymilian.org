@@ -28,6 +28,7 @@ import {
 } from "@/content/quote";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
 import { useCurrency } from "@/components/currency/CurrencyProvider";
+import { BookCall } from "@/components/contact/BookCall";
 import { trackEvent } from "@/utils/analytics";
 
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -242,6 +243,7 @@ export function QuoteWizard() {
       return;
     }
     setShowErrors(false);
+    trackEvent("quote_step", { step: step + 1, service: a.service ?? "" });
     setPos((p) => Math.min(p + 1, flow.length - 1));
   }
 
@@ -355,7 +357,10 @@ export function QuoteWizard() {
                     type="button"
                     role="radio"
                     aria-checked={on}
-                    onClick={() => set({ service: s.id, scale: undefined, options: [] })}
+                    onClick={() => {
+                      if (!a.service) trackEvent("quote_start", { service: s.id });
+                      set({ service: s.id, scale: undefined, options: [] });
+                    }}
                     className={`${cardBase} flex items-start gap-3 p-4 ${on ? cardOn : cardOff}`}
                   >
                     <span className="h-12 w-12 shrink-0 rounded-lg bg-brand/5 p-2.5">
@@ -994,6 +999,7 @@ function QuoteResult({
       </div>
 
       <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <BookCall />
         <Link
           href="/"
           className="inline-flex items-center rounded-xl border border-border px-5 py-3 text-sm font-medium transition-colors hover:border-brand hover:text-brand"

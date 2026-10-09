@@ -7,7 +7,9 @@
     "about": "About",
     "contact": "Contact",
     "lublin": "Web developer Lublin",
-    "quote": "Online quote"
+    "quote": "Online quote",
+    "solutions": "Solutions by industry",
+    "tools": "Free tools"
   },
   "common": {
     "getQuote": "Get a free quote",
@@ -26,32 +28,32 @@
   },
   "meta": {
     "home": {
-      "title": "Software development — web, mobile, IoT & AI · maksymilian.org",
-      "description": "Maksymilian Furtak — fullstack developer from Lublin, Poland. Websites, online stores, custom web & mobile apps, automations, AI and IoT / smart-home solutions for your business."
+      "title": "Developer from Poland: websites from 400 PLN, apps, KSeF · maksymilian.org",
+      "description": "Fullstack developer from Lublin, Poland: websites from 400 PLN, stores from 1,200 PLN, apps from 1,600 PLN, KSeF and integrations. Free online quote in minutes."
     },
     "services": {
-      "title": "Services",
-      "description": "Websites, e-commerce, custom web and mobile applications, integrations, AI solutions, modernization and maintenance — delivered end to end by one developer."
+      "title": "Development services: websites, apps, integrations, KSeF, AI",
+      "description": "Websites from 400 PLN, stores from 1,200 PLN, apps from 1,600 PLN, custom systems, integrations, KSeF, AI. One developer, fixed price, VAT invoice."
     },
     "projects": {
       "title": "Projects",
       "description": "Commercial projects and side projects by Maksymilian Furtak — React, TypeScript, Next.js, Angular, Vue and Node.js."
     },
     "about": {
-      "title": "About",
-      "description": "About Maksymilian Furtak — fullstack developer, firefighter and motorcyclist from Lublin, Poland."
+      "title": "About: fullstack developer from Lublin with 10+ years of experience",
+      "description": "Maksymilian Furtak: fullstack developer with over 10 years in React, TypeScript, Node and mobile apps. I work directly with clients, no middlemen."
     },
     "contact": {
-      "title": "Contact",
-      "description": "Have an idea for a project? Let's talk. Contact Maksymilian Furtak — fullstack developer from Lublin, Poland."
+      "title": "Contact and free project quote",
+      "description": "Have a project in mind? Write or call: I usually reply within an hour. You can also use the online quote calculator."
     },
     "blog": {
       "title": "Blog",
       "description": "Practical articles about websites, apps, automation, KSeF and AI for businesses — no jargon, from a developer in Lublin, Poland."
     },
     "lublin": {
-      "title": "Web developer in Lublin, Poland",
-      "description": "Fullstack developer based in Lublin: websites, online stores, web & mobile apps, automation and KSeF. Local and remote, at a reasonable price. Free quote."
+      "title": "Web developer in Lublin, Poland: websites from 400 PLN",
+      "description": "Fullstack developer in Lublin: websites from 400 PLN, stores, web and mobile apps, automation and KSeF. Local and remote, VAT invoice. Free online quote."
     }
   },
   "home": {
@@ -705,7 +707,9 @@
       "error": "Something went wrong. Please try again or email me directly at",
       "note": "Prefer email? Write directly to",
       "regardingLabel": "Enquiry about",
-      "regardingNote": "This detail will be included in your message."
+      "regardingNote": "This detail will be included in your message.",
+      "callTopic": "Booking a call",
+      "callPlaceholder": "When suits you, and on which number or tool (phone, WhatsApp, Slack, Meet) should I call? Add a sentence or two about the project."
     },
     "quoteLink": "Prefer to see a price range first? Build your quote online."
   },

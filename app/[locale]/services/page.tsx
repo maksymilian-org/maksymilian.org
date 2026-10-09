@@ -12,6 +12,8 @@ import { CustomServiceCard } from "@/components/services/CustomServiceCard";
 import { Pricing } from "@/components/pricing/Pricing";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { industries } from "@/content/industries";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
   params,
@@ -48,6 +50,22 @@ export default async function ServicesPage({
       <Section>
         <SectionHeading eyebrow={site.brand} title={t("heading")} lead={t("lead")} />
         <ServicesGrid />
+        <div className="mt-14 rounded-2xl border border-border bg-surface p-6">
+          <h2 className="text-xl font-bold tracking-tight">
+            {locale === "pl" ? "Rozwiązania dla Twojej branży" : "Solutions for your industry"}
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {industries.map((i) => (
+              <Link
+                key={i.id}
+                href={`/solutions/${i.slug}`}
+                className="rounded-full border border-border px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-brand hover:text-brand"
+              >
+                {i.title[locale]}
+              </Link>
+            ))}
+          </div>
+        </div>
       </Section>
       <Pricing withSchema />
       <Section>

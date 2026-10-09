@@ -4,6 +4,8 @@ import { localizedPath } from "@/utils/seo";
 import { locales } from "@/i18n/routing";
 import { services } from "@/content/services";
 import { posts } from "@/content/blog";
+import { industries } from "@/content/industries";
+import { tools } from "@/content/tools";
 
 const paths = [
   "/",
@@ -14,6 +16,10 @@ const paths = [
   ...posts.map((p) => `/blog/${p.slug}`),
   "/lublin",
   "/quote",
+  "/solutions",
+  ...industries.map((i) => `/solutions/${i.slug}`),
+  "/tools",
+  ...tools.map((t) => `/tools/${t.slug}`),
   "/about",
   "/contact",
 ];
