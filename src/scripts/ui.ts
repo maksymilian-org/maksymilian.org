@@ -72,8 +72,10 @@ document.addEventListener("change", (e) => {
   const sel = (e.target as Element | null)?.closest?.<HTMLSelectElement>("select[data-currency-select]");
   if (sel && (CURRENCIES as readonly string[]).includes(sel.value)) setCurrency(sel.value as Currency);
 });
-initCurrency(locale);
 paintPrices();
+// Exchange rates are not needed for first paint: fetch them when the browser is idle.
+const startCurrency = () => initCurrency(locale);
+"requestIdleCallback" in window ? requestIdleCallback(startCurrency, { timeout: 2500 }) : setTimeout(startCurrency, 1000);
 
 // ---- analytics clicks ---------------------------------------------------------
 // Contact links are the real conversions on a site with few forms: a visitor who

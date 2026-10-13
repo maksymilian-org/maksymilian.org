@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "maksymilian-org-redirects",
+  "main": "index.js",
+  "compatibility_date": "2026-04-01",
+  "workers_dev": false,
+  // Attach only at cutover: the same hostnames are still custom domains of the
+  // main Worker "maksymilian-org" until its wrangler.jsonc drops them.
+  "routes": [
+    { "pattern": "www.maksymilian.org", "custom_domain": true },
+    { "pattern": "marta.maksymilian.org", "custom_domain": true }
+  ]
+}

@@ -14,7 +14,7 @@ if (!origin || !out) {
 }
 
 const get = async (url) => {
-  const res = await fetch(url, { redirect: "manual", headers: { "user-agent": "site-snapshot/1.0" } });
+  const res = await fetch(url, { redirect: "manual", headers: { "user-agent": "site-snapshot/1.0", ...(process.env.SNAPSHOT_HEADER ? Object.fromEntries([process.env.SNAPSHOT_HEADER.split(/:(.+)/).slice(0, 2).map((x) => x.trim())]) : {}) } });
   return { status: res.status, location: res.headers.get("location"), type: res.headers.get("content-type") ?? "", text: await res.text() };
 };
 

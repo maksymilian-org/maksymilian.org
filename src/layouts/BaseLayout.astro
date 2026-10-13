@@ -1,5 +1,7 @@
 ---
 import "@fontsource-variable/rubik";
+import fontLatin from "@fontsource-variable/rubik/files/rubik-latin-wght-normal.woff2?url";
+import fontLatinExt from "@fontsource-variable/rubik/files/rubik-latin-ext-wght-normal.woff2?url";
 import "../styles/globals.css";
 import { site } from "@/content/site";
 import { createTranslator } from "@/lib/i18n";
@@ -30,9 +32,17 @@ const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){
 // one who chose Polish before) is sent to the same page under /pl.
 const langScript = `(function(){try{var l=localStorage.getItem('lang');if(!l){var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();l=n.indexOf('pl')===0?'pl':'en';localStorage.setItem('lang',l);}if(l==='pl'){var p=location.pathname;location.replace('/pl'+(p==='/'?'':p)+location.search+location.hash);}}catch(e){}})();`;
 
-const gaScript = gaId
-  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{page_path:window.location.pathname});`
-  : "";
+// Analytics must never compete with first paint: both scripts are injected once
+// the page has loaded and the browser is idle.
+const analyticsScript = `window.addEventListener('load',function(){var go=function(){${
+  gaId
+    ? `window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','${gaId}',{page_path:location.pathname});var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=${gaId}';document.head.appendChild(g);`
+    : ""
+}${
+  cfToken
+    ? `var c=document.createElement('script');c.defer=true;c.src='https://static.cloudflareinsights.com/beacon.min.js';c.dataset.cfBeacon=JSON.stringify({token:'${cfToken}'});document.head.appendChild(c);`
+    : ""
+}};'requestIdleCallback' in window?requestIdleCallback(go,{timeout:3000}):setTimeout(go,1500);});`;
 ---
 
 <!doctype html>
@@ -68,6 +78,8 @@ const gaScript = gaId
     <link rel="apple-touch-icon" href="/favicon/apple-icon.png" />
     <link rel="manifest" href="/manifest.json" />
 
+    <link rel="preload" as="font" type="font/woff2" href={fontLatin} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={fontLatinExt} crossorigin />
     <script is:inline set:html={themeScript} />
     {locale === "en" && <script is:inline set:html={langScript} />}
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
@@ -89,10 +101,6 @@ const gaScript = gaId
     <script>
       import "../scripts/ui.ts";
     </script>
-    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
-    {gaId && <script is:inline set:html={gaScript} />}
-    {cfToken && (
-      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cfToken })}></script>
-    )}
+    {(gaId || cfToken) && <script is:inline set:html={analyticsScript} />}
   </body>
 </html>
