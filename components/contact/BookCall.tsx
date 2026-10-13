@@ -1,5 +1,5 @@
 import { CalendarClock } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n";
 import cn from "classnames";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/content/site";

@@ -1,17 +1,13 @@
-"use client";
-
 import { Moon, Sun } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useTheme } from "./ThemeProvider";
+import { useTranslations } from "@/lib/i18n";
 
+// Static markup; src/scripts/ui.ts toggles data-theme and remembers the choice.
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
   const t = useTranslations("common");
-
   return (
     <button
       type="button"
-      onClick={toggleTheme}
+      data-theme-toggle
       aria-label={t("toggleTheme")}
       title={t("toggleTheme")}
       className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-fg transition-colors hover:border-brand hover:text-brand"

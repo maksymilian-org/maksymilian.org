@@ -1,0 +1,98 @@
+---
+import "@fontsource-variable/rubik";
+import "../styles/globals.css";
+import { site } from "@/content/site";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import type { Locale } from "@/i18n/routing";
+import type { Seo } from "@/lib/seo";
+import { SiteHeader, SiteFooter, SiteFab } from "@/views/Chrome";
+
+interface Props {
+  locale: Locale;
+  /** Current path without the locale prefix (drives the active nav item and language links). */
+  path: string;
+  seo: Seo;
+  /** Structured data objects, rendered as JSON-LD. */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { locale, path, seo, jsonLd = [] } = Astro.props;
+const t = createTranslator(getMessages(locale), "common");
+
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const cfToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+
+// Runs before paint so the theme never flashes.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();`;
+
+// English pages have no URL prefix, so a Polish visitor on their first visit (or
+// one who chose Polish before) is sent to the same page under /pl.
+const langScript = `(function(){try{var l=localStorage.getItem('lang');if(!l){var n=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();l=n.indexOf('pl')===0?'pl':'en';localStorage.setItem('lang',l);}if(l==='pl'){var p=location.pathname;location.replace('/pl'+(p==='/'?'':p)+location.search+location.hash);}}catch(e){}})();`;
+
+const gaScript = gaId
+  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{page_path:window.location.pathname});`
+  : "";
+---
+
+<!doctype html>
+<html lang={locale} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    {seo.noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={seo.canonical} />
+    {seo.alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+
+    <meta property="og:title" content={seo.ogTitle} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:locale" content={seo.ogLocale} />
+    <meta property="og:type" content={seo.ogType} />
+    {seo.publishedTime && <meta property="article:published_time" content={seo.publishedTime} />}
+    <meta property="og:image" content={seo.image.url} />
+    <meta property="og:image:width" content={String(seo.image.width)} />
+    <meta property="og:image:height" content={String(seo.image.height)} />
+    <meta property="og:image:alt" content={seo.image.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.ogTitle} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={seo.image.url} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/favicon/apple-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <script is:inline set:html={themeScript} />
+    {locale === "en" && <script is:inline set:html={langScript} />}
+    {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+  </head>
+  <body class="flex min-h-screen flex-col font-sans">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand-solid focus:px-4 focus:py-2 focus:text-white"
+    >
+      {t("skipToContent")}
+    </a>
+    <SiteHeader locale={locale} pathname={path} />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <SiteFooter locale={locale} pathname={path} />
+    <SiteFab locale={locale} pathname={path} />
+
+    <script>
+      import "../scripts/ui.ts";
+    </script>
+    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    {gaId && <script is:inline set:html={gaScript} />}
+    {cfToken && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cfToken })}></script>
+    )}
+  </body>
+</html>

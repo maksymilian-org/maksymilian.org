@@ -1,5 +1,5 @@
 import { ArrowRight, Star } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { site } from "@/content/site";
 import { reviews, reviewsSummary } from "@/content/reviews";

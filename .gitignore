@@ -51,3 +51,7 @@ cloudflare-dns-import.txt
 # SEO report output (business data) and service-account keys
 .seo-reports/
 *service-account*.json
+
+# astro
+/dist/
+/.astro/

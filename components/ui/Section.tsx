@@ -18,11 +18,13 @@ export function SectionHeading({
   title,
   lead,
   center,
+  as: Tag = "h2",
 }: {
   eyebrow?: ReactNode;
   title: ReactNode;
   lead?: ReactNode;
   center?: boolean;
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={cn("max-w-2xl", center && "mx-auto text-center")}>
@@ -31,7 +33,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+      <Tag className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</Tag>
       {lead && <p className="mt-4 text-lg text-muted">{lead}</p>}
     </div>
   );

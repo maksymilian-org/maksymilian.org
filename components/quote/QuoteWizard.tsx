@@ -1,8 +1,6 @@
-"use client";
 
-import Script from "next/script";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n";
 import { ArrowLeft, ArrowRight, Check, Clock, ImagePlus, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/content/site";
@@ -27,11 +25,12 @@ import {
   type ServiceId,
 } from "@/content/quote";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
-import { useCurrency } from "@/components/currency/CurrencyProvider";
+import { useCurrency } from "@/components/currency/useCurrency";
+import { loadTurnstile } from "@/utils/turnstile";
 import { BookCall } from "@/components/contact/BookCall";
 import { trackEvent } from "@/utils/analytics";
 
-const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 type Lang = "pl" | "en";
 type Status = "idle" | "sending" | "error";
@@ -137,6 +136,10 @@ export function QuoteWizard() {
   const [done, setDone] = useState(false);
 
   const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (siteKey) loadTurnstile(true);
+  }, []);
   const turnstileEl = useRef<HTMLDivElement>(null);
   const turnstileToken = useRef("");
   const turnstileId = useRef<string | undefined>(undefined);
@@ -309,13 +312,6 @@ export function QuoteWizard() {
 
   return (
     <div ref={wrapRef} className="scroll-mt-24">
-      {siteKey && (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-          strategy="lazyOnload"
-        />
-      )}
-
       {/* Progress */}
       <div className="mb-8">
         <div className="flex items-center justify-between text-sm">
@@ -1103,8 +1099,7 @@ function Attachments({
         <ul className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-5">
           {files.map((file, i) => (
             <li key={`${file.name}-${i}`} className="group relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+                            <img
                 src={previews[i]}
                 alt={file.name}
                 className="h-20 w-full rounded-lg border border-border object-cover"

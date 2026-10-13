@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { SolutionDetailView, SOLUTION_UI } from "@/views/SolutionDetailView";
+import { absoluteUrl, buildSeo } from "@/lib/seo";
+import { localePathsWith } from "@/lib/routes";
+import { industries } from "@/content/industries";
+import { site } from "@/content/site";
+
+export function getStaticPaths() {
+  return localePathsWith(() => industries.map((i) => ({ params: { slug: i.slug }, props: { industry: i } })));
+}
+const { locale, industry } = Astro.props;
+const ui = SOLUTION_UI[locale];
+const path = `/solutions/${industry.slug}`;
+const url = absoluteUrl(locale, path);
+const seo = buildSeo({ locale, title: industry.metaTitle[locale], description: industry.metaDescription[locale], path });
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: industry.h1[locale],
+  description: industry.metaDescription[locale],
+  serviceType: industry.title[locale],
+  provider: { "@id": `${site.url}/#business` },
+  areaServed: ["PL", "EU"],
+  url,
+};
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: site.brand, item: site.url },
+    { "@type": "ListItem", position: 2, name: ui.crumb, item: absoluteUrl(locale, "/solutions") },
+    { "@type": "ListItem", position: 3, name: industry.title[locale] },
+  ],
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: industry.faq.map((f) => ({
+    "@type": "Question",
+    name: f.q[locale],
+    acceptedAnswer: { "@type": "Answer", text: f.a[locale] },
+  })),
+};
+---
+
+<BaseLayout locale={locale} path={path} seo={seo} jsonLd={[serviceSchema, breadcrumb, faqSchema]}>
+  <SolutionDetailView locale={locale} industry={industry} />
+</BaseLayout>

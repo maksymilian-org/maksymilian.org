@@ -1,4 +1,4 @@
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/lib/i18n";
 import { Link } from "@/i18n/navigation";
 import { navItems, site, taxIdFor } from "@/content/site";
 import { Logo } from "@/components/brand/Logo";

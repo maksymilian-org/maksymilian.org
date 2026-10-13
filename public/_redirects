@@ -1,0 +1,11 @@
+# Old generated OG/Twitter image routes -> static files
+/pl/opengraph-image /og/pl.png 308
+/pl/twitter-image /og/pl.png 308
+/en/opengraph-image /og/en.png 308
+/en/twitter-image /og/en.png 308
+/opengraph-image /og/en.png 308
+/twitter-image /og/en.png 308
+
+# English is unprefixed
+/en / 307
+/en/* /:splat 307

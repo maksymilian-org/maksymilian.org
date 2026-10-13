@@ -1,6 +1,5 @@
-"use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 import { site } from "@/content/site";
 
 // Floating WhatsApp button — low-friction contact channel, always reachable in

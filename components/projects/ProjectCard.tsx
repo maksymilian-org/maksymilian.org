@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations, useLocale } from "@/lib/i18n";
 import { pick, type Project } from "@/content/projects";
 import type { Locale } from "@/i18n/routing";
 

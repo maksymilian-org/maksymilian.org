@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { HomeView } from "@/views/HomeView";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+import { localBusinessSchema, personSchema, websiteSchema } from "@/components/seo/JsonLd";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const t = createTranslator(getMessages(locale), "meta");
+const seo = buildSeo({ locale, title: t("home.title"), description: t("home.description"), path: "/", fullTitle: true });
+---
+
+<BaseLayout
+  locale={locale}
+  path="/"
+  seo={seo}
+  jsonLd={[personSchema(), localBusinessSchema(t("home.description")), websiteSchema()]}
+>
+  <HomeView locale={locale} />
+</BaseLayout>

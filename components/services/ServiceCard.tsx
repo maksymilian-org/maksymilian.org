@@ -1,5 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 import { Link } from "@/i18n/navigation";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
 import type { ServiceDef } from "@/content/services";

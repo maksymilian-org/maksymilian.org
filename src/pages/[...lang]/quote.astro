@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import QuoteWizardIsland from "@/components/quote/QuoteWizardIsland";
+import { quoteUi } from "@/content/quote";
+import { buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+
+const META = {
+  pl: {
+    title: "Wycena online — ile kosztuje Twój projekt?",
+    description:
+      "Odpowiedz na kilka pytań i zobacz orientacyjne widełki ceny strony, sklepu, aplikacji lub automatyzacji. Dokładną wycenę odsyłam mailem — bez zobowiązań.",
+  },
+  en: {
+    title: "Online quote — how much will your project cost?",
+    description:
+      "Answer a few questions and see an indicative price range for a website, store, app or automation. I email the exact quote — no commitment.",
+  },
+} as const;
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const seo = buildSeo({ locale, ...META[locale], path: "/quote" });
+---
+
+<BaseLayout locale={locale} path="/quote" seo={seo}>
+  <section class="py-16 sm:py-24">
+    <div class="container-page">
+      <div class="mx-auto max-w-3xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">{quoteUi.eyebrow[locale]}</p>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{quoteUi.heading[locale]}</h1>
+        <p class="mt-4 max-w-2xl text-lg text-muted">{quoteUi.lead[locale]}</p>
+        <div class="mt-10">
+          <QuoteWizardIsland client:load locale={locale} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

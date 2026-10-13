@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { ServicesView } from "@/views/ServicesView";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+import { services } from "@/content/services";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const messages = getMessages(locale);
+const meta = createTranslator(messages, "meta");
+const t = createTranslator(messages, "services");
+const seo = buildSeo({ locale, title: meta("services.title"), description: meta("services.description"), path: "/services" });
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t(`items.${s.id}.title`),
+    description: t(`items.${s.id}.description`),
+  })),
+};
+---
+
+<BaseLayout locale={locale} path="/services" seo={seo} jsonLd={[itemList]}>
+  <ServicesView locale={locale} />
+</BaseLayout>

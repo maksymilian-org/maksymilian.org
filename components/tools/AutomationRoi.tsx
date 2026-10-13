@@ -1,7 +1,6 @@
-"use client";
 
 import { useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale } from "@/lib/i18n";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { BookCall } from "@/components/contact/BookCall";

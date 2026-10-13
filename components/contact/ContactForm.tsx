@@ -1,12 +1,11 @@
-"use client";
 
-import Script from "next/script";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 import { site } from "@/content/site";
 import { trackEvent } from "@/utils/analytics";
+import { loadTurnstile } from "@/utils/turnstile";
 
-const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -22,6 +21,10 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [packageLabel, setPackageLabel] = useState<string | undefined>();
   const [callTopic, setCallTopic] = useState(false);
+
+  useEffect(() => {
+    if (siteKey) loadTurnstile();
+  }, []);
 
   // Read the package from the URL after mount so the page itself stays static.
   useEffect(() => {
@@ -81,13 +84,6 @@ export function ContactForm() {
       onSubmit={onSubmit}
       className="rounded-2xl border border-border bg-surface p-6 sm:p-8"
     >
-      {siteKey && (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          strategy="lazyOnload"
-        />
-      )}
-
       <div className="space-y-4">
         {packageLabel && (
           <div className="rounded-xl border border-brand/30 bg-brand/5 p-4">

@@ -1,21 +1,12 @@
-"use client";
+import { SERVER_STATE, formatPln } from "@/lib/currency";
 
-import { useCurrency } from "@/components/currency/CurrencyProvider";
-
-// Renders a PLN base amount in the viewer's active currency. Client-side so it
-// can react to the currency switcher; falls back to PLN until rates load.
-export function Price({
-  pln,
-  className,
-}: {
-  pln: string | number;
-  className?: string;
-}) {
-  const { format } = useCurrency();
+// Renders a PLN base amount. The static HTML shows PLN; src/scripts/ui.ts
+// rewrites every [data-pln] element into the viewer's currency once rates load.
+export function Price({ pln, className }: { pln: string | number; className?: string }) {
   const base = typeof pln === "string" ? parseFloat(pln) : pln;
   return (
-    <span className={className} suppressHydrationWarning>
-      {format(base)}
+    <span className={className} data-pln={base}>
+      {formatPln(base, SERVER_STATE)}
     </span>
   );
 }

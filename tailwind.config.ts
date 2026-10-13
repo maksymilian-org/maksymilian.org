@@ -2,9 +2,11 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{astro,ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./views/**/*.{ts,tsx}",
     "./content/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
   ],
   darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
@@ -22,7 +24,7 @@ const config: Config = {
         muted: "rgb(var(--muted) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-rubik)", "system-ui", "sans-serif"],
+        sans: ["\"Rubik Variable\"", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "72rem",

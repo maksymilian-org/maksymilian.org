@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 
 // Compact trust bar shown right under the hero: a few honest, verifiable
 // numbers (experience, Google rating, response time, one-person delivery).

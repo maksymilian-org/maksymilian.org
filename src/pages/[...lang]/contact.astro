@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { ContactInfoView } from "@/views/ContactInfoView";
+import ContactFormIsland from "@/components/contact/ContactFormIsland";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages, pickMessages } from "@/lib/messages";
+import { buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const meta = createTranslator(getMessages(locale), "meta");
+const seo = buildSeo({ locale, title: meta("contact.title"), description: meta("contact.description"), path: "/contact" });
+// Only what the form needs travels to the browser.
+const messages = pickMessages(locale, ["contact", "pricing"]);
+---
+
+<BaseLayout locale={locale} path="/contact" seo={seo}>
+  <section class="py-16 sm:py-24">
+    <div class="container-page">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <ContactInfoView locale={locale} />
+        <ContactFormIsland client:load locale={locale} messages={messages} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import ToolView from "@/views/ToolView";
+import { buildSeo } from "@/lib/seo";
+import { localePathsWith } from "@/lib/routes";
+import { tools } from "@/content/tools";
+
+export function getStaticPaths() {
+  return localePathsWith(() => tools.map((t) => ({ params: { slug: t.slug }, props: { tool: t } })));
+}
+const { locale, tool } = Astro.props;
+const path = `/tools/${tool.slug}`;
+const seo = buildSeo({ locale, title: tool.metaTitle[locale], description: tool.metaDescription[locale], path });
+---
+
+<BaseLayout locale={locale} path={path} seo={seo}>
+  <ToolView client:load locale={locale} slug={tool.slug} />
+</BaseLayout>

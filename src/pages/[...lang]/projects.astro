@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { ProjectsView } from "@/views/ProjectsView";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const t = createTranslator(getMessages(locale), "meta");
+const seo = buildSeo({ locale, title: t("projects.title"), description: t("projects.description"), path: "/projects" });
+---
+
+<BaseLayout locale={locale} path="/projects" seo={seo}>
+  <ProjectsView locale={locale} />
+</BaseLayout>

@@ -6,7 +6,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 import { Section, SectionHeading } from "@/components/ui/Section";
 
 // One icon per guarantee, in the same order as the message array.

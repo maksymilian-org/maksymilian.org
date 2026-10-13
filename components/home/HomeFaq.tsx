@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/lib/i18n";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { JsonLd } from "@/components/seo/JsonLd";
 

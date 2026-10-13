@@ -1,8 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "maksymilian-org",
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2025-03-25",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-04-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "workers_dev": false,
   "routes": [
@@ -12,9 +12,12 @@
   ],
   "assets": {
     "binding": "ASSETS",
-    "directory": ".open-next/assets"
+    "directory": "./dist",
+    // /sitemap and pages are files; /about -> about.html without a trailing slash.
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    // Everything else is served straight from the CDN with no Worker invocation.
+    "run_worker_first": ["/api/*"]
   },
-  "observability": {
-    "enabled": true
-  }
+  "observability": { "enabled": true }
 }

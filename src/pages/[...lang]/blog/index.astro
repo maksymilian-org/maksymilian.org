@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { BlogIndexView } from "@/views/BlogIndexView";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { absoluteUrl, buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+import { site } from "@/content/site";
+import { sortedPosts } from "@/content/blog";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const meta = createTranslator(getMessages(locale), "meta");
+const seo = buildSeo({ locale, title: meta("blog.title"), description: meta("blog.description"), path: "/blog" });
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: `${site.brand} — Blog`,
+  url: absoluteUrl(locale, "/blog"),
+  blogPost: sortedPosts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title[locale],
+    description: p.excerpt[locale],
+    datePublished: p.date,
+    url: absoluteUrl(locale, `/blog/${p.slug}`),
+    author: { "@type": "Person", name: site.name },
+  })),
+};
+---
+
+<BaseLayout locale={locale} path="/blog" seo={seo} jsonLd={[blogSchema]}>
+  <BlogIndexView locale={locale} />
+</BaseLayout>

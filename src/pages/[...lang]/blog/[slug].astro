@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { BlogPostView } from "@/views/BlogPostView";
+import { createTranslator } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+import { absoluteUrl, buildSeo } from "@/lib/seo";
+import { localePathsWith } from "@/lib/routes";
+import { posts } from "@/content/blog";
+import { site } from "@/content/site";
+import { authorPerson } from "@/components/seo/JsonLd";
+
+export function getStaticPaths() {
+  return localePathsWith(() => posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } })));
+}
+const { locale, post } = Astro.props;
+const n = createTranslator(getMessages(locale), "nav");
+const path = `/blog/${post.slug}`;
+const url = absoluteUrl(locale, path);
+const seo = buildSeo({
+  locale,
+  title: post.title[locale],
+  description: post.excerpt[locale],
+  path,
+  type: "article",
+  publishedTime: post.date,
+});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title[locale],
+  description: post.excerpt[locale],
+  datePublished: post.date,
+  dateModified: post.updated ?? post.date,
+  inLanguage: locale,
+  mainEntityOfPage: url,
+  url,
+  author: authorPerson(),
+  publisher: authorPerson(),
+  keywords: (post.tags[locale] ?? post.tags.pl).join(", "),
+};
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: site.brand, item: site.url },
+    { "@type": "ListItem", position: 2, name: n("blog"), item: absoluteUrl(locale, "/blog") },
+    { "@type": "ListItem", position: 3, name: post.title[locale] },
+  ],
+};
+---
+
+<BaseLayout locale={locale} path={path} seo={seo} jsonLd={[articleSchema, breadcrumbSchema]}>
+  <BlogPostView locale={locale} post={post} />
+</BaseLayout>
