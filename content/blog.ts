@@ -1667,6 +1667,111 @@ export const posts: BlogPost[] = [
       ],
     },
   },
+  {
+    slug: "software-developer-rates-poland",
+    date: "2026-10-16",
+    related: ["hire-developer-from-poland-nearshoring", "ile-kosztuje-dedykowana-aplikacja-webowa", "jak-wyglada-wycena-aplikacji-etapy-i-brief"],
+    illustration: "webapps",
+    readingMinutes: 6,
+    tags: {
+      pl: ["Nearshoring", "Stawki", "Zatrudnianie programistów"],
+      en: ["Nearshoring", "Developer rates", "Hiring developers"],
+    },
+    title: {
+      pl: "Stawki programistów w Polsce w 2026: godzinowe, miesięczne i cena stała",
+      en: "Software developer rates in Poland in 2026: hourly, monthly and fixed price",
+    },
+    excerpt: {
+      pl: "Ile kosztuje programista z Polski, od czego zależy stawka, jak porównać freelancera z agencją i na co uważać, żeby tania oferta nie wyszła drożej.",
+      en: "What a developer from Poland costs, what drives the rate, how to compare a freelancer with an agency, and what to watch for so a cheap offer doesn't end up costing more.",
+    },
+    body: {
+      pl: [
+        { type: "p", text: "Firmy z Europy Zachodniej i USA często pytają o jedno: ile naprawdę kosztuje dobry programista z Polski. Poniżej opisuję, od czego zależy stawka, jakie są orientacyjne widełki rynkowe i jak porównywać oferty, żeby nie przepłacić ani nie kupić czegoś, co trzeba będzie robić od nowa." },
+        { type: "h2", text: "Od czego zależy stawka" },
+        { type: "ul", items: [
+          "Doświadczenie: senior, który samodzielnie prowadzi projekt, kosztuje więcej niż osoba po kilku latach pracy, ale zwykle zwraca różnicę w czasie i jakości",
+          "Technologia: popularny stack (React, Node.js) ma szerszy rynek niż wąskie specjalizacje, np. systemy wbudowane czy integracje z rzadkimi systemami",
+          "Forma współpracy: freelancer (B2B) ma niższy narzut niż agencja, która dolicza sprzedaż i zarządzanie",
+          "Zakres i czas trwania: dłuższa, stała współpraca pozwala negocjować lepszą stawkę",
+          "Pilność: szybki start i dostępność w konkretnych godzinach też mają cenę",
+        ] },
+        { type: "h2", text: "Orientacyjne widełki rynkowe" },
+        { type: "p", text: "Poniższe liczby to rząd wielkości, a nie oferta: zależą od technologii, doświadczenia i bieżącego popytu, więc przed decyzją warto porównać kilka aktualnych zapytań ofertowych." },
+        { type: "ul", items: [
+          "Senior developer w Polsce na umowie B2B: zwykle około 50–80 USD za godzinę",
+          "Programista na poziomie mid: zwykle około 30–50 USD za godzinę",
+          "Agencje w USA, Wielkiej Brytanii czy Niemczech: często 100–200 USD za godzinę i więcej",
+        ] },
+        { type: "p", text: "Różnica nie bierze się z gorszej pracy. Koszty życia są niższe, a przy współpracy bezpośredniej nie płacisz za warstwy sprzedaży i zarządzania projektem." },
+        { type: "h2", text: "Cena stała, godziny czy dedykowany developer" },
+        { type: "ul", items: [
+          "Cena stała: najlepsza, gdy zakres jest jasny (strona, sklep, MVP, integracja). Znasz koszt z góry, a ryzyko dopracowania zakresu bierze na siebie wykonawca",
+          "Rozliczenie godzinowe: elastyczne, gdy zakres się zmienia, ale koszt końcowy jest mniej przewidywalny",
+          "Dedykowany developer: stała miesięczna pojemność w Twoim zespole, dobra przy rozwoju produktu i utrzymaniu",
+        ] },
+        { type: "h2", text: "Ukryte koszty zbyt taniej oferty" },
+        { type: "ul", items: [
+          "Słaba komunikacja: tygodnie na doprecyzowanie rzeczy, które można było ustalić w jednej rozmowie",
+          "Przepisywanie kodu: zaniżona wycena często oznacza skróty, za które płacisz później",
+          "Brak praw do kodu: brak jasnej umowy o przeniesieniu praw autorskich i dostępów",
+          "Brak ciągłości: osoba znika po wdrożeniu i nikt nie rozumie, jak działa system",
+        ] },
+        { type: "h2", text: "Jak porównać oferty" },
+        { type: "ol", items: [
+          "Poproś o wycenę tego samego, dobrze opisanego zakresu u kilku wykonawców",
+          "Porównuj całkowity koszt i termin, a nie samą stawkę godzinową",
+          "Sprawdź realne projekty i opinie, najlepiej z możliwością obejrzenia efektu",
+          "Ustal na piśmie własność kodu, dostępy, NDA i zasady rozliczeń",
+          "Zacznij od małego etapu, żeby sprawdzić współpracę, zanim zlecisz całość",
+        ] },
+        { type: "h2", text: "Jak wygląda to u mnie" },
+        { type: "p", text: "Pracuję zdalnie z klientami z Polski i zagranicy, rozliczam się na fakturę z numerem VAT UE i komunikuję po angielsku. Projekty wyceniam ceną stałą (ceny startowe są na stronie), a współpracę z dedykowanym developerem wyceniam indywidualnie. Jeśli chcesz zobaczyć konkretną kwotę dla swojego projektu, opisz go w kalkulatorze wyceny online, a wrócę z zakresem, ceną i terminem." },
+      ],
+      en: [
+        { type: "p", text: "Companies in Western Europe and the US keep asking one thing: what does a good developer from Poland really cost? Below I explain what drives the rate, the rough market ranges, and how to compare offers so you neither overpay nor buy something you'll have to redo." },
+        { type: "h2", text: "What drives the rate" },
+        { type: "ul", items: [
+          "Experience: a senior who runs a project independently costs more than someone with a few years behind them, but usually repays the difference in speed and quality",
+          "Technology: a popular stack (React, Node.js) has a wider market than narrow specialisations such as embedded systems or integrations with rare systems",
+          "Type of engagement: a freelancer (B2B) has lower overhead than an agency, which adds sales and project management",
+          "Scope and duration: a longer, steady engagement lets you negotiate a better rate",
+          "Urgency: a fast start and availability in specific hours also have a price",
+        ] },
+        { type: "h2", text: "Rough market ranges" },
+        { type: "p", text: "The numbers below are an order of magnitude, not an offer: they depend on the technology, experience and current demand, so compare a few current quotes before you decide." },
+        { type: "ul", items: [
+          "Senior developer in Poland on a B2B contract: typically around 50–80 USD per hour",
+          "Mid-level developer: typically around 30–50 USD per hour",
+          "Agencies in the US, UK or Germany: often 100–200 USD per hour and up",
+        ] },
+        { type: "p", text: "The gap doesn't come from lesser work. The cost of living is lower, and when you work directly you don't pay for layers of sales and project management." },
+        { type: "h2", text: "Fixed price, hourly or a dedicated developer" },
+        { type: "ul", items: [
+          "Fixed price: best when the scope is clear (a website, store, MVP, integration). You know the cost upfront and the contractor carries the risk of refining the scope",
+          "Hourly billing: flexible when scope changes, but the final cost is less predictable",
+          "Dedicated developer: steady monthly capacity inside your team, a good fit for product development and maintenance",
+        ] },
+        { type: "h2", text: "Hidden costs of a too-cheap offer" },
+        { type: "ul", items: [
+          "Poor communication: weeks spent clarifying things that one conversation could have settled",
+          "Rewriting code: a lowball quote often means shortcuts you pay for later",
+          "No rights to the code: no clear contract on copyright transfer and access",
+          "No continuity: the person disappears after launch and nobody understands how the system works",
+        ] },
+        { type: "h2", text: "How to compare offers" },
+        { type: "ol", items: [
+          "Ask several contractors to quote the same, well-described scope",
+          "Compare total cost and timeline, not just the hourly rate",
+          "Check real projects and reviews, ideally with a chance to see the result",
+          "Agree code ownership, access, NDA and payment terms in writing",
+          "Start with a small stage to test the collaboration before commissioning the whole thing",
+        ] },
+        { type: "h2", text: "How it works with me" },
+        { type: "p", text: "I work remotely with clients in Poland and abroad, invoice with an EU VAT number and communicate in English. I price projects at a fixed price (starting prices are on the site) and quote a dedicated-developer engagement individually. If you want a concrete figure for your project, describe it in the online quote calculator and I'll come back with scope, price and timeline." },
+      ],
+    },
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
@@ -1719,6 +1824,7 @@ export const postServices: Record<string, string[]> = {
   "react-native-czy-flutter-czy-natywnie": ["mobile"],
   "pwa-czy-aplikacja-mobilna": ["mobile", "webapps"],
   "modernizacja-aplikacji-przepisac-czy-naprawic": ["modernization"],
+  "software-developer-rates-poland": ["webapps", "maintenance"],
 };
 
 export function getPostsForService(serviceId: string, limit = 3): BlogPost[] {

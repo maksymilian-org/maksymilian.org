@@ -9,7 +9,8 @@
     "lublin": "Programista Lublin",
     "quote": "Wycena online",
     "solutions": "Rozwiązania dla branż",
-    "tools": "Darmowe narzędzia"
+    "tools": "Darmowe narzędzia",
+    "hire": "Zatrudnij programistę"
   },
   "common": {
     "getQuote": "Darmowa wycena",
@@ -717,5 +718,28 @@
     "tagline": "Software development — Lublin, Polska",
     "rights": "Wszelkie prawa zastrzeżone.",
     "built": "Zbudowane w Next.js"
+  },
+  "international": {
+    "heading": "Współpraca z klientami z zagranicy",
+    "lead": "Praktyczne pytania, które zadaje kupujący z innego kraju, z odpowiedziami od razu.",
+    "items": [
+      {
+        "title": "Pokrywająca się strefa czasowa",
+        "text": "Polska jest w CET: pełne pokrycie godzin pracy z Europą i wspólne okno ze wschodnim wybrzeżem USA."
+      },
+      {
+        "title": "Faktura z UE, porządne formalności",
+        "text": "Faktura VAT z numerem VAT UE, odwrotne obciążenie dla firm z UE z ważnym numerem, NDA na życzenie."
+      },
+      {
+        "title": "Kod należy do Ciebie",
+        "text": "Prawa autorskie przechodzą na Ciebie, a repozytorium i konta zakładam na Twoją firmę."
+      },
+      {
+        "title": "Jeden senior, bez pośredników",
+        "text": "Rozmawiasz bezpośrednio z developerem. Cotygodniowe demo, cena stała za zakres lub dedykowana współpraca miesięczna."
+      }
+    ],
+    "cta": "Jak współpracuję z klientami z zagranicy"
   }
 }

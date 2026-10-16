@@ -9,7 +9,8 @@
     "lublin": "Web developer Lublin",
     "quote": "Online quote",
     "solutions": "Solutions by industry",
-    "tools": "Free tools"
+    "tools": "Free tools",
+    "hire": "Hire a developer"
   },
   "common": {
     "getQuote": "Get a free quote",
@@ -28,8 +29,8 @@
   },
   "meta": {
     "home": {
-      "title": "Developer from Poland: websites from 400 PLN, apps, KSeF · maksymilian.org",
-      "description": "Fullstack developer from Lublin, Poland: websites from 400 PLN, stores from 1,200 PLN, apps from 1,600 PLN, KSeF and integrations. Free online quote in minutes."
+      "title": "Hire a senior developer from Poland: web, apps, integrations · maksymilian.org",
+      "description": "Senior fullstack developer in Poland for international clients: CET time zone, EU VAT invoice, GDPR. Websites, apps and integrations at fixed prices. Free quote."
     },
     "services": {
       "title": "Development services: websites, apps, integrations, KSeF, AI",
@@ -57,9 +58,9 @@
     }
   },
   "home": {
-    "eyebrow": "Software development",
-    "title": "Turn your idea into fast, modern software — web, mobile, IoT and AI",
-    "lead": "I'm Max — a fullstack developer from Lublin. I build custom software end to end: websites and online stores, bespoke web and mobile apps, automations and AI that take the repetitive work off your hands, and firmware for IoT and smart-home devices. From idea to launch you get a working product from one reliable person — quickly, and at a reasonable price.",
+    "eyebrow": "Senior developer in Poland",
+    "title": "Software built by a senior developer in Poland: web, mobile, integrations and AI",
+    "lead": "I'm Max, a senior fullstack developer based in Lublin, Poland, working remotely with clients across Europe and beyond. I build custom software end to end: websites and online stores, bespoke web and mobile apps, integrations, automation and AI, and firmware for IoT and smart-home devices. You deal directly with the person who writes the code, in your time zone, invoiced as an EU business and at prices well below typical agencies.",
     "servicesHeading": "What I can build for you",
     "servicesLead": "From a simple company website to a fully custom application or automation built around the way your business works — everything under one roof, with a short delivery time.",
     "processHeading": "How we work together",
@@ -717,5 +718,28 @@
     "tagline": "Software development — Lublin, Poland",
     "rights": "All rights reserved.",
     "built": "Built with Next.js"
+  },
+  "international": {
+    "heading": "Working with international clients",
+    "lead": "The practical questions a buyer abroad asks before writing, answered up front.",
+    "items": [
+      {
+        "title": "A time zone that overlaps",
+        "text": "Poland is on CET: a full working-day overlap with Europe and a shared window with the US East Coast."
+      },
+      {
+        "title": "EU invoice, clean paperwork",
+        "text": "VAT invoice with an EU VAT number, reverse charge for EU businesses with a valid VAT ID, NDA on request."
+      },
+      {
+        "title": "You own the code",
+        "text": "Copyright is transferred to you, and the repository and accounts are set up in your company's name."
+      },
+      {
+        "title": "One senior, no middlemen",
+        "text": "You talk directly to the developer. Weekly demos, fixed price per scope or a dedicated monthly engagement."
+      }
+    ],
+    "cta": "How we work with international clients"
   }
 }

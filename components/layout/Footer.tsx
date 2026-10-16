@@ -56,6 +56,12 @@ export function Footer() {
             >
               {t("nav.lublin")}
             </Link>
+            <Link
+              href="/hire-developer-poland"
+              className="text-sm text-muted transition-colors hover:text-fg"
+            >
+              {t("nav.hire")}
+            </Link>
           </nav>
 
           <div className="text-sm text-muted">

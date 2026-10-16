@@ -14,6 +14,7 @@ const paths = [
   "/blog",
   ...posts.map((p) => `/blog/${p.slug}`),
   "/lublin",
+  "/hire-developer-poland",
   "/quote",
   "/solutions",
   ...industries.map((i) => `/solutions/${i.slug}`),

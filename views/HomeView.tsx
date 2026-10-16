@@ -12,6 +12,7 @@ import { CustomServiceCard } from "@/components/services/CustomServiceCard";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Reviews } from "@/components/reviews/Reviews";
 import { Stats } from "@/components/home/Stats";
+import { International } from "@/components/home/International";
 import { Guarantees } from "@/components/home/Guarantees";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { Pricing } from "@/components/pricing/Pricing";
@@ -23,6 +24,7 @@ export function HomeView({ locale }: { locale: Locale }) {
     <Page locale={locale} pathname="/">
       <Hero />
       <Stats />
+      <International />
       <ServicesPreview />
       <Pricing withSchema />
       <Guarantees />

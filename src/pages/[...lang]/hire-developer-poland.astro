@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/src/layouts/BaseLayout.astro";
+import { HireView } from "@/views/HireView";
+import { absoluteUrl, buildSeo } from "@/lib/seo";
+import { localePaths } from "@/lib/routes";
+import { hire } from "@/content/hire";
+import { site } from "@/content/site";
+
+export function getStaticPaths() {
+  return localePaths();
+}
+const { locale } = Astro.props;
+const path = "/hire-developer-poland";
+const seo = buildSeo({ locale, title: hire.meta.title[locale], description: hire.meta.description[locale], path });
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: hire.h1[locale],
+  description: hire.meta.description[locale],
+  serviceType: "Software development",
+  provider: { "@id": `${site.url}/#business` },
+  areaServed: ["PL", "EU", "GB", "US"],
+  url: absoluteUrl(locale, path),
+};
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: site.brand, item: site.url },
+    { "@type": "ListItem", position: 2, name: hire.crumb[locale] },
+  ],
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: hire.faq.map((f) => ({
+    "@type": "Question",
+    name: f.q[locale],
+    acceptedAnswer: { "@type": "Answer", text: f.a[locale] },
+  })),
+};
+---
+
+<BaseLayout locale={locale} path={path} seo={seo} jsonLd={[serviceSchema, breadcrumb, faqSchema]}>
+  <HireView locale={locale} />
+</BaseLayout>

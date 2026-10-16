@@ -22,7 +22,7 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
   const t = useTranslations("services");
   const c = useTranslations("common");
   const locale = useLocale() as Locale;
-  const articles = getPostsForService(service.id, 4);
+  const articles = getPostsForService(service.id, 6);
   const n = useTranslations("nav");
   const id = service.id;
   const features = t.raw(`items.${id}.detail.features`) as string[];
