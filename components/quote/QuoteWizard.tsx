@@ -27,7 +27,6 @@ import {
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
 import { useCurrency } from "@/components/currency/useCurrency";
 import { loadTurnstile } from "@/utils/turnstile";
-import { BookCall } from "@/components/contact/BookCall";
 import { trackEvent } from "@/utils/analytics";
 
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
@@ -995,7 +994,6 @@ function QuoteResult({
       </div>
 
       <div className="mt-10 flex flex-wrap justify-center gap-3">
-        <BookCall />
         <Link
           href="/"
           className="inline-flex items-center rounded-xl border border-border px-5 py-3 text-sm font-medium transition-colors hover:border-brand hover:text-brand"

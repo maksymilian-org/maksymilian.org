@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "@/lib/i18n";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
-import { BookCall } from "@/components/contact/BookCall";
 import { services } from "@/content/services";
 import { commercialProjects } from "@/content/projects";
 import { Hero } from "@/components/hero/Hero";
@@ -127,7 +126,6 @@ function HomeCta() {
             {c("getQuote")}
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <BookCall variant="onBrand" />
         </div>
       </div>
     </Section>

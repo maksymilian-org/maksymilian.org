@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
 import { ArrowRight, Check, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { BookCall } from "@/components/contact/BookCall";
 import { trackEvent } from "@/utils/analytics";
 
 type Lang = "pl" | "en";
@@ -165,7 +164,6 @@ export function KsefReadiness() {
               {ui.quote}
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <BookCall variant="onBrand" />
           </div>
         </div>
 

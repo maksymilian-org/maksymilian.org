@@ -708,9 +708,7 @@
       "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na",
       "note": "Wolisz e-mail? Napisz bezpośrednio na",
       "regardingLabel": "Zapytanie dotyczy",
-      "regardingNote": "Ta informacja zostanie dołączona do wiadomości.",
-      "callTopic": "Umówienie rozmowy",
-      "callPlaceholder": "Kiedy Ci pasuje, pod jaki numer lub w jakim komunikatorze (telefon, WhatsApp, Slack, Meet) mam zadzwonić? Dodaj 1–2 zdania o projekcie."
+      "regardingNote": "Ta informacja zostanie dołączona do wiadomości."
     },
     "quoteLink": "Wolisz najpierw zobaczyć widełki? Skonfiguruj wycenę online."
   },

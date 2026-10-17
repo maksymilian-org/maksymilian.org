@@ -20,7 +20,6 @@ export function ContactForm() {
   const tp = useTranslations("pricing");
   const [status, setStatus] = useState<Status>("idle");
   const [packageLabel, setPackageLabel] = useState<string | undefined>();
-  const [callTopic, setCallTopic] = useState(false);
 
   useEffect(() => {
     if (siteKey) loadTurnstile();
@@ -29,11 +28,6 @@ export function ContactForm() {
   // Read the package from the URL after mount so the page itself stays static.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("topic") === "call") {
-      setPackageLabel(t("callTopic"));
-      setCallTopic(true);
-      return;
-    }
     const key = params.get("package");
     if (key && PACKAGE_KEYS.includes(key)) {
       setPackageLabel(key === "custom" ? tp("custom.title") : tp(`tiers.${key}.name`));
@@ -123,7 +117,6 @@ export function ContactForm() {
             required
             rows={5}
             className={inputClass}
-            placeholder={callTopic ? t("callPlaceholder") : undefined}
           />
         </label>
 

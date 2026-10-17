@@ -7,7 +7,6 @@ import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/Section";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { BookCall } from "@/components/contact/BookCall";
 import { ServiceIllustration } from "@/components/illustrations/ServiceIllustration";
 import { Page } from "./Page";
 
@@ -92,7 +91,6 @@ function SolutionDetail({ locale, industry }: { locale: Locale; industry: Indust
                 {ui.quote}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <BookCall />
             </div>
           </div>
         </div>
@@ -198,7 +196,6 @@ function SolutionDetail({ locale, industry }: { locale: Locale; industry: Indust
               {ui.quote}
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <BookCall variant="onBrand" />
           </div>
         </div>
       </Section>

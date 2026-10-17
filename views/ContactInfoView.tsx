@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from "@/lib/i18n";
 import type { Locale } from "@/i18n/routing";
 import { site, taxIdFor } from "@/content/site";
 import { Link } from "@/i18n/navigation";
-import { BookCall } from "@/components/contact/BookCall";
 import { Social } from "@/components/social/Social";
 import { Page } from "./Page";
 
@@ -26,7 +25,6 @@ function ContactInfo() {
         {t("heading")}
       </h1>
       <p className="mt-4 max-w-md text-lg text-muted">{t("lead")}</p>
-      <BookCall className="mt-6" />
 
       <ul className="mt-8 space-y-4">
         <ContactRow icon={<Phone className="h-5 w-5" />} label={t("phoneLabel")}>

@@ -708,9 +708,7 @@
       "error": "Something went wrong. Please try again or email me directly at",
       "note": "Prefer email? Write directly to",
       "regardingLabel": "Enquiry about",
-      "regardingNote": "This detail will be included in your message.",
-      "callTopic": "Booking a call",
-      "callPlaceholder": "When suits you, and on which number or tool (phone, WhatsApp, Slack, Meet) should I call? Add a sentence or two about the project."
+      "regardingNote": "This detail will be included in your message."
     },
     "quoteLink": "Prefer to see a price range first? Build your quote online."
   },

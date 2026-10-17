@@ -5,7 +5,6 @@ import { hire } from "@/content/hire";
 import { Link } from "@/i18n/navigation";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
-import { BookCall } from "@/components/contact/BookCall";
 import { Price } from "@/components/pricing/Price";
 import { Page } from "./Page";
 
@@ -38,7 +37,6 @@ function HireContent({ locale }: { locale: Locale }) {
             {hire.quote[locale]}
             <ArrowRight className="h-4 w-4" />
           </ButtonLink>
-          <BookCall />
         </div>
       </Section>
 
@@ -151,7 +149,6 @@ function HireContent({ locale }: { locale: Locale }) {
               {hire.quote[locale]}
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <BookCall variant="onBrand" />
           </div>
         </div>
       </Section>
