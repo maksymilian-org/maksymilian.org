@@ -12,7 +12,8 @@
     "seo:status": "node scripts/index-status.mjs",
     "seo:indexnow": "node scripts/indexnow.mjs",
     "site:snapshot": "node scripts/site-snapshot.mjs",
-    "site:compare": "node scripts/site-compare.mjs"
+    "site:compare": "node scripts/site-compare.mjs",
+    "signature:build": "node email-signature/build.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.4",
