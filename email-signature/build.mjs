@@ -34,9 +34,8 @@ const utm = (path = "") =>
 
 const TEXT = {
   en: {
-    title: "Senior Fullstack Developer",
     tagline: "Websites, apps, integrations and automation",
-    where: "Remote from Lublin, Poland (CET)",
+    where: "Lublin, Poland (CET)",
     cta: "Get a free quote",
     quotePath: "/quote",
     phone: "Phone",
@@ -46,7 +45,6 @@ const TEXT = {
     taxValue: site.vatId,
   },
   pl: {
-    title: "Senior Fullstack Developer",
     tagline: "Strony, aplikacje, integracje i automatyzacje",
     where: "Lublin, Polska",
     cta: "Darmowa wycena",
@@ -81,7 +79,6 @@ function signature(locale) {
     </td>
     <td valign="top" style="padding:0 0 0 16px;border-left:1px solid ${STYLE.line};">
       <div style="${s(`font-size:17px;line-height:22px;font-weight:bold;color:${STYLE.text}`)}">${site.name}</div>
-      <div style="${s(`font-size:13px;line-height:20px;color:${STYLE.brand};font-weight:bold`)}">${t.title}</div>
       <div style="${s(`font-size:12px;line-height:18px;color:${STYLE.muted};padding-bottom:8px`)}">${t.tagline}</div>
       <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
         ${row(t.phone, a(`tel:${site.phone}`, site.phoneDisplay, `color:${STYLE.text};`))}
