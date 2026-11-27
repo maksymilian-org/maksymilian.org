@@ -66,15 +66,18 @@ export function BrowserFrame({
   );
 }
 
-export function PhoneFrame({ src, alt = "", children, className }: ScreenProps) {
+// `compact` is for small phones (under ~120 px wide) next to a browser window:
+// the same radius would turn them into pills, so corners and bezel shrink.
+export function PhoneFrame({ src, alt = "", children, className, compact }: ScreenProps & { compact?: boolean }) {
   return (
     <figure
       className={cn(
-        "rounded-[2.1rem] bg-[#15121d] p-[7px] shadow-[0_30px_60px_-20px_rgb(0_0_0/0.45)] ring-1 ring-white/10",
+        "bg-[#15121d] shadow-[0_30px_60px_-20px_rgb(0_0_0/0.45)] ring-1 ring-white/10",
+        compact ? "rounded-[0.85rem] p-[3px]" : "rounded-[2.1rem] p-[7px]",
         className
       )}
     >
-      <div className="relative aspect-[390/844] overflow-hidden rounded-[1.7rem] bg-bg">
+      <div className={cn("relative aspect-[390/844] overflow-hidden bg-bg", compact ? "rounded-[0.65rem]" : "rounded-[1.7rem]")}>
         <span
           aria-hidden
           className="absolute left-1/2 top-[6px] z-10 h-[7%] max-h-[15px] w-[30%] -translate-x-1/2 rounded-full bg-[#15121d]"

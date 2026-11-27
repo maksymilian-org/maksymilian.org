@@ -16,7 +16,7 @@ export function WebsiteWall() {
                 url={w.title}
                 className="transition-transform duration-300 group-hover:-translate-y-1"
               />
-              <PhoneFrame src={`/projects/${w.id}-mobile.webp`} alt="" className="absolute bottom-0 right-0 w-[22%] min-w-[72px]" />
+              <PhoneFrame compact src={`/projects/${w.id}-mobile.webp`} alt="" className="absolute bottom-0 right-0 w-[22%] min-w-[72px]" />
             </div>
             <p className="mt-3 text-sm font-medium transition-colors group-hover:text-brand">{w.title}</p>
           </a>

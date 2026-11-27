@@ -56,6 +56,7 @@ export function ProjectVisual({ project }: { project: Project }) {
       </BrowserFrame>
       {m.mobile && (
         <PhoneFrame
+          compact
           src={m.mobile}
           alt=""
           className="absolute bottom-0 right-0 w-[24%] min-w-[84px]"
