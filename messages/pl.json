@@ -674,7 +674,9 @@
       "web": "Aplikacja webowa",
       "desktop": "Oprogramowanie desktopowe"
     },
-    "websitesHint": "Najedź kursorem na okno, żeby przewinąć stronę."
+    "websitesHint": "Najedź kursorem na okno, żeby przewinąć stronę.",
+    "productsHeading": "Własne produkty",
+    "productsText": "Produkty, które sam wymyśliłem, zaprojektowałem, zbudowałem i utrzymuję: od pomysłu, przez aplikacje web i mobilne, po serwer i publikację w sklepach."
   },
   "about": {
     "heading": "O mnie",

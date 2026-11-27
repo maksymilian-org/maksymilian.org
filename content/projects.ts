@@ -67,6 +67,191 @@ export function pick(value: Localized, locale: Locale): string {
   return value[locale] ?? value.en;
 }
 
+// Products the owner conceived, designed, built and runs alone (idea to server
+// and app stores). Facts come from each project's own repository session;
+// nothing is published that those notes marked as uncertain or restricted.
+export const productProjects: Project[] = [
+  {
+    id: "respondgrid",
+    story: {
+      challenge: {
+        pl: "W ochotniczych strażach alarmy, listy ratowników, terminy badań i przeglądy sprzętu żyją w telefonach, zeszytach i arkuszach, a dowódca w pierwszych minutach nie wie, ilu ludzi dojedzie. Jednostek jest kilkanaście tysięcy i żadna nie ma własnego działu IT.",
+        en: "In volunteer fire brigades, alerts, rosters, medical deadlines and equipment checks live in phones, notebooks and spreadsheets, and in the first minutes the commander does not know how many people will make it. There are well over ten thousand units and none has its own IT department.",
+      },
+      solution: {
+        pl: "Publiczny portal z mapą ponad 16 tys. jednostek OSP, panel jednostki oraz aplikacje na Androida i iOS. Alarm pojawia się nawet na zablokowanym i wyciszonym telefonie, odpowiedź to jedno dotknięcie, a tablica w remizie i tryb wozu pokazują na żywo, kto jedzie.",
+        en: "A public portal with a map of 16,000+ volunteer brigades, a unit panel, and Android and iOS apps. The alert shows up even on a locked, silenced phone, answering is one tap, and the station board and vehicle mode show live who is coming.",
+      },
+      outcome: {
+        pl: "Jedno miejsce zamiast kilku narzędzi: alarm, dyspozycyjność, sprzęt z terminami, ogłoszenia i statystyki wyjazdów. Aplikacje są w sklepach Google Play i App Store, a panel jednostki jest bezpłatny bez limitu czasu.",
+        en: "One place instead of several tools: alerts, availability, equipment with deadlines, a bulletin board and callout statistics. The apps are on Google Play and the App Store, and the unit panel is free with no time limit.",
+      },
+    },
+    services: ["mobile", "webapps"],
+    summary: {
+      pl: "Gdy przychodzi wezwanie, telefony całej jednostki straży dostają alarm, a dowódca od razu widzi, kto jedzie i za ile minut. Do tego publiczna mapa straży pożarnych.",
+      en: "When a call comes in, the whole fire brigade's phones get the alert and the commander instantly sees who is coming and in how many minutes. Plus a public map of fire brigades.",
+    },
+    media: {
+      kind: "mobile",
+      screens: ["/projects/respondgrid-01-mobile.webp", "/projects/respondgrid-03-mobile.webp", "/projects/respondgrid-05-mobile.webp", "/projects/respondgrid-04-mobile.webp"],
+      url: "respondgrid.com",
+      gallery: [
+        { src: "/projects/respondgrid-02-desktop.webp", caption: { pl: "Tablica w remizie: trwający alarm, kto jedzie i stan wozów", en: "Station board: the live alarm, who is coming and vehicle status" } },
+        { src: "/projects/respondgrid-06-desktop.webp", caption: { pl: "Publiczna mapa jednostek z opisem aplikacji", en: "The public map of units with the app overview" } },
+      ],
+    },
+    platforms: ["Web", "iOS", "Android"],
+    title: {
+      pl: "RespondGrid — alarmowanie i mapa straży pożarnych",
+      en: "RespondGrid — alerting and a map of fire brigades",
+    },
+    description: {
+      pl: "System alarmowania dla ochotniczych straży pożarnych z publiczną mapą jednostek, panelem jednostki i aplikacjami na Androida i iOS.",
+      en: "An alerting system for volunteer fire brigades with a public map of units, a unit panel and Android and iOS apps.",
+    },
+    time: { pl: "od lipca 2026, rozwijany dalej", en: "since July 2026, ongoing" },
+    highlights: {
+      pl: [
+        "Pomysł, projekt produktu i architektura całości: portal, panel, aplikacje, serwer",
+        "Portal i panel web, aplikacje na Androida (Kotlin) i iOS (SwiftUI), integracje z systemami dyspozytorskimi",
+        "Serwer, baza danych, kopie zapasowe i publikacja w Google Play oraz App Store",
+        "Import rejestrów jednostek, zgody i prywatność danych ratowników",
+      ],
+      en: [
+        "Idea, product design and architecture of the whole system: portal, panel, apps, server",
+        "Web portal and panel, Android (Kotlin) and iOS (SwiftUI) apps, integrations with dispatch systems",
+        "Server, database, backups and publishing to Google Play and the App Store",
+        "Unit-registry imports, consents and privacy of firefighters' data",
+      ],
+    },
+    technologies: "Next.js, React, Node.js, PostgreSQL, MapLibre, Swift, SwiftUI, Kotlin, Jetpack Compose, FCM, APNs, Cloudflare",
+    team: { pl: "1 osoba: autor i jedyny deweloper", en: "1 person: founder and sole developer" },
+    links: [
+      { url: "https://respondgrid.com", title: "respondgrid.com" },
+      { url: "https://respondgrid.com/app", title: "respondgrid.com/app" },
+    ],
+  },
+  {
+    id: "etabus",
+    story: {
+      challenge: {
+        pl: "Małe i regionalne linie autobusowe często nie mają rozkładów w żadnej wygodnej aplikacji, a pasażer nie wie, czy autobus już jedzie. Duże aplikacje skupiają się na miastach.",
+        en: "Small regional bus lines are often missing from convenient apps, and passengers cannot tell whether the bus is already on its way. The big apps focus on cities.",
+      },
+      solution: {
+        pl: "Jedna platforma (strona oraz aplikacje na iOS i Androida) z wyszukiwarką połączeń, przystankami, trasami i mapą na żywo. Pozycję autobusu przekazuje telefon kierowcy, więc przewoźnik nie potrzebuje dodatkowego sprzętu, a rozkłady prowadzi sam w panelu.",
+        en: "One platform (a website plus iOS and Android apps) with connection search, stops, routes and a live map. The bus position comes from the driver's phone, so a carrier needs no extra hardware, and carriers maintain their timetables themselves in a panel.",
+      },
+      outcome: {
+        pl: "Platforma działa produkcyjnie pod etabus.com z rozkładami przewoźników z regionu lubelskiego, zaimportowanymi z publicznych źródeł. Aplikacje natywne są gotowe do testów i przygotowane do publikacji.",
+        en: "The platform runs in production at etabus.com with timetables of carriers in the Lublin region imported from public sources. The native apps are ready for testing and prepared for publication.",
+      },
+    },
+    services: ["mobile", "webapps"],
+    summary: {
+      pl: "Rozkłady jazdy autobusów razem z pozycją autobusu na żywo na mapie, a dla przewoźników bezpłatny panel do prowadzenia własnych rozkładów.",
+      en: "Bus timetables together with the live position of the bus on a map, and a free panel for carriers to run their own timetables.",
+    },
+    media: {
+      kind: "mobile",
+      screens: ["/projects/etabus-01-mobile.webp", "/projects/etabus-02-mobile.webp", "/projects/etabus-03-mobile.webp"],
+      url: "etabus.com",
+      gallery: [
+        { src: "/projects/etabus-web-desktop.webp", caption: { pl: "Strona etabus.com z wyszukiwarką połączeń", en: "The etabus.com website with connection search" } },
+      ],
+    },
+    platforms: ["Web", "iOS", "Android"],
+    title: {
+      pl: "etabus — rozkłady autobusów i mapa na żywo",
+      en: "etabus — bus timetables with a live map",
+    },
+    description: {
+      pl: "Platforma rozkładów jazdy dla przewoźników regionalnych z mapą pojazdów na żywo, panelem przewoźnika i aplikacjami mobilnymi.",
+      en: "A timetable platform for regional carriers with a live vehicle map, a carrier panel and mobile apps.",
+    },
+    time: { pl: "od lutego 2026, rozwijany dalej", en: "since February 2026, ongoing" },
+    highlights: {
+      pl: [
+        "Projekt produktu i architektura: panel przewoźnika, aplikacja pasażera i tryb kierowcy",
+        "Backend i web: API, baza danych, czas rzeczywisty, importy rozkładów, strona po polsku i angielsku",
+        "Natywne aplikacje iOS (SwiftUI) i Android (Kotlin, Jetpack Compose), logowanie Google i Apple",
+        "Wdrożenie i bezpieczeństwo: serwer, szyfrowane kopie zapasowe, monitoring błędów, audyt",
+      ],
+      en: [
+        "Product design and architecture: carrier panel, passenger app and driver mode",
+        "Backend and web: API, database, real time, timetable importers, a bilingual site",
+        "Native iOS (SwiftUI) and Android (Kotlin, Jetpack Compose) apps, Google and Apple sign-in",
+        "Deployment and security: server, encrypted backups, error monitoring, security audit",
+      ],
+    },
+    technologies: "TypeScript, NestJS, Fastify, Prisma, PostgreSQL, Redis, Socket.io, Next.js, Tailwind CSS, SwiftUI, Kotlin, Jetpack Compose, Leaflet, Docker",
+    team: { pl: "1 osoba: autor i jedyny deweloper", en: "1 person: founder and sole developer" },
+    links: [{ url: "https://etabus.com", title: "etabus.com" }],
+  },
+  {
+    id: "dutyshifts",
+    story: {
+      challenge: {
+        pl: "Parafie, grupy wolontariuszy, przychodnie i brygady zmianowe układają dyżury w arkuszach i na komunikatorach. Grafik szybko się dezaktualizuje, nie wiadomo, kogo brakuje, a każda zamiana to seria wiadomości.",
+        en: "Parishes, volunteer groups, clinics and shift crews plan duties in spreadsheets and chat threads. The roster goes stale quickly, nobody knows which slots are short-staffed, and every swap takes a string of messages.",
+      },
+      solution: {
+        pl: "Aplikacja w przeglądarce i na telefonie (PWA) z dyżurami jednorazowymi i cyklicznymi, gotowymi systemami zmianowymi (np. 24/48), zapisami, rotacją, zastępstwami, przypomnieniami push, grafikiem do druku oraz synchronizacją z kalendarzami Google, Apple i Outlook.",
+        en: "A web and phone app (PWA) with one-off and recurring duties, ready-made shift systems (such as 24/48), sign-ups, rotation, substitutions, push reminders, a printable roster and sync with Google, Apple and Outlook calendars.",
+      },
+      outcome: {
+        pl: "Aplikacja działa publicznie pod dutyshifts.com w 15 językach, w tym w arabskim i hebrajskim pisanych od prawej do lewej. Jest darmowa i bez limitu osób, a obsada liczy się sama z reguł.",
+        en: "The app is live at dutyshifts.com in 15 languages, including right-to-left Arabic and Hebrew. It is free with no limit on team size, and staffing is computed from rules.",
+      },
+    },
+    services: ["webapps"],
+    summary: {
+      pl: "Wspólny grafik dyżurów dla zespołu: każdy widzi, kiedy ma dyżur, a organizator nie musi już rozsyłać tabelek i przypominać ludziom.",
+      en: "A shared duty roster for teams: everyone sees when they're on duty, and the organiser no longer has to send spreadsheets around and chase people.",
+    },
+    media: {
+      kind: "web",
+      desktop: "/projects/dutyshifts-01-desktop.webp",
+      mobile: "/projects/dutyshifts-02-mobile.webp",
+      url: "dutyshifts.com",
+      screens: ["/projects/dutyshifts-02-mobile.webp", "/projects/dutyshifts-06-mobile.webp", "/projects/dutyshifts-05-mobile.webp"],
+      gallery: [
+        { src: "/projects/dutyshifts-01-desktop.webp", caption: { pl: "Kalendarz systemu zmianowego 24/48 z pełną obsadą", en: "A 24/48 shift calendar with every duty fully staffed" } },
+        { src: "/projects/dutyshifts-04-desktop.webp", caption: { pl: "Grafik do druku z filtrami, PDF i WhatsAppem", en: "A printable roster with filters, PDF and WhatsApp" } },
+        { src: "/projects/dutyshifts-03-desktop.webp", caption: { pl: "Strona startowa", en: "The landing page" } },
+      ],
+    },
+    platforms: ["Web", "PWA"],
+    title: {
+      pl: "DutyShifts — grafik dyżurów dla zespołów",
+      en: "DutyShifts — duty rosters for teams",
+    },
+    description: {
+      pl: "Aplikacja do planowania dyżurów i zmian z rotacją, zastępstwami, przypomnieniami i kalendarzami.",
+      en: "An app for planning duties and shifts with rotation, substitutions, reminders and calendars.",
+    },
+    time: { pl: "od września 2026, rozwijany dalej", en: "since September 2026, ongoing" },
+    highlights: {
+      pl: [
+        "Pomysł, analiza domeny i projekt produktu: model dyżurów, rotacji, zastępstw i stref czasowych",
+        "Projekt UI/UX mobile-first, 15 języków z obsługą pisma od prawej do lewej, jasny i ciemny motyw",
+        "Full-stack: Next.js, PostgreSQL, logowanie, powiadomienia push, kalendarze (ICS), PDF",
+        "Wdrożenie i utrzymanie na własnym serwerze, testy automatyczne (unit i e2e)",
+      ],
+      en: [
+        "Idea, domain analysis and product design: duty, rotation, substitution and time-zone model",
+        "Mobile-first UI/UX, 15 languages with right-to-left support, light and dark themes",
+        "Full stack: Next.js, PostgreSQL, authentication, push notifications, calendar feeds (ICS), PDF",
+        "Deployment and operations on a self-managed server, automated unit and e2e tests",
+      ],
+    },
+    technologies: "Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, PostgreSQL, Drizzle ORM, Better Auth, FullCalendar, Web Push, Vitest, Playwright, Docker",
+    team: { pl: "1 osoba: autor i jedyny deweloper", en: "1 person: founder and sole developer" },
+    links: [{ url: "https://dutyshifts.com", title: "dutyshifts.com" }],
+  },
+];
+
 export const commercialProjects: Project[] = [
   {
     id: "iduv",
@@ -596,12 +781,12 @@ export const websites: WebsiteShowcase[] = [
   { id: "site-ksiegowy", url: "http://ksiegowy.plus/", title: "ksiegowy.plus" },
 ];
 
-export function getProject(id: string): Project | undefined {
-  return commercialProjects.find((p) => p.id === id);
-}
+/** Own products and commercial projects that have a case study page. */
+export const caseStudies = [...productProjects, ...commercialProjects].filter((p) => p.story);
 
-/** Commercial projects with a case study page. */
-export const caseStudies = commercialProjects.filter((p) => p.story);
+export function getProject(id: string): Project | undefined {
+  return caseStudies.find((p) => p.id === id);
+}
 
 export function projectsForService(serviceId: string): Project[] {
   return caseStudies.filter((p) => p.services?.includes(serviceId));

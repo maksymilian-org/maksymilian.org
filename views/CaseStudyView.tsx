@@ -9,7 +9,7 @@ import { BrowserFrame, PhoneFrame } from "@/components/projects/DeviceFrames";
 import { ProjectVisual, Chip } from "@/components/projects/ProjectShowcase";
 import { Page } from "./Page";
 
-const PLATFORM_ICON = { Web: Globe, Desktop: Monitor, iOS: Smartphone, Android: Smartphone } as const;
+const PLATFORM_ICON = { Web: Globe, PWA: Smartphone, Desktop: Monitor, iOS: Smartphone, Android: Smartphone } as const;
 
 export function CaseStudyView({ locale, project }: { locale: Locale; project: Project }) {
   return (

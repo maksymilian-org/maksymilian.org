@@ -73,7 +73,7 @@ function MiniStat({ value, label }: { value: string; label: string }) {
   );
 }
 
-const PLATFORM_ICON = { Web: Globe, Desktop: Monitor, iOS: Smartphone, Android: Smartphone } as const;
+const PLATFORM_ICON = { Web: Globe, PWA: Smartphone, Desktop: Monitor, iOS: Smartphone, Android: Smartphone } as const;
 
 export function ProjectShowcase({ project, flip }: { project: Project; flip?: boolean }) {
   const t = useTranslations("projects.labels");

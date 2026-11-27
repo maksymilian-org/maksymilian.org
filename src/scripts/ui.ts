@@ -113,5 +113,9 @@ if (filterBar) {
     document.querySelectorAll<HTMLElement>("[data-filter-scope] [data-kind]").forEach((card) => {
       card.hidden = kind !== "all" && card.dataset.kind !== kind;
     });
+    // A section with nothing left to show disappears together with its heading.
+    document.querySelectorAll<HTMLElement>("[data-filter-group]").forEach((group) => {
+      group.hidden = !group.querySelector("[data-kind]:not([hidden])");
+    });
   });
 }

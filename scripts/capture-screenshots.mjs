@@ -47,6 +47,8 @@ const TARGETS = [
   // https://intrack.eu/dla-biznesu/ (screen_1-3.jpg) as process-control-app-desktop.webp.
   { id: "process-control", url: "https://intrack.eu/", modes: ["desktop"], full: false },
   { id: "pokedex", url: "https://pokedex-maksymilian-org.netlify.app/" },
+  // The cookie banner appears late, so decline it explicitly right before the shot.
+  { id: "etabus-web", url: "https://etabus.com/", settle: 6000, steps: [clickText("/^decline$/i")], stepPause: 1500, modes: ["desktop"], full: false },
   { id: "tictactoe", url: "https://tictactoe-lmp6.onrender.com", wait: 40000 },
   { id: "this-website", url: "https://maksymilian.org/" },
   { id: "site-civitas", url: "https://fundacja.civitaschristiana.pl/" },

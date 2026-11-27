@@ -3,7 +3,7 @@ import { useTranslations } from "@/lib/i18n";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { services } from "@/content/services";
-import { commercialProjects } from "@/content/projects";
+import { commercialProjects, productProjects } from "@/content/projects";
 import { Hero } from "@/components/hero/Hero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ServiceCard } from "@/components/services/ServiceCard";
@@ -94,7 +94,7 @@ function RecentWork() {
     <Section>
       <SectionHeading title={t("projectsHeading")} lead={t("projectsLead")} />
       <div className="mt-12 space-y-20">
-        {commercialProjects.slice(0, 2).map((p, i) => (
+        {[productProjects[0], commercialProjects[0]].map((p, i) => (
           <ProjectShowcase key={p.id} project={p} flip={i % 2 === 1} />
         ))}
       </div>

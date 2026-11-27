@@ -674,7 +674,9 @@
       "web": "Web app",
       "desktop": "Desktop software"
     },
-    "websitesHint": "Hover over a window to scroll through the site."
+    "websitesHint": "Hover over a window to scroll through the site.",
+    "productsHeading": "My own products",
+    "productsText": "Products I conceived, designed, built and run myself: from the idea through web and mobile apps to the server and app store releases."
   },
   "about": {
     "heading": "About me",
