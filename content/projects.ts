@@ -72,6 +72,65 @@ export function pick(value: Localized, locale: Locale): string {
 // nothing is published that those notes marked as uncertain or restricted.
 export const productProjects: Project[] = [
   {
+    id: "office",
+    story: {
+      challenge: {
+        pl: "Księgowość jednoosobowej firmy przez lata żyła w arkuszu Google ze skryptami: faktury, koszty, KPiR, VAT i ZUS w 22 zakładkach. Od 2026 r. faktury idą przez KSeF, a tokeny KSeF przestają działać z końcem roku — arkusz nie miał szans nadążyć.",
+        en: "For years the books of a one-person business lived in a Google Sheet with scripts: invoices, costs, the revenue ledger, VAT and social security across 22 tabs. From 2026 invoices go through KSeF, the national e-invoicing system, and KSeF tokens stop working at the end of the year — the sheet could not keep up.",
+      },
+      solution: {
+        pl: "Aplikacja webowa projektowana od telefonu: faktury wysyłane do KSeF certyfikatem, koszty pobierane z KSeF i księgowane według edytowalnych reguł, KPiR i rejestry VAT liczone z dokumentów, JPK_V7M walidowany i wysyłany do bramki Ministerstwa Finansów, zaliczki PIT z progiem 32%, składki ZUS z plikiem do ePłatnika i kody QR do przelewów.",
+        en: "A phone-first web app: invoices sent to KSeF with a certificate, purchase invoices pulled from KSeF and booked by editable rules, the revenue ledger and VAT registers computed from documents, the JPK_V7M VAT file validated and sent to the Ministry of Finance gateway, income tax advances with the 32% bracket, social security contributions with a file for ePłatnik, and QR codes for bank transfers.",
+      },
+      outcome: {
+        pl: "Cały miesięczny cykl rozliczeń w jednym miejscu, także z telefonu: pulpit pokazuje, co i do kiedy zapłacić, a historia od 2016 r. została zaimportowana i porównana z dawnymi zestawieniami.",
+        en: "The whole monthly cycle in one place, phone included: the dashboard shows what to pay and by when, and the history since 2016 was imported and compared with the old statements.",
+      },
+    },
+    services: ["ksef", "webapps", "integrations"],
+    summary: {
+      pl: "Księgowość jednoosobowej firmy w telefonie: wystawiasz fakturę do KSeF, koszty same przychodzą z KSeF, a aplikacja liczy VAT, PIT i ZUS i podsuwa kod QR do przelewu.",
+      en: "Bookkeeping for a one-person business on your phone: issue an invoice to KSeF, purchase invoices arrive from KSeF on their own, and the app works out VAT, income tax and social security and hands you a QR code for the transfer.",
+    },
+    media: {
+      kind: "web",
+      desktop: "/projects/office-dashboard-light-desktop.webp",
+      mobile: "/projects/office-hero-dark-mobile.webp",
+      screens: ["/projects/office-hero-light-mobile.webp", "/projects/office-qr-light-mobile.webp", "/projects/office-invoices-dark-mobile.webp", "/projects/office-settlements-light-mobile.webp"],
+      gallery: [
+        { src: "/projects/office-dashboard-dark-desktop.webp", caption: { pl: "Pulpit w ciemnym motywie: dochód roku, terminy i kwoty do zapłaty", en: "The dashboard in the dark theme: the year's income, deadlines and amounts due" } },
+        { src: "/projects/office-settlements-light-desktop.webp", caption: { pl: "Rozliczenia miesięcy: VAT-7, zaliczka PIT i ZUS", en: "Monthly settlements: VAT return, income tax advance and social security" } },
+        { src: "/projects/office-statistics-dark-desktop.webp", caption: { pl: "Statystyki: ile z przychodu zostaje „na rękę”", en: "Statistics: how much of the revenue is left after costs and taxes" } },
+      ],
+    },
+    platforms: ["Web", "PWA"],
+    title: {
+      pl: "Office — księgowość jednoosobowej firmy z KSeF",
+      en: "Office — bookkeeping for a one-person business with KSeF",
+    },
+    description: {
+      pl: "Aplikacja do prowadzenia księgowości JDG: faktury w KSeF, koszty, KPiR, VAT i JPK_V7M, PIT i ZUS, w motywie jasnym i ciemnym, na telefonie i komputerze.",
+      en: "An app that keeps the books of a Polish sole proprietorship: KSeF invoices, costs, the revenue ledger, VAT and the JPK_V7M file, income tax and social security, in light and dark themes, on phone and desktop.",
+    },
+    time: { pl: "od listopada 2026, rozwijany dalej", en: "since November 2026, ongoing" },
+    highlights: {
+      pl: [
+        "Pomysł, projekt interfejsu i architektura: aplikacja web, API, baza, wdrożenie",
+        "KSeF: logowanie certyfikatem, wysyłka faktur FA(3), UPO, pobieranie faktur zakupowych",
+        "JPK_V7M(3) z walidacją XSD, wysyłka przez bramkę MF i korekty",
+        "Import historii 2016–2026 z arkuszy i porównanie wyliczeń z dawnymi zestawieniami",
+      ],
+      en: [
+        "Idea, interface design and architecture: web app, API, database, deployment",
+        "KSeF: certificate sign-in, sending FA(3) invoices, UPO receipts, fetching purchase invoices",
+        "JPK_V7M(3) VAT file with XSD validation, sending through the Ministry of Finance gateway, corrections",
+        "Import of the 2016–2026 history from spreadsheets, compared with the old statements",
+      ],
+    },
+    technologies: "React, TypeScript, Vite, TanStack, Tailwind CSS, Hono, Node.js, PostgreSQL, Drizzle, Docker, Cloudflare",
+    team: { pl: "1 osoba: autor i jedyny deweloper", en: "1 person: founder and sole developer" },
+  },
+  {
     id: "respondgrid",
     story: {
       challenge: {
@@ -314,6 +373,67 @@ export const commercialProjects: Project[] = [
         title: "App Store",
       },
     ],
+  },
+  {
+    id: "crewops",
+    story: {
+      challenge: {
+        pl: "Imbastaff Sp. z o.o., firma obsługująca wydarzenia i obsadę personelu z podmiotami w Polsce, Szwajcarii, Arabii Saudyjskiej i ZEA, planowała ekipę w zewnętrznym narzędziu, a wycena, obsada, godziny, koszty w kilku walutach i rozliczenia z klientem wymagały osobnych arkuszy i ręcznej pracy.",
+        en: "Imbastaff Sp. z o.o., an events and staffing company with entities in Poland, Switzerland, Saudi Arabia and the UAE, planned its crew in an external tool, while quotes, staffing, hours, multi-currency costs and client settlement needed separate spreadsheets and manual work.",
+      },
+      solution: {
+        pl: "Aplikacja webowa z dwoma widokami: biuro (projekty, klienci, ekipa, siatki wyceny i obsady, godziny, koszty, rozliczenie) i portal ekipy na telefonie (zmiany, godziny, wydatki, dokumenty). Dostęp zależy od pięciu ról, a dane chronią reguły na poziomie bazy.",
+        en: "A web application with two views: the office (projects, clients, crew, quote and staffing grids, hours, costs, settlement) and a crew portal on the phone (shifts, hours, expenses, documents). Access depends on five roles, and data is protected by database-level rules.",
+      },
+      outcome: {
+        pl: "System działa produkcyjnie: wycena, obsada, ewidencja czasu i koszty w kilku walutach prowadzą wprost do rozliczenia projektu z wyliczoną marżą, a ekipa zgłasza godziny i wydatki z telefonu.",
+        en: "The system runs in production: quotes, staffing, time records and multi-currency costs lead straight to the project settlement with its margin, and the crew reports hours and expenses from their phones.",
+      },
+    },
+    services: ["webapps", "integrations"],
+    summary: {
+      pl: "Firma obsługująca wydarzenia planuje ekipę, rozlicza godziny i koszty projektu oraz widzi, ile zostaje marży, a pracownicy sprawdzają swoje zmiany i zgłaszają godziny i wydatki z telefonu.",
+      en: "An events company plans its crew, settles hours and costs per project and sees how much margin is left, while crew members check their shifts and report hours and expenses from their phones.",
+    },
+    media: {
+      kind: "web",
+      desktop: "/projects/crewops-02-desktop.webp",
+      mobile: "/projects/crewops-05-mobile.webp",
+      url: "CrewOps",
+      screens: ["/projects/crewops-05-mobile.webp", "/projects/crewops-06-mobile.webp"],
+      gallery: [
+        { src: "/projects/crewops-02-desktop.webp", caption: { pl: "Rozliczenie projektu: przychód, koszty i marża (dane przykładowe)", en: "Project settlement: revenue, costs and margin (sample data)" } },
+        { src: "/projects/crewops-01-desktop.webp", caption: { pl: "Siatka wyceny ze stawkami i obsadą na dni (dane przykładowe)", en: "Quote grid with rates and staffing per day (sample data)" } },
+        { src: "/projects/crewops-03-desktop.webp", caption: { pl: "Ewidencja godzin z zatwierdzaniem i nadgodzinami (dane przykładowe)", en: "Timesheets with approval and overtime (sample data)" } },
+        { src: "/projects/crewops-04-desktop.webp", caption: { pl: "Planer obsady z wolnymi miejscami (dane przykładowe)", en: "Staffing planner with open slots (sample data)" } },
+      ],
+    },
+    platforms: ["Web"],
+    title: {
+      pl: "CrewOps — planowanie ekipy i rozliczenia projektów",
+      en: "CrewOps — crew planning and project settlement",
+    },
+    description: {
+      pl: "System do wyceny, obsady, ewidencji czasu, kosztów i rozliczeń projektów eventowych z portalem dla ekipy.",
+      en: "A system for quoting, staffing, time tracking, costs and settlement of event projects, with a crew portal.",
+    },
+    time: { pl: "4 miesiące (sierpień–listopad 2026)", en: "4 months (August–November 2026)" },
+    highlights: {
+      pl: [
+        "Frontend w React i TypeScript: siatki wyceny i obsady, planer, ewidencja czasu, rozliczenia",
+        "Schemat bazy i migracje w Supabase (PostgreSQL) z regułami dostępu dla pięciu ról",
+        "Funkcje serwerowe i integracje z narzędziem do grafików i księgowością (n8n)",
+        "Testy jednostkowe i E2E oraz system projektowy z katalogiem komponentów",
+      ],
+      en: [
+        "React and TypeScript frontend: quote and staffing grids, planner, time tracking, settlement",
+        "Database schema and migrations in Supabase (PostgreSQL) with access rules for five roles",
+        "Server functions and integrations with the scheduling tool and accounting (n8n)",
+        "Unit and E2E tests and a design system with a component catalogue",
+      ],
+    },
+    technologies: "React, TypeScript, Vite, Tailwind CSS, shadcn/ui, TanStack Query, Supabase, PostgreSQL, n8n, Sentry, Vitest, Playwright, Storybook",
+    team: { pl: "Główny deweloper: w zespole z innymi programistami i testerami", en: "Lead developer: in a team with other developers and testers" },
   },
   {
     id: "geoservice",
