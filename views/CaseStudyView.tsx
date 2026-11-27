@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Globe, Monitor, Smartphone } from "lucide-react";
 import { useTranslations } from "@/lib/i18n";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
@@ -30,7 +30,6 @@ function CaseStudy({ locale, project }: { locale: Locale; project: Project }) {
   const m = project.media;
   const highlights = project.highlights?.[locale] ?? project.highlights?.en ?? [];
   const stack = project.technologies?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
-  const teamSize = project.team ? pick(project.team, locale).split(":")[0] : undefined;
   const related = (project.services ?? [])
     .map((id) => services.find((s) => s.id === id))
     .filter((s): s is NonNullable<typeof s> => !!s);
@@ -63,7 +62,6 @@ function CaseStudy({ locale, project }: { locale: Locale; project: Project }) {
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">{pick(project.summary ?? project.description, locale)}</p>
             <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-              {teamSize && <Chip icon={<Users className="h-4 w-4" />}>{teamSize}</Chip>}
               {project.platforms?.map((p) => {
                 const Icon = PLATFORM_ICON[p as keyof typeof PLATFORM_ICON] ?? Globe;
                 return (

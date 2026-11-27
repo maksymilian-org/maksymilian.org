@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Globe, Monitor, Smartphone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import { useLocale, useTranslations } from "@/lib/i18n";
@@ -82,7 +82,6 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
   const k = useTranslations("projects.kinds");
   const locale = useLocale() as Locale;
   const highlights = project.highlights?.[locale] ?? project.highlights?.en;
-  const teamSize = project.team ? pick(project.team, locale).split(":")[0] : undefined;
   const stack = project.technologies?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
 
   return (
@@ -105,7 +104,6 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
         </p>
 
         <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-          {teamSize && <Chip icon={<Users className="h-4 w-4" />}>{teamSize}</Chip>}
           {project.platforms?.map((p) => {
             const Icon = PLATFORM_ICON[p as keyof typeof PLATFORM_ICON] ?? Globe;
             return (
