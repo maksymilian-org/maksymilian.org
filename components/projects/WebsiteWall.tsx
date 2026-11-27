@@ -5,7 +5,7 @@ import { BrowserFrame, PhoneFrame } from "./DeviceFrames";
 // the phone shows the same site on mobile.
 export function WebsiteWall() {
   return (
-    <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+    <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {websites.map((w) => (
         <li key={w.id}>
           <a href={w.url} target="_blank" rel="noopener noreferrer" className="group block rounded-2xl outline-none">

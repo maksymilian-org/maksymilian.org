@@ -54,16 +54,28 @@ const TARGETS = [
   { id: "site-civitas", url: "https://fundacja.civitaschristiana.pl/" },
   { id: "site-royalbotanic", url: "https://hotel-royalbotanic.pl/" },
   { id: "site-ksiegowy", url: "http://ksiegowy.plus/" },
+  { id: "iduv-web", url: "https://www.i-duv.com/eu/#/en", settle: 6000 },
   { id: "site-ecotechnika", url: "https://www.ecotechnika.pl/" },
+  { id: "site-pielgrzymka", url: "https://pielgrzymkatradycji.pl/" },
+  { id: "site-hotelmlyn", url: "https://hotel-mlyn.lublin.pl/" },
+  { id: "site-rajskiewrota", url: "https://www.rajskiewrota.pl/" },
+  { id: "site-introibo", url: "https://introibo.pl/" },
+  { id: "site-baccarat", url: "https://drukarnia-baccarat.pl/" },
+  { id: "site-meapharma", url: "https://meapharma.pl/" },
+  { id: "site-metaloplastyka", url: "https://www.metaloplastyka.pl/" },
+  { id: "site-mielecserwis", url: "https://mielecserwis.pl/" },
+  { id: "site-ospkonopnica", url: "https://ospkonopnica.pl/", steps: [clickText("/nie,? dzi[eę]kuj/i")], stepPause: 1500 },
+  { id: "site-polityka", url: "https://polityka-narodowa.pl/" },
+  { id: "site-sansol", url: "https://www.sansol.com.pl/" },
 ];
 
 // Runs in the page: click the least-consenting button of a cookie banner, then
 // hide any consent overlay that is still on screen.
 const DISMISS = `(() => {
-  const prefer = [/odrzu|reject|decline|deny|only necessary|tylko niezb|niezbędne|necessary only/i, /zamknij|close|×|✕/i, /akcept|accept|zgadzam|agree|ok\\b|rozumiem|got it/i];
+  const prefer = [/odrzu|reject|decline|deny|only necessary|tylko niezb|niezbędne|necessary only|nie,? dzi[eę]kuj/i, /zamknij|close|×|✕/i, /akcept|accept|zgadzam|agree|ok\\b|rozumiem|got it/i];
   const els = [...document.querySelectorAll('button, a, [role=button], input[type=button], input[type=submit]')]
-    .filter(e => e.offsetParent !== null && (e.innerText || e.value || e.getAttribute('aria-label') || '').trim().length < 40);
-  const inBanner = e => /cookie|consent|gdpr|rodo|cmp|privacy|ciastecz/i.test((e.closest('[id],[class]')?.id || '') + ' ' + (e.closest('[class]')?.className || '') + ' ' + (e.closest('div,section,aside')?.innerText || '').slice(0, 400));
+    .filter(e => e.getClientRects().length > 0 && (e.innerText || e.value || e.getAttribute('aria-label') || '').trim().length < 40);
+  const inBanner = e => /cookie|consent|gdpr|rodo|cmp|privacy|ciastecz|zgod|statystyk/i.test((e.closest('[id],[class]')?.id || '') + ' ' + (e.closest('[class]')?.className || '') + ' ' + (e.closest('div,section,aside')?.innerText || '').slice(0, 400));
   for (const re of prefer) {
     const hit = els.find(e => re.test(e.innerText || e.value || e.getAttribute('aria-label') || '') && inBanner(e));
     if (hit) { hit.click(); break; }

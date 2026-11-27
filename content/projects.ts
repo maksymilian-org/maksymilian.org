@@ -44,8 +44,17 @@ export interface ProjectStory {
   outcome: Localized;
 }
 
+export interface StoreLinks {
+  /** Brand name, when one project ships several apps. */
+  label?: string;
+  appStore?: string;
+  googlePlay?: string;
+}
+
 export interface Project {
   id: string;
+  /** App store listings, shown as official-style badges. */
+  stores?: StoreLinks[];
   story?: ProjectStory;
   /** Related service ids (content/services.ts), cross-linked both ways. */
   services?: string[];
@@ -186,10 +195,13 @@ export const productProjects: Project[] = [
     },
     technologies: "Next.js, React, Node.js, PostgreSQL, MapLibre, Swift, SwiftUI, Kotlin, Jetpack Compose, FCM, APNs, Cloudflare",
     team: { pl: "1 osoba: autor i jedyny deweloper", en: "1 person: founder and sole developer" },
-    links: [
-      { url: "https://respondgrid.com", title: "respondgrid.com" },
-      { url: "https://respondgrid.com/app", title: "respondgrid.com/app" },
+    stores: [
+      {
+        appStore: "https://apps.apple.com/app/respondgrid/id6823593557",
+        googlePlay: "https://play.google.com/store/apps/details?id=com.respondgrid.app",
+      },
     ],
+    links: [{ url: "https://respondgrid.com", title: "respondgrid.com" }],
   },
   {
     id: "etabus",
@@ -333,8 +345,8 @@ export const commercialProjects: Project[] = [
       en: "Owners of cars, trucks and motorcycles see on their phone where each vehicle is, where it has been and how far it has travelled, and get an alert when it leaves a set area.",
       pl: "Właściciele aut, ciężarówek i motocykli widzą w telefonie, gdzie jest każdy pojazd, dokąd jechał i ile przejechał, a gdy opuści wyznaczony obszar, dostają powiadomienie.",
     },
-    media: { kind: "mobile", screens: ["/projects/iduv-1.webp", "/projects/iduv-3.webp", "/projects/iduv-4.webp", "/projects/iduv-2.webp", "/projects/iduv-5.webp", "/projects/iduv-6.webp"] },
-    platforms: ["iOS", "Android"],
+    media: { kind: "mobile", url: "i-duv.com", gallery: [{ src: "/projects/iduv-web-desktop.webp", caption: { pl: "Strona i-duv.com, którą współtworzyłem", en: "The i-duv.com website I co-built" } }], screens: ["/projects/iduv-1.webp", "/projects/iduv-3.webp", "/projects/iduv-4.webp", "/projects/iduv-2.webp", "/projects/iduv-5.webp", "/projects/iduv-6.webp"] },
+    platforms: ["iOS", "Android", "Web"],
     title: {
       en: "I-DUV — vehicle tracking mobile app",
       pl: "I-DUV — aplikacja mobilna do lokalizacji pojazdów",
@@ -350,12 +362,14 @@ export const commercialProjects: Project[] = [
         "Real-time vehicle location, trip history and time/distance stats",
         "Creating geofences and assigning them to vehicles",
         "Backend work in PHP / Laravel with MySQL",
+        "Co-building the i-duv.com web app",
       ],
       pl: [
         "Budowa aplikacji React Native (Expo) na iOS i Android",
         "Lokalizacja pojazdów w czasie rzeczywistym, historia tras i statystyki czasu/dystansu",
         "Tworzenie geofence'ów i przypisywanie ich do pojazdów",
         "Praca przy backendzie w PHP / Laravel z MySQL",
+        "Współtworzenie aplikacji webowej i-duv.com",
       ],
     },
     technologies: "React Native, Expo, TypeScript, PHP, Laravel, MySQL",
@@ -363,16 +377,13 @@ export const commercialProjects: Project[] = [
       en: "8 people: 4× BE, 2× FE, PO, QA",
       pl: "8 osób: 4× BE, 2× FE, PO, QA",
     },
-    links: [
+    stores: [
       {
-        url: "https://play.google.com/store/apps/details?id=com.guidepoint.iduv",
-        title: "Google Play",
-      },
-      {
-        url: "https://apps.apple.com/app/i-duv/id6503607752",
-        title: "App Store",
+        appStore: "https://apps.apple.com/app/i-duv/id6503607752",
+        googlePlay: "https://play.google.com/store/apps/details?id=com.guidepoint.iduv",
       },
     ],
+    links: [{ url: "https://www.i-duv.com/eu/#/en", title: "i-duv.com" }],
   },
   {
     id: "crewops",
@@ -417,7 +428,7 @@ export const commercialProjects: Project[] = [
       pl: "System do wyceny, obsady, ewidencji czasu, kosztów i rozliczeń projektów eventowych z portalem dla ekipy.",
       en: "A system for quoting, staffing, time tracking, costs and settlement of event projects, with a crew portal.",
     },
-    time: { pl: "4 miesiące (sierpień–listopad 2026)", en: "4 months (August–November 2026)" },
+    time: { pl: "4 miesiące", en: "4 months" },
     highlights: {
       pl: [
         "Frontend w React i TypeScript: siatki wyceny i obsady, planer, ewidencja czasu, rozliczenia",
@@ -486,11 +497,17 @@ export const commercialProjects: Project[] = [
     },
     technologies: "React Native, TypeScript, Redux Toolkit, RTK Query, NativeWind, gluestack-ui, i18next, react-hook-form, Leaflet, MMKV",
     team: { pl: "Deweloper: w kilkuosobowym zespole", en: "Developer: in a team of several developers" },
-    links: [
-      { url: "https://apps.apple.com/pl/app/modpady/id1607090814", title: "mOdpady · App Store" },
-      { url: "https://play.google.com/store/apps/details?id=pl.tmaster.modpady", title: "mOdpady · Google Play" },
-      { url: "https://apps.apple.com/pl/app/less-waste-by-t-master/id6497228235", title: "LessWaste · App Store" },
-      { url: "https://play.google.com/store/apps/details?id=pl.tmaster.lesswaste", title: "LessWaste · Google Play" },
+    stores: [
+      {
+        label: "mOdpady",
+        appStore: "https://apps.apple.com/pl/app/modpady/id1607090814",
+        googlePlay: "https://play.google.com/store/apps/details?id=pl.tmaster.modpady",
+      },
+      {
+        label: "LessWaste",
+        appStore: "https://apps.apple.com/pl/app/less-waste-by-t-master/id6497228235",
+        googlePlay: "https://play.google.com/store/apps/details?id=pl.tmaster.lesswaste",
+      },
     ],
   },
   {
@@ -953,6 +970,17 @@ export interface WebsiteShowcase extends ProjectLink {
 // Sites built for local businesses. Only sites that are still online are listed
 // (checked 2026-11-27; four domains had expired and two returned 404).
 export const websites: WebsiteShowcase[] = [
+  { id: "site-ospkonopnica", url: "https://ospkonopnica.pl/", title: "ospkonopnica.pl" },
+  { id: "site-pielgrzymka", url: "https://pielgrzymkatradycji.pl/", title: "pielgrzymkatradycji.pl" },
+  { id: "site-hotelmlyn", url: "https://hotel-mlyn.lublin.pl/", title: "hotel-mlyn.lublin.pl" },
+  { id: "site-introibo", url: "https://introibo.pl/", title: "introibo.pl" },
+  { id: "site-polityka", url: "https://polityka-narodowa.pl/", title: "polityka-narodowa.pl" },
+  { id: "site-rajskiewrota", url: "https://www.rajskiewrota.pl/", title: "rajskiewrota.pl" },
+  { id: "site-baccarat", url: "https://drukarnia-baccarat.pl/", title: "drukarnia-baccarat.pl" },
+  { id: "site-meapharma", url: "https://meapharma.pl/", title: "meapharma.pl" },
+  { id: "site-metaloplastyka", url: "https://www.metaloplastyka.pl/", title: "metaloplastyka.pl" },
+  { id: "site-mielecserwis", url: "https://mielecserwis.pl/", title: "mielecserwis.pl" },
+  { id: "site-sansol", url: "https://www.sansol.com.pl/", title: "sansol.com.pl" },
   { id: "site-royalbotanic", url: "https://hotel-royalbotanic.pl/", title: "hotel-royalbotanic.pl" },
   { id: "site-civitas", url: "https://fundacja.civitaschristiana.pl/", title: "fundacja.civitaschristiana.pl" },
   { id: "site-ecotechnika", url: "https://www.ecotechnika.pl/", title: "ecotechnika.pl" },

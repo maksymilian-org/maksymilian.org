@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight, Clock, Globe, Monitor, Smartphone, Users } fr
 import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import { useLocale, useTranslations } from "@/lib/i18n";
+import { StoreBadges } from "@/components/projects/StoreBadges";
 import { pick, type Project } from "@/content/projects";
 import type { Locale } from "@/i18n/routing";
 import { BrowserFrame, DesktopFrame, PhoneFrame } from "./DeviceFrames";
@@ -117,6 +118,11 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
           })}
         </ul>
 
+        {project.stores && project.stores.length > 0 && (
+          <div className="mt-6">
+            <StoreBadges stores={project.stores} />
+          </div>
+        )}
         {(project.story || (project.links && project.links.length > 0)) && (
           <div className="mt-6 flex flex-wrap gap-3">
             {project.story && (

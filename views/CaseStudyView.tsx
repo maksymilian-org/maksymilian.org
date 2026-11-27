@@ -7,6 +7,7 @@ import { QUOTE_SERVICE, services } from "@/content/services";
 import { Section } from "@/components/ui/Section";
 import { BrowserFrame, PhoneFrame } from "@/components/projects/DeviceFrames";
 import { ProjectVisual, Chip } from "@/components/projects/ProjectShowcase";
+import { StoreBadges } from "@/components/projects/StoreBadges";
 import { Page } from "./Page";
 
 const PLATFORM_ICON = { Web: Globe, PWA: Smartphone, Desktop: Monitor, iOS: Smartphone, Android: Smartphone } as const;
@@ -73,6 +74,11 @@ function CaseStudy({ locale, project }: { locale: Locale; project: Project }) {
                 );
               })}
             </ul>
+        {project.stores && project.stores.length > 0 && (
+          <div className="mt-6">
+            <StoreBadges stores={project.stores} />
+          </div>
+        )}
             {project.links && (
               <div className="mt-6 flex flex-wrap gap-3">
                 {project.links.map((l) => (
