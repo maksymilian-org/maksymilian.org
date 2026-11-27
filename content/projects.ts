@@ -455,7 +455,7 @@ export const commercialProjects: Project[] = [
         { src: "/projects/process-control-desktop.webp", caption: { pl: "Strona produktu inTrack", en: "The inTrack product page" } },
       ],
     },
-    platforms: ["Web", "iOS", "Android"],
+    platforms: ["Web"],
     title: {
       en: "Business process control web app",
       pl: "Aplikacja webowa do kontroli procesów biznesowych",
