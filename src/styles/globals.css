@@ -67,3 +67,20 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Portfolio: a full-length page screenshot that scrolls past on hover. */
+.screen-scroll {
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  transition: background-position 6s ease-in-out;
+}
+figure:hover .screen-scroll,
+a:focus-visible .screen-scroll {
+  background-position: bottom center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .screen-scroll {
+    transition: none;
+  }
+}

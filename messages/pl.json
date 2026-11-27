@@ -655,8 +655,15 @@
       "technologies": "Technologie",
       "framework": "Metodyka",
       "team": "Zespół",
-      "links": "Linki"
-    }
+      "links": "Linki",
+      "techDetails": "Szczegóły dla zespołów technicznych"
+    },
+    "kinds": {
+      "mobile": "Aplikacja mobilna",
+      "web": "Aplikacja webowa",
+      "desktop": "Oprogramowanie desktopowe"
+    },
+    "websitesHint": "Najedź kursorem na okno, żeby przewinąć stronę."
   },
   "about": {
     "heading": "O mnie",

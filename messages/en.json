@@ -655,8 +655,15 @@
       "technologies": "Technologies",
       "framework": "Methodology",
       "team": "Team",
-      "links": "Links"
-    }
+      "links": "Links",
+      "techDetails": "Details for technical teams"
+    },
+    "kinds": {
+      "mobile": "Mobile app",
+      "web": "Web app",
+      "desktop": "Desktop software"
+    },
+    "websitesHint": "Hover over a window to scroll through the site."
   },
   "about": {
     "heading": "About me",

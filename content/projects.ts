@@ -10,8 +10,29 @@ export interface ProjectLink {
   title: string;
 }
 
+// How a project is shown visually. Screenshots live in public/projects and are
+// produced by scripts/capture-screenshots.mjs; `mock` draws a stylised screen
+// for work that cannot be screenshotted (client apps, desktop tools).
+export type ProjectKind = "mobile" | "web" | "desktop";
+export type ScreenMock = "tracking" | "sensor" | "audio" | "booking" | "process";
+
+export interface ProjectMedia {
+  kind: ProjectKind;
+  desktop?: string;
+  mobile?: string;
+  /** Full-length page screenshot, scrolled on hover. */
+  full?: string;
+  mock?: ScreenMock;
+  /** Address shown in the browser frame. */
+  url?: string;
+}
+
 export interface Project {
   id: string;
+  /** What the project gives its users, in plain language (for non-technical readers). */
+  summary?: Localized;
+  media?: ProjectMedia;
+  platforms?: string[];
   title: Localized;
   description: Localized;
   time?: Localized;
@@ -29,6 +50,12 @@ export function pick(value: Localized, locale: Locale): string {
 export const commercialProjects: Project[] = [
   {
     id: "iduv",
+    summary: {
+      en: "Owners of cars, trucks and motorcycles see on their phone where each vehicle is, where it has been and how far it has travelled, and get an alert when it leaves a set area.",
+      pl: "Właściciele aut, ciężarówek i motocykli widzą w telefonie, gdzie jest każdy pojazd, dokąd jechał i ile przejechał, a gdy opuści wyznaczony obszar, dostają powiadomienie.",
+    },
+    media: { kind: "mobile", mock: "tracking" },
+    platforms: ["iOS", "Android"],
     title: {
       en: "I-DUV — vehicle tracking mobile app",
       pl: "I-DUV — aplikacja mobilna do lokalizacji pojazdów",
@@ -70,6 +97,12 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "geoservice",
+    summary: {
+      en: "Maps and spatial data in the browser. I modernised a ten-year-old codebase so the service can grow faster and more safely, with tests guarding every change.",
+      pl: "Mapy i dane przestrzenne w przeglądarce. Unowocześniłem dziesięcioletni kod, żeby usługę dało się rozwijać szybciej i bezpieczniej, a każdą zmianę pilnują testy.",
+    },
+    media: { kind: "web", desktop: "/projects/geoservice-desktop.webp", mobile: "/projects/geoservice-mobile.webp", full: "/projects/geoservice-full.webp", url: "mapspace.com" },
+    platforms: ["Web"],
     title: {
       en: "Online geoservice exploration application",
       pl: "Aplikacja webowa do eksploracji geoserwisu",
@@ -104,6 +137,12 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "surveys",
+    summary: {
+      en: "A career test used by candidates in many countries: it guides them through the questions and immediately suggests matching career paths and employers.",
+      pl: "Test kariery, z którego korzystają kandydaci w wielu krajach: prowadzi przez pytania i od razu podsuwa dopasowane ścieżki kariery i pracodawców.",
+    },
+    media: { kind: "web", desktop: "/projects/surveys-desktop.webp", mobile: "/projects/surveys-mobile.webp", full: "/projects/surveys-full.webp", url: "careertest.universumglobal.com" },
+    platforms: ["Web"],
     title: {
       en: "Survey & recommendation platform",
       pl: "Platforma ankiet i rekomendacji",
@@ -143,6 +182,12 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "ct-sensor",
+    summary: {
+      en: "Engineers check on their computer how a new image sensor performs, live and channel by channel, before it goes into devices.",
+      pl: "Inżynierowie sprawdzają na komputerze, jak działa nowy czujnik obrazu, na żywo i kanał po kanale, zanim trafi do urządzeń.",
+    },
+    media: { kind: "desktop", mock: "sensor" },
+    platforms: ["Desktop"],
     title: {
       en: "Evaluation software for a CT sensor device",
       pl: "Oprogramowanie ewaluacyjne dla czujnika CT",
@@ -177,6 +222,12 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "housing",
+    summary: {
+      en: "Residents book rooms online and find flatmates matched to them by an algorithm, while the operator manages the whole community in one place.",
+      pl: "Mieszkańcy rezerwują pokoje online i znajdują współlokatorów dopasowanych przez algorytm, a zarządca obsługuje całą społeczność w jednym miejscu.",
+    },
+    media: { kind: "web", mock: "booking" },
+    platforms: ["Web"],
     title: {
       en: "Accommodation & community management app",
       pl: "Aplikacja do zarządzania zakwaterowaniem i społecznością",
@@ -206,15 +257,15 @@ export const commercialProjects: Project[] = [
       en: "4 people: PO, FE, BE, DevOps",
       pl: "4 osoby: PO, FE, BE, DevOps",
     },
-    links: [
-      {
-        url: "https://www.studenthousingsoftware.com/",
-        title: "studenthousingsoftware.com",
-      },
-    ],
   },
   {
     id: "audio",
+    summary: {
+      en: "Headphone makers tune active noise cancelling in a desktop app, including hybrid ANC that works even in loose-fitting earbuds.",
+      pl: "Producenci słuchawek dostrajają aktywną redukcję szumów w aplikacji na komputer, także hybrydową, która działa nawet w luźno dopasowanych słuchawkach dousznych.",
+    },
+    media: { kind: "desktop", mock: "audio" },
+    platforms: ["Desktop"],
     title: {
       en: "Evaluation software for an audio ANC device",
       pl: "Oprogramowanie ewaluacyjne dla urządzenia audio ANC",
@@ -245,6 +296,12 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "process-control",
+    summary: {
+      en: "The system watches business processes in real time, catches deviations from the norm on its own and shows them on a live model.",
+      pl: "System na bieżąco pilnuje procesów w firmie, sam wychwytuje odchylenia od normy i pokazuje je na żywym modelu.",
+    },
+    media: { kind: "web", desktop: "/projects/process-control-desktop.webp", mobile: "/projects/process-control-mobile.webp", full: "/projects/process-control-full.webp", url: "intrack.eu" },
+    platforms: ["Web", "iOS", "Android"],
     title: {
       en: "Business process control web app",
       pl: "Aplikacja webowa do kontroli procesów biznesowych",
@@ -316,6 +373,7 @@ export const ownProjects: Project[] = [
   },
   {
     id: "tictactoe",
+    media: { kind: "web", desktop: "/projects/tictactoe-desktop.webp", url: "tictactoe.onrender.com" },
     title: { en: "WebSocket TicTacToe", pl: "TicTacToe na WebSocket" },
     description: {
       en: "I wanted to show my girlfriend (now my wife) that I'm a 'real programmer', so I built a TicTacToe game with React and WebSocket — and she beat me.",
@@ -329,6 +387,7 @@ export const ownProjects: Project[] = [
   },
   {
     id: "pokedex",
+    media: { kind: "web", desktop: "/projects/pokedex-desktop.webp", mobile: "/projects/pokedex-mobile.webp", url: "pokedex.netlify.app" },
     title: { en: "Pokedex browser", pl: "Przeglądarka Pokedex" },
     description: {
       en: "A company wanted to check my Angular skills and asked me to build a Pokémon browser. I got the job, so I keep it here as a memento.",
@@ -354,6 +413,7 @@ export const ownProjects: Project[] = [
   },
   {
     id: "this-website",
+    media: { kind: "web", desktop: "/projects/this-website-desktop.webp", mobile: "/projects/this-website-mobile.webp", full: "/projects/this-website-full.webp", url: "maksymilian.org" },
     title: { en: "This website", pl: "Ta strona" },
     description: {
       en: "Curious how this site is built? The full source code is on GitHub.",
@@ -369,17 +429,15 @@ export const ownProjects: Project[] = [
   },
 ];
 
-export const websites: ProjectLink[] = [
-  { url: "https://koniewojciechow.pl/", title: "koniewojciechow.pl" },
-  { url: "http://apartamentyogrodowa.pl/en", title: "apartamentyogrodowa.pl" },
-  {
-    url: "https://fundacja.civitaschristiana.pl/",
-    title: "fundacja.civitaschristiana.pl",
-  },
-  { url: "https://hotel-royalbotanic.pl/", title: "hotel-royalbotanic.pl" },
-  { url: "http://ksiegowy.plus/", title: "ksiegowy.plus" },
-  { url: "http://forchetto.com/en/", title: "forchetto.com" },
-  { url: "http://spstasin.com.pl/", title: "spstasin.com.pl" },
-  { url: "https://dermatologlublin.com.pl/", title: "dermatologlublin.com.pl" },
-  { url: "https://www.ecotechnika.pl/", title: "ecotechnika.pl" },
+export interface WebsiteShowcase extends ProjectLink {
+  id: string;
+}
+
+// Sites built for local businesses. Only sites that are still online are listed
+// (checked 2026-11-27; four domains had expired and two returned 404).
+export const websites: WebsiteShowcase[] = [
+  { id: "site-royalbotanic", url: "https://hotel-royalbotanic.pl/", title: "hotel-royalbotanic.pl" },
+  { id: "site-civitas", url: "https://fundacja.civitaschristiana.pl/", title: "fundacja.civitaschristiana.pl" },
+  { id: "site-ecotechnika", url: "https://www.ecotechnika.pl/", title: "ecotechnika.pl" },
+  { id: "site-ksiegowy", url: "http://ksiegowy.plus/", title: "ksiegowy.plus" },
 ];

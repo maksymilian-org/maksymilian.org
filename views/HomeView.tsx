@@ -8,7 +8,7 @@ import { Hero } from "@/components/hero/Hero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { CustomServiceCard } from "@/components/services/CustomServiceCard";
-import { ProjectCard } from "@/components/projects/ProjectCard";
+import { ProjectShowcase } from "@/components/projects/ProjectShowcase";
 import { Reviews } from "@/components/reviews/Reviews";
 import { Stats } from "@/components/home/Stats";
 import { International } from "@/components/home/International";
@@ -93,9 +93,9 @@ function RecentWork() {
   return (
     <Section>
       <SectionHeading title={t("projectsHeading")} lead={t("projectsLead")} />
-      <div className="mt-10 grid gap-6">
-        {commercialProjects.slice(0, 2).map((p) => (
-          <ProjectCard key={p.id} project={p} />
+      <div className="mt-12 space-y-20">
+        {commercialProjects.slice(0, 2).map((p, i) => (
+          <ProjectShowcase key={p.id} project={p} flip={i % 2 === 1} />
         ))}
       </div>
       <div className="mt-10">
