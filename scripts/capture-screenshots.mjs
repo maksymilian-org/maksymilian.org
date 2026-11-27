@@ -43,7 +43,9 @@ const TARGETS = [
     stepPause: 9000,
     full: false,
   },
-  { id: "process-control", url: "https://intrack.eu/" },
+  // inTrack: only the product page is public; the app dashboard comes from
+  // https://intrack.eu/dla-biznesu/ (screen_1-3.jpg) as process-control-app-desktop.webp.
+  { id: "process-control", url: "https://intrack.eu/", modes: ["desktop"], full: false },
   { id: "pokedex", url: "https://pokedex-maksymilian-org.netlify.app/" },
   { id: "tictactoe", url: "https://tictactoe-lmp6.onrender.com", wait: 40000 },
   { id: "this-website", url: "https://maksymilian.org/" },

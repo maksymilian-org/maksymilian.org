@@ -448,11 +448,12 @@ export const commercialProjects: Project[] = [
     },
     media: {
       kind: "web",
-      desktop: "/projects/process-control-desktop.webp",
-      mobile: "/projects/process-control-mobile.webp",
-      full: "/projects/process-control-full.webp",
-      url: "intrack.eu",
-      gallery: [{ src: "/projects/process-control-desktop.webp", caption: { pl: "Strona produktu inTrack", en: "The inTrack product page" } }],
+      desktop: "/projects/process-control-app-desktop.webp",
+      url: "inTrack",
+      gallery: [
+        { src: "/projects/process-control-app-desktop.webp", caption: { pl: "Dashboard aplikacji: kafelki, wskaźniki i wykresy", en: "The app dashboard: tiles, gauges and charts" } },
+        { src: "/projects/process-control-desktop.webp", caption: { pl: "Strona produktu inTrack", en: "The inTrack product page" } },
+      ],
     },
     platforms: ["Web", "iOS", "Android"],
     title: {
