@@ -17,13 +17,27 @@ export function ProjectsView({ locale }: { locale: Locale }) {
 
 function ProjectsContent() {
   const t = useTranslations("projects");
+  const k = useTranslations("projects.kinds");
   return (
     <Section>
       <SectionHeading as="h1" title={t("heading")} lead={t("lead")} />
 
       <h2 className="mt-16 text-2xl font-bold tracking-tight">{t("commercialHeading")}</h2>
       <p className="mt-2 max-w-2xl text-muted">{t("commercialText")}</p>
-      <div className="mt-12 space-y-20 sm:space-y-28">
+      <div data-filter-bar hidden className="mt-8 flex flex-wrap gap-2" role="group" aria-label={t("commercialHeading")}>
+        {(["all", "mobile", "web", "desktop"] as const).map((f) => (
+          <button
+            key={f}
+            type="button"
+            data-filter={f}
+            aria-pressed={f === "all"}
+            className="rounded-full border border-border px-4 py-1.5 text-sm font-medium transition-colors hover:border-brand aria-pressed:border-brand aria-pressed:bg-brand-solid aria-pressed:text-white"
+          >
+            {f === "all" ? t("labels.filterAll") : k(f)}
+          </button>
+        ))}
+      </div>
+      <div data-filter-scope className="mt-12 space-y-20 sm:space-y-28">
         {commercialProjects.map((p, i) => (
           <ProjectShowcase key={p.id} project={p} flip={i % 2 === 1} />
         ))}

@@ -5,12 +5,14 @@ import { services } from "@/content/services";
 import { posts } from "@/content/blog";
 import { industries } from "@/content/industries";
 import { tools } from "@/content/tools";
+import { caseStudies } from "@/content/projects";
 
 const paths = [
   "/",
   "/services",
   ...services.map((s) => `/services/${s.slug}`),
   "/projects",
+  ...caseStudies.map((p) => `/projects/${p.id}`),
   "/blog",
   ...posts.map((p) => `/blog/${p.slug}`),
   "/lublin",

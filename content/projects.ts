@@ -16,8 +16,17 @@ export interface ProjectLink {
 export type ProjectKind = "mobile" | "web" | "desktop";
 export type ScreenMock = "tracking" | "sensor" | "audio" | "booking" | "process";
 
+export interface GalleryShot {
+  src: string;
+  caption: Localized;
+}
+
 export interface ProjectMedia {
   kind: ProjectKind;
+  /** Phone screenshots of a mobile app, best first. */
+  screens?: string[];
+  /** Extra desktop screenshots shown on the case study page. */
+  gallery?: GalleryShot[];
   desktop?: string;
   mobile?: string;
   /** Full-length page screenshot, scrolled on hover. */
@@ -27,8 +36,19 @@ export interface ProjectMedia {
   url?: string;
 }
 
+// The case study told in three steps; projects with a story get their own page
+// at /projects/<id>.
+export interface ProjectStory {
+  challenge: Localized;
+  solution: Localized;
+  outcome: Localized;
+}
+
 export interface Project {
   id: string;
+  story?: ProjectStory;
+  /** Related service ids (content/services.ts), cross-linked both ways. */
+  services?: string[];
   /** What the project gives its users, in plain language (for non-technical readers). */
   summary?: Localized;
   media?: ProjectMedia;
@@ -50,11 +70,26 @@ export function pick(value: Localized, locale: Locale): string {
 export const commercialProjects: Project[] = [
   {
     id: "iduv",
+    story: {
+      challenge: {
+        pl: "Właściciele pojazdów z modułem GPS I-DUV potrzebowali prostego sposobu, żeby w każdej chwili wiedzieć, gdzie są ich auta i co się z nimi dzieje.",
+        en: "Owners of vehicles fitted with the I-DUV GPS module needed a simple way to know at any moment where their vehicles are and what is happening to them.",
+      },
+      solution: {
+        pl: "Aplikacja React Native (Expo) na iOS i Androida z mapą na żywo, historią tras, statystykami czasu i dystansu, strefami (geofence) i alertami. Pracowałem też przy backendzie w Laravel.",
+        en: "A React Native (Expo) app for iOS and Android with a live map, trip history, time and distance stats, geofences and alerts. I also worked on the Laravel backend.",
+      },
+      outcome: {
+        pl: "Aplikacja jest dostępna w App Store i Google Play, a rozwijałem ją przez ponad dwa lata w ośmioosobowym zespole.",
+        en: "The app is live on the App Store and Google Play, and I developed it for over two years in a team of eight.",
+      },
+    },
+    services: ["mobile", "integrations"],
     summary: {
       en: "Owners of cars, trucks and motorcycles see on their phone where each vehicle is, where it has been and how far it has travelled, and get an alert when it leaves a set area.",
       pl: "Właściciele aut, ciężarówek i motocykli widzą w telefonie, gdzie jest każdy pojazd, dokąd jechał i ile przejechał, a gdy opuści wyznaczony obszar, dostają powiadomienie.",
     },
-    media: { kind: "mobile", mock: "tracking" },
+    media: { kind: "mobile", screens: ["/projects/iduv-1.webp", "/projects/iduv-3.webp", "/projects/iduv-4.webp", "/projects/iduv-2.webp", "/projects/iduv-5.webp", "/projects/iduv-6.webp"] },
     platforms: ["iOS", "Android"],
     title: {
       en: "I-DUV — vehicle tracking mobile app",
@@ -97,11 +132,37 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "geoservice",
+    story: {
+      challenge: {
+        pl: "Biblioteka map, na której opiera się geoserwis, miała ponad 10 lat i była napisana w czystym JavaScript, przez co każda zmiana była ryzykowna.",
+        en: "The map library behind the geoservice was over ten years old and written in plain JavaScript, so every change was risky.",
+      },
+      solution: {
+        pl: "Migracja do TypeScript, wydzielenie komponentów (kontrolki, panele map i widoków), testy jednostkowe i integracyjne oraz dokumentacja w TypeDoc.",
+        en: "Migration to TypeScript, extracting components (controls, map and view panels), unit and integration tests, and TypeDoc documentation.",
+      },
+      outcome: {
+        pl: "Kod stał się przewidywalny i łatwiejszy do rozwijania, a testy wychwytują błędy przed wdrożeniem. Usługa pokazuje w przeglądarce mapy, zdjęcia ukośne, widoki 360° i dane LiDAR.",
+        en: "The code became predictable and easier to extend, and tests catch bugs before release. The service shows maps, oblique imagery, 360° views and LiDAR data in the browser.",
+      },
+    },
+    services: ["webapps", "modernization"],
     summary: {
       en: "Maps and spatial data in the browser. I modernised a ten-year-old codebase so the service can grow faster and more safely, with tests guarding every change.",
       pl: "Mapy i dane przestrzenne w przeglądarce. Unowocześniłem dziesięcioletni kod, żeby usługę dało się rozwijać szybciej i bezpieczniej, a każdą zmianę pilnują testy.",
     },
-    media: { kind: "web", desktop: "/projects/geoservice-desktop.webp", mobile: "/projects/geoservice-mobile.webp", full: "/projects/geoservice-full.webp", url: "mapspace.com" },
+    media: {
+      kind: "web",
+      desktop: "/projects/geoservice-multiview-desktop.webp",
+      mobile: "/projects/geoservice-mobile.webp",
+      url: "your.mapspace.com",
+      gallery: [
+        { src: "/projects/geoservice-multiview-desktop.webp", caption: { pl: "Kilka widoków naraz: zdjęcie 360° z ulicy, chmura punktów LiDAR i mapa", en: "Several views at once: 360° street photo, LiDAR point cloud and map" } },
+        { src: "/projects/geoservice-oblique-desktop.webp", caption: { pl: "Zdjęcia ukośne tego samego miejsca w dwóch widokach", en: "Oblique imagery of the same place in two views" } },
+        { src: "/projects/geoservice-3d-desktop.webp", caption: { pl: "Skan laserowy 3D ulicy w przeglądarce", en: "A 3D laser scan of a street in the browser" } },
+        { src: "/projects/geoservice-desktop.webp", caption: { pl: "Strona produktu Mapspace", en: "The Mapspace product page" } },
+      ],
+    },
     platforms: ["Web"],
     title: {
       en: "Online geoservice exploration application",
@@ -137,11 +198,36 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "surveys",
+    story: {
+      challenge: {
+        pl: "Platforma ankiet i rekomendacji działała na współdzielonej aplikacji React, którą trzeba było unowocześnić i rozbudować o kolejne formularze.",
+        en: "The survey and recommendation platform ran on a shared React app that needed modernising and extending with more forms.",
+      },
+      solution: {
+        pl: "Migracja do Next.js, rozbudowane formularze z regułami walidacji, własne kontrolki i obsługa API, z testami jednostkowymi.",
+        en: "Migration to Next.js, comprehensive forms with validation rules, custom controls and API work, with unit tests.",
+      },
+      outcome: {
+        pl: "CareerTest by Universum prowadzi kandydatów przez pytania i podsuwa dopasowane ścieżki kariery. Projekt rozwijałem przez rok w ośmioosobowym zespole.",
+        en: "CareerTest by Universum guides candidates through the questions and suggests matching career paths. I worked on it for a year in a team of eight.",
+      },
+    },
+    services: ["webapps"],
     summary: {
       en: "A career test used by candidates in many countries: it guides them through the questions and immediately suggests matching career paths and employers.",
       pl: "Test kariery, z którego korzystają kandydaci w wielu krajach: prowadzi przez pytania i od razu podsuwa dopasowane ścieżki kariery i pracodawców.",
     },
-    media: { kind: "web", desktop: "/projects/surveys-desktop.webp", mobile: "/projects/surveys-mobile.webp", full: "/projects/surveys-full.webp", url: "careertest.universumglobal.com" },
+    media: {
+      kind: "web",
+      desktop: "/projects/surveys-desktop.webp",
+      full: "/projects/surveys-full.webp",
+      mobile: "/projects/surveys-test-mobile.webp",
+      url: "careertest.universumglobal.com",
+      gallery: [
+        { src: "/projects/surveys-desktop.webp", caption: { pl: "Strona startowa testu z wyborem kraju", en: "The test's start page with country selection" } },
+        { src: "/projects/surveys-test-desktop.webp", caption: { pl: "Pierwsze pytanie testu", en: "The first question of the test" } },
+      ],
+    },
     platforms: ["Web"],
     title: {
       en: "Survey & recommendation platform",
@@ -182,6 +268,21 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "ct-sensor",
+    story: {
+      challenge: {
+        pl: "Producent czujników potrzebował aplikacji, w której inżynierowie ocenią parametry 128-kanałowego sensora obrazu razem z zestawem ewaluacyjnym.",
+        en: "A sensor maker needed an application in which engineers can assess a 128-channel image sensor together with its evaluation kit.",
+      },
+      solution: {
+        pl: "Aplikacja desktopowa (Electron, Angular) z podglądem rejestrów na żywo, logiką aktualizacji firmware i optymalizacją szybkości działania.",
+        en: "A desktop application (Electron, Angular) with live register monitoring, firmware update logic and speed optimisation.",
+      },
+      outcome: {
+        pl: "Oprogramowanie towarzyszy zestawowi ewaluacyjnemu AS5951 firmy ams, z którego korzystają inżynierowie oceniający czujnik.",
+        en: "The software accompanies ams's AS5951 evaluation kit used by engineers assessing the sensor.",
+      },
+    },
+    services: ["embedded"],
     summary: {
       en: "Engineers check on their computer how a new image sensor performs, live and channel by channel, before it goes into devices.",
       pl: "Inżynierowie sprawdzają na komputerze, jak działa nowy czujnik obrazu, na żywo i kanał po kanale, zanim trafi do urządzeń.",
@@ -222,6 +323,21 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "housing",
+    story: {
+      challenge: {
+        pl: "Zarządca zakwaterowania potrzebował jednego miejsca do rezerwacji pokoi i budowania społeczności mieszkańców.",
+        en: "An accommodation operator needed one place for room bookings and building a resident community.",
+      },
+      solution: {
+        pl: "Rozwój aplikacji w Vue współpracującej z backendem Django: komunikacja z API, refaktoryzacja, logowanie nieaktywnych użytkowników i rozbudowa edytora galerii.",
+        en: "Work on the Vue app backed by Django: API communication, refactoring, login for inactive users and extensions to the gallery editor.",
+      },
+      outcome: {
+        pl: "Mieszkańcy rezerwują pokoje online, a wbudowane algorytmy dopasowują ich do siebie. Projekt rozwijałem przez 9 miesięcy w czteroosobowym zespole.",
+        en: "Residents book rooms online and built-in algorithms match them with each other. I worked on it for nine months in a team of four.",
+      },
+    },
+    services: ["webapps"],
     summary: {
       en: "Residents book rooms online and find flatmates matched to them by an algorithm, while the operator manages the whole community in one place.",
       pl: "Mieszkańcy rezerwują pokoje online i znajdują współlokatorów dopasowanych przez algorytm, a zarządca obsługuje całą społeczność w jednym miejscu.",
@@ -260,6 +376,21 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "audio",
+    story: {
+      challenge: {
+        pl: "Producent układów audio potrzebował narzędzia do strojenia aktywnej redukcji szumów (ANC) w różnych topologiach.",
+        en: "An audio chip maker needed a tool for tuning active noise cancelling (ANC) across different topologies.",
+      },
+      solution: {
+        pl: "Aplikacja desktopowa (Electron, Angular, RxJS) ze zmienną liczbą filtrów dźwięku, podglądem rejestrów na żywo i konwerterem starszych wersji projektów.",
+        en: "A desktop application (Electron, Angular, RxJS) with a variable number of sound filters, live register monitoring and a converter for older project versions.",
+      },
+      outcome: {
+        pl: "Obsługa ANC typu feedforward, feedback i hybrydowej, a dzięki automatycznej kompensacji nieszczelności hybrydowe ANC działa nawet w luźnych słuchawkach dousznych (układ AS3460).",
+        en: "Support for feedforward, feedback and hybrid ANC, and thanks to automatic leakage compensation hybrid ANC works even in loose-fit earbuds (AS3460 chip).",
+      },
+    },
+    services: ["embedded"],
     summary: {
       en: "Headphone makers tune active noise cancelling in a desktop app, including hybrid ANC that works even in loose-fitting earbuds.",
       pl: "Producenci słuchawek dostrajają aktywną redukcję szumów w aplikacji na komputer, także hybrydową, która działa nawet w luźno dopasowanych słuchawkach dousznych.",
@@ -296,11 +427,33 @@ export const commercialProjects: Project[] = [
   },
   {
     id: "process-control",
+    story: {
+      challenge: {
+        pl: "Firma potrzebowała systemu, który na bieżąco kontroluje procesy biznesowe, porównuje ich parametry z historią zdarzeń i reaguje automatycznie.",
+        en: "A company needed a system that controls business processes in real time, compares their parameters with event history and reacts automatically.",
+      },
+      solution: {
+        pl: "Responsywny dashboard ze skalowalnymi kafelkami przeciąganymi myszą, wykresy, tabele i grafy 3D, nowe funkcje oraz utrzymanie i code review.",
+        en: "A responsive dashboard with scalable drag-and-drop tiles, charts, tables and 3D graphs, new features, plus maintenance and code review.",
+      },
+      outcome: {
+        pl: "Model procesów odzwierciedla ich zachowanie na żywo, a odchylenia od normy są wychwytywane automatycznie. Rozwijałem go przez 1 rok i 8 miesięcy w sześcioosobowym zespole.",
+        en: "The process model reflects their behaviour live and deviations from the norm are caught automatically. I worked on it for 1 year and 8 months in a team of six.",
+      },
+    },
+    services: ["webapps", "integrations"],
     summary: {
       en: "The system watches business processes in real time, catches deviations from the norm on its own and shows them on a live model.",
       pl: "System na bieżąco pilnuje procesów w firmie, sam wychwytuje odchylenia od normy i pokazuje je na żywym modelu.",
     },
-    media: { kind: "web", desktop: "/projects/process-control-desktop.webp", mobile: "/projects/process-control-mobile.webp", full: "/projects/process-control-full.webp", url: "intrack.eu" },
+    media: {
+      kind: "web",
+      desktop: "/projects/process-control-desktop.webp",
+      mobile: "/projects/process-control-mobile.webp",
+      full: "/projects/process-control-full.webp",
+      url: "intrack.eu",
+      gallery: [{ src: "/projects/process-control-desktop.webp", caption: { pl: "Strona produktu inTrack", en: "The inTrack product page" } }],
+    },
     platforms: ["Web", "iOS", "Android"],
     title: {
       en: "Business process control web app",
@@ -441,3 +594,14 @@ export const websites: WebsiteShowcase[] = [
   { id: "site-ecotechnika", url: "https://www.ecotechnika.pl/", title: "ecotechnika.pl" },
   { id: "site-ksiegowy", url: "http://ksiegowy.plus/", title: "ksiegowy.plus" },
 ];
+
+export function getProject(id: string): Project | undefined {
+  return commercialProjects.find((p) => p.id === id);
+}
+
+/** Commercial projects with a case study page. */
+export const caseStudies = commercialProjects.filter((p) => p.story);
+
+export function projectsForService(serviceId: string): Project[] {
+  return caseStudies.filter((p) => p.services?.includes(serviceId));
+}

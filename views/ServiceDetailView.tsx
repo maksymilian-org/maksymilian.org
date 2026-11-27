@@ -8,6 +8,8 @@ import { ServiceIllustration } from "@/components/illustrations/ServiceIllustrat
 import { ButtonLink } from "@/components/ui/Button";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { getPostsForService } from "@/content/blog";
+import { projectsForService } from "@/content/projects";
+import { ProjectMiniCard } from "@/components/projects/ProjectMiniCard";
 import { Page } from "./Page";
 
 export function ServiceDetailView({ locale, service }: { locale: Locale; service: ServiceDef }) {
@@ -28,6 +30,8 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
   const features = t.raw(`items.${id}.detail.features`) as string[];
   const faq = t.raw(`items.${id}.detail.faq`) as { q: string; a: string }[];
   const related = services.filter((s) => s.id !== id).slice(0, 3);
+  const work = projectsForService(id);
+  const pt = useTranslations("projects.labels");
 
   return (
     <Section>
@@ -122,6 +126,17 @@ function ServiceDetail({ service }: { service: ServiceDef }) {
           </Link>
         </aside>
       </div>
+
+      {work.length > 0 && (
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold tracking-tight">{pt("relatedProjects")}</h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {work.map((p) => (
+              <ProjectMiniCard key={p.id} project={p} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Related services */}
       <div className="mt-16 border-t border-border pt-10">

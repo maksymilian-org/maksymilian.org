@@ -656,7 +656,18 @@
       "framework": "Methodology",
       "team": "Team",
       "links": "Links",
-      "techDetails": "Details for technical teams"
+      "techDetails": "Details for technical teams",
+      "caseStudy": "See the case study",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "outcome": "Outcome",
+      "gallery": "What it looks like",
+      "ctaHeading": "Have a similar project?",
+      "ctaLead": "Describe what you need and I'll come back with scope, price and timeline. The quote is free and with no obligation.",
+      "allProjects": "All projects",
+      "nextProject": "Next project",
+      "filterAll": "All",
+      "relatedProjects": "From my work"
     },
     "kinds": {
       "mobile": "Mobile app",

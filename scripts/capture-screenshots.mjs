@@ -22,13 +22,29 @@ const OUT = "public/projects";
 const IPHONE_UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
 
+// Optional per target: `settle` ms to wait after load (maps, WebGL), `steps`
+// (in-page JS run in order, each followed by a pause), `modes` (default both)
+// and `full: false` to skip the full-length shot.
+const MAPSPACE_DEMO = "https://your.mapspace.com/?userkey=k0qrmxa9ESSsdRHgutPqyP_M-7tZ&workspace=";
+const clickText = (re) =>
+  `[...document.querySelectorAll('button,a,[role=button]')].find(e => ${re}.test(e.innerText))?.click()`;
+
 const TARGETS = [
   { id: "geoservice", url: "https://mapspace.com/" },
+  { id: "geoservice-multiview", url: MAPSPACE_DEMO + "01_Demo_MultiView", settle: 15000, full: false },
+  { id: "geoservice-oblique", url: MAPSPACE_DEMO + "02_Demo_Map_and_Oblique", settle: 15000, full: false },
+  { id: "geoservice-3d", url: MAPSPACE_DEMO + "04_Demo_3D_laser", settle: 20000, full: false, modes: ["desktop"] },
   { id: "surveys", url: "https://careertest.universumglobal.com/" },
+  // The first question of the career test. Nothing is answered or submitted.
+  {
+    id: "surveys-test",
+    url: "https://careertest.universumglobal.com/en-GB/s/27fits60000/",
+    steps: [clickText("/take the test/i")],
+    stepPause: 9000,
+    full: false,
+  },
   { id: "process-control", url: "https://intrack.eu/" },
-  { id: "food-idea", url: "https://food-idea-maksymilian-org.netlify.app/" },
   { id: "pokedex", url: "https://pokedex-maksymilian-org.netlify.app/" },
-  { id: "memory", url: "https://memory-maksymilian-org.netlify.app/" },
   { id: "tictactoe", url: "https://tictactoe-lmp6.onrender.com", wait: 40000 },
   { id: "this-website", url: "https://maksymilian.org/" },
   { id: "site-civitas", url: "https://fundacja.civitaschristiana.pl/" },
@@ -58,7 +74,7 @@ function launch() {
   const profile = mkdtempSync(join(tmpdir(), "capture-"));
   const proc = spawn(CHROME, [
     "--headless=new", "--remote-debugging-port=0", `--user-data-dir=${profile}`,
-    "--hide-scrollbars", "--no-first-run", "--mute-audio", "--disable-gpu", "about:blank",
+    "--hide-scrollbars", "--no-first-run", "--mute-audio", "--enable-unsafe-swiftshader", "about:blank",
   ]);
   return new Promise((resolve, reject) => {
     proc.stderr.on("data", (d) => {
@@ -114,11 +130,16 @@ async function capture(port, t, mode) {
     const loaded = page.once("Page.loadEventFired", t.wait ?? 30000);
     await send("Page.navigate", { url: t.url });
     await loaded;
-    await sleep(2500);
+    await sleep(t.settle ?? 2500);
     await send("Runtime.evaluate", { expression: DISMISS });
     await sleep(1500);
     await send("Runtime.evaluate", { expression: DISMISS });
     await sleep(800);
+    for (const step of t.steps ?? []) {
+      await send("Runtime.evaluate", { expression: step });
+      await sleep(t.stepPause ?? 3000);
+      await send("Runtime.evaluate", { expression: DISMISS });
+    }
     await send("Runtime.evaluate", { expression: "window.scrollTo(0,0)" });
 
     const shot = await send("Page.captureScreenshot", { format: "png" });
@@ -127,7 +148,7 @@ async function capture(port, t, mode) {
       .webp({ quality: 80 })
       .toFile(join(OUT, `${t.id}-${mode}.webp`));
 
-    if (!mobile) {
+    if (!mobile && t.full !== false) {
       const { cssContentSize } = await send("Page.getLayoutMetrics");
       const full = Math.min(Math.ceil(cssContentSize.height), 6000);
       const long = await send("Page.captureScreenshot", {
@@ -152,8 +173,7 @@ const only = process.argv.slice(2);
 const { proc, profile, port } = await launch();
 try {
   for (const t of TARGETS.filter((t) => !only.length || only.includes(t.id))) {
-    await capture(port, t, "desktop");
-    await capture(port, t, "mobile");
+    for (const mode of t.modes ?? ["desktop", "mobile"]) await capture(port, t, mode);
   }
 } finally {
   proc.kill();

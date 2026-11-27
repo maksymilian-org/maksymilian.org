@@ -1,4 +1,5 @@
-import { ArrowUpRight, Clock, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import { useLocale, useTranslations } from "@/lib/i18n";
 import { pick, type Project } from "@/content/projects";
@@ -17,15 +18,26 @@ export function ProjectVisual({ project }: { project: Project }) {
   const title = pick(project.title, locale);
 
   if (m.kind === "mobile") {
-    return (
-      <div className="relative mx-auto flex w-full max-w-md items-end justify-center gap-6">
-        <PhoneFrame className="relative w-[46%] -rotate-3" src={m.mobile} alt={title}>
-          {m.mock && <ScreenMockView name={m.mock} />}
-        </PhoneFrame>
-        <div className="mb-10 hidden w-[42%] flex-col gap-3 sm:flex">
-          <MiniStat value="24/7" label={locale === "pl" ? "lokalizacja na żywo" : "live tracking"} />
-          <MiniStat value="iOS + Android" label={locale === "pl" ? "jeden kod" : "one codebase"} />
+    const [main, left, right] = m.screens ?? [];
+    if (!main) {
+      return (
+        <div className="relative mx-auto flex w-full max-w-md items-end justify-center gap-6">
+          <PhoneFrame className="relative w-[46%] -rotate-3" alt={title}>
+            {m.mock && <ScreenMockView name={m.mock} />}
+          </PhoneFrame>
         </div>
+      );
+    }
+    // Three phones fanned out: the best screen in front, two more behind it.
+    return (
+      <div className="relative mx-auto aspect-[10/9] w-full max-w-md">
+        {left && (
+          <PhoneFrame src={left} alt="" className="absolute left-[4%] top-[9%] w-[34%] -rotate-[8deg] opacity-95" />
+        )}
+        {right && (
+          <PhoneFrame src={right} alt="" className="absolute right-[4%] top-[9%] w-[34%] rotate-[8deg] opacity-95" />
+        )}
+        <PhoneFrame src={main} alt={title} className="absolute left-1/2 top-0 z-10 w-[40%] -translate-x-1/2" />
       </div>
     );
   }
@@ -72,7 +84,7 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
   const stack = project.technologies?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
 
   return (
-    <article className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <article data-kind={project.media?.kind} className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div className={cn("min-w-0 rounded-3xl bg-brand/[0.06] p-5 sm:p-8", flip && "lg:order-last")}>
         <ProjectVisual project={project} />
       </div>
@@ -105,9 +117,18 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
           })}
         </ul>
 
-        {project.links && project.links.length > 0 && (
+        {(project.story || (project.links && project.links.length > 0)) && (
           <div className="mt-6 flex flex-wrap gap-3">
-            {project.links.map((link) => (
+            {project.story && (
+              <Link
+                href={`/projects/${project.id}`}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-brand-solid px-4 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-soft"
+              >
+                {t("caseStudy")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+            {project.links?.map((link) => (
               <a
                 key={link.url}
                 href={link.url}
@@ -177,7 +198,7 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
   );
 }
 
-function Chip({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
+export function Chip({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <li className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5">
       <span className="text-brand">{icon}</span>

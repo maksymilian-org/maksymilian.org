@@ -656,7 +656,18 @@
       "framework": "Metodyka",
       "team": "Zespół",
       "links": "Linki",
-      "techDetails": "Szczegóły dla zespołów technicznych"
+      "techDetails": "Szczegóły dla zespołów technicznych",
+      "caseStudy": "Zobacz case study",
+      "challenge": "Wyzwanie",
+      "solution": "Rozwiązanie",
+      "outcome": "Efekt",
+      "gallery": "Jak to wygląda",
+      "ctaHeading": "Masz podobny projekt?",
+      "ctaLead": "Opisz, czego potrzebujesz, a wrócę z zakresem, ceną i terminem. Wycena jest bezpłatna i bez zobowiązań.",
+      "allProjects": "Wszystkie projekty",
+      "nextProject": "Następny projekt",
+      "filterAll": "Wszystkie",
+      "relatedProjects": "Z moich realizacji"
     },
     "kinds": {
       "mobile": "Aplikacja mobilna",

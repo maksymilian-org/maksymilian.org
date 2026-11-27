@@ -98,3 +98,20 @@ document.addEventListener("click", (e) => {
     trackEvent("cta_quote", { page: window.location.pathname });
   }
 });
+
+// ---- project filters ------------------------------------------------------------
+// The bar is hidden in the HTML and shown only here, so without JavaScript
+// there are no buttons that do nothing.
+const filterBar = document.querySelector<HTMLElement>("[data-filter-bar]");
+if (filterBar) {
+  filterBar.hidden = false;
+  filterBar.addEventListener("click", (e) => {
+    const btn = (e.target as Element | null)?.closest<HTMLButtonElement>("[data-filter]");
+    if (!btn) return;
+    const kind = btn.dataset.filter;
+    filterBar.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    document.querySelectorAll<HTMLElement>("[data-filter-scope] [data-kind]").forEach((card) => {
+      card.hidden = kind !== "all" && card.dataset.kind !== kind;
+    });
+  });
+}
