@@ -283,7 +283,7 @@ export const productProjects: Project[] = [
     },
     media: {
       kind: "web",
-      desktop: "/projects/dutyshifts-01-desktop.webp",
+      desktop: "/projects/dutyshifts-03-desktop.webp",
       mobile: "/projects/dutyshifts-02-mobile.webp",
       url: "dutyshifts.com",
       screens: ["/projects/dutyshifts-02-mobile.webp", "/projects/dutyshifts-06-mobile.webp", "/projects/dutyshifts-05-mobile.webp"],
