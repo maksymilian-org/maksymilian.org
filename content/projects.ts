@@ -25,6 +25,8 @@ export interface ProjectMedia {
   kind: ProjectKind;
   /** Phone screenshots of a mobile app, best first. */
   screens?: string[];
+  /** Width/height of those screenshots when not 390/844 (e.g. older iPhones). */
+  phoneAspect?: string;
   /** Extra desktop screenshots shown on the case study page. */
   gallery?: GalleryShot[];
   desktop?: string;
@@ -119,7 +121,6 @@ export const productProjects: Project[] = [
       pl: "System alarmowania dla ochotniczych straży pożarnych z publiczną mapą jednostek, panelem jednostki i aplikacjami na Androida i iOS.",
       en: "An alerting system for volunteer fire brigades with a public map of units, a unit panel and Android and iOS apps.",
     },
-    time: { pl: "od lipca 2026, rozwijany dalej", en: "since July 2026, ongoing" },
     highlights: {
       pl: [
         "Pomysł, projekt produktu i architektura całości: portal, panel, aplikacje, serwer",
@@ -185,7 +186,6 @@ export const productProjects: Project[] = [
       pl: "Aplikacja do prowadzenia księgowości JDG: faktury w KSeF, koszty, KPiR, VAT i JPK_V7M, PIT i ZUS, w motywie jasnym i ciemnym, na telefonie i komputerze.",
       en: "An app that keeps the books of a Polish sole proprietorship: KSeF invoices, costs, the revenue ledger, VAT and the JPK_V7M file, income tax and social security, in light and dark themes, on phone and desktop.",
     },
-    time: { pl: "od listopada 2026, rozwijany dalej", en: "since November 2026, ongoing" },
     highlights: {
       pl: [
         "Pomysł, projekt interfejsu i architektura: aplikacja web, API, baza, wdrożenie",
@@ -241,7 +241,6 @@ export const productProjects: Project[] = [
       pl: "Platforma rozkładów jazdy dla przewoźników regionalnych z mapą pojazdów na żywo, panelem przewoźnika i aplikacjami mobilnymi.",
       en: "A timetable platform for regional carriers with a live vehicle map, a carrier panel and mobile apps.",
     },
-    time: { pl: "od lutego 2026, rozwijany dalej", en: "since February 2026, ongoing" },
     highlights: {
       pl: [
         "Projekt produktu i architektura: panel przewoźnika, aplikacja pasażera i tryb kierowcy",
@@ -302,7 +301,6 @@ export const productProjects: Project[] = [
       pl: "Aplikacja do planowania dyżurów i zmian z rotacją, zastępstwami, przypomnieniami i kalendarzami.",
       en: "An app for planning duties and shifts with rotation, substitutions, reminders and calendars.",
     },
-    time: { pl: "od września 2026, rozwijany dalej", en: "since September 2026, ongoing" },
     highlights: {
       pl: [
         "Pomysł, analiza domeny i projekt produktu: model dyżurów, rotacji, zastępstw i stref czasowych",
@@ -336,8 +334,8 @@ export const commercialProjects: Project[] = [
         en: "A React Native (Expo) app for iOS and Android with a live map, trip history, time and distance stats, geofences and alerts. I also worked on the Laravel backend.",
       },
       outcome: {
-        pl: "Aplikacja jest dostępna w App Store i Google Play, a rozwijałem ją przez ponad dwa lata w ośmioosobowym zespole.",
-        en: "The app is live on the App Store and Google Play, and I developed it for over two years in a team of eight.",
+        pl: "Aplikacja jest dostępna w App Store i Google Play, a rozwijałem ją w ośmioosobowym zespole.",
+        en: "The app is live on the App Store and Google Play, and I developed it in a team of eight.",
       },
     },
     services: ["mobile", "integrations"],
@@ -355,7 +353,6 @@ export const commercialProjects: Project[] = [
       en: "A mobile app that lets owners of I-DUV-equipped vehicles locate their car, truck or motorcycle in real time, review trip history and manage their fleet.",
       pl: "Aplikacja mobilna pozwalająca właścicielom pojazdów z modułem I-DUV lokalizować w czasie rzeczywistym samochód, ciężarówkę lub motocykl, przeglądać historię tras i zarządzać flotą.",
     },
-    time: { en: "2 years 4 months", pl: "2 lata 4 miesiące" },
     highlights: {
       en: [
         "Building the React Native (Expo) app for iOS and Android",
@@ -428,7 +425,6 @@ export const commercialProjects: Project[] = [
       pl: "System do wyceny, obsady, ewidencji czasu, kosztów i rozliczeń projektów eventowych z portalem dla ekipy.",
       en: "A system for quoting, staffing, time tracking, costs and settlement of event projects, with a crew portal.",
     },
-    time: { pl: "4 miesiące", en: "4 months" },
     highlights: {
       pl: [
         "Frontend w React i TypeScript: siatki wyceny i obsady, planer, ewidencja czasu, rozliczenia",
@@ -470,6 +466,7 @@ export const commercialProjects: Project[] = [
     media: {
       kind: "mobile",
       screens: ["/projects/modpady-lesswaste-1.webp", "/projects/modpady-lesswaste-2.webp"],
+      phoneAspect: "780/1387",
     },
     platforms: ["iOS", "Android"],
     title: {
@@ -480,7 +477,6 @@ export const commercialProjects: Project[] = [
       pl: "Rodzina aplikacji mobilnych dla mieszkańców z jednej bazy kodu: segregacja, harmonogramy, historia wyrzuceń i punkty selektywnej zbiórki.",
       en: "A family of mobile apps for residents from one codebase: sorting, collection schedules, disposal history and recycling points.",
     },
-    time: { pl: "od 2022, rozwijany dalej", en: "since 2022, ongoing" },
     highlights: {
       pl: [
         "Rozwój aplikacji React Native na iOS i Androida",
@@ -552,7 +548,6 @@ export const commercialProjects: Project[] = [
       en: "An application that lets users explore and use the full range of capabilities offered by a geoservice.",
       pl: "Aplikacja pozwalająca użytkownikom w pełni wykorzystać możliwości i potencjał geoserwisu.",
     },
-    time: { en: "3 months", pl: "3 miesiące" },
     highlights: {
       en: [
         "Migration of a 10+ year old JavaScript library to TypeScript",
@@ -588,8 +583,8 @@ export const commercialProjects: Project[] = [
         en: "Migration to Next.js, comprehensive forms with validation rules, custom controls and API work, with unit tests.",
       },
       outcome: {
-        pl: "CareerTest by Universum prowadzi kandydatów przez pytania i podsuwa dopasowane ścieżki kariery. Projekt rozwijałem przez rok w ośmioosobowym zespole.",
-        en: "CareerTest by Universum guides candidates through the questions and suggests matching career paths. I worked on it for a year in a team of eight.",
+        pl: "CareerTest by Universum prowadzi kandydatów przez pytania i podsuwa dopasowane ścieżki kariery. Projekt rozwijałem w ośmioosobowym zespole.",
+        en: "CareerTest by Universum guides candidates through the questions and suggests matching career paths. I worked on it in a team of eight.",
       },
     },
     services: ["webapps"],
@@ -617,7 +612,6 @@ export const commercialProjects: Project[] = [
       en: "Client applications for preparing surveys and fetching recommendations, with all the necessary CRUDs and related entities.",
       pl: "Aplikacje klienckie do tworzenia ankiet i pobierania rekomendacji, z pełnym CRUD i powiązanymi encjami.",
     },
-    time: { en: "1 year", pl: "1 rok" },
     highlights: {
       en: [
         "Migrating a shared React app to Next.js",
@@ -677,7 +671,6 @@ export const commercialProjects: Project[] = [
       en: "Software for a 128-channel ADC sensor with integrated photodiodes, working with the evaluation kit to assess image sensor performance.",
       pl: "Oprogramowanie dla czujnika 128-kanałowego ADC ze zintegrowanymi fotodiodami, współpracujące z zestawem ewaluacyjnym do oceny parametrów sensora.",
     },
-    time: { en: "5 months", pl: "5 miesięcy" },
     highlights: {
       en: [
         "Application speed optimization",
@@ -713,8 +706,8 @@ export const commercialProjects: Project[] = [
         en: "Work on the Vue app backed by Django: API communication, refactoring, login for inactive users and extensions to the gallery editor.",
       },
       outcome: {
-        pl: "Mieszkańcy rezerwują pokoje online, a wbudowane algorytmy dopasowują ich do siebie. Projekt rozwijałem przez 9 miesięcy w czteroosobowym zespole.",
-        en: "Residents book rooms online and built-in algorithms match them with each other. I worked on it for nine months in a team of four.",
+        pl: "Mieszkańcy rezerwują pokoje online, a wbudowane algorytmy dopasowują ich do siebie. Projekt rozwijałem w czteroosobowym zespole.",
+        en: "Residents book rooms online and built-in algorithms match them with each other. I worked on it in a team of four.",
       },
     },
     services: ["webapps"],
@@ -732,7 +725,6 @@ export const commercialProjects: Project[] = [
       en: "A Django + Vue application that lets users make reservations and match with others through built-in algorithms.",
       pl: "Aplikacja Django + Vue pozwalająca na rezerwacje i dopasowywanie użytkowników za pomocą wbudowanych algorytmów.",
     },
-    time: { en: "9 months", pl: "9 miesięcy" },
     highlights: {
       en: [
         "API communication and code refactoring",
@@ -785,7 +777,6 @@ export const commercialProjects: Project[] = [
       en: "Software supporting feedforward, feedback and hybrid ANC topologies, with Automatic Leakage Compensation enabling hybrid ANC in loose-fit earbuds.",
       pl: "Oprogramowanie wspierające topologie ANC feedforward, feedback i hybrydowe, z algorytmem ALC umożliwiającym hybrydowe ANC w luźnych słuchawkach.",
     },
-    time: { en: "1 year", pl: "1 rok" },
     highlights: {
       en: [
         "Code refactoring and optimization",
@@ -817,8 +808,8 @@ export const commercialProjects: Project[] = [
         en: "A responsive dashboard with scalable drag-and-drop tiles, charts, tables and 3D graphs, new features, plus maintenance and code review.",
       },
       outcome: {
-        pl: "Model procesów odzwierciedla ich zachowanie na żywo, a odchylenia od normy są wychwytywane automatycznie. Rozwijałem go przez 1 rok i 8 miesięcy w sześcioosobowym zespole.",
-        en: "The process model reflects their behaviour live and deviations from the norm are caught automatically. I worked on it for 1 year and 8 months in a team of six.",
+        pl: "Model procesów odzwierciedla ich zachowanie na żywo, a odchylenia od normy są wychwytywane automatycznie. Rozwijałem go w sześcioosobowym zespole.",
+        en: "The process model reflects their behaviour live and deviations from the norm are caught automatically. I worked on it in a team of six.",
       },
     },
     services: ["webapps", "integrations"],
@@ -844,7 +835,6 @@ export const commercialProjects: Project[] = [
       en: "An app that controls process behaviours through algorithms and automation, reflecting them in a model and validating parameters against business event history.",
       pl: "Aplikacja kontrolująca zachowania procesów za pomocą algorytmów i automatyzacji, odwzorowując je w modelu i weryfikując parametry na podstawie historii zdarzeń biznesowych.",
     },
-    time: { en: "1 year 8 months", pl: "1 rok 8 miesięcy" },
     highlights: {
       en: [
         "Responsive dashboard with scalable drag & drop tiles",

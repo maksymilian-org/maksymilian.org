@@ -19,7 +19,7 @@ export function ProjectMiniCard({ project }: { project: Project }) {
     >
       <div className="flex h-44 items-center justify-center overflow-hidden rounded-xl bg-brand/[0.06] p-4">
         {m?.kind === "mobile" ? (
-          <PhoneFrame compact src={m.screens?.[0]} alt={title} className="w-24">
+          <PhoneFrame compact src={m.screens?.[0]} alt={title} aspect={m.phoneAspect} className="w-24">
             {m.mock && <ScreenMockView name={m.mock} />}
           </PhoneFrame>
         ) : m?.kind === "desktop" ? (

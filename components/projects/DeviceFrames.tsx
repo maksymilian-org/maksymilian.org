@@ -68,7 +68,14 @@ export function BrowserFrame({
 
 // `compact` is for small phones (under ~120 px wide) next to a browser window:
 // the same radius would turn them into pills, so corners and bezel shrink.
-export function PhoneFrame({ src, alt = "", children, className, compact }: ScreenProps & { compact?: boolean }) {
+export function PhoneFrame({
+  src,
+  alt = "",
+  children,
+  className,
+  compact,
+  aspect = "390/844",
+}: ScreenProps & { compact?: boolean; aspect?: string }) {
   return (
     <figure
       className={cn(
@@ -77,7 +84,10 @@ export function PhoneFrame({ src, alt = "", children, className, compact }: Scre
         className
       )}
     >
-      <div className={cn("relative aspect-[390/844] overflow-hidden bg-bg", compact ? "rounded-[0.65rem]" : "rounded-[1.7rem]")}>
+      <div
+        className={cn("relative overflow-hidden bg-bg", compact ? "rounded-[0.65rem]" : "rounded-[1.7rem]")}
+        style={{ aspectRatio: aspect }}
+      >
         <span
           aria-hidden
           className="absolute left-1/2 top-[6px] z-10 h-[7%] max-h-[15px] w-[30%] -translate-x-1/2 rounded-full bg-[#15121d]"

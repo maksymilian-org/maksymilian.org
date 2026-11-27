@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Clock, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Globe, Monitor, Smartphone, Users } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import cn from "classnames";
 import { useLocale, useTranslations } from "@/lib/i18n";
@@ -33,12 +33,12 @@ export function ProjectVisual({ project }: { project: Project }) {
     return (
       <div className="relative mx-auto aspect-[10/9] w-full max-w-md">
         {left && (
-          <PhoneFrame src={left} alt="" className="absolute left-[4%] top-[9%] w-[34%] -rotate-[8deg] opacity-95" />
+          <PhoneFrame aspect={m.phoneAspect} src={left} alt="" className="absolute left-[4%] top-[9%] w-[34%] -rotate-[8deg] opacity-95" />
         )}
         {right && (
-          <PhoneFrame src={right} alt="" className="absolute right-[4%] top-[9%] w-[34%] rotate-[8deg] opacity-95" />
+          <PhoneFrame aspect={m.phoneAspect} src={right} alt="" className="absolute right-[4%] top-[9%] w-[34%] rotate-[8deg] opacity-95" />
         )}
-        <PhoneFrame src={main} alt={title} className="absolute left-1/2 top-0 z-10 w-[40%] -translate-x-1/2" />
+        <PhoneFrame aspect={m.phoneAspect} src={main} alt={title} className="absolute left-1/2 top-0 z-10 w-[40%] -translate-x-1/2" />
       </div>
     );
   }
@@ -105,9 +105,6 @@ export function ProjectShowcase({ project, flip }: { project: Project; flip?: bo
         </p>
 
         <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-          {project.time && (
-            <Chip icon={<Clock className="h-4 w-4" />}>{pick(project.time, locale)}</Chip>
-          )}
           {teamSize && <Chip icon={<Users className="h-4 w-4" />}>{teamSize}</Chip>}
           {project.platforms?.map((p) => {
             const Icon = PLATFORM_ICON[p as keyof typeof PLATFORM_ICON] ?? Globe;

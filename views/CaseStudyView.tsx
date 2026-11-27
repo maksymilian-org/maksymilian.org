@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Clock, Globe, Monitor, Smartphone, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Globe, Monitor, Smartphone, Users } from "lucide-react";
 import { useTranslations } from "@/lib/i18n";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
@@ -63,7 +63,6 @@ function CaseStudy({ locale, project }: { locale: Locale; project: Project }) {
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">{pick(project.summary ?? project.description, locale)}</p>
             <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-              {project.time && <Chip icon={<Clock className="h-4 w-4" />}>{pick(project.time, locale)}</Chip>}
               {teamSize && <Chip icon={<Users className="h-4 w-4" />}>{teamSize}</Chip>}
               {project.platforms?.map((p) => {
                 const Icon = PLATFORM_ICON[p as keyof typeof PLATFORM_ICON] ?? Globe;
@@ -123,7 +122,7 @@ function CaseStudy({ locale, project }: { locale: Locale; project: Project }) {
             <ul className="-mx-4 mt-8 flex snap-x gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-6">
               {m.screens.map((src) => (
                 <li key={src} className="w-[44%] shrink-0 snap-center sm:w-auto">
-                  <PhoneFrame src={src} alt={pick(project.title, locale)} />
+                  <PhoneFrame src={src} alt={pick(project.title, locale)} aspect={m.phoneAspect} />
                 </li>
               ))}
             </ul>
