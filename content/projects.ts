@@ -436,6 +436,64 @@ export const commercialProjects: Project[] = [
     team: { pl: "Główny deweloper: w zespole z innymi programistami i testerami", en: "Lead developer: in a team with other developers and testers" },
   },
   {
+    id: "modpady",
+    story: {
+      challenge: {
+        pl: "T-Master, dostawca oprogramowania do gospodarki odpadami dla gmin, potrzebował, żeby istniejąca aplikacja mOdpady obsłużyła drugą, anglojęzyczną markę LessWaste i kolejne języki interfejsu, bez utrzymywania dwóch repozytoriów i dwóch linii wydań.",
+        en: "T-Master, a provider of municipal waste-management software, needed its existing mOdpady app to serve a second, English-language brand, LessWaste, and more interface languages without maintaining two codebases or two release lines.",
+      },
+      solution: {
+        pl: "Jedna baza kodu React Native z przełącznikiem marki: osobne identyfikatory, ikony, klucze podpisu i listy języków, wspólny backend oraz wybór języka pobierany z API. Do tego zautomatyzowane buildy i nowe funkcje, m.in. ekrany punktów selektywnej zbiórki (ePSZOK).",
+        en: "A single React Native codebase with a brand switch: separate app ids, icons, signing keys and language lists, a shared backend and a language picker fed by the API. Plus automated builds and new features such as the recycling-point (ePSZOK) screens.",
+      },
+      outcome: {
+        pl: "Obie marki wychodzą z jednej gałęzi i są w App Store oraz Google Play. Nowe funkcje powstają raz dla obu, a zimny build Androida skrócił się z ponad godziny do kilkunastu minut. Aplikacje działają bez reklam i bez narzędzi analitycznych.",
+        en: "Both brands ship from one branch and are on the App Store and Google Play. New features are built once for both, and a cold Android build dropped from over an hour to under twenty minutes. The apps run without ads or analytics tools.",
+      },
+    },
+    services: ["mobile"],
+    summary: {
+      pl: "Aplikacje, które pomagają mieszkańcom w gospodarce odpadami: segregować poprawnie, sprawdzać harmonogramy i historię wyrzuceń oraz korzystać z punktów selektywnej zbiórki z telefonu.",
+      en: "Apps that help residents manage household waste: sort it correctly, see collection schedules and their disposal history, and use municipal recycling points from the phone.",
+    },
+    media: {
+      kind: "mobile",
+      screens: ["/projects/modpady-lesswaste-1.webp", "/projects/modpady-lesswaste-2.webp"],
+    },
+    platforms: ["iOS", "Android"],
+    title: {
+      pl: "mOdpady i LessWaste — aplikacje do gospodarki odpadami",
+      en: "mOdpady and LessWaste — waste-management apps",
+    },
+    description: {
+      pl: "Rodzina aplikacji mobilnych dla mieszkańców z jednej bazy kodu: segregacja, harmonogramy, historia wyrzuceń i punkty selektywnej zbiórki.",
+      en: "A family of mobile apps for residents from one codebase: sorting, collection schedules, disposal history and recycling points.",
+    },
+    time: { pl: "od 2022, rozwijany dalej", en: "since 2022, ongoing" },
+    highlights: {
+      pl: [
+        "Rozwój aplikacji React Native na iOS i Androida",
+        "Wielomarkowość: mOdpady i LessWaste z jednej bazy kodu, kolejne języki interfejsu",
+        "Nowe funkcje, m.in. ekrany ePSZOK i wyniki kontroli w historii",
+        "Automatyzacja buildów i audyt bezpieczeństwa",
+      ],
+      en: [
+        "React Native app development for iOS and Android",
+        "Multi-brand: mOdpady and LessWaste from one codebase, more interface languages",
+        "New features such as the ePSZOK screens and inspection results in the history",
+        "Build automation and a security audit",
+      ],
+    },
+    technologies: "React Native, TypeScript, Redux Toolkit, RTK Query, NativeWind, gluestack-ui, i18next, react-hook-form, Leaflet, MMKV",
+    team: { pl: "Deweloper: w kilkuosobowym zespole", en: "Developer: in a team of several developers" },
+    links: [
+      { url: "https://apps.apple.com/pl/app/modpady/id1607090814", title: "mOdpady · App Store" },
+      { url: "https://play.google.com/store/apps/details?id=pl.tmaster.modpady", title: "mOdpady · Google Play" },
+      { url: "https://apps.apple.com/pl/app/less-waste-by-t-master/id6497228235", title: "LessWaste · App Store" },
+      { url: "https://play.google.com/store/apps/details?id=pl.tmaster.lesswaste", title: "LessWaste · Google Play" },
+    ],
+  },
+  {
     id: "geoservice",
     story: {
       challenge: {
